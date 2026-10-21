@@ -4,13 +4,13 @@
 
 ## 新梗 PR
 
-1. 在[百科](https://mickerbook.com/meme/)搜索关键词，避免重复。
+1. 在[百科](https://aiher.ai/)搜索关键词，避免重复。
 2. Fork 本仓库，建立分支。
 3. 复制 `examples/new-meme.json` 到 `content/memes/<id>.json`。文件名必须与 `id` 一致。
 4. 填写下面的字段，本地运行 `python tools/build.py --check`；也可以等 PR 自动检查。
 5. 提交 Pull Request，说明梗的出处及你希望补充的内容。
 
-在线[投稿表单](https://mickerbook.com/meme/contribute/)会帮你生成文件和 GitHub 编辑链接。GitHub 首次可能提示先创建 Fork；保存更改后仍需在 GitHub 点击提出 Pull Request。
+在线[投稿表单](https://aiher.ai/meme/contribute/)会帮你生成文件和 GitHub 编辑链接。GitHub 首次可能提示先创建 Fork；保存更改后仍需在 GitHub 点击提出 Pull Request。
 
 | 字段 | 要求 |
 | --- | --- |

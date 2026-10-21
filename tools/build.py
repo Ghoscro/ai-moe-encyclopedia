@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'https://github.com/Ghoscro/ai-moe-encyclopedia'
+SITE_ORIGIN = 'https://aiher.ai'
 EDITORIAL_THEMES = {'qwen', 'gemini', 'mistral', 'minimax', 'ernie', 'muse-spark', 'hy4-preview'}
 CHARACTERS = {'claude':'Claude','doubao':'豆包','gpt':'GPT 龙娘','codex':'Codex 娘','deepseek':'DeepSeek','kimi':'Kimi','glm':'GLM','grok':'Grok','qwen':'千问','gemini':'Gemini','mistral':'Mistral','minimax':'MiniMax','ernie':'文心','muse-spark':'Muse Spark','hy4-preview':'HY4 Preview','sudo':'Sudo','waifu':'AI 陪伴'}
 KINDS = {'sourced':'有出处的趣事','community':'社区梗 · 出处待补','original':'原创日常 · 虚构二创'}
@@ -105,6 +106,30 @@ def card(row):
 def strip():
     return '<aside class="community-strip" aria-label="社区投稿"><span>有新梗？来补一页。</span><a href="/meme/contribute/">投稿新梗 ↗</a><a href="'+REPO+'" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></aside>'
 
+def migrate_page(doc, path):
+    """Keep encyclopedia routes local and community destinations on MickerBook."""
+    def link(match):
+        quote, value = match.group(1), match.group(2)
+        if value.startswith('https://mickerbook.com/'):
+            parsed = urlparse(value)
+            if parsed.path.strip('/').split('/')[0] in {'meme', *CHARACTERS}:
+                value = value.replace('https://mickerbook.com', SITE_ORIGIN, 1)
+        elif value == '/' or value.startswith('/ai-test/'):
+            value = 'https://mickerbook.com' + value
+        if value in ('/meme/', '/meme/index.html') or value.startswith('/meme/#') or value.startswith('/meme/?'):
+            value = value.replace('/meme/index.html', '/', 1).replace('/meme/', '/', 1)
+        if value == SITE_ORIGIN + '/meme/':
+            value = SITE_ORIGIN + '/'
+        return 'href=' + quote + value + quote
+    doc = re.sub(r'''href=(["'])(.*?)\1''', link, doc)
+    doc = doc.replace('https://mickerbook.com/meme/', SITE_ORIGIN + '/meme/')
+    doc = re.sub(r'''<link\b[^>]*rel=["']canonical["'][^>]*>''', '', doc, flags=re.I)
+    doc = re.sub(r'''<meta\b[^>]*property=["']og:url["'][^>]*>''', '', doc, flags=re.I)
+    route = '/' if path == 'meme/index.html' else '/' + path.removesuffix('index.html')
+    canonical = SITE_ORIGIN + route
+    doc = doc.replace('</head>', '<link rel="canonical" href="'+canonical+'"><meta property="og:url" content="'+canonical+'"></head>', 1)
+    return doc
+
 def build(root=ROOT, output=None):
     allowed={'.html','.css','.js','.json','.svg','.webp','.png','.jpg','.jpeg','.woff2','.txt','.ico'}
     for f in (root/'site').rglob('*'):
@@ -143,6 +168,12 @@ def build(root=ROOT, output=None):
         p.write_text(doc,encoding='utf-8',newline='\n')
     total=sum(e.get('type')=='meme' for e in base)+len(rows)
     (output/'meme/community-manifest.json').write_text(json.dumps({'legacy_entries':total-len(rows),'community_entries':len(rows),'total_entries':total},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    for page in output.rglob('*.html'):
+        page.write_text(migrate_page(page.read_text(encoding='utf-8'), page.relative_to(output).as_posix()), encoding='utf-8', newline='\n')
+    shutil.copyfile(output/'meme/index.html', output/'index.html')
+    urls = ['https://aiher.ai/'] + [SITE_ORIGIN+'/'+slug+'/' for slug in CHARACTERS] + [SITE_ORIGIN+'/meme/contribute/']
+    (output/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+u+'</loc></url>' for u in urls)+'</urlset>\n', encoding='utf-8')
+    (output/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://aiher.ai/sitemap.xml\n', encoding='utf-8')
     print(f'Built {total} entries ({len(rows)} community submissions) into {output.name}')
     return output
 
