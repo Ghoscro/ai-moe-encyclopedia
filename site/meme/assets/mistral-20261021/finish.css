@@ -1,0 +1,13 @@
+/* Final reference pass: postcard paper edge and illustrated news briefs. */
+@media(min-width:701px){
+.mistral .hero-copy{clip-path:polygon(3% 0,100% 0,100% 100%,3% 100%,5% 94%,1% 85%,4% 76%,1% 67%,4% 57%,0 47%,4% 37%,1% 26%,5% 15%,2% 7%);background-image:radial-gradient(#925c2c24 .6px,transparent .7px),linear-gradient(0deg,#fff8e9f5 0%,#fff8e9df 55%,#fff8e913 100%);background-size:5px 5px,auto}
+.mistral .hero-copy:before{content:'';position:absolute;inset:auto 1rem .7rem 2rem;height:1px;background:#a85a3b69;pointer-events:none}
+}
+.mistral .grid .entry:not(:first-child){display:grid;grid-template-columns:100px minmax(0,1fr);align-items:start}
+.mistral .grid .entry:not(:first-child) .visual{grid-column:1;grid-row:1;width:92px;height:145px;aspect-ratio:auto;margin:.45rem .2rem;overflow:hidden;background:#e9d2ae;border:2px solid #fff9ee;box-shadow:0 2px 5px #52361d33}
+.mistral .grid .entry:not(:first-child) .visual img{height:100%;width:100%;object-fit:cover;object-position:center}
+.mistral .grid .entry:not(:first-child) .entry-copy{grid-column:2;grid-row:1;min-width:0}
+.mistral .grid .entry:not(:first-child) h3{font-size:1.03rem}
+.mistral .grid .entry:not(:first-child) .lead{font-size:.72rem}
+@media(max-width:1000px){.mistral .grid .entry:not(:first-child){grid-template-columns:75px minmax(0,1fr)}.mistral .grid .entry:not(:first-child) .visual{width:68px;height:90px}}
+@media(max-width:700px){.mistral .grid .entry:not(:first-child){grid-template-columns:95px minmax(0,1fr)}.mistral .grid .entry:not(:first-child) .visual{width:88px;height:100px}}
