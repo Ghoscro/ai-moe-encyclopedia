@@ -48,3 +48,17 @@ body{overflow-x:clip}
 @media(max-width:390px){.rank-portrait{width:75px}}
 @media(min-width:901px) and (max-width:1350px){.hero-art{right:0}}
 @media(min-width:901px) and (max-width:1100px){.hero-word{font-size:20vw}.popular .section-head small{display:none}}
+
+/* Keep the character strip readable in wide and zoomed embedded browsers. */
+.character-strip{height:190px;grid-template-columns:repeat(5,minmax(240px,1fr));overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;padding:0 2%}
+.character-strip .character-tile{height:188px;min-width:0;display:grid;grid-template-columns:44% minmax(0,1fr);gap:10px;align-items:center;scroll-snap-align:start}
+.character-strip .portrait{width:100%;height:100%;min-width:0}
+.character-strip .portrait img{width:240px;height:360px;max-width:none;object-fit:contain;object-position:center top;left:50%;top:-8px;transform:translateX(-50%)}
+.character-strip .character-tile:hover .portrait img{transform:translateX(-50%) scale(1.025)}
+.character-strip .character-copy{margin:0;padding:12px 18px 32px 0;align-self:center;min-width:0;text-shadow:none}
+.character-strip .character-copy h2{font-size:24px;line-height:1.35;white-space:normal;overflow-wrap:normal}
+.character-strip .character-copy p{font-size:12px;line-height:1.7;white-space:normal;margin-top:6px}
+.character-strip .character-copy small{display:block;font-size:11px;line-height:1.7;margin-top:3px}
+.character-strip .circle-arrow{bottom:16px;right:16px;width:23px;height:23px}
+@media(min-width:1600px){.character-strip{height:206px}.character-strip .character-tile{height:204px}.character-strip .portrait img{height:400px;width:267px}.character-strip .character-copy h2{font-size:27px}.character-strip .character-copy p{font-size:14px}.character-strip .character-copy small{font-size:12px}}
+@media(max-width:900px){.character-strip{height:180px;grid-template-columns:repeat(5,270px);padding:0;scroll-snap-type:x mandatory}.character-strip .character-tile{height:168px}.character-strip .portrait img{height:340px;width:227px}.character-strip .character-copy h2{font-size:23px}.character-strip .character-copy p{font-size:12px}.character-strip .character-copy small{font-size:11px}}
