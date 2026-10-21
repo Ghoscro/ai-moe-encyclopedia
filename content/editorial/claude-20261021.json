@@ -1,0 +1,139 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "claude-polite-pass-202610",
+      "kind": "community",
+      "label": "本月再传播 · 社区梗",
+      "date": "2026-10-09",
+      "date_label": "10.08 公告 / 10.09 玩梗报道",
+      "title": "礼貌，突然成了未来通行证",
+      "lead": "今天的一句“谢谢”，被网友存成了明天的免伤券。",
+      "body": "10 月 8 日，Anthropic 公布新使用政策；次日的报道记录了网友拿《终结者》画面玩“以前对 Claude 说过请和谢谢，所以放他一马”的梗。这是旧模板借新事件再传播，不是这个月才诞生。",
+      "joke": "我：谢谢你。她：好的，给你盖一枚文明交流章。",
+      "boundary": "新政策于 11 月 12 日生效，针对持续且无意义的极端虐待行为；普通不满、反驳和模型测试不在此列。也不是“骂一句就封号”。",
+      "sources": [
+        [
+          "Anthropic · 10月8日公告",
+          "https://www.anthropic.com/news/2026-usage-policy-update"
+        ],
+        [
+          "Fast Company · 10月9日玩梗报道",
+          "https://www.fastcompany.com/91621574/anthropic-wants-you-to-stop-bullying-claude-cue-the-terminator-memes"
+        ]
+      ],
+      "image": "/meme/assets/claude-20261021/feature.webp"
+    },
+    {
+      "id": "claude-haiku-seat-202610",
+      "kind": "event",
+      "label": "近期公告 · 编者接梗",
+      "date": "2026-10-15",
+      "date_label": "10.15 公告 / 10.29 计划变更",
+      "title": "聊天记录还在，同桌要换人了",
+      "lead": "Haiku 4.5：我只是换个座位，别把聊天本扔了。",
+      "body": "官方 10 月 15 日宣布：10 月 29 日起，免费、Pro、Max 的聊天、Cowork 和 Design 模型选择器将移除 Haiku 4.5，由 Haiku 5.5 接替。已有聊天保留；Claude Code、Team、Enterprise 和 API 不受这次变更影响。",
+      "joke": "课本没换，接着陪你写作业的同桌升级了。",
+      "boundary": "截至本期核查日，10 月 29 日尚未到来。标题与吐槽是本站二创，不是模型原话。",
+      "sources": [
+        [
+          "Claude 帮助中心 · 变更范围",
+          "https://support.claude.com/zh-CN/articles/17444146-claude-haiku-4-5-%E5%8D%B3%E5%B0%86%E4%BB%8E%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%AD%E7%A7%BB%E9%99%A4"
+        ]
+      ],
+      "image": "/meme/characters/20261020/claude-panic.webp"
+    },
+    {
+      "id": "claude-haiku-pocket-202610",
+      "kind": "event",
+      "label": "近期发布 · 编者接梗",
+      "date": "2026-10-07",
+      "date_label": "10.07 发布",
+      "title": "家里来了个跑腿很快的小妹妹",
+      "lead": "大姐负责难题，小妹抱着一摞便签飞奔。",
+      "body": "10 月 7 日发布的 Haiku 5.5，被官方定位为面向摘要、分类等高频任务的小模型，也可配合 Opus、Sonnet 承担子任务。把它画成抱着便签跑腿的小妹妹，是本站对产品分工的拟人化。",
+      "joke": "Opus：我想想。Haiku：姐，材料我已经拿回来了。",
+      "boundary": "这是基于发布内容的原创接梗，不是已证实的社区流行语，也不代表所有任务都更快。",
+      "sources": [
+        [
+          "Anthropic · Haiku 5.5 发布",
+          "https://www.anthropic.com/claude-haiku-5-5"
+        ]
+      ],
+      "image": "/meme/characters/20261020/claude.webp"
+    },
+    {
+      "id": "claude-chinese-setting-202610",
+      "kind": "community",
+      "label": "社区见闻 · 单例记录",
+      "date": "2026-10-06",
+      "date_label": "10.06 原帖",
+      "title": "只是想换字体，结果偶遇中文",
+      "lead": "更新日志没等到，先在设置里撞见了。",
+      "body": "CocoLoop 用户 freedenglab 在 10 月 6 日发帖，说自己原本去设置里换字体，却在语言列表发现了中文选项。原帖也承认，对它过去是否曾经出现、下架的记忆不确定。",
+      "joke": "我来换个字体。她把整张菜单翻译好了。",
+      "boundary": "这里只记录这位用户当天的观察；不能据此认定官方全球上线日期，也不能推导中文推理能力变化。",
+      "sources": [
+        [
+          "CocoLoop · freedenglab 原帖",
+          "https://www.cocoloop.cn/t/topic/21380"
+        ]
+      ],
+      "image": "/meme/characters/20261020/claude-tsundere.webp"
+    }
+  ],
+  "excluded": [
+    {
+      "id": "claude-project-swap",
+      "reason": "2026年夏季实验，9月24日公开，保留历史档案不当成本月发生的新事件。"
+    }
+  ],
+  "legacy_ids": [
+    "claude-project-swap",
+    "claude-ping-pong-balls",
+    "claude-blue-blazer",
+    "meme-2515f6f5cb69",
+    "meme-63af0b538373",
+    "meme-ba194f28a964",
+    "meme-92d63a4d4da2",
+    "meme-b7c347230aca",
+    "meme-00b3bde03254",
+    "meme-90b4d1a29f05",
+    "meme-8b429797ecac",
+    "meme-06b9162562a1",
+    "meme-6fc45d21bd9c",
+    "meme-213bf009503c",
+    "meme-38249f05883b",
+    "meme-98dbd5c37cc3",
+    "meme-6bdb68fa3497",
+    "meme-52cdc9a71afa",
+    "meme-57976c5334e3",
+    "meme-86561b2332f6",
+    "meme-26415dc17ca5",
+    "meme-943c2cfbffe9",
+    "meme-85003c7ed4d0",
+    "meme-56253a3d2113",
+    "meme-4674a712c2ea",
+    "meme-f17d86db0739",
+    "meme-4f74b4fc3179",
+    "meme-203300cdce81",
+    "meme-3460d4f2c1d7",
+    "meme-2efefc68d457",
+    "meme-54987b216b71",
+    "meme-39fec34a26c7",
+    "meme-a73531adcf5a",
+    "meme-6d92257c1126",
+    "meme-b911d31a95cf",
+    "meme-40150cd51528",
+    "meme-2373fb416ee3",
+    "meme-6f48a78f7b75",
+    "meme-cdc05c22e4ed",
+    "meme-261d281a71c5",
+    "meme-d8cb4425b51c",
+    "meme-5e7e72f8de2c"
+  ]
+}
