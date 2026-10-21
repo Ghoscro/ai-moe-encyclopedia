@@ -1,0 +1,108 @@
+/* Diary interleaves: apricot paper, lilac tabs, and room for everyday lines. */
+#archive[data-archive-collection][data-archive-theme-page="waifu"]{
+ --archive-ink:#5c4254;--archive-body-ink:#635359;--archive-muted:#806875;
+ --archive-accent:#795879;--archive-line:#dfc9d2;--archive-gold:#b58e6f;
+ --archive-paper:#fffbf4;--archive-wash:#faefe5;--archive-lilac:#f0e6f3;
+}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] :is(h3,h4){text-wrap:balance}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-disclosure{border:1px solid #d9bdc6;border-radius:12px;background:#fffbf4;box-shadow:0 10px 30px #8859680c}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover{border-radius:11px 11px 0 0;border-bottom:1px solid #ddbbc7}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover:before{content:'';position:absolute;inset:0;z-index:-1;border-radius:11px 11px 0 0;background:linear-gradient(90deg,#fff8eff2 0%,#fff8efe6 36%,#fff8efb3 46%,#fff8ef00 59%);pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-chapter-art{z-index:-2}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover-copy{width:52%;padding:4.5% 1% 5% 5%}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-kicker{color:#8a5e70;letter-spacing:2.5px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] #archive-title{font-size:clamp(36px,3.6vw,54px);line-height:1.35;letter-spacing:.5px;color:#5c4254}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover .archive-cover-subtitle{font-size:16px;letter-spacing:1px;color:#7b576e}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-toggle{border-radius:7px;border-color:#c5a3b8;background:#fffbf4ed;color:#795879}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-sheets{border-radius:0 0 11px 11px;background:linear-gradient(90deg,#f2deea66,transparent 14%,transparent 86%,#f8dcd166),#fbf1e8}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-tools{gap:12px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-search-field{border-radius:9px;border:1px solid #c4adc7;background:#fffbf8;box-shadow:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-tools input::placeholder{color:#897080}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-tools>button{border-radius:9px;border-color:#baa1be;background:#eee3f0;color:#68466c;box-shadow:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-topics{justify-content:flex-start;gap:8px;border-bottom:1px solid #ddc3cf;padding:12px 0 21px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-topics button{font-size:14px;min-height:44px;padding:8px 12px;border:1px solid #d2b9c9;border-radius:7px 7px 2px 2px;background:#fffaf4;color:#795879;box-shadow:inset 0 -3px #eedfe9}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-topics button[aria-pressed=true]{color:#fffaf5;background:#795879;border-color:#795879;box-shadow:inset 0 -3px #c69eb7}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-topics button small{opacity:1;color:inherit}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title{justify-content:flex-start;text-align:left;gap:14px;margin-top:27px;margin-bottom:22px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title>span{width:7px;height:29px;border-radius:4px;background:#c9a8c4}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title>span:last-child{flex:1;height:1px;border-radius:0;background:#dfc5ce;transform:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title>span:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title h3{font-size:29px;line-height:1.45;letter-spacing:1px;color:#5c4254}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title small{font-size:11px;letter-spacing:2px;color:#8b6a5e}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight-grid{gap:24px;align-items:stretch}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight{display:grid;grid-template-columns:minmax(0,1fr) 44%;grid-template-rows:auto auto 1fr auto;column-gap:20px;row-gap:0;min-height:330px;padding:24px 23px 22px;border:1px solid #d9b9c3;border-radius:7px 14px 9px 6px;background:#fffaf4;box-shadow:3px 4px 0 #e8d6d64d;isolation:auto;color:#5c4254}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight:before{content:'';position:absolute;top:13px;right:17px;width:26px;height:7px;border-top:2px solid #c19aad;border-bottom:1px solid #e3cad5;border-radius:3px;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight>:not(img){grid-column:1;max-width:100%;min-width:0;z-index:1}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-pick-label{grid-column:1/-1;grid-row:1;justify-self:start;font-size:13px;line-height:1.6;padding:4px 9px;border-radius:4px;background:#f1e7ef;color:#795879;margin:0 0 13px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight h4{grid-column:1/-1;grid-row:2;font-size:26px;line-height:1.5;letter-spacing:0;margin:0 0 14px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight-1 h4{text-wrap:wrap;max-width:95%}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight p{grid-row:3;font-family:'Microsoft YaHei',sans-serif;font-size:15px;line-height:1.95;white-space:normal;margin:0 0 12px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-pick-action{grid-row:4;align-self:end;min-height:44px;font-size:14px;color:#795879;padding:10px 0}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight img{position:static;grid-column:2;grid-row:3;align-self:center;width:100%;max-width:100%;min-width:0;height:auto;aspect-ratio:3/2;min-height:0;max-height:none;object-fit:contain;background:#f1e5e2;border:1px solid #d9bbb8;border-radius:5px;padding:5px;margin:0;z-index:1;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight-2 img{justify-self:center;width:80%;height:auto;max-height:165px;aspect-ratio:1;background:#f0e8f3;border-color:#d0bbd9;right:auto;bottom:auto}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-all-title{margin-top:34px;margin-bottom:8px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-entry,#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-entry:nth-child(3n+2){padding:23px 25px 22px 33px;min-height:310px;border:1px solid #dfc5cb;border-radius:5px 11px 6px 4px;background:repeating-linear-gradient(0deg,transparent 0 30px,#9c7c9a08 30px 31px),#fffbf4;box-shadow:2px 3px 0 #e8d6d640}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-entry:before{content:'';position:absolute;left:20px;top:80px;bottom:22px;width:1px;background:#e7c9cf;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-card-index{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 0 12px;border-bottom:1px solid #e6d0d4;margin:0 0 16px;color:#795879;font-size:13px;line-height:1.7}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-card-index>span{background:#f0e5f0;border-left:3px solid #b68eaf;padding:4px 9px;border-radius:0 5px 5px 0}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-card-index small{flex-shrink:0;color:#795879;font:13px/1.7 Georgia,serif;letter-spacing:1px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-entry h3{font-size:24px;line-height:1.5;letter-spacing:.1px;padding-right:0;margin:0 0 14px;color:#5c4254}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-body,#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-preview{color:#635359}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-entry a:not(.entry-actions a){color:#795879}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-body a{display:inline-block;max-width:100%;margin-block:3px;overflow-wrap:anywhere}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-body a+a{margin-inline-start:.6em}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-story>summary{min-height:44px;padding-block:9px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-status{border-radius:5px;background:#f1e2d8;color:#795d50;border:1px solid #e4c8b8;padding:3px 8px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-status-original{background:#eee4f2;color:#71517f;border-color:#d4bddf}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-status-sourced{background:#e9eddf;color:#53634c;border-color:#cbd4bd}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .entry-actions{border-top:1px solid #e2cbd3}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .entry-actions a,#archive[data-archive-collection][data-archive-theme-page="waifu"] .entry-actions button{display:inline-flex;align-items:center;min-height:44px;font-size:13px;padding-block:8px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .entry-actions button{border-radius:6px;background:#f1e8f3;border-color:#cbb2d1;color:#795879}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-results-row>button{min-height:44px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-provenance>summary{min-height:44px;padding-block:9px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-pagination button{border-radius:7px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-pagination a{display:inline-flex;align-items:center;min-height:44px}
+#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-pagination [data-archive-more]{background:#795879;border-color:#795879;color:#fffaf5;box-shadow:none}
+@media(max-width:1100px) and (min-width:901px){
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] #archive-title{font-size:38px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover-copy{width:53%;padding-left:4%}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight{column-gap:16px;padding:23px 20px 22px;min-height:330px}
+}
+@media(max-width:900px){
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover{aspect-ratio:auto;min-height:0;display:flex;flex-direction:column}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover:before{display:none}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-chapter-art{position:static;height:270px;object-position:right center;z-index:auto}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover-copy{width:100%;min-height:0;padding:22px 26px 25px;background:#fff3e9}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] #archive-title{font-size:38px;line-height:1.35;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-kicker{margin-bottom:9px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-toggle{top:234px;bottom:auto;right:14px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight-grid{grid-template-columns:1fr}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight{grid-template-columns:minmax(0,1fr) 37%;min-height:280px}
+}
+@media(max-width:620px){
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-chapter-art{height:210px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover-copy{padding:18px 20px 22px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-kicker{font-size:10px;letter-spacing:1.8px;margin-bottom:8px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] #archive-title{font-size:29px;line-height:1.4;letter-spacing:0;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-cover .archive-cover-subtitle{font-size:15px;letter-spacing:.5px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-toggle{top:174px;bottom:auto}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-sheets{padding:20px 16px 26px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-topics{gap:7px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-topics button{font-size:13px;min-height:44px;padding:7px 10px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title{gap:12px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title h3{font-size:25px;letter-spacing:0}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-section-title>span:first-child{flex-shrink:0}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight{padding:20px 17px 19px;column-gap:14px;grid-template-columns:minmax(0,1fr) 126px;grid-template-rows:auto auto auto auto;min-height:0}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight-2{grid-template-columns:minmax(0,1fr) 86px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-pick-label{grid-column:1/-1;grid-row:1;font-size:13px;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight h4{grid-column:1/-1;grid-row:2;font-size:25px;line-height:1.5;margin-bottom:13px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight p{grid-column:1;grid-row:3;font-size:15px;line-height:1.9;margin:0 0 10px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight img{grid-column:2;grid-row:3;justify-self:end;align-self:start;width:126px;height:84px;max-height:84px;padding:3px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-spotlight-2 img{width:86px;height:86px;aspect-ratio:1;min-height:0;max-height:86px;align-self:center}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-pick-action{grid-column:1/-1;grid-row:4;font-size:13px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-grid{grid-template-columns:1fr;gap:22px}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-entry,#archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-entry:nth-child(3n+2){padding:21px 20px 20px 28px;min-height:0}
+ #archive[data-archive-collection][data-archive-theme-page="waifu"] .archive-entry:before{left:16px}
+}

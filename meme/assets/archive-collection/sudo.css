@@ -1,0 +1,110 @@
+/* The old passphrase chest: ivory drawer labels and warm brass frames. */
+#archive[data-archive-collection][data-archive-theme-page="sudo"]{
+ --archive-ink:#493b32;--archive-body-ink:#5c5045;--archive-muted:#776650;
+ --archive-accent:#73562f;--archive-line:#d5c2a4;--archive-gold:#a4834d;
+ --archive-paper:#fffaf0;--archive-wash:#f3e9d7;--archive-lilac:#eae3f1;
+}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] :is(h3,h4){text-wrap:balance}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-disclosure{border:1px solid #b59b70;border-radius:7px;background:#fffaf0;box-shadow:0 9px 25px #4c262412}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover{border-radius:6px 6px 0 0;border-bottom:5px double #9b7a43}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover:before{content:'';position:absolute;inset:0;z-index:-1;border-radius:6px 6px 0 0;background:linear-gradient(270deg,#fffaf0f5 0%,#fffaf0f0 37%,#fffaf0c9 48%,#fffaf000 62%);pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-chapter-art{border-radius:6px 6px 0 0;object-position:left center;z-index:-2}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover-copy{margin-left:auto;width:45%;padding:4% 3% 5% 1%}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-kicker{color:#806440;letter-spacing:2.4px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] #archive-title{font-size:clamp(36px,3.65vw,54px);line-height:1.4;letter-spacing:0;color:#51402e}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover .archive-cover-subtitle{font-size:16px;letter-spacing:1px;color:#796244}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-toggle{border-radius:3px;border-color:#ad9064;background:#fffaf0f2;color:#72522d}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-sheets{border-radius:0 0 6px 6px;background:repeating-linear-gradient(0deg,#fffaed1a 0 3px,#a2825d06 3px 4px),#f0e6d3}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-tools{gap:12px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-search-field{border:1px solid #b6a081;border-radius:4px;background:#fffaf0;box-shadow:inset 4px 0 #9b7a43}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-tools input::placeholder{color:#827157}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-tools>button{border-radius:4px;border-color:#8b6b3d;background:#67502f;color:#fff9ed;box-shadow:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-topics{justify-content:flex-start;gap:9px;border-bottom:1px solid #c0ab85;padding:10px 0 21px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-topics button{font-size:14px;min-height:44px;padding:8px 13px;border:1px solid #b89d6e;border-radius:4px;background:#f7eedc;color:#72522d;box-shadow:inset 0 0 0 3px #fffaf0,0 2px 0 #b69d7255}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-topics button[aria-pressed=true]{color:#fffaed;background:#755831;border-color:#755831;box-shadow:inset 0 0 0 3px #9b7b4d}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-topics button small{opacity:1;color:inherit}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-section-title{justify-content:flex-start;text-align:left;gap:15px;margin-top:27px;margin-bottom:22px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-section-title>span{width:20px;height:10px;border-top:1px solid #c1ab85;border-bottom:1px solid #d9c9ad;background:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-section-title>span:last-child{flex:1;transform:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-section-title>span:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-section-title h3{font-size:29px;line-height:1.45;letter-spacing:1px;color:#51402e}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-section-title small{font-size:11px;letter-spacing:2px;color:#806c4f}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight-grid{gap:23px;align-items:stretch}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight{display:grid;grid-template-columns:minmax(0,1fr) 45%;grid-template-rows:auto auto 1fr auto;column-gap:21px;row-gap:0;min-height:325px;padding:25px 22px 22px 25px;border:1px solid #bba27a;border-top:5px double #9b7a43;border-radius:6px;background:#fffaf0;box-shadow:0 4px 8px #56352a12;isolation:auto;color:#51402e}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight:before{content:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight>:not(img){grid-column:1;max-width:100%;min-width:0;z-index:1}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-pick-label{grid-column:1/-1;grid-row:1;justify-self:start;font-size:13px;line-height:1.6;padding:0 0 8px;border-radius:0;background:none;color:#7c6038;border-bottom:1px solid #bea16e;margin:0 0 13px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight h4{grid-column:1/-1;grid-row:2;font-size:26px;line-height:1.5;letter-spacing:0;margin:0 0 13px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight p{grid-row:3;font-family:'Microsoft YaHei',sans-serif;font-size:15px;line-height:1.95;white-space:normal;margin:0 0 13px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-pick-action{grid-row:4;align-self:end;min-height:44px;font-size:14px;color:#73562f;padding:10px 0}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight img{position:static;grid-column:2;grid-row:3;align-self:center;width:100%;max-width:100%;min-width:0;height:auto;aspect-ratio:3/2;min-height:0;max-height:none;object-fit:contain;background:#eee4d1;border:1px solid #c5ae86;border-radius:3px;padding:5px;margin:0;z-index:1;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight-2 img{justify-self:center;width:80%;height:auto;max-height:165px;aspect-ratio:1;background:#ebe4ee;border-color:#c8b5d0;right:auto;bottom:auto}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-all-title{margin-top:33px;margin-bottom:8px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:21px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-entry,#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-entry:nth-child(3n+2){padding:19px 22px 20px;min-height:310px;border:1px solid #cbb797;border-top:1px solid #cbb797;border-bottom:4px double #a58b5d;border-radius:5px;background:#fffaf0;box-shadow:0 3px 6px #714a3010}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-entry:before{content:none}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-card-index{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #b9a077;border-radius:3px;background:#efe4cb;box-shadow:inset 0 0 0 3px #fbf3df;padding:7px 10px;margin-bottom:17px;color:#6d5c45;font-size:13px;line-height:1.7}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-card-index small{flex-shrink:0;background:none;color:#73562f;border-radius:2px;padding:2px 7px;font:13px/1.7 Georgia,serif;letter-spacing:1px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-entry h3{font-size:23px;line-height:1.5;letter-spacing:.1px;padding-right:0;margin:0 0 13px;color:#51402e}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-body,#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-preview{color:#5c5045}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-entry a:not(.entry-actions a){color:#73562f}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-body a{display:inline-block;max-width:100%;margin-block:3px;overflow-wrap:anywhere}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-body a+a{margin-inline-start:.6em}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-story>summary{min-height:44px;padding-block:9px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-status{border-radius:2px;background:#eee2cf;color:#725b40;border:1px solid #d4bea0;padding:3px 8px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-status-original{background:#eae2f0;color:#655078;border-color:#c9b8d4}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-status-sourced{background:#e7ebdf;color:#526145;border-color:#c3cfb6}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .entry-actions{border-top:1px solid #d3c1a2}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .entry-actions a,#archive[data-archive-collection][data-archive-theme-page="sudo"] .entry-actions button{display:inline-flex;align-items:center;min-height:44px;font-size:13px;padding-block:8px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .entry-actions button{border-radius:3px;background:#f1e6d2;border-color:#bea57a;color:#73562f}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-results-row>button{min-height:44px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-provenance>summary{min-height:44px;padding-block:9px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-pagination button{border-radius:3px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-pagination a{display:inline-flex;align-items:center;min-height:44px}
+#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-pagination [data-archive-more]{background:#73562f;border-color:#73562f;color:#fffaed;box-shadow:inset 0 0 0 3px #ae9161}
+@media(max-width:1100px) and (min-width:901px){
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] #archive-title{font-size:38px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover-copy{width:45%;padding-left:1%;padding-right:3%}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight{column-gap:15px;padding:23px 20px 21px;min-height:330px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight h4{font-size:26px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight img{height:auto;max-height:none}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight-2 img{height:auto;max-height:165px}
+}
+@media(max-width:1000px){#archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover{aspect-ratio:auto;min-height:0;display:flex;flex-direction:column}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover:before{display:none}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-chapter-art{position:static;height:270px;object-position:left center;z-index:auto}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover-copy{margin-left:0;width:100%;min-height:0;padding:22px 26px 25px;background:#fff6e7}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] #archive-title{font-size:38px;line-height:1.35;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-kicker{margin-bottom:9px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-toggle{top:234px;bottom:auto;right:14px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight-grid{grid-template-columns:1fr}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight{grid-template-columns:minmax(0,1fr) 37%;min-height:280px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight img{height:auto;max-height:none}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight-2 img{height:auto;max-height:165px}
+}
+@media(max-width:620px){
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-chapter-art{height:210px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover-copy{padding:18px 20px 22px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-kicker{font-size:10px;letter-spacing:1.8px;margin-bottom:8px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] #archive-title{font-size:29px;line-height:1.4;letter-spacing:0;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-cover .archive-cover-subtitle{font-size:15px;letter-spacing:.5px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-toggle{top:174px;bottom:auto}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-sheets{padding:20px 16px 26px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-topics{gap:7px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-topics button{font-size:13px;min-height:44px;padding:7px 10px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-section-title{gap:12px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-section-title h3{font-size:25px;letter-spacing:0}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight{padding:20px 17px 19px;column-gap:14px;grid-template-columns:minmax(0,1fr) 126px;grid-template-rows:auto auto auto auto;min-height:0}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight-2{grid-template-columns:minmax(0,1fr) 86px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-pick-label{grid-column:1/-1;grid-row:1;font-size:13px;padding:0 0 7px;margin:0 0 11px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight h4{grid-column:1/-1;grid-row:2;font-size:25px;line-height:1.5;margin-bottom:13px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight p{grid-column:1;grid-row:3;font-size:15px;line-height:1.9;margin:0 0 10px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight img{grid-column:2;grid-row:3;justify-self:end;align-self:start;width:126px;height:84px;max-height:84px;padding:3px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-spotlight-2 img{width:86px;height:86px;aspect-ratio:1;min-height:0;max-height:86px;align-self:center}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-pick-action{grid-column:1/-1;grid-row:4;font-size:13px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-grid{grid-template-columns:1fr;gap:19px}
+ #archive[data-archive-collection][data-archive-theme-page="sudo"] .archive-entry{padding:19px 20px 20px;min-height:0}
+}

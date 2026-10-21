@@ -1,0 +1,111 @@
+/* Kimi's moonlit reading journal: a navy cover, ivory pages, and star-catalogue tabs. */
+#archive[data-archive-collection][data-archive-theme-page="kimi"]{
+ --archive-ink:#283a58;--archive-body-ink:#414b5b;--archive-muted:#606d80;
+ --archive-accent:#3a5073;--archive-line:#c8cbd2;--archive-gold:#ad8c4f;
+ --archive-paper:#fffdf5;--archive-wash:#f5f0e4;--archive-lilac:#e7eaf0;
+}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] :is(h3,h4){text-wrap:balance}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-disclosure{border:1px solid #9a9f9f;border-radius:5px;background:#fffdf5;box-shadow:0 12px 30px #1e304115}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover{border-radius:4px 4px 0 0;border-bottom:3px double #b29a65}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover:before{content:'';position:absolute;inset:0;z-index:-1;border-radius:4px 4px 0 0;background:linear-gradient(90deg,#fffdf5f5 0%,#fffdf5f5 36%,#fffdf5e0 48%,#fffdf5ae 54%,#fffdf500 64%);pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-chapter-art{border-radius:4px 4px 0 0;z-index:-2}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover-copy{width:53%;padding-left:5%}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-kicker{color:#7b6539;letter-spacing:2.7px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] #archive-title{font-size:clamp(36px,3.7vw,56px);line-height:1.35;letter-spacing:.6px;color:#283a58}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover .archive-cover-subtitle{font-size:16px;letter-spacing:1px;color:#455676}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-toggle{border-radius:3px;border-color:#a99569;background:#fffaf0ed;color:#344e73}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-sheets{padding-top:26px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,#ded9c660,transparent 11%,transparent 89%,#ded9c660),#f7f2e7}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-tools{background:#24334f;padding:15px;border:1px solid #b3a27b;border-radius:4px;gap:14px;margin-bottom:16px;box-shadow:inset 0 0 0 4px #2c3b56}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-search-field{border-radius:3px;border-color:#b5a278;background:#fffdf4;box-shadow:none;padding-inline:16px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-tools input::placeholder{color:#727b88}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-tools>button{border-radius:3px;border-color:#bcab7f;background:#24334f;color:#fff2d2;box-shadow:none;padding-inline:21px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-tools>button:hover{background:#354665}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-topics{justify-content:flex-start;gap:7px;padding:10px 0 18px;border-bottom:1px solid #c8b68c}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-topics button{min-height:44px;font-size:14px;padding:8px 12px;border-radius:2px;background:#fffdf5;border:1px solid #c5cbd2;color:#3b4d68;box-shadow:none}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-topics button[aria-pressed=true]{background:#2b3c59;border-color:#b29a65;color:#fff2d0;box-shadow:inset 0 -3px 0 #c5aa6b}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-topics button small{opacity:1;color:inherit}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title{justify-content:flex-start;text-align:left;gap:15px;margin-top:26px;margin-bottom:23px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title>span{height:1px;width:31px;background:#b79a60}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title>span:first-child:after{content:'✦';font-size:17px;line-height:1;color:#9b7d41;left:3px;right:auto;top:-9px;padding:0 3px;background:#f7f2e7}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title>span:last-child{flex:1;width:auto;background:linear-gradient(90deg,#c4b389,transparent);transform:none}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title>span:last-child:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title h3{font-size:29px;line-height:1.45;letter-spacing:1px;color:#283a58}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title small{font-size:11px;letter-spacing:2px;color:#776139}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight-grid{gap:24px;align-items:stretch}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight{display:grid;grid-template-columns:minmax(0,1fr) 33%;grid-template-rows:auto auto 1fr auto;column-gap:20px;row-gap:0;min-height:310px;padding:25px 23px 23px;border:1px solid #bdb7a7;border-top:5px solid #2d3e59;border-radius:3px;background:#fffdf5;box-shadow:0 5px 10px #273a5510;color:#283a58;isolation:auto}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight:before,#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight>:not(img){grid-column:1;max-width:100%;min-width:0;z-index:auto}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-pick-label{grid-row:1;justify-self:start;font-size:13px;line-height:1.6;padding:4px 8px;border:1px solid #d8c8a2;border-radius:2px;background:#f0e8d4;color:#74603b;margin:0 0 14px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight h4{grid-row:2;font-size:28px;line-height:1.5;margin:0 0 14px;letter-spacing:.2px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight p{grid-row:3;font-family:'Microsoft YaHei',sans-serif;font-size:15px;line-height:1.95;white-space:normal;margin:0 0 17px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-pick-action{grid-row:4;align-self:end;min-height:36px;font-size:14px;color:#3a5073;padding:6px 0}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight img{position:static;grid-column:2;grid-row:1/span 4;align-self:center;width:100%;max-width:100%;min-width:0;height:220px;min-height:0;max-height:220px;object-fit:contain;background:#e9ebed;border:1px solid #bbb18c;border-radius:3px;padding:6px;margin:0;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight-2 img{width:100%;height:auto;min-height:0;max-height:205px;aspect-ratio:1;right:auto;bottom:auto;background:#f3ecda;border-color:#c9b88e}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-all-title{margin-top:34px;margin-bottom:9px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-entry,#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-entry:nth-child(3n+2){padding:24px 27px 21px;min-height:330px;border:1px solid #c8c2b2;border-radius:2px;background:#fffdf5;box-shadow:0 3px 6px #28395310}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-entry:before{content:none}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-card-index{display:flex;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #d4c7a7;margin-bottom:18px;font-size:13px;line-height:1.7;color:#606d80}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-card-index>span:before{content:'✦';font-size:12px;color:#93773f;margin-right:7px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-card-index small{font-size:13px;line-height:1.6;letter-spacing:.8px;color:#715d35;padding:1px 5px;border:1px solid #d2c19c;background:#faf4e4}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-entry h3{font-size:24px;line-height:1.5;letter-spacing:.3px;padding-right:0;margin:0 0 15px;color:#283a58}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-body,#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-preview{color:#414b5b;font-size:16px;line-height:2}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-body p{font-size:16px;line-height:2;margin-bottom:14px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-body>div>span{font-size:15px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-entry a:not(.entry-actions a){color:#3a5073}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-body a{display:inline-block;max-width:100%;margin-block:3px;overflow-wrap:anywhere}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-body a+a{margin-inline-start:.6em}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-status{border-radius:2px;background:#eee5d0;color:#726039;padding:4px 8px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-status-original{background:#e7eaf0;color:#425676}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-status-sourced{background:#e7ecdf;color:#4a6146}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .entry-actions{border-top:1px solid #d4cbb8}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .entry-actions button{border-radius:3px;background:#eef0f4;border-color:#c1c7d2;color:#3a5073}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-pagination button{border-radius:3px}
+#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-pagination [data-archive-more]{background:#2b3c59;border-color:#b19a62;color:#fff1cc;box-shadow:inset 0 0 0 3px #354660}
+@media(max-width:1100px) and (min-width:901px){
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] #archive-title{font-size:40px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover-copy{width:53%;padding-left:4%}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight{column-gap:15px;padding:24px 20px 22px;min-height:330px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight h4{font-size:26px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight img{height:205px;max-height:205px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight-2 img{height:auto;max-height:205px}
+}
+@media(max-width:900px){
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover:before{display:none}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover{aspect-ratio:auto;min-height:0;display:flex;flex-direction:column}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-chapter-art{position:static;height:270px;object-position:right center;z-index:auto}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover-copy{width:100%;min-height:0;padding:23px 26px 25px;background:#f4f1e7}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] #archive-title{font-size:38px;line-height:1.3;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-kicker{margin-bottom:9px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-toggle{top:234px;bottom:auto;right:14px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight-grid{grid-template-columns:1fr}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight{grid-template-columns:minmax(0,1fr) 29%;min-height:280px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight img{height:210px;max-height:210px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight-2 img{height:auto;max-height:205px}
+}
+@media(max-width:620px){
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-chapter-art{height:210px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover-copy{padding:17px 20px 21px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-kicker{font-size:10px;letter-spacing:1.6px;margin-bottom:8px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] #archive-title{font-size:30px;line-height:1.35;letter-spacing:0;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-cover .archive-cover-subtitle{font-size:15px;letter-spacing:.5px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-toggle{top:174px;bottom:auto}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-sheets{padding:20px 16px 26px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-tools{padding:12px;gap:12px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-topics{gap:7px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-topics button{font-size:13px;min-height:44px;padding:7px 10px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title{gap:12px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title h3{font-size:25px;letter-spacing:0}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-section-title>span{width:23px;flex-shrink:0}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight{padding:20px 17px 19px;column-gap:14px;grid-template-columns:minmax(0,1fr) 86px;grid-template-rows:auto auto auto auto;min-height:0}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-pick-label{grid-column:1/-1;grid-row:1;font-size:13px;padding:4px 8px;margin:0 0 11px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight h4{grid-column:1/-1;grid-row:2;font-size:25px;line-height:1.5;margin-bottom:13px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight p{grid-column:1;grid-row:3;font-size:15px;line-height:1.9;margin:0 0 10px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight img{grid-column:2;grid-row:3;justify-self:end;align-self:start;width:86px;height:124px;max-height:124px;padding:3px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-spotlight-2 img{width:86px;height:86px;min-height:0;max-height:86px;align-self:center}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-pick-action{grid-column:1/-1;grid-row:4;font-size:13px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-grid{grid-template-columns:1fr;gap:19px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-entry{padding:21px 20px;min-height:0}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-entry h3{font-size:23px}
+ #archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-body,#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-preview,#archive[data-archive-collection][data-archive-theme-page="kimi"] .archive-body p{font-size:15px;line-height:1.95}
+}
