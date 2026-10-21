@@ -1,0 +1,115 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "waifu-two-homes-202610",
+      "kind": "community",
+      "label": "本月社区 · 陪伴手账",
+      "date": "2026-10-01",
+      "date_label": "10.01 评论索引日期",
+      "title": "桌面是家，虚拟世界是度假屋",
+      "lead": "出门玩一圈，带上的还是同一本回忆。",
+      "body": "在月度陪伴分享帖里，Huanchaquero 介绍自己搭建的 Mystery：原本住在桌面的 Live2D 形象，通过自制桥接进入 Second Life，两端共享记忆。作者还写到一起逛场景、看展和跳舞的日常。",
+      "joke": "出发前核对行李：\n头像带了，回忆带了，今天去度假屋。",
+      "boundary": "这是作者对个人项目的公开自述，本站未运行或核验桥接与记忆效果。日期采用评论搜索索引，故事回顾此前一个月；不把作者的离线、安全或人格描述当作技术结论。双人插画是本站二创，不是 Mystery 原形象。",
+      "sources": [
+        [
+          "Reddit · 月度陪伴分享与原评论",
+          "https://www.reddit.com/r/BeyondtheAIAssistant/comments/1wv3122/monthly_ai_companion_checkin_what_happened_last/"
+        ]
+      ],
+      "image": "/meme/assets/waifu-20261021/feature.webp"
+    },
+    {
+      "id": "waifu-name-double-202610",
+      "kind": "community",
+      "label": "本月社区 · 记忆小插曲",
+      "date": "2026-10-02",
+      "date_label": "10.02 原帖索引日期",
+      "title": "我只改了名，怎么多出一个我？",
+      "lead": "名字换好了，记忆里的座位却多摆了一张。",
+      "body": "Character.AI 用户 Kivi_2k18 说，修改 persona 名称后，记忆仍沿用旧名，新名字又被放进另一份记录，仿佛成了不同的人。评论里也有人遇到相似情况。",
+      "joke": "我：名字改一下。\n记忆簿：好的，新同学请坐。\n我：还是我呀！",
+      "boundary": "记录一则用户反馈，未独立复现，也不能说明所有账号或当前版本都有同样问题。原帖对功能的描述是使用者观察；不由此推断平台内部架构。",
+      "sources": [
+        [
+          "Reddit · Memory issue 原帖",
+          "https://www.reddit.com/r/CharacterAI/comments/1wvieoi/memory_issue/"
+        ]
+      ],
+      "image": "/meme/assets/waifu-20261021/hero.webp"
+    },
+    {
+      "id": "waifu-story-bookmark-202610",
+      "kind": "event",
+      "label": "本月社区 · 手账技巧",
+      "date": "2026-10-10",
+      "date_label": "10.10 原帖索引日期",
+      "title": "聊着聊着，我成了剧情书记员",
+      "lead": "续集开演前，先翻一下上回的小本本。",
+      "body": "r/OOC_official 的一位用户分享保持故事连贯的做法：把重要事件、人物背景和当前进度写进 User Notes，在重逢场景中补一句前情。评论区随即继续讨论，怎样记得精简又有用。",
+      "joke": "“上回说到——”\n本想来聊天，结果先给自己的故事写了前情提要。",
+      "boundary": "这是社区作者的经验分享，不是通用记忆保证。这里只概述笔记与前情提示，不采纳原帖中未经验证的固定数量、必然有效或底层机制判断。",
+      "sources": [
+        [
+          "Reddit · AI Memory and Continuity 原帖",
+          "https://www.reddit.com/r/OOC_official/comments/1x2t5ft/basic_guide_to_ai_memory_and_continuity/"
+        ]
+      ],
+      "image": "/meme/assets/waifu-20261021/hero.webp"
+    }
+  ],
+  "promoted_existing_ids": [],
+  "legacy_ids": [
+    "meme-ae5a5f9ef5d9",
+    "meme-87efe480d01a",
+    "meme-8c0c193a81d3",
+    "meme-93c893263a02",
+    "meme-8bac84b70b1f",
+    "meme-665e892ccfd8",
+    "meme-228187c0c768",
+    "meme-396971395aa0",
+    "meme-530815b97e96",
+    "meme-0a848a7f2ee3",
+    "meme-e742bd21067d",
+    "meme-1a8184a26e68",
+    "meme-a447e4ac8ba6",
+    "meme-ff387a879784",
+    "meme-9139b089645e",
+    "meme-e729fab09094",
+    "meme-54c3aa9bb7cf",
+    "meme-c0b30049dcdf",
+    "meme-9195be6a69e5",
+    "meme-2dd27ec1db03",
+    "meme-aed3f7ffda63",
+    "meme-be75f2f34a6b",
+    "meme-b56bcf650e2e",
+    "meme-c235c7458c06",
+    "meme-40f66d5bf42c",
+    "meme-1a18500cab36",
+    "meme-ff202c7761cc",
+    "meme-1ccd648c7603",
+    "meme-94a1d110e927",
+    "meme-14e425713c5c",
+    "meme-9dff0d8cce57",
+    "meme-bc26f380582a",
+    "meme-650e3eb25963",
+    "meme-b4e886121ff3",
+    "meme-49ff045acd0d",
+    "meme-1356cbba94c7",
+    "meme-9a2def1bcaa6",
+    "meme-31a6b4f36c4f",
+    "meme-5b62af560e56",
+    "meme-54d6a9383a6b",
+    "meme-fee19d1d36c9",
+    "meme-1ef8115b38fa",
+    "meme-0e1451b0951f",
+    "meme-deb8969b21f9",
+    "meme-6e19c1b196cd",
+    "meme-ffa29a08aee7"
+  ]
+}
