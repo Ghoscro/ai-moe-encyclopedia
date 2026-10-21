@@ -20,3 +20,41 @@ main{max-width:1320px;margin:auto;padding:0 clamp(20px,4vw,60px) 70px}.intro-ban
 @media(max-width:600px){.hero-scene{height:430px;background-position:62% center}.bottom-meta .intro-band{padding:12px 0}.bottom-meta .family{padding:9px 0}.section-head{padding-top:18px}}
 @media(min-width:601px){.search{min-height:61px;padding-block:5px}.search input{padding-block:9px}.search-row button{padding-block:8px}.filters{margin-top:6px}.hero-tools{padding-bottom:8px}.section-head{padding:3px 0}.section-head h2{font-size:35px;line-height:1.1}.entry.fact:not(#gemini-brand-kit) .entry-copy{display:flex;flex-wrap:wrap;align-content:center;column-gap:9px;row-gap:0;padding:5px 10px}.entry.fact:not(#gemini-brand-kit) .label,.entry.fact:not(#gemini-brand-kit) h3,.entry.fact:not(#gemini-brand-kit) .lead{flex:0 0 100%}.entry.fact:not(#gemini-brand-kit) h3{font-size:21px;line-height:1.15}.entry.fact:not(#gemini-brand-kit) .lead{font-size:12px;line-height:1.25}.entry.fact:not(#gemini-brand-kit) .story,.entry.fact:not(#gemini-brand-kit) details:not(.story),.entry.fact:not(#gemini-brand-kit) .actions{margin:0;font-size:10px}.entry.fact:not(#gemini-brand-kit){min-height:170px}.entry.fact#gemini-brand-kit .art{height:185px}}
 .bottom-intro{margin:18px 0 4px;padding:10px 16px;border-left:3px solid #e5b57d;background:#151b34;color:#efe3f5;font-size:14px;line-height:1.65}
+
+/* Reading and comic scale pass: one strong photo lead, restrained film edges. */
+.entry.fact#gemini-brand-kit .art{height:260px}
+.entry.fact#gemini-brand-kit .entry-copy{display:flex;flex-direction:column;gap:5px;padding:16px 19px}
+.entry.fact#gemini-brand-kit .excerpt{font-size:15px;line-height:1.65;color:#d9cfe0;max-width:55ch;margin:4px 0 6px}
+.entry.fact:not(#gemini-brand-kit){min-height:215px;grid-template-columns:43% 57%}
+.entry.fact:not(#gemini-brand-kit) .entry-copy{padding:12px 14px;row-gap:4px}
+.entry.fact:not(#gemini-brand-kit) .story,
+.entry.fact:not(#gemini-brand-kit) details:not(.story),
+.entry.fact:not(#gemini-brand-kit) .actions{font-size:13px;line-height:1.5}
+.fact .label{font-size:12px}
+.fact .lead{font-size:15px;line-height:1.45}
+.fact .story,.fact details:not(.story),.fact .actions{font-size:13px;line-height:1.5}
+.fact .story summary,.fact details:not(.story) summary{padding-block:2px}
+.entry .story .body{font-size:14px;line-height:1.65}
+.entry.comic{padding:5px;box-shadow:0 8px 25px #0007}
+.entry.comic .art{height:clamp(500px,45vw,630px)}
+.entry.comic .art img{width:100%;height:100%;object-fit:contain}
+.entry.comic .entry-copy{padding:13px 15px}
+.entry.comic .lead{font-size:16px}
+.entry.comic .story,.entry.comic details:not(.story),.entry.comic .actions{font-size:13px;line-height:1.55}
+.entry.comic .story summary,.entry.comic details:not(.story) summary{padding-block:3px}
+.comic .art span{font-size:13px;padding:5px 9px}
+.filters button,.random,.result-row,.section-head>p{font-size:13px}
+@media(max-width:900px){
+  .entry.fact:not(#gemini-brand-kit){grid-template-columns:1fr}
+  .entry.fact:not(#gemini-brand-kit) .art{height:155px}
+}
+@media(max-width:600px){
+  .hero-scene{height:400px}
+  .entry.fact#gemini-brand-kit .art{height:205px}
+  .entry.fact:not(#gemini-brand-kit){grid-template-columns:37% 63%;min-height:205px}
+  .entry.fact:not(#gemini-brand-kit) .art{height:100%}
+  .entry.fact:not(#gemini-brand-kit) .entry-copy{padding:10px}
+  .entry.comic .art{height:min(128vw,515px)}
+  .filters button,.random{font-size:13px}
+  .section-head>p{font-size:12px}
+}

@@ -10,6 +10,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'https://github.com/Ghoscro/ai-moe-encyclopedia'
+EDITORIAL_THEMES = {'qwen', 'gemini', 'mistral', 'minimax', 'ernie', 'muse-spark', 'hy4-preview'}
 CHARACTERS = {'claude':'Claude','doubao':'豆包','gpt':'GPT 龙娘','codex':'Codex 娘','deepseek':'DeepSeek','kimi':'Kimi','glm':'GLM','grok':'Grok','qwen':'千问','gemini':'Gemini','mistral':'Mistral','minimax':'MiniMax','ernie':'文心','muse-spark':'Muse Spark','hy4-preview':'HY4 Preview','sudo':'Sudo','waifu':'AI 陪伴'}
 KINDS = {'sourced':'有出处的趣事','community':'社区梗 · 出处待补','original':'原创日常 · 虚构二创'}
 FIELDS = {'id','character','title','summary','body','tags','kind','sources','contributor','date','editor_note'}
@@ -123,11 +124,17 @@ def build(root=ROOT, output=None):
         p=output/slug/'index.html'
         doc=p.read_text(encoding='utf-8')
         doc=doc.replace('</head>','<link rel="stylesheet" href="/meme/community.css"></head>',1)
-        doc=re.sub(r'(<main\b[^>]*>)',lambda m:m.group(1)+strip(),doc,count=1)
         own=[r for r in rows if r['character']==slug]
+        section=''
         if own:
             section='<section class="community-submissions" aria-labelledby="community-title"><h2 id="community-title">社区补档</h2>'+''.join(card(r) for r in own)+'</section>'
-            doc=re.sub(r'(<main\b[^>]*>.*?</aside>)',lambda m:m.group(1)+section,doc,count=1,flags=re.S)
+        if slug in EDITORIAL_THEMES:
+            doc=re.sub(r'<body\b',lambda m:m.group(0)+' data-editorial-theme="'+slug+'"',doc,count=1)
+            doc=doc.replace('</main>',strip()+section+'</main>',1)
+        else:
+            doc=re.sub(r'(<main\b[^>]*>)',lambda m:m.group(1)+strip(),doc,count=1)
+            if own:
+                doc=re.sub(r'(<main\b[^>]*>.*?</aside>)',lambda m:m.group(1)+section,doc,count=1,flags=re.S)
         if slug=='meme':
             additions=[{'type':'meme','owner':CHARACTERS[r['character']],'title':r['title'],'text':r['summary']+' '+r['body'],'href':'/'+r['character']+'/#'+r['id'],'keywords':' '.join(r.get('tags',[]))} for r in rows]
             # Escape < so user text can never terminate the application/json script.

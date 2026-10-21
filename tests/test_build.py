@@ -67,4 +67,22 @@ class ContributionTests(unittest.TestCase):
         self.assertEqual(sum(e.get('type')=='meme' for e in build.baseline()),expected)
         build.entries()
 
+    def test_editorial_contributions_follow_original_content(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            shutil.copytree(ROOT/'site',root/'site')
+            (root/'content/memes').mkdir(parents=True)
+            row=example(); row['character']='gemini'
+            (root/'content/memes'/f'{row["id"]}.json').write_text(json.dumps(row,ensure_ascii=False),encoding='utf-8')
+            output=build.build(root)
+            page=(output/'gemini/index.html').read_text(encoding='utf-8')
+            self.assertIn('data-editorial-theme="gemini"',page)
+            self.assertEqual(page.count('class="community-strip"'),1)
+            self.assertLess(page.index('id="gemini-comic-04"'),page.index('class="community-strip"'))
+            self.assertLess(page.index('class="community-strip"'),page.index('id="'+row['id']+'"'))
+            self.assertLess(page.index('id="'+row['id']+'"'),page.index('</main>'))
+            self.assertIn('/meme/contribute/',page[page.index('class="community-strip"'):])
+            home=(output/'meme/index.html').read_text(encoding='utf-8')
+            self.assertIn(row['id'],home)
+
 if __name__=='__main__': unittest.main()

@@ -20,3 +20,31 @@ main{max-width:1320px;margin:auto;padding:0 clamp(20px,4vw,60px) 70px}.intro-ban
 @media(max-width:600px){.hero-scene{height:430px;background-position:62% center}.bottom-meta .intro-band{padding:12px 0}.bottom-meta .family{padding:9px 0}.section-head{padding-top:18px}}
 @media(min-width:601px){.search{min-height:61px;padding-block:5px}.search input{padding-block:9px}.search-row button{padding-block:8px}.filters{margin-top:6px}.hero-tools{padding-bottom:8px}.section-head{padding:3px 0}.section-head h2{font-size:35px;line-height:1.1}.entry.fact{min-height:110px}.fact .art,.fact .art img{height:110px}.fact .entry-copy{padding:3px 10px}.fact h3{font-size:22px;line-height:1.18}.fact .lead{font-size:12px;line-height:1.25}.theater-head{margin-top:0}}
 .bottom-intro{margin:18px 0 4px;padding:10px 16px;border-left:3px solid #9aa5ca;background:#fffaf1;color:#38436b;font-size:14px;line-height:1.65}
+
+/* Reading and comic scale pass: keep the full four-panel art legible in its card. */
+.entry.comic .art{height:clamp(480px,42vw,560px);background:#f6efe3}
+.entry.comic .art img{width:100%;height:100%;object-fit:contain}
+.comic .art span{font-size:13px;padding:5px 9px}
+.fact .label{font-size:12px}
+.fact .lead{font-size:15px;line-height:1.5}
+.fact .story,.fact details:not(.story),.fact .actions{font-size:13px;line-height:1.5}
+.fact .story summary,.fact details:not(.story) summary{padding-block:3px}
+.fact .entry-copy{row-gap:3px}
+.entry.fact{min-height:162px}
+.fact .art,.fact .art img{height:162px}
+.entry .story .body{font-size:14px;line-height:1.65}
+.entry.comic .entry-copy{font-size:14px}
+.entry.comic .lead{font-size:16px}
+.entry.comic .story,.entry.comic details:not(.story),.entry.comic .actions{font-size:13px;line-height:1.55}
+.entry.comic .story summary,.entry.comic details:not(.story) summary{padding-block:3px}
+.filters button,.random,.result-row,.section-head>p{font-size:13px}
+@media(max-width:900px){.entry.fact{grid-template-columns:76px minmax(0,1fr) 27%}}
+@media(max-width:600px){
+  .hero-scene{height:400px}
+  .entry.fact{grid-template-columns:60px minmax(0,1fr);min-height:0}
+  .fact .entry-copy{padding:12px}
+  .fact .art,.fact .art img{height:145px}
+  .entry.comic .art{height:min(128vw,515px)}
+  .filters button,.random{font-size:13px}
+  .section-head>p{font-size:12px}
+}

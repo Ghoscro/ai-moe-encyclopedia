@@ -1,0 +1,33 @@
+/* r1 editorial legibility and composition polish. */
+@media(min-width:701px){
+  .mistral .hero-art img{object-position:center top}
+  .mistral .grid .entry:first-child .entry-copy{justify-content:center}
+}
+.mistral .news-excerpt{font-size:1rem;line-height:1.65;color:#634b3f;margin:.55rem 0}
+.mistral .masthead nav a,.mistral .family a{font-size:.88rem}
+.mistral .search label,.mistral .filters button,.mistral .search button{font-size:.84rem}
+.mistral .hero .intro{font-size:.87rem;line-height:1.5}
+.mistral .grid .entry .date{font-size:.78rem;line-height:1.45}
+.mistral .grid .entry:first-child h3{font-size:clamp(1.75rem,2.1vw,2.15rem)}
+.mistral .grid .entry:first-child .lead{font-size:1rem;line-height:1.5}
+.mistral .grid .entry:not(:first-child) h3{font-size:1.16rem;line-height:1.3}
+.mistral .grid .entry:not(:first-child) .lead{font-size:.9rem;line-height:1.5}
+.mistral .grid .entry-actions,.mistral .grid .entry-actions button,.mistral .grid .story-more{font-size:.82rem}
+.mistral .grid .entry-actions button{padding:.35rem .58rem}
+.mistral .grid .story-more .body,.mistral .grid .entry:not(:first-child) .body{font-size:.9rem;line-height:1.6}
+.mistral .grid .story-more details{font-size:.84rem}
+.mistral .comic-card .body,.mistral .comic-card blockquote{display:block}
+.mistral .comic-context{margin:.3rem .4rem;font-size:.82rem}
+.mistral .comic-card .comic-context p{font-size:.9rem;line-height:1.55}
+.mistral .comic-card .comic-context blockquote{font-size:.9rem;margin:.5rem .4rem}
+.mistral .comic-card .open-comic{font-size:.87rem;padding:.45rem .7rem}
+.mistral .comic-card .entry-actions,.mistral .comic-card .entry-actions button{font-size:.81rem}
+.mistral .family{margin-top:1rem;border-top:1px solid #b5855b}
+@media(max-width:700px){
+  .mistral .hero-copy{padding:1rem 1rem 1.15rem}
+  .mistral .hero h1{margin:.1rem 0 .25rem}
+  .mistral .hero .lede{margin:.1rem 0}
+  .mistral .hero .intro{margin:.2rem 0}
+  .mistral .grid .entry:first-child .entry-copy{justify-content:flex-start}
+}
+@media(max-width:440px){.mistral .hero-art{height:235px}}
