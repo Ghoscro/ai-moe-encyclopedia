@@ -1,0 +1,104 @@
+/* Doubao's watercolor scrapbook: leaf-green stickers, cream paper, small tape tabs. */
+#archive[data-archive-collection][data-archive-theme-page="doubao"]{
+ --archive-ink:#345439;--archive-body-ink:#485244;--archive-muted:#64705b;
+ --archive-accent:#426d44;--archive-line:#c9d3b7;--archive-gold:#b59a50;
+ --archive-paper:#fffef6;--archive-wash:#f4f6e8;--archive-lilac:#e6eed9;
+}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] :is(h3,h4){text-wrap:balance}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-disclosure{border-color:#c5cfae;border-radius:12px;background:#fffef6;box-shadow:0 12px 28px #4e682510}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-cover{border-radius:11px 11px 0 0;border-bottom:1px solid #bdcc9f}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-chapter-art{border-radius:11px 11px 0 0;object-position:left center}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-cover-copy{margin-left:auto;width:44%;padding:5% 3.5% 5% 1.5%}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-kicker{color:#77652e;letter-spacing:2px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] #archive-title{font-size:clamp(36px,3.8vw,58px);line-height:1.35;letter-spacing:1px;color:#345439}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-cover .archive-cover-subtitle{font-size:16px;color:#506b3d;letter-spacing:1px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-toggle{border-color:#adbc8a;background:#fffef3ef;color:#426d44;border-radius:18px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-sheets{padding-top:27px;border-radius:0 0 11px 11px;background:radial-gradient(ellipse at 0 25%,#dfe9c950,transparent 30%),radial-gradient(ellipse at 100% 70%,#eee0af40,transparent 30%),#faf9ee}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-search-field{border-radius:11px;border-color:#a4b48a;background:#fffef7;box-shadow:inset 0 -3px 0 #e7edda}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-tools input::placeholder{color:#748366}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-tools>button{border-radius:10px;border-color:#a3b180;background:#eaf0d9;color:#426d44;box-shadow:inset 0 0 0 3px #fffef5,0 3px 0 #e3d6aa}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-topics{justify-content:flex-start;gap:9px;border-bottom:1px dashed #bdc9a9;padding:12px 0 20px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-topics button{font-size:14px;min-height:44px;padding:8px 12px;color:#3d5d36;background:#eaf0df;border:1px solid #bdcba8;border-radius:11px 7px 10px 8px;box-shadow:0 2px 2px #607a2a0d}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-topics button:nth-child(3n+2){background:#f5ebce;border-color:#dbce9e}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-topics button:nth-child(3n){background:#f5e6dc;border-color:#ddc7b3}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-topics button[aria-pressed=true]{color:#2f542d;background:#dbe8c6;border-color:#879f62;box-shadow:inset 0 0 0 2px #fffef7,0 3px 0 #aec38a}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-topics button small{opacity:1;color:inherit}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-section-title{gap:17px;margin-top:26px;margin-bottom:24px;color:#345439}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-section-title>span{height:1px;background:linear-gradient(90deg,transparent,#b5c493);width:clamp(25px,10vw,130px)}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-section-title>span:after{content:'✧';color:#9c873f;top:-17px;font-size:19px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-section-title h3{font-size:29px;line-height:1.45;letter-spacing:1px;color:#345439}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-section-title small{font-size:11px;letter-spacing:2px;color:#7a6c39}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight-grid{gap:24px;align-items:stretch}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight{display:grid;grid-template-columns:minmax(0,1fr) 33%;grid-template-rows:auto auto 1fr auto;column-gap:20px;row-gap:0;min-height:306px;padding:28px 23px 23px;border:1px solid #cad4b5;border-radius:10px 15px 10px 7px;background:radial-gradient(ellipse at 100% 100%,#e7edcf66,transparent 55%),#fffef7;box-shadow:0 5px 9px #58652d13;color:#345439;isolation:auto}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight:before{content:'';position:absolute;top:-7px;left:24px;right:auto;bottom:auto;width:74px;height:16px;transform:rotate(-3deg);border:1px solid #c9bc7c80;border-radius:1px;background:#e4d99fa6;pointer-events:none;z-index:auto}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight-2:before{left:auto;right:30px;transform:rotate(3deg);background:#c6d7b6a6;border-color:#a3ba9080}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight>:not(img){grid-column:1;max-width:100%;min-width:0;z-index:auto}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-pick-label{grid-row:1;font-size:13px;line-height:1.6;border-radius:10px;background:#edf0db;color:#576b3a;padding:4px 9px;margin:0 0 14px;justify-self:start}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight h4{grid-row:2;font-size:28px;line-height:1.5;margin:0 0 13px;letter-spacing:.3px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight p{grid-row:3;font-family:'Microsoft YaHei',sans-serif;font-size:15px;line-height:1.95;white-space:normal;margin:0 0 16px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-pick-action{grid-row:4;align-self:end;min-height:36px;font-size:14px;color:#426d44;padding:6px 0}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight img{position:static;grid-column:2;grid-row:1/span 4;align-self:center;width:100%;max-width:100%;min-width:0;height:220px;min-height:0;max-height:220px;object-fit:contain;background:#eff3e5;border:1px solid #c9d2b5;border-radius:10px;padding:6px;margin:0;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight-2 img{width:100%;height:auto;min-height:0;max-height:210px;aspect-ratio:1;right:auto;bottom:auto;background:#f7f1de;border-color:#d8ccaa}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-all-title{margin-top:33px;margin-bottom:9px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-grid{gap:21px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-entry,#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-entry:nth-child(3n+2){padding:21px 22px 19px;min-height:302px;border:1px solid #cfd7bc;border-radius:11px 7px 12px 6px;background:radial-gradient(ellipse at 100% 100%,#e8edcf45,transparent 55%),#fffef7;box-shadow:0 4px 7px #526a3210}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-entry:before{content:none}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-card-index{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;font-size:13px;line-height:1.7;color:#64705b}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-card-index>span{background:#edf1de;border:1px solid #d5dec0;border-radius:8px;padding:2px 7px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-card-index small{font-size:13px;line-height:1.7;letter-spacing:.5px;color:#7d6a33}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-entry h3{font-size:23px;line-height:1.5;margin:0 0 13px;padding:0 0 10px;border-bottom:1px solid #dce3cb;color:#345439}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-body,#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-preview{color:#485244}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-body>div>span{font-size:15px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-entry a:not(.entry-actions a){color:#426d44}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-body a{display:inline-block;max-width:100%;margin-block:3px;overflow-wrap:anywhere}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-body a+a{margin-inline-start:.6em}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-status{background:#f3e9cc;color:#75602d;border-radius:7px;padding:4px 8px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-status-original{background:#ebefd7;color:#4f683c}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-status-sourced{background:#e5eedc;color:#45643d}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .entry-actions{border-top:1px solid #d7dfc6}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .entry-actions button{border-radius:7px;background:#f0f4e4;border-color:#c4d2a9;color:#426d44}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-pagination button{border-radius:10px}
+#archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-pagination [data-archive-more]{border-color:#9bb179;background:#e3edcf;color:#3e653b;box-shadow:inset 0 0 0 3px #fffef6}
+@media(max-width:1100px) and (min-width:901px){
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] #archive-title{font-size:40px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-cover-copy{width:44%;padding-left:1%;padding-right:3%}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight{column-gap:16px;padding:27px 20px 22px;min-height:320px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight h4{font-size:26px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight img{height:205px;max-height:205px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight-2 img{height:auto;max-height:205px}
+}
+@media(max-width:900px){
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-cover{aspect-ratio:auto;min-height:0;display:flex;flex-direction:column}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-chapter-art{position:static;height:270px;object-position:left center;z-index:auto}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-cover-copy{margin-left:0;width:100%;min-height:0;padding:23px 26px 25px;background:#f5f6e7}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] #archive-title{font-size:38px;line-height:1.3;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-kicker{margin-bottom:9px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-toggle{top:234px;bottom:auto;right:14px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight-grid{grid-template-columns:1fr}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight{grid-template-columns:minmax(0,1fr) 29%;min-height:280px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight img{height:210px;max-height:210px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight-2 img{height:auto;max-height:210px}
+}
+@media(max-width:620px){
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-chapter-art{height:210px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-cover-copy{padding:17px 20px 21px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-kicker{font-size:10px;letter-spacing:1.5px;margin-bottom:8px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] #archive-title{font-size:31px;line-height:1.35;letter-spacing:0;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-cover .archive-cover-subtitle{font-size:15px;letter-spacing:.5px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-toggle{top:174px;bottom:auto}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-sheets{padding:20px 16px 26px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-topics{gap:8px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-topics button{font-size:13px;min-height:44px;padding:7px 10px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-section-title{gap:12px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-section-title h3{font-size:25px;letter-spacing:0}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-section-title>span{width:25px;flex-shrink:0}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight{padding:23px 17px 19px;column-gap:14px;grid-template-columns:minmax(0,1fr) 86px;grid-template-rows:auto auto auto auto;min-height:0}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-pick-label{grid-column:1/-1;grid-row:1;font-size:13px;padding:4px 8px;margin:0 0 11px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight h4{grid-column:1/-1;grid-row:2;font-size:25px;line-height:1.5;margin-bottom:13px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight p{grid-column:1;grid-row:3;font-size:15px;line-height:1.9;margin:0 0 10px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight img{grid-column:2;grid-row:3;justify-self:end;align-self:start;width:86px;height:124px;max-height:124px;padding:3px;border-radius:8px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-spotlight-2 img{width:86px;height:86px;min-height:0;max-height:86px;align-self:center}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-pick-action{grid-column:1/-1;grid-row:4;font-size:13px}
+ #archive[data-archive-collection][data-archive-theme-page="doubao"] .archive-entry{padding:20px;min-height:0}
+}
