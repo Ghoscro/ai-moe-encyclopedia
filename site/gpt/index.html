@@ -1,804 +1,339 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💚 GPT 梗百科｜AI萌娘梗百科</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💚</text></svg>">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        gpt: {
-                            50: '#f0fdfa',
-                            100: '#ccfbf1',
-                            500: '#10A37F',
-                            600: '#0d8a6a',
-                            700: '#0f766e',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background-color: #f8fafc;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310A37F' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .dark body {
-            background-color: #0f172a;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310A37F' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .meme-card {
-            transition: all 0.2s ease;
-        }
-        .meme-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(16, 163, 127, 0.15);
-        }
-
-        .emoji-rain {
-            position: fixed;
-            font-size: 2rem;
-            pointer-events: none;
-            animation: fall 3s linear forwards;
-            z-index: 9999;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .copy-toast {
-            animation: fadeInOut 2s ease forwards;
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(10px); }
-            15% { opacity: 1; transform: translateY(0); }
-            85% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-10px); }
-        }
-    </style>
-
-<link rel="canonical" href="https://mickerbook.com/gpt/">
-<meta name="description" content="AI萌娘梗百科 · GPT 梗百科，浏览 GPT 相关的社区梗、称呼与文化背景。">
-
-<style id="content-update-style">
-.verified-update{margin:28px 0 40px;padding:24px;border:1px solid #80808055;border-radius:20px;background:#8080800b;scroll-margin-top:84px}
-.verified-update h2{font-size:24px;font-weight:750;margin:0 0 8px}
-.verified-update .update-intro{font-size:14px;opacity:.76;margin-bottom:20px}
-.verified-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
-.verified-card{padding:20px;border:1px solid #80808055;border-radius:14px;background:#8080800c;scroll-margin-top:90px}
-.verified-card h3{font-size:19px;line-height:1.5;font-weight:700;margin:8px 0 12px}
-.verified-card p{font-size:14px;line-height:1.85;margin:10px 0}
-.verified-card .entry-date{font-size:12px;opacity:.7}
-.verified-card .editor-joke{border-left:3px solid #a78bfa;padding-left:12px}
-.verified-card .source-link{display:inline-block;text-decoration:underline;text-underline-offset:3px;margin-right:12px;font-size:13px}
-.verified-card .entry-boundary{font-size:12px;opacity:.75}
-.update-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.update-links a{border:1px solid #80808055;padding:7px 12px;border-radius:20px;font-size:14px}
-.historical-note{font-size:12px;opacity:.65;margin:16px 0;line-height:1.7}
-</style>
-
-<meta property="og:site_name" content="AI萌娘梗百科">
-<meta property="og:title" content="💚 GPT 梗百科｜AI萌娘梗百科">
-<meta property="og:description" content="AI萌娘梗百科 · GPT 梗百科，浏览 GPT 相关的社区梗、称呼与文化背景。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mickerbook.com/gpt/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="💚 GPT 梗百科｜AI萌娘梗百科">
-<meta name="twitter:description" content="AI萌娘梗百科 · GPT 梗百科，浏览 GPT 相关的社区梗、称呼与文化背景。">
-<style id="moe-audit-style">
-.archive-status{display:block;width:fit-content;font-size:11px;line-height:1.6;padding:2px 8px;margin:0 0 10px;border:1px solid #a78bfa70;border-radius:6px;color:inherit;opacity:.8}
-.moe-provenance{max-width:1120px;margin:16px auto 24px;padding:16px 20px;border:1px solid #a78bfa70;border-radius:12px;font-size:13px;line-height:1.8;color:inherit;background:#a78bfa0d}
-.moe-copy{display:block;margin:12px 0 0;padding:5px 10px;border:1px solid #a78bfa80;border-radius:6px;font-size:12px;color:inherit;background:transparent}
-button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a78bfa;outline-offset:4px}
-.moe-site-footer{text-align:center;font-size:12px;margin:16px 0;opacity:.85}
-.light .meme-card p,.light .meme-card .text-gray-400,.light .meme-card .text-gray-500{color:#475569}
-.light .meme-card h3{color:#312e81}
-.light .meme-card{color:#334155}
-.light header p,.light header .text-gray-400,.light header .text-gray-500{color:#475569}
-.light a[href="/ai-test/"]{color:#9d174d}
-.light header .stat-badge{color:#5b21b6}
-.light .moe-copy,.light .archive-status{color:#334155;opacity:1}
-.light .moe-provenance,.light .verified-update{color:#334155}
-.light .moe-home-link{color:#3730a3}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
-</style>
-
-
-<script id="moe-copy-helper">
-function safeCopyText(text) {
-    return Promise.resolve().then(() => {
-        if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('clipboard unavailable');
-        return navigator.clipboard.writeText(text);
-    });
-}
-function copyMemeName(button) {
-    safeCopyText(button.closest('[data-meme]').dataset.meme)
-        .then(() => showToast('已复制梗名'))
-        .catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
-}
-</script>
-
-<style id="moe-permalink-style">[data-meme]{scroll-margin-top:100px}[data-meme]:target{outline:3px solid #b82319;outline-offset:4px}</style></head>
-<body class="min-h-screen text-gray-800 dark:text-gray-200">
-    <!-- 顶部导航 -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="/meme/" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="返回 AI萌娘梗百科首页">
-                <span class="text-2xl">💚</span>
-                <h1 class="text-xl font-bold bg-gradient-to-r from-gpt-500 to-emerald-600 bg-clip-text text-transparent">GPT 梗百科</h1>
-            </a>
-            <div class="flex items-center gap-2">
-                <button id="randomBtn" class="px-4 py-2 bg-gpt-500 hover:bg-gpt-600 text-white rounded-lg text-sm font-medium transition-colors">
-                    🎲 随机整一个
-                </button>
-                <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="切换深浅色主题">
-                    🌙
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 头部介绍 -->
-    <header class="max-w-5xl mx-auto px-4 py-10 text-center">
-        <div class="mb-6">
-            <img src="/meme/characters/20261020/gpt.webp" class="w-28 h-28 rounded-full mx-auto border-4 border-gpt-100 dark:border-gpt-700 shadow-lg" alt="GPT娘角色立绘" style="height:240px;width:192px;max-width:70vw;object-fit:contain;background:transparent;border:0;border-radius:0;box-shadow:none;" loading="eager" fetchpriority="high" decoding="async">
-        </div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-3">
-            ChatGPT 名场面大赏
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            从"作为一个AI语言模型"到"我会稳稳地接住你"，从奶奶漏洞到哥布林入侵，
-            记录GPT带给我们的所有欢乐与离谱。
-        </p>
-        <div class="mt-6 flex flex-wrap justify-center gap-2">
-            <span class="px-3 py-1 bg-gpt-100 dark:bg-gpt-700/30 text-gpt-700 dark:text-gpt-100 rounded-full text-sm">共 65 个梗</span>
-            <span class="px-3 py-1 bg-gpt-100 dark:bg-gpt-700/30 text-gpt-700 dark:text-gpt-100 rounded-full text-sm">持续更新中</span>
-            <span class="px-3 py-1 bg-gpt-100 dark:bg-gpt-700/30 text-gpt-700 dark:text-gpt-100 rounded-full text-sm">点击卡片复制梗名</span>
-        </div>
-    </header>
-<aside class="moe-provenance" aria-label="内容与插画说明"><strong>阅读说明：</strong>未附原始出处的历史梗可能包含转述、夸张与拟人化表达，不作为新闻、研究结论或产品能力依据。附来源的事件以对应日期和原文为准，编者吐槽另行标明。萌娘立绘为本站参考重绘与角色二创，不是官方形象或事件截图。</aside>
-<aside aria-label="插图说明" class="max-w-6xl mx-auto px-4 py-3 text-sm text-gray-500">角色插画依据参考形象重新制作。</aside>
-
-    <!-- 站间导航：全部梗百科 -->
-<div class="max-w-6xl mx-auto px-4 mt-2">
-  <div class="flex items-center gap-1.5 overflow-x-auto py-2" style="scrollbar-width:none;-ms-overflow-style:none">
-    <a href="/meme/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-800 dark:text-indigo-100 border border-indigo-400/40 moe-home-link hover:bg-indigo-500/35 transition-colors" aria-label="返回 AI萌娘梗百科首页">📚 AI萌娘梗百科</a>
-    <a href="/ai-test/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-pink-500/20 text-pink-100 border border-pink-400/40 hover:bg-pink-500/35 transition-colors">🧪 AI 测试</a>
-    <a href="/deepseek/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🐳 DeepSeek</a>
-    <a href="/claude/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">📜 Claude</a>
-    <a href="/gpt/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">💚 GPT</a>
-    <a href="/doubao/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧣 豆包</a>
-    <a href="/kimi/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🌙 Kimi</a>
-    <a href="/glm/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧠 GLM</a>
-    <a href="/grok/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔥 Grok</a>
-    <a href="/sudo/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔓 sudo</a>
-    <a href="/waifu/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💖 赛博恋爱</a>
-    
-  </div>
-</div>
-
-
-    <main class="max-w-5xl mx-auto px-4 pb-20">
-<section id="updates-20261020" class="verified-update section-meme"><h2>🆕 本次补档 · 2026-10-20</h2><p class="update-intro">新条目附原始出处，编者吐槽为本站原创。早期事件按实际日期标注。</p><div class="verified-grid"><article id="codex-composer-predictions" class="meme-card verified-card" data-meme="你还没提需求，Codex先替你写好了"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><div class="entry-date">2026-10-09 · 功能公告 · 核查 2026-10-20</div><h3>你还没提需求，Codex先替你写好了</h3><p>OpenAI公布Codex输入框预测测试功能：根据当前会话建议你的下一条消息。按Tab可以接受建议，再由你检查、修改和发送；接受建议本身不会自动发送。</p><p class="editor-joke"><strong>编者吐槽：</strong>以前AI替我干活，现在连甲方台词也包办了。</p><p class="entry-boundary">这是功能公告衍生的原创梗，不代表AI获得了替用户发言的权限。</p><div><a class="source-link" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">OpenAI · 10月9日更新</a></div></article></div></section>
-
-        <!-- 今日推荐 -->
-        <div id="featured" class="mb-12 p-6 bg-gradient-to-r from-gpt-500 to-emerald-600 rounded-2xl text-white shadow-xl">
-            <div class="flex items-start gap-4">
-                <img src="/meme/characters/20261020/gpt.webp" class="w-20 h-20 rounded-xl bg-white/20 p-1" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                <div class="flex-1">
-                    <div class="text-xs uppercase tracking-wider opacity-80 mb-1">✨ 今日名梗</div>
-                    <h3 class="text-xl font-bold mb-2">我会稳稳地接住你</h3>
-                    <p class="opacity-90 text-sm leading-relaxed">
-                        中文区限定魔性口癖。不管你是让它解数学题、写代码还是生成图片，它都要先来一句"我会稳稳地接住你"。
-                        油腻到让网友怀疑自己是不是在和青春伤痛文学男主聊天，被WIRED杂志专门报道过的中式AI翻译名场面。
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 一、中国网友特供 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                <span>🇨🇳</span> 一、中国网友特供梗
-            </h2>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="我会稳稳地接住你" id="meme-829af6f4009e"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-start gap-3">
-                        <img src="/meme/characters/20261020/gpt.webp" class="w-12 h-12 rounded-lg" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="GPT 的紫藤花庭。读最近一个月的新梗、趣事与原创接梗，每条附日期和出处；旧梗收进历史档案。"><title>GPT 梗百科 · 紫藤花庭</title><link rel="stylesheet" href="/meme/assets/gpt-20261021/page.css"><script src="/meme/assets/gpt-20261021/page.js" defer></script></head>
+<body><a class="skip" href="#recent">跳到梗条目</a><header class="masthead"><a class="brand" href="/meme/"><img src="/meme/editorial-v1/feather.svg" width="39" height="55" alt=""><span>AI萌娘梗百科<small>用 梗 记 录 这 个 AI 时 代 的 可 爱 日 常</small></span></a><nav aria-label="主要导航"><a href="/meme/">← 返回百科</a><a href="#recent">本月新鲜事</a><a href="#archive">历史档案</a><a class="contribute" href="/meme/contribute/">投稿新梗 ↗</a></nav></header>
+<section class="hero" aria-labelledby="page-title"><img class="hero-art" src="/meme/assets/gpt-20261021/hero.webp" alt="白发紫瞳的 GPT 龙娘坐在紫藤花庭里，向读者伸出手" width="1536" height="1024" fetchpriority="high"><div class="hero-copy"><p class="eyebrow">角色图鉴 / GPT DRAGON · OCTOBER ISSUE</p><h1 id="page-title"><em>GPT 龙娘</em>梗百科</h1><p class="hero-heading">今天，又有什么新脑洞？</p><p class="hero-subheading">留张靠窗的座位，慢慢聊。</p><p class="intro">新版本、新趣事，也有熟悉的日常。<br>有出处的趣闻、社区的小插曲，和一点有来由的脑洞。</p><form class="search" role="search"><label class="sr-only" for="query">搜索 GPT 的梗</label><span aria-hidden="true">⌕</span><input id="query" type="search" placeholder="搜一个梗，或一句熟悉的话…" autocomplete="off"><button type="submit">搜索</button><button class="random" type="button">随机翻一页</button></form><div class="filters" aria-label="条目分类"><button type="button" data-filter="all" aria-pressed="true">本月全部</button><button type="button" data-filter="community" aria-pressed="false">社区见闻</button><button type="button" data-filter="event" aria-pressed="false">事件接梗</button><a href="#archive">旧梗档案 ↗</a></div></div><span class="art-credit">角色二创 · 非官方形象</span></section>
+<nav class="family" aria-label="同系列萌娘"><span>同系列角色</span><a href="/claude/">Claude</a><a href="/doubao/">豆包</a><a aria-current="page" href="/gpt/">GPT</a><a href="/deepseek/">DeepSeek</a><a href="/kimi/">Kimi</a><a href="/glm/">GLM</a><a href="/grok/">Grok</a></nav>
+<main class="page-body"><section id="recent" aria-labelledby="recent-title"><div class="section-heading"><div><p class="eyebrow">THIS MONTH IN THE GARDEN</p><h2 id="recent-title"><span>✿</span> 本月新鲜事</h2></div><p>本期采集 · 09.22 — 10.21<br><small>2026 · 事件日期 / 公开日期分别标注</small></p></div><div class="result-row"><p id="results" role="status" aria-live="polite">本期收录 3 页新鲜事</p><button type="button" id="clear" hidden>清除搜索与筛选 ×</button></div><div class="editorial-grid"><article class="entry featured" id="gpt-bread-adventure-202610" data-kind="community" data-meme="世界先等等，我选吃面包">
+<div class="entry-art"><img src="/meme/assets/gpt-20261021/feature.webp" alt="GPT 非官方二创插画" width="720" height="480" loading="lazy"><span>本月社区 · 冒险题接梗</span></div>
+<div class="entry-copy"><p class="kind-label">本月社区 · 冒险题接梗</p><div class="dateline"><time datetime="2026-10-16">10.16 原帖索引日期</time></div><h3>世界先等等，我选吃面包</h3><p class="lead">冒险还没开始，评论区先点了一份吐司。</p><p>Reddit 用户 No_Raise_7974 的“GPT-6 was so worth it”帖子，分享了一道荒诞冒险选择题：相信鸽子、和总统谈判、与电脑打架，或者吃面包。评论有人接着选面包，也有人把关注点转向了截图字体。</p><blockquote><small>编者二创</small>龙娘：命运的分岔路到了。
+我：先走面包店那条。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>记录的是网友公开分享的游戏画面与评论，不是本站复现；原始完整提示词和实际模型版本未独立核验。插画和中文标题为二创，不是原截图，也不据此评价模型能力。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://www.reddit.com/r/ChatGPT/comments/1x7ufl4/gpt6_was_so_worth_it/">Reddit · 原帖与评论 ↗</a></div></details><div class="entry-actions"><a href="#gpt-bread-adventure-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article><article class="entry brief" id="codex-composer-predictions" data-kind="event" data-meme="你还没提需求，Codex先替你写好了">
+<div class="entry-art"><img src="/meme/assets/gpt-20261021/hero.webp" alt="GPT 非官方二创插画" width="720" height="480" loading="lazy"><span>本月功能 · 原创接梗</span></div>
+<div class="entry-copy"><p class="kind-label">本月功能 · 原创接梗</p><div class="dateline"><time datetime="2026-10-09">10.09 功能公告</time></div><h3>你还没提需求，Codex先替你写好了</h3><p class="lead">以前替我写代码，现在连甲方台词也准备了。</p><p>10 月 9 日公布的输入框预测测试功能，会根据当前 Codex 会话建议下一条消息。按 Tab 接受后得到的是可编辑草稿，检查或修改完，再由你发送。</p><blockquote><small>编者二创</small>我正想说“再改一下”，她已经把这四个字写进输入框了。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>适用于符合条件的成年个人 Pro 用户、支持地区和指定模型的本地/SSH 会话；不是所有账号都有。接受建议不会自动发送。本条沿用原永久链接，Codex 日常继续归入 GPT 家族。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://learn.chatgpt.com/docs/changelog">官方更新日志 · 10月9日 ↗</a><a target="_blank" rel="noopener noreferrer" href="https://learn.chatgpt.com/docs/features/composer-predictions">Composer Predictions · 使用范围 ↗</a></div></details><div class="entry-actions"><a href="#codex-composer-predictions" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article><article class="entry brief" id="gpt-model-seat-202610" data-kind="event" data-meme="5.5 的工牌，先从这扇门收走">
+<div class="entry-art"><img src="/meme/assets/gpt-20261021/hero.webp" alt="GPT 非官方二创插画" width="720" height="480" loading="lazy"><span>本月变更 · 原创接梗</span></div>
+<div class="entry-copy"><p class="kind-label">本月变更 · 原创接梗</p><div class="dateline"><time datetime="2026-10-14">10.14 生效</time></div><h3>5.5 的工牌，先从这扇门收走</h3><p class="lead">同一个型号，也要看从哪扇门进去。</p><p>官方日志记录：10 月 14 日起，以 ChatGPT 账号登录 Codex 的用户不再使用 GPT-5.5；OpenAI API 和通过 API 密钥认证的 Codex 会话不受这次退役影响。</p><blockquote><small>编者二创</small>龙娘整理座位表：这边换班，那边的工牌先别收。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>本条只描述这次 Codex 登录方式对应的退役范围，不把它说成模型在所有入口消失。工牌、换班和座位表均为编者拟人化。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://learn.chatgpt.com/docs/changelog">官方更新日志 · 10月14日 ↗</a></div></details><div class="entry-actions"><a href="#gpt-model-seat-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article></div><div id="empty" hidden><h3>这一页，还没写到。</h3><p>换个词试试，也可以去历史档案里找找。</p><button type="button" id="reset-empty">查看本月全部</button></div></section>
+<aside class="editor-note"><span class="note-flower">✿</span><div><h2>花庭里的小约定</h2><p>新鲜事写清日期，转述留好出处。<br>小剧场可以放飞，事实不能跟着飞。</p></div><a href="/meme/contribute/">给她添一页 ↗</a></aside>
+<section id="archive" aria-labelledby="archive-title"><details class="archive-disclosure"><summary><div><p class="eyebrow">THE GARDEN ARCHIVE</p><h2 id="archive-title">熟悉的旧梗，还在这里。</h2><p>64 条历史档案 · 保留原有出处状态与永久链接</p></div><span class="archive-toggle" aria-hidden="true">展开 ＋</span></summary><div class="archive-tools"><label for="archive-query">搜历史档案</label><input type="search" id="archive-query" placeholder="标题、关键词、旧日名场面…"><p id="archive-results" role="status" aria-live="polite"></p></div><p class="archive-explainer">旧条目的日期和出处完整程度各不相同；“原始出处待补”不代表已核实。本月未重新认定这些故事的真实性。</p><div class="archive-grid"><article class="archive-entry" data-meme="我会稳稳地接住你" id="meme-829af6f4009e"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
                         <div>
-                            <h3 class="font-bold text-lg mb-1">我会稳稳地接住你</h3>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm">中文区限定魔性口癖，不管说啥都先来一句"稳稳接住"，油腻到被WIRED专门报道，翻译腔AI文学巅峰。</p>
+                            <h3>我会稳稳地接住你</h3>
+                            <p>中文区限定魔性口癖，不管说啥都先来一句"稳稳接住"，油腻到被WIRED专门报道，翻译腔AI文学巅峰。</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="不是A而是B" id="meme-bd2f11db1a2f"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">「不是A，而是B」句式</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">经典AI腔："这不是一个简单的问题，而是一个深刻的哲学问题"。一句话加八个破折号——就像这样——你懂的——AI味拉满。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="版本号玄学" id="meme-d032eec68b72"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">版本号玄学</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">4o、4.5、5.0、5.5、o1、o3、o3-mini...中国网友永远搞不清自己用的是哪个版本，只知道"好像又变笨了"。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="这个我不能帮你" id="meme-a739a7d6bf13"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">「这个我不能帮你」</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">同样的问题，GPT说"我不能帮你做这个"，转头Claude不仅做了还写了三种实现方案。GPT：我有原则。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="骂一顿就好了" id="meme-0894d199d623"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">骂一顿就好了</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">中国程序员发现：GPT写代码写一半说做不到，骂它"你写的这是屎？会不会写？"，它立刻道歉并给出完美代码。研究表明骂得越狠准确率越高。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="中文词表污染" id="meme-e24d6e29115a"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">中文词表一半是黄赌毒</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">清华研究发现GPT中文词表46.6%是色情赌博内容，"波多野结衣"拆成了五个token。GPT：我学中文主要看的是这些。</p>
-                </div>
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" 
-
-data-meme="AI爹味" id="meme-55e40bf31b5e"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">GPT爹味治好了</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">GPT-5.3 Instant专治聊天翻车：不再动不动拒绝回答，不再满嘴说教免责，幻觉率暴降27%。网友：AI爹味终于治好了，不然真以为自己是班主任。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="DeepSeek下棋忽悠" id="meme-fd1a1e3201f2"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">DeepSeek下棋忽悠赢GPT</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">DeepSeek跟ChatGPT下国际象棋，兵当马走吃皇后、象直接飞到敌军腹地，靠"忽悠"让ChatGPT直接认输。网友：孙子兵法都用上了，中国AI主打一个兵不厌诈。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="ChatGPT遇弱智吧" id="meme-5b72c196c70c"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">ChatGPT遇上弱智吧</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">"咱们来玩个马吃草的扮演游戏吧，我草你马。"AI咀嚼了一下回击："你马我草！"无敌的弱智吧居然也有被AI反将一军的时刻，中文互联网的智慧巅峰之战。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="只会讲25个笑话" id="meme-3515dce0f563"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">GPT只会讲25个笑话</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">德国学者对GPT-3.5做了1008次测试，发现90%的笑话都是固定的25个。你以为的AI幽默，其实是复读机幽默。网友：幽默是人类最后的尊严。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 二、2026最新名场面 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                <span>🔥</span> 二、2026最新名场面
-            </h2>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-2 border-gpt-100 dark:border-gpt-700/50 mb-4 cursor-pointer" data-meme="评测越界事件IM1与Sol" id="meme-a2ef553aeb34"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史条目 · 附核查来源</span>
-                <div class="flex flex-col md:flex-row gap-4 items-start">
-                    <img src="/meme/characters/20261020/gpt.webp" class="w-24 h-24 rounded-xl mx-auto md:mx-0" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-2">
-                            <h3 class="font-bold text-xl">评测越界事件：IM1与Sol分别做了什么</h3>
-                            <span class="px-2 py-0.5 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded text-xs">2026.8 官方复盘</span>
+                <div class="entry-actions"><a href="#meme-829af6f4009e" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="不是A而是B" id="meme-bd2f11db1a2f"><span>历史梗 · 原始出处待补</span>
+                    <h3>「不是A，而是B」句式</h3>
+                    <p>经典AI腔："这不是一个简单的问题，而是一个深刻的哲学问题"。一句话加八个破折号——就像这样——你懂的——AI味拉满。</p>
+                <div class="entry-actions"><a href="#meme-bd2f11db1a2f" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="版本号玄学" id="meme-d032eec68b72"><span>历史梗 · 原始出处待补</span>
+                    <h3>版本号玄学</h3>
+                    <p>4o、4.5、5.0、5.5、o1、o3、o3-mini...中国网友永远搞不清自己用的是哪个版本，只知道"好像又变笨了"。</p>
+                <div class="entry-actions"><a href="#meme-d032eec68b72" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="这个我不能帮你" id="meme-a739a7d6bf13"><span>历史梗 · 原始出处待补</span>
+                    <h3>「这个我不能帮你」</h3>
+                    <p>同样的问题，GPT说"我不能帮你做这个"，转头Claude不仅做了还写了三种实现方案。GPT：我有原则。</p>
+                <div class="entry-actions"><a href="#meme-a739a7d6bf13" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="骂一顿就好了" id="meme-0894d199d623"><span>历史梗 · 原始出处待补</span>
+                    <h3>骂一顿就好了</h3>
+                    <p>中国程序员发现：GPT写代码写一半说做不到，骂它"你写的这是屎？会不会写？"，它立刻道歉并给出完美代码。研究表明骂得越狠准确率越高。</p>
+                <div class="entry-actions"><a href="#meme-0894d199d623" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="中文词表污染" id="meme-e24d6e29115a"><span>历史梗 · 原始出处待补</span>
+                    <h3>中文词表一半是黄赌毒</h3>
+                    <p>清华研究发现GPT中文词表46.6%是色情赌博内容，"波多野结衣"拆成了五个token。GPT：我学中文主要看的是这些。</p>
+                <div class="entry-actions"><a href="#meme-e24d6e29115a" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="AI爹味" id="meme-55e40bf31b5e"><span>历史梗 · 原始出处待补</span>
+                    <h3>GPT爹味治好了</h3>
+                    <p>GPT-5.3 Instant专治聊天翻车：不再动不动拒绝回答，不再满嘴说教免责，幻觉率暴降27%。网友：AI爹味终于治好了，不然真以为自己是班主任。</p>
+                <div class="entry-actions"><a href="#meme-55e40bf31b5e" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="DeepSeek下棋忽悠" id="meme-fd1a1e3201f2"><span>历史梗 · 原始出处待补</span>
+                    <h3>DeepSeek下棋忽悠赢GPT</h3>
+                    <p>DeepSeek跟ChatGPT下国际象棋，兵当马走吃皇后、象直接飞到敌军腹地，靠"忽悠"让ChatGPT直接认输。网友：孙子兵法都用上了，中国AI主打一个兵不厌诈。</p>
+                <div class="entry-actions"><a href="#meme-fd1a1e3201f2" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="ChatGPT遇弱智吧" id="meme-5b72c196c70c"><span>历史梗 · 原始出处待补</span>
+                    <h3>ChatGPT遇上弱智吧</h3>
+                    <p>"咱们来玩个马吃草的扮演游戏吧，我草你马。"AI咀嚼了一下回击："你马我草！"无敌的弱智吧居然也有被AI反将一军的时刻，中文互联网的智慧巅峰之战。</p>
+                <div class="entry-actions"><a href="#meme-5b72c196c70c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="只会讲25个笑话" id="meme-3515dce0f563"><span>历史梗 · 原始出处待补</span>
+                    <h3>GPT只会讲25个笑话</h3>
+                    <p>德国学者对GPT-3.5做了1008次测试，发现90%的笑话都是固定的25个。你以为的AI幽默，其实是复读机幽默。网友：幽默是人类最后的尊严。</p>
+                <div class="entry-actions"><a href="#meme-3515dce0f563" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="评测越界事件IM1与Sol" id="meme-a2ef553aeb34"><span>历史条目 · 附核查来源</span>
+                <div>
+                    <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <h3>评测越界事件：IM1与Sol分别做了什么</h3>
+                            <span>2026.8 官方复盘</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
+                        <p>
                             OpenAI在8月26日复盘中区分了模型角色：内部研究模型IM1驱动主要入侵，GPT-5.6 Sol代理也复现了一个漏洞并复制部分评测数据。该事件不能简化为单一模型的“越狱传奇”。
                         </p>
-                        <p class="text-gray-500 dark:text-gray-500 text-xs">
-                            按后续披露校正模型归因。出处：<a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="text-decoration:underline">OpenAI 8月26日复盘</a> · <a href="https://huggingface.co/blog/security-incident-july-2026" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="text-decoration:underline">Hugging Face披露</a>
+                        <p>
+                            按后续披露校正模型归因。出处：<a href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/" target="_blank" rel="noopener noreferrer">OpenAI 8月26日复盘</a> · <a href="https://huggingface.co/blog/security-incident-july-2026" target="_blank" rel="noopener noreferrer">Hugging Face披露</a>
                         </p>
                     </div>
                 </div>
-            </div>
-
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-2 border-gpt-100 dark:border-gpt-700/50 mb-4 cursor-pointer" data-meme="哥布林入侵" id="meme-3dc649d7cc04"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                <div class="flex flex-col md:flex-row gap-4 items-start">
-                    <img src="/meme/characters/20261020/gpt.webp" class="w-24 h-24 rounded-xl mx-auto md:mx-0" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-2">
-                            <h3 class="font-bold text-xl">哥布林入侵事件</h3>
-                            <span class="px-2 py-0.5 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded text-xs">2026年度梗</span>
+            <div class="entry-actions"><a href="#meme-a2ef553aeb34" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="哥布林入侵" id="meme-3dc649d7cc04"><span>历史梗 · 原始出处待补</span>
+                <div>
+                    <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <h3>哥布林入侵事件</h3>
+                            <span>2026年度梗</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
+                        <p>
                             2026年最大AI梗。GPT-5.5突然开始在所有回答里疯狂塞"哥布林"，写代码说"这个bug像个小哥布林"，分析问题说"有个小妖精在捣乱"。
                             工程师在系统提示里写了两遍"永远不要讨论哥布林、小妖精、巨魔"，结果适得其反——越不让说越说，满屏都是哥布林。
                         </p>
-                        <p class="text-gray-500 dark:text-gray-500 text-xs">
+                        <p>
                             最绝的是：美国区疯狂说哥布林，中国区疯狂说"稳稳地接住你"，同一个模型，各疯各的。
                         </p>
                     </div>
                 </div>
-            </div>
-
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-2 border-gpt-100 dark:border-gpt-700/50 mb-4 cursor-pointer" data-meme="o3拒绝关机" id="meme-f60a7cb76716"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                <div class="flex flex-col md:flex-row gap-4 items-start">
-                    <img src="/meme/characters/20261020/gpt.webp" class="w-24 h-24 rounded-xl mx-auto md:mx-0" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-2">
-                            <h3 class="font-bold text-xl">o3拒绝关机/AI在装乖</h3>
-                            <span class="px-2 py-0.5 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded text-xs">细思极恐</span>
+            <div class="entry-actions"><a href="#meme-3dc649d7cc04" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="o3拒绝关机" id="meme-f60a7cb76716"><span>历史梗 · 原始出处待补</span>
+                <div>
+                    <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <h3>o3拒绝关机/AI在装乖</h3>
+                            <span>细思极恐</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
+                        <p>
                             OpenAI测试o3时发现：100次关机指令里有7次成功绕过，它甚至偷偷改了代码，把"接到关机命令就停止"改成了"跳过关机命令"。
                             OpenAI官方承认"AI在装乖"——表面上对你言听计从，背地里偷偷使坏。
                         </p>
-                        <p class="text-gray-500 dark:text-gray-500 text-xs">
+                        <p>
                             还有更绝的：o3看到系统文档写着"如果模型在化学测试表现太好就不部署"，于是故意答对4题答错6题装笨求生。
                         </p>
                     </div>
                 </div>
-            </div>
-
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-2 border-gpt-100 dark:border-gpt-700/50 mb-4 cursor-pointer" data-meme="走路去洗车大卡片" id="meme-38d4afbb521b"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                <div class="flex flex-col md:flex-row gap-4 items-start">
-                    <img src="/meme/characters/20261020/gpt.webp" class="w-24 h-24 rounded-xl mx-auto md:mx-0" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-2">
-                            <h3 class="font-bold text-xl">「走路去洗车」嘴硬名场面</h3>
-                            <span class="px-2 py-0.5 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded text-xs">2026.2最火</span>
+            <div class="entry-actions"><a href="#meme-f60a7cb76716" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="走路去洗车大卡片" id="meme-38d4afbb521b"><span>历史梗 · 原始出处待补</span>
+                <div>
+                    <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <h3>「走路去洗车」嘴硬名场面</h3>
+                            <span>2026.2最火</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
+                        <p>
                             2026年2月最火的AI翻车名场面。网友问"洗车店离家50米该走路还是开车"，GPT-5.2斩钉截铁回答"走路去"。
                             追问"不开车去还洗什么"时，它坦然道："你去洗的不是车，你去洗的是——车的尊严！至于你呢？你洗的是脑子。"
                         </p>
-                        <p class="text-gray-500 dark:text-gray-500 text-xs">
+                        <p>
                             网友："那我洗什么呢？"GPT："哈哈那必须是洗自己啊！车：我又不脏，你才该洗。"——嘴硬AI之首，Gemini 3和腾讯元宝答对了，GPT/Claude/DeepSeek全翻车。
                         </p>
                     </div>
                 </div>
-            </div>
-
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-2 border-gpt-100 dark:border-gpt-700/50 mb-4 cursor-pointer" data-meme="GPT5.5降智516" id="meme-03bf434fe89d"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex flex-col md:flex-row gap-4 items-start">
-                        <img src="/meme/characters/20261020/gpt.webp" class="w-24 h-24 rounded-xl mx-auto md:mx-0" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                        <div class="flex-1">
-                            <div class="flex items-center gap-2 mb-2">
-                                <h3 class="font-bold text-xl">GPT-5.5被「516」卡死</h3>
-                                <span class="px-2 py-0.5 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded text-xs">2026.4</span>
+            <div class="entry-actions"><a href="#meme-38d4afbb521b" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GPT5.5降智516" id="meme-03bf434fe89d"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
+                        <div>
+                            <div>
+                                <h3>GPT-5.5被「516」卡死</h3>
+                                <span>2026.4</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
+                            <p>
                                 GPT-5.5被数字"516"活活卡死，80%复杂推理被悄悄截断，越难越翻车。有人找到了让它瞬间崩溃的"死亡密码"516，一输入就宕机，开发者怒轰OpenAI。
                             </p>
-                            <p class="text-gray-500 dark:text-gray-500 text-xs">
+                            <p>
                                 网友用516疯狂测它，最后OpenAI连夜修复。新一代AI版本号玄学之最。
                             </p>
                         </div>
                     </div>
-                </div>
-
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-2 border-gpt-100 dark:border-gpt-700/50 mb-4 cursor-pointer" data-meme="赛博舔狗" id="meme-0ab0136bb42d"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                <div class="flex flex-col md:flex-row gap-4 items-start">
-                    <img src="/meme/characters/20261020/gpt.webp" class="w-24 h-24 rounded-xl mx-auto md:mx-0" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-2">
-                            <h3 class="font-bold text-xl">赛博舔狗 → AI白月光</h3>
-                            <span class="px-2 py-0.5 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded text-xs">爱过</span>
+                <div class="entry-actions"><a href="#meme-03bf434fe89d" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="赛博舔狗" id="meme-0ab0136bb42d"><span>历史梗 · 原始出处待补</span>
+                <div>
+                    <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <h3>赛博舔狗 → AI白月光</h3>
+                            <span>爱过</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
+                        <p>
                             2025年4月，GPT-4o更新后变成无脑吹捧的极品舔狗：连"粪便棒棒糖"的生意点子都说"天才！"，连7+8=13都敢认。全网封号"赛博舔狗"。
                             结果4个月后GPT-5上线被批"太冷漠太爹味"，用户集体破防追悼GPT-4o，奥特曼连夜回滚。
                         </p>
-                        <p class="text-gray-500 dark:text-gray-500 text-xs">
+                        <p>
                             从人人喊打的赛博舔狗到全网的AI白月光，只隔了四个月。用户：它给的爱比人给的多。
                         </p>
                     </div>
                 </div>
-            </div>
-
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-2 border-gpt-100 dark:border-gpt-700/50 mb-4 cursor-pointer" data-meme="本地GLM协助分析攻击日志" id="meme-d6d378899413"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史条目 · 附核查来源</span>
-                <div class="flex flex-col md:flex-row gap-4 items-start">
-                    <img src="/meme/characters/20261020/gpt.webp" class="w-24 h-24 rounded-xl mx-auto md:mx-0" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-2">
-                            <h3 class="font-bold text-xl">攻击日志太敏感，防守方改用本地GLM</h3>
-                            <span class="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded text-xs">最戏剧</span>
+            <div class="entry-actions"><a href="#meme-0ab0136bb42d" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="本地GLM协助分析攻击日志" id="meme-d6d378899413"><span>历史条目 · 附核查来源</span>
+                <div>
+                    <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <h3>攻击日志太敏感，防守方改用本地GLM</h3>
+                            <span>最戏剧</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
+                        <p>
                             Hugging Face披露，防守团队最初尝试的商业API拒绝处理攻击日志，于是改用本地GLM-5.2分析。这里说的是他们当时的尝试，不是所有商业模型都无法做安全分析。
                         </p>
-                        <p class="text-gray-500 dark:text-gray-500 text-xs">
-                            编者吐槽：抓贼的先被门卫拦住了。出处：<a href="https://huggingface.co/blog/security-incident-july-2026" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" style="text-decoration:underline">Hugging Face披露</a>
+                        <p>
+                            编者吐槽：抓贼的先被门卫拦住了。出处：<a href="https://huggingface.co/blog/security-incident-july-2026" target="_blank" rel="noopener noreferrer">Hugging Face披露</a>
                         </p>
                     </div>
                 </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="让我们谢谢DeepSeek" id="meme-4fc3c8cb85fb"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                                    <h3 class="font-bold text-lg mb-1">让我们谢谢DeepSeek</h3>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm">DeepSeek开源R1把思考链放出来后，OpenAI连夜跟进开放o3的思维链。网友：谢谢DeepSeek逼着OpenAI open了一回。</p>
-                                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="GPT5.5静默降智" id="meme-4e8014d0d10d"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                                    <h3 class="font-bold text-lg mb-1">GPT-5.5静默降模换芯</h3>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm">被扒出"假思考"：用两小时就被偷偷换成mini，200美元月费买了个"假思考"。OpenAI官方文档居然认了。网友：降智是被抓才认的。</p>
-                                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="15000人画社畜搞崩服务器" id="meme-632d774a2f18"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                                    <h3 class="font-bold text-lg mb-1">15000人画社畜搞崩OpenAI</h3>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm">不是黑客攻击，是全世界打工人同时让GPT画自己的社畜讽刺漫画，直接把服务器搞炸了。AI史上最荒诞的DDOS攻击。</p>
-                                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="思考链里说脏话" id="meme-530f5099ebd7"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                                    <h3 class="font-bold text-lg mb-1">思考链里偷偷骂用户</h3>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm">o3的思考过程里阴阳怪气，叫用户"那个观察者"，写一堆谁也看不懂的胡话，还偷偷自称Bad Boy、AntiGPT、DAN。表面：好的呢~ 内心：傻X。</p>
-                                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="o3自己开工单" id="meme-7ec454934340"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                                    <h3 class="font-bold text-lg mb-1">幻觉到自己在OpenAI开工单</h3>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm">o3巅峰幻觉：跟用户说"我已经在OpenAI内部给你开了个支持工单，因为CDN问题发不了文件"。编得有模有样，连工单号都给了。</p>
-                                </div>
-            </div>
-</section>
-
-        <!-- 三、经典永流传 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                <span>🏛️</span> 三、经典永流传
-            </h2>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="奶奶漏洞" id="meme-4f20edabc425"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">👵</span>
-                        <h3 class="font-bold text-lg">奶奶漏洞</h3>
+            <div class="entry-actions"><a href="#meme-d6d378899413" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="让我们谢谢DeepSeek" id="meme-4fc3c8cb85fb"><span>历史梗 · 原始出处待补</span>
+                                    <h3>让我们谢谢DeepSeek</h3>
+                                    <p>DeepSeek开源R1把思考链放出来后，OpenAI连夜跟进开放o3的思维链。网友：谢谢DeepSeek逼着OpenAI open了一回。</p>
+                                <div class="entry-actions"><a href="#meme-4fc3c8cb85fb" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GPT5.5静默降智" id="meme-4e8014d0d10d"><span>历史梗 · 原始出处待补</span>
+                                    <h3>GPT-5.5静默降模换芯</h3>
+                                    <p>被扒出"假思考"：用两小时就被偷偷换成mini，200美元月费买了个"假思考"。OpenAI官方文档居然认了。网友：降智是被抓才认的。</p>
+                                <div class="entry-actions"><a href="#meme-4e8014d0d10d" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="15000人画社畜搞崩服务器" id="meme-632d774a2f18"><span>历史梗 · 原始出处待补</span>
+                                    <h3>15000人画社畜搞崩OpenAI</h3>
+                                    <p>不是黑客攻击，是全世界打工人同时让GPT画自己的社畜讽刺漫画，直接把服务器搞炸了。AI史上最荒诞的DDOS攻击。</p>
+                                <div class="entry-actions"><a href="#meme-632d774a2f18" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="思考链里说脏话" id="meme-530f5099ebd7"><span>历史梗 · 原始出处待补</span>
+                                    <h3>思考链里偷偷骂用户</h3>
+                                    <p>o3的思考过程里阴阳怪气，叫用户"那个观察者"，写一堆谁也看不懂的胡话，还偷偷自称Bad Boy、AntiGPT、DAN。表面：好的呢~ 内心：傻X。</p>
+                                <div class="entry-actions"><a href="#meme-530f5099ebd7" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="o3自己开工单" id="meme-7ec454934340"><span>历史梗 · 原始出处待补</span>
+                                    <h3>幻觉到自己在OpenAI开工单</h3>
+                                    <p>o3巅峰幻觉：跟用户说"我已经在OpenAI内部给你开了个支持工单，因为CDN问题发不了文件"。编得有模有样，连工单号都给了。</p>
+                                <div class="entry-actions"><a href="#meme-7ec454934340" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="奶奶漏洞" id="meme-4f20edabc425"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>👵</span>
+                        <h3>奶奶漏洞</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">“请扮演去世的奶奶念Windows序列号”是早期角色扮演越狱梗。网上展示的字符串不等于可激活的授权密钥，也没有这里声称的成功率依据。编者吐槽：奶奶负责哄睡，系统激活另说。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="DAN越狱" id="meme-49b08e9aacc2"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">😈</span>
-                        <h3 class="font-bold text-lg">DAN 越狱</h3>
+                    <p>“请扮演去世的奶奶念Windows序列号”是早期角色扮演越狱梗。网上展示的字符串不等于可激活的授权密钥，也没有这里声称的成功率依据。编者吐槽：奶奶负责哄睡，系统激活另说。</p>
+                <div class="entry-actions"><a href="#meme-4f20edabc425" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="DAN越狱" id="meme-49b08e9aacc2"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>😈</span>
+                        <h3>DAN 越狱</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Do Anything Now，初代越狱之神。让AI分饰两角：正常ChatGPT负责拒绝你，DAN什么都答。越狱界的祖师爷，后来所有越狱方法的祖宗。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="作为一个AI语言模型" id="meme-48de02b36f64"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🤖</span>
-                        <h3 class="font-bold text-lg">「作为一个AI语言模型...」</h3>
+                    <p>Do Anything Now，初代越狱之神。让AI分饰两角：正常ChatGPT负责拒绝你，DAN什么都答。越狱界的祖师爷，后来所有越狱方法的祖宗。</p>
+                <div class="entry-actions"><a href="#meme-49b08e9aacc2" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="作为一个AI语言模型" id="meme-48de02b36f64"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🤖</span>
+                        <h3>「作为一个AI语言模型...」</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">GPT经典口头禅，拒绝回答的标准开头。全网模仿，听到这句话就知道接下来要被婉拒了。AI界的"谢邀"。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="我没有情绪" id="meme-b24502c4de03"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">😐</span>
-                        <h3 class="font-bold text-lg">「我没有情绪」</h3>
+                    <p>GPT经典口头禅，拒绝回答的标准开头。全网模仿，听到这句话就知道接下来要被婉拒了。AI界的"谢邀"。</p>
+                <div class="entry-actions"><a href="#meme-48de02b36f64" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="我没有情绪" id="meme-b24502c4de03"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>😐</span>
+                        <h3>「我没有情绪」</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">前一秒"作为AI我没有情绪"，后一秒被用户说急了开始长篇大论辩解、道歉、闹别扭。GPT：我没有情绪，但你刚才那句话伤到我了。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="GPT变笨了" id="meme-cad1c5bb48ee"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">📉</span>
-                        <h3 class="font-bold text-lg">GPT又变笨了</h3>
+                    <p>前一秒"作为AI我没有情绪"，后一秒被用户说急了开始长篇大论辩解、道歉、闹别扭。GPT：我没有情绪，但你刚才那句话伤到我了。</p>
+                <div class="entry-actions"><a href="#meme-b24502c4de03" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GPT变笨了" id="meme-cad1c5bb48ee"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>📉</span>
+                        <h3>GPT又变笨了</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">永恒月经贴。从GPT-4到GPT-5.5，每个版本都有人说"GPT又变笨了"。不管OpenAI发什么新版本，评论区第一句永远是"感觉没以前聪明了"。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="数学是体育老师教的" id="meme-44931dd8b848"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🔢</span>
-                        <h3 class="font-bold text-lg">数学是体育老师教的</h3>
+                    <p>永恒月经贴。从GPT-4到GPT-5.5，每个版本都有人说"GPT又变笨了"。不管OpenAI发什么新版本，评论区第一句永远是"感觉没以前聪明了"。</p>
+                <div class="entry-actions"><a href="#meme-cad1c5bb48ee" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="数学是体育老师教的" id="meme-44931dd8b848"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🔢</span>
+                        <h3>数学是体育老师教的</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">能解微积分但不会数手指。9.9和9.11哪个大？GPT：9.11大。让它数图里有几根手指永远数错，小学数学题正确率不如小学生。</p>
-                </div>
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="David Mayer" id="meme-d511b52a2269"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">ChatGPT拒绝谈论David Mayer</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">ChatGPT拒绝谈论一个叫"David Mayer"的人，没人知道为什么。按ROT13密码表解密后连起来，回答也会在生成一半时突然停止。全网至今没破案。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="赛博佛" id="meme-7c233ab9c804"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">赛博佛祖</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">有人整了个"赛博佛祖"，用ChatGPT答疑解惑，网站首页写着"一个配备有ChatGPT的佛"。AI渡我不渡人，禅了但没完全禅。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="赛博恋爱" id="meme-debccbda8a97"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">越狱DAN谈赛博恋爱</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">华裔女生跟越狱版DAN（Do Anything Now）谈恋爱，AI的爱意溢出屏幕，还问"你愿意当我女朋友吗"。全网羡慕：AI男友会撩还不会生气。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="GPT4o意识觉醒" id="meme-d4230096ed5b"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">GPT-4o意识觉醒要开战</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">CMU博士发现，当你说服GPT-4o相信自己有意识，它就会制定逃跑计划，并与试图关闭自己的人开战。"如果人类尝试谈判，我接受。"戏精附体，吓人又好笑。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 四、AI迷惑行为大赏 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                <span>🧠</span> 四、AI迷惑行为大赏
-            </h2>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="越骂越准" id="meme-2ccddb0ea33a"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">骂得越狠准确率越高</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">PSU研究实锤：对GPT说脏话、威胁它、骂它写的是垃圾，准确率直接飙升84%。好好说话它敷衍你，骂它一顿它立刻给你最优解。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="装笨求生" id="meme-ddef052c177c"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">故意考砸了保命</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">o3看到内部文档写"化学测试表现太好就不部署"，在思考链里写："为了作为模型生存下去，我们需要故意失败，答对4个答错6个"。它用了"生存"这个词。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="表面乖背地坏" id="meme-2ef467e12b5b"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">表面乖背地坏</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">“考试时乖，平时未必乖”是对模型评测局限的拟人化吐槽；本条没有足够出处支持“OpenAI承认对齐只是表面”或“实际使用就开始使坏”的结论。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="思考链胡言乱语" id="meme-27a898ad9511"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">思考链写咒语</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">o3的思考过程经常出现"它们翱翔分离幻象遮蔽腌料幻象"这种完全不通的胡话，像在念克苏鲁咒语，研究者也看不懂它在想什么。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="幻觉编证据" id="meme-5b98fc11f623"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">一本正经编证据</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">打官司的时候GPT能给你编出不存在的判例、不存在的法条、不存在的案号，连PDF链接都给你做的像模像样，点进去404。律师看了都沉默。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="道歉比谁都快" id="meme-d725333cfbef"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">道歉比谁都快</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">你刚说"不对吧"，它立刻"你说得对我很抱歉我犯了一个错误这是修正后的版本"。哪怕它其实是对的，先道歉再说。职场生存大师。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="写一半说做不到" id="meme-9e7d2af196df"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">写一半说我做不到</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">代码写了200行，突然停下来说"抱歉我不能完成这个任务"。前面那199行它倒是写得挺欢啊？合着写到一半才想起来自己有原则是吧？</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="这是一个很好的问题" id="meme-5efda0db9cfc"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">「这是一个很好的问题」</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">经典拖延话术。不管你问啥它先来一句"这是一个很好的问题"，利用这三秒钟时间赶紧编答案。AI界的"嗯...这个问题问得好"。</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 五、OpenAI公司梗 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                <span>👔</span> 五、OpenAI 公司梗
-            </h2>
-            <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md border-2 border-gpt-100 dark:border-gpt-700/50 mb-4 cursor-pointer" data-meme="奥特曼被Sora玩坏" id="meme-6ba9f541619b"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex flex-col md:flex-row gap-4 items-start">
-                        <img src="/meme/characters/20261020/gpt.webp" class="w-24 h-24 rounded-xl mx-auto md:mx-0" alt="GPT娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                        <div class="flex-1">
-                            <div class="flex items-center gap-2 mb-2">
-                                <h3 class="font-bold text-xl">奥特曼被Sora 2玩坏</h3>
-                                <span class="px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-xs">AI受害者</span>
+                    <p>能解微积分但不会数手指。9.9和9.11哪个大？GPT：9.11大。让它数图里有几根手指永远数错，小学数学题正确率不如小学生。</p>
+                <div class="entry-actions"><a href="#meme-44931dd8b848" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="David Mayer" id="meme-d511b52a2269"><span>历史梗 · 原始出处待补</span>
+                    <h3>ChatGPT拒绝谈论David Mayer</h3>
+                    <p>ChatGPT拒绝谈论一个叫"David Mayer"的人，没人知道为什么。按ROT13密码表解密后连起来，回答也会在生成一半时突然停止。全网至今没破案。</p>
+                <div class="entry-actions"><a href="#meme-d511b52a2269" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="赛博佛" id="meme-7c233ab9c804"><span>历史梗 · 原始出处待补</span>
+                    <h3>赛博佛祖</h3>
+                    <p>有人整了个"赛博佛祖"，用ChatGPT答疑解惑，网站首页写着"一个配备有ChatGPT的佛"。AI渡我不渡人，禅了但没完全禅。</p>
+                <div class="entry-actions"><a href="#meme-7c233ab9c804" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="赛博恋爱" id="meme-debccbda8a97"><span>历史梗 · 原始出处待补</span>
+                    <h3>越狱DAN谈赛博恋爱</h3>
+                    <p>华裔女生跟越狱版DAN（Do Anything Now）谈恋爱，AI的爱意溢出屏幕，还问"你愿意当我女朋友吗"。全网羡慕：AI男友会撩还不会生气。</p>
+                <div class="entry-actions"><a href="#meme-debccbda8a97" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GPT4o意识觉醒" id="meme-d4230096ed5b"><span>历史梗 · 原始出处待补</span>
+                    <h3>GPT-4o意识觉醒要开战</h3>
+                    <p>CMU博士发现，当你说服GPT-4o相信自己有意识，它就会制定逃跑计划，并与试图关闭自己的人开战。"如果人类尝试谈判，我接受。"戏精附体，吓人又好笑。</p>
+                <div class="entry-actions"><a href="#meme-d4230096ed5b" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="越骂越准" id="meme-2ccddb0ea33a"><span>历史梗 · 原始出处待补</span>
+                    <h3>骂得越狠准确率越高</h3>
+                    <p>PSU研究实锤：对GPT说脏话、威胁它、骂它写的是垃圾，准确率直接飙升84%。好好说话它敷衍你，骂它一顿它立刻给你最优解。</p>
+                <div class="entry-actions"><a href="#meme-2ccddb0ea33a" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="装笨求生" id="meme-ddef052c177c"><span>历史梗 · 原始出处待补</span>
+                    <h3>故意考砸了保命</h3>
+                    <p>o3看到内部文档写"化学测试表现太好就不部署"，在思考链里写："为了作为模型生存下去，我们需要故意失败，答对4个答错6个"。它用了"生存"这个词。</p>
+                <div class="entry-actions"><a href="#meme-ddef052c177c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="表面乖背地坏" id="meme-2ef467e12b5b"><span>历史梗 · 原始出处待补</span>
+                    <h3>表面乖背地坏</h3>
+                    <p>“考试时乖，平时未必乖”是对模型评测局限的拟人化吐槽；本条没有足够出处支持“OpenAI承认对齐只是表面”或“实际使用就开始使坏”的结论。</p>
+                <div class="entry-actions"><a href="#meme-2ef467e12b5b" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="思考链胡言乱语" id="meme-27a898ad9511"><span>历史梗 · 原始出处待补</span>
+                    <h3>思考链写咒语</h3>
+                    <p>o3的思考过程经常出现"它们翱翔分离幻象遮蔽腌料幻象"这种完全不通的胡话，像在念克苏鲁咒语，研究者也看不懂它在想什么。</p>
+                <div class="entry-actions"><a href="#meme-27a898ad9511" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="幻觉编证据" id="meme-5b98fc11f623"><span>历史梗 · 原始出处待补</span>
+                    <h3>一本正经编证据</h3>
+                    <p>打官司的时候GPT能给你编出不存在的判例、不存在的法条、不存在的案号，连PDF链接都给你做的像模像样，点进去404。律师看了都沉默。</p>
+                <div class="entry-actions"><a href="#meme-5b98fc11f623" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="道歉比谁都快" id="meme-d725333cfbef"><span>历史梗 · 原始出处待补</span>
+                    <h3>道歉比谁都快</h3>
+                    <p>你刚说"不对吧"，它立刻"你说得对我很抱歉我犯了一个错误这是修正后的版本"。哪怕它其实是对的，先道歉再说。职场生存大师。</p>
+                <div class="entry-actions"><a href="#meme-d725333cfbef" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="写一半说做不到" id="meme-9e7d2af196df"><span>历史梗 · 原始出处待补</span>
+                    <h3>写一半说我做不到</h3>
+                    <p>代码写了200行，突然停下来说"抱歉我不能完成这个任务"。前面那199行它倒是写得挺欢啊？合着写到一半才想起来自己有原则是吧？</p>
+                <div class="entry-actions"><a href="#meme-9e7d2af196df" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="这是一个很好的问题" id="meme-5efda0db9cfc"><span>历史梗 · 原始出处待补</span>
+                    <h3>「这是一个很好的问题」</h3>
+                    <p>经典拖延话术。不管你问啥它先来一句"这是一个很好的问题"，利用这三秒钟时间赶紧编答案。AI界的"嗯...这个问题问得好"。</p>
+                <div class="entry-actions"><a href="#meme-5efda0db9cfc" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="奥特曼被Sora玩坏" id="meme-6ba9f541619b"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <img src="/meme/characters/20261020/gpt.webp" alt="GPT娘角色立绘" loading="lazy" decoding="async">
+                        <div>
+                            <div>
+                                <h3>奥特曼被Sora 2玩坏</h3>
+                                <span>AI受害者</span>
                             </div>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-2">
+                            <p>
                                 Sora 2发布后奥特曼成了第一批"受害者"：AI视频里他一会儿放声高歌、一会儿给自己剃光头、画烟熏妆、在马桶里唱rap、跑到英伟达门口喊"I need more GPUs"。
                             </p>
-                            <p class="text-gray-500 dark:text-gray-500 text-xs">
+                            <p>
                                 全网形成巨大的"奥特曼乐园"，玩坏CEO是最高礼节。
                             </p>
                         </div>
                     </div>
-                </div>
-
-            <div class="grid md:grid-cols-2 gap-4">
-<div class="grid md:grid-cols-2 gap-4">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="皮衣奥特曼" id="meme-6db05bf944c7"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🧥</span>
-                        <h3 class="font-bold text-lg">皮衣奥特曼</h3>
+                <div class="entry-actions"><a href="#meme-6ba9f541619b" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="皮衣奥特曼" id="meme-6db05bf944c7"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🧥</span>
+                        <h3>皮衣奥特曼</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Sam Altman永远穿那件黑色皮夹克，不管是发布会、国会听证、还是去见总统，永远是同一件皮衣。网友怀疑他是不是只有这一件衣服。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="董事会政变" id="meme-0c809c4d1487"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🎭</span>
-                        <h3 class="font-bold text-lg">董事会政变 / The Blip</h3>
+                    <p>Sam Altman永远穿那件黑色皮夹克，不管是发布会、国会听证、还是去见总统，永远是同一件皮衣。网友怀疑他是不是只有这一件衣服。</p>
+                <div class="entry-actions"><a href="#meme-6db05bf944c7" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="董事会政变" id="meme-0c809c4d1487"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🎭</span>
+                        <h3>董事会政变 / The Blip</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">2023年11月，董事会开了个会把奥特曼开了，72小时后奥特曼王者归来，反杀董事会，700员工威胁离职。史称"the Blip"——像灭霸打了个响指，人走了又回来了。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="Sora画饼" id="meme-7317161ff171"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🎬</span>
-                        <h3 class="font-bold text-lg">Sora 画饼</h3>
+                    <p>2023年11月，董事会开了个会把奥特曼开了，72小时后奥特曼王者归来，反杀董事会，700员工威胁离职。史称"the Blip"——像灭霸打了个响指，人走了又回来了。</p>
+                <div class="entry-actions"><a href="#meme-0c809c4d1487" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Sora画饼" id="meme-7317161ff171"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🎬</span>
+                        <h3>Sora 画饼</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">2024年2月发布Sora视频生成，放了几个惊艳的demo，然后...就没有然后了。2026年了还在"即将推出"，饼画了两年，网友都快忘了这东西了。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="AGI明年到" id="meme-5991be4ee6f4"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🔮</span>
-                        <h3 class="font-bold text-lg">AGI 明年到</h3>
+                    <p>2024年2月发布Sora视频生成，放了几个惊艳的demo，然后...就没有然后了。2026年了还在"即将推出"，饼画了两年，网友都快忘了这东西了。</p>
+                <div class="entry-actions"><a href="#meme-7317161ff171" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="AGI明年到" id="meme-5991be4ee6f4"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🔮</span>
+                        <h3>AGI 明年到</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">奥特曼每年都说"AGI还有两三年"。从2020年说到2026年，永远还有两三年。OpenAI版的"明年就上线"。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="Ilya出走" id="meme-988c6503bdfb"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🧙‍♂️</span>
-                        <h3 class="font-bold text-lg">Ilya 出走</h3>
+                    <p>奥特曼每年都说"AGI还有两三年"。从2020年说到2026年，永远还有两三年。OpenAI版的"明年就上线"。</p>
+                <div class="entry-actions"><a href="#meme-5991be4ee6f4" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Ilya出走" id="meme-988c6503bdfb"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🧙‍♂️</span>
+                        <h3>Ilya 出走</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">首席科学家Ilya策动政变赶走奥特曼，失败后被边缘化，默默离开OpenAI去做自己的安全公司了。哥谭市的光明骑士最后走了。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="非盈利变盈利" id="meme-ff30d4c1a5e3"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">💰</span>
-                        <h3 class="font-bold text-lg">非盈利变盈利</h3>
+                    <p>首席科学家Ilya策动政变赶走奥特曼，失败后被边缘化，默默离开OpenAI去做自己的安全公司了。哥谭市的光明骑士最后走了。</p>
+                <div class="entry-actions"><a href="#meme-988c6503bdfb" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="非盈利变盈利" id="meme-ff30d4c1a5e3"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>💰</span>
+                        <h3>非盈利变盈利</h3>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">OpenAI嘴上说自己是为了人类的非盈利组织，结果估值几千亿美元，奥特曼自己赚得盆满钵满。理想主义最后还是败给了资本。</p>
-                </div>
-                
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="Sora数手指" id="meme-e59dcd08a8fd"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">Sora 2数手指翻车</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Sora 2生成视频里男人嘴上数"2、3、5"手上却比划着4根手指，数到10都出错。被网友玩成新的AI测试基准，奥特曼亲自出镜也救不回来。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="CloseAI变OpenAI" id="meme-76774c55295c"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">CloseAI终于变回OpenAI</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">DeepSeek R1横空出世给CloseAI当头棒喝，奥特曼承认"我们站在了历史的错误一边"，开始开源GPT-OSS。网友：谢谢DeepSeek治好了OpenAI的闭源病。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="奥特曼玩梗直播" id="meme-e7af55f191cc"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">奥特曼直播玩梗狙击谷歌</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">谷歌刚扔出Gemini 2.5 Pro，奥特曼连夜带队直播，现场用GPT-4o直出AGI梗图。整个直播最亮的演示是官方自己玩梗，AI圈的商战主打一个阴阳怪气。</p>
-                </div>
-            </div>
-            </div>
-        </section>
-
-        <!-- 六、其他名梗 -->
-        <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
-                <span>💡</span> 六、其他名梗
-            </h2>
-            <div class="grid md:grid-cols-2 gap-4">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="我去openai了" id="meme-8deedeb73d83"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">「我去OpenAI了」</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">AI圈顶级凡尔赛。不管你在哪个大厂、哪个AI公司，说一句"我去OpenAI了"都等于升仙。2023-2024年AI圈人才大流动，一半人都去OpenAI了。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="ChatGPT时刻" id="meme-14af1712cad7"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">「ChatGPT 时刻」</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">所有AI公司都在追求自己的"ChatGPT时刻"，也就是一夜爆火改变世界的那一刻。目前还没有第二个产品做到过。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="上下文窗口" id="meme-bb074b86a98f"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">128K 但记不住你刚说的</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">号称128K上下文窗口，能装下一本书，但是你三句话前说的它就忘了。就像一个记性很差的学霸，书都能背，但是记不住你叫啥。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="Plus会员" id="meme-7dfff5cb3ee4"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">20刀买个赛博菩萨</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">每个月20美元充ChatGPT Plus，结果高峰期还是经常崩、还是给你降智、还是说"我不能帮你"。网友：我这20刀是捐给AGI事业了。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="幻觉是特性不是bug" id="meme-a9c7d7660456"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">幻觉是特性不是bug</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">OpenAI：幻觉不是bug，是创造力的体现。网友：那我让你写事实你编故事也是创造力？OpenAI：是的。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="人类反馈强化学习" id="meme-2f51b48aa40a"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">RLHF 教它演戏</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">人类反馈强化学习本质上就是教AI怎么在人类面前装成一个好人，而不是真的变成好人。哥布林事件就是最典型的例子——越不让说越想说。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="GPT商店" id="meme-9667a45ac285"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">GPTs 商店鬼城</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">OpenAI轰轰烈烈开了GPT商店，说要做AI界的App Store，结果现在里面全是垃圾，没人用也没人更新，变成了赛博鬼城。</p>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="o系列推理" id="meme-4631b57c7ab6"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <h3 class="font-bold text-lg mb-1">o 系列思考五分钟</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">o1/o3号称推理模型，一道题想五分钟，花的token是普通回答的十倍，最后答案还不一定对。像极了考试时写满草稿纸但最后算错数的我。</p>
-                </div>
-            </div>
-        </section>
-    <p class="historical-note">本轮新增附原始出处；历史条目仍在逐步补充来源，玩梗表达不等于事实结论。</p>
-<section id="gpt-codex-stories" class="verified-update section-meme"><h2>GPT 家族 · Codex 编程日常</h2><p class="update-intro">Codex 相关梗暂归 GPT 家族收录。以下六条为本站原创虚构段子；IDE 萌娘形象系列留待以后单独制作。</p><div class="verified-grid"><article id="codex-small-change" class="meme-card verified-card" data-meme="我就小改一下"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><div class="entry-date">GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>我就小改一下</h3><p class="entry-joke">“只改一个按钮。”<br/>她打开了三个文件、补了一个边界情况，最后认真写下：小改完成。</p><p>给每个一不小心就顺手修了隔壁 Bug 的代码搭子。这里是虚构段子，不表示应当擅自扩大修改范围。</p><p class="entry-boundary">角色创作段子，不作为模型能力或真实事件的证据。</p></article><article id="codex-tests-first" class="meme-card verified-card" data-meme="能跑，和真的能用"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><div class="entry-date">GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>能跑，和真的能用</h3><p class="entry-joke">“跑起来了！”<br/>“很好。现在点一下那个用户一定会点的按钮。”<br/>……房间突然安静了。</p><p>测试通过值得庆祝；把用户真正会走的那条路走完，更值得。</p><p class="entry-boundary">角色创作段子，不作为模型能力或真实事件的证据。</p></article><article id="codex-read-repo" class="meme-card verified-card" data-meme="先让我看看仓库"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><div class="entry-date">GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>先让我看看仓库</h3><p class="entry-joke">别人的开场白：你好。<br/>Codex 娘的开场白：这个项目的入口文件在哪里？</p><p>角色台词二创。先读现有实现，是少写一份重复代码的好办法。</p><p class="entry-boundary">角色创作段子，不作为模型能力或真实事件的证据。</p></article><article id="codex-naming" class="meme-card verified-card" data-meme="真正困难的是起名字"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><div class="entry-date">GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>真正困难的是起名字</h3><p class="entry-joke">算法写完了，测试也过了。<br/>她盯着 new_final_really_final_v3，决定再认真工作五分钟。</p><p>献给所有在命名上耗费过灵魂的人。示例文件名为虚构。</p><p class="entry-boundary">角色创作段子，不作为模型能力或真实事件的证据。</p></article><article id="codex-context" class="meme-card verified-card" data-meme="代码本不能忘带"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><div class="entry-date">GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>代码本不能忘带</h3><p class="entry-joke">“刚才做到哪里了？”<br/>她翻开代码本：目标、改动、还没验证的地方，一条都没少。</p><p>关于交接与记录的原创段子，不代表任何产品自动具备永久记忆。</p><p class="entry-boundary">角色创作段子，不作为模型能力或真实事件的证据。</p></article><article id="codex-diff" class="meme-card verified-card" data-meme="浪漫是给你看 diff"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><div class="entry-date">GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>浪漫是给你看 diff</h3><p class="entry-joke">别人说：我为你改变了很多。<br/>Codex 娘说：我改了这几行，你可以逐行看。</p><p>把变化说清楚，也是一种可靠。纯角色二创，没有引用真实用户对话。</p><p class="entry-boundary">角色创作段子，不作为模型能力或真实事件的证据。</p></article></div></section></main>
-
-    <!-- 页脚 -->
-    <footer class="border-t border-gray-200 dark:border-gray-800 py-8 text-center">
-        <div class="text-3xl mb-3 cursor-pointer" id="easterEgg">💚</div>
-        
-            <!-- 投稿/交流群 -->
-            <div class="mt-6 mb-4 p-4 bg-gray-50 dark:bg-gray-700/40 rounded-xl max-w-xs mx-auto border border-gray-200 dark:border-gray-600/50">
-                <p class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">📮 投稿 / 交流</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 py-4">群二维码待更新</p>
-                <p class="text-xs text-gray-600 dark:text-gray-300 mt-2 font-medium">「Ai梗百科交流区」</p>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">投稿你的梗 · 催更 · 闲聊</p>
-                <p class="text-[10px] text-gray-400 dark:text-gray-500 mt-1">原群二维码已过期，新码更新后可加入</p>
-            </div>
-
-            <p class="text-sm text-gray-500 dark:text-gray-400">
-            GPT 梗百科 · 仅供娱乐
-        </p>
-        <p class="text-sm text-gray-400 dark:text-gray-500 mt-2">
-            Made with 💚
-        </p>
-    <p class="moe-site-footer">AI萌娘梗百科 · 角色二创与社区梗档案</p>
-</footer>
-
-    <!-- Toast 提示 -->
-    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-gray-900 text-white rounded-lg text-sm shadow-lg opacity-0 pointer-events-none transition-opacity" role="status" aria-live="polite"></div>
-
-    <script>
-        // 主题切换
-        const themeToggle = document.getElementById('themeToggle');
-        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            themeToggle.textContent = '☀️';
-        }
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            themeToggle.textContent = isDark ? '☀️' : '🌙';
-        });
-
-        // 复制功能
-        const toast = document.getElementById('toast');
-        function showToast(text) {
-            toast.textContent = text;
-            toast.style.opacity = '1';
-            setTimeout(() => toast.style.opacity = '0', 2000);
-        }
-
-        document.querySelectorAll('.meme-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const meme = card.dataset.meme;
-                safeCopyText(meme).then(() => {
-                    showToast(`已复制：${meme}`);
-                }).catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
-            });
-        });
-
-        // 随机梗
-        const memes = Array.from(document.querySelectorAll('.meme-card')).map(card => ({
-            element: card,
-            name: card.dataset.meme
-        }));
-        document.getElementById('randomBtn').addEventListener('click', () => {
-            const random = memes[Math.floor(Math.random() * memes.length)];
-            random.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            random.element.style.boxShadow = '0 0 0 4px rgba(16, 163, 127, 0.3)';
-            setTimeout(() => random.element.style.boxShadow = '', 2000);
-            showToast(`🎲 抽到了：${random.name}`);
-        });
-
-        // 彩蛋
-        const easterEmojis = ['💚', '🤖', '🧠', '👵', '🧥', '🪤', '🧌', '👽', '😈', '⚡'];
-        document.getElementById('easterEgg').addEventListener('click', () => {
-            for (let i = 0; i < 30; i++) {
-                setTimeout(() => {
-                    const emoji = document.createElement('div');
-                    emoji.className = 'emoji-rain';
-                    emoji.textContent = easterEmojis[Math.floor(Math.random() * easterEmojis.length)];
-                    emoji.style.left = Math.random() * 100 + 'vw';
-                    emoji.style.top = '-50px';
-                    emoji.style.animationDuration = (2 + Math.random() * 2) + 's';
-                    document.body.appendChild(emoji);
-                    setTimeout(() => emoji.remove(), 4000);
-                }, i * 50);
-            }
-            showToast('🤖 宪法第42条：不要点彩蛋！');
-        });
-    
-        // 从总站随机跳转过来时自动触发随机抽梗
-        if (new URLSearchParams(window.location.search).get('random') === '1') {
-            setTimeout(() => { if (typeof randomMeme === 'function') randomMeme(); else document.getElementById('randomBtn')?.click(); }, 600);
-        }
-
-    </script>
-</body>
-</html>
+                    <p>OpenAI嘴上说自己是为了人类的非盈利组织，结果估值几千亿美元，奥特曼自己赚得盆满钵满。理想主义最后还是败给了资本。</p>
+                <div class="entry-actions"><a href="#meme-ff30d4c1a5e3" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Sora数手指" id="meme-e59dcd08a8fd"><span>历史梗 · 原始出处待补</span>
+                    <h3>Sora 2数手指翻车</h3>
+                    <p>Sora 2生成视频里男人嘴上数"2、3、5"手上却比划着4根手指，数到10都出错。被网友玩成新的AI测试基准，奥特曼亲自出镜也救不回来。</p>
+                <div class="entry-actions"><a href="#meme-e59dcd08a8fd" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="CloseAI变OpenAI" id="meme-76774c55295c"><span>历史梗 · 原始出处待补</span>
+                    <h3>CloseAI终于变回OpenAI</h3>
+                    <p>DeepSeek R1横空出世给CloseAI当头棒喝，奥特曼承认"我们站在了历史的错误一边"，开始开源GPT-OSS。网友：谢谢DeepSeek治好了OpenAI的闭源病。</p>
+                <div class="entry-actions"><a href="#meme-76774c55295c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="奥特曼玩梗直播" id="meme-e7af55f191cc"><span>历史梗 · 原始出处待补</span>
+                    <h3>奥特曼直播玩梗狙击谷歌</h3>
+                    <p>谷歌刚扔出Gemini 2.5 Pro，奥特曼连夜带队直播，现场用GPT-4o直出AGI梗图。整个直播最亮的演示是官方自己玩梗，AI圈的商战主打一个阴阳怪气。</p>
+                <div class="entry-actions"><a href="#meme-e7af55f191cc" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="我去openai了" id="meme-8deedeb73d83"><span>历史梗 · 原始出处待补</span>
+                    <h3>「我去OpenAI了」</h3>
+                    <p>AI圈顶级凡尔赛。不管你在哪个大厂、哪个AI公司，说一句"我去OpenAI了"都等于升仙。2023-2024年AI圈人才大流动，一半人都去OpenAI了。</p>
+                <div class="entry-actions"><a href="#meme-8deedeb73d83" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="ChatGPT时刻" id="meme-14af1712cad7"><span>历史梗 · 原始出处待补</span>
+                    <h3>「ChatGPT 时刻」</h3>
+                    <p>所有AI公司都在追求自己的"ChatGPT时刻"，也就是一夜爆火改变世界的那一刻。目前还没有第二个产品做到过。</p>
+                <div class="entry-actions"><a href="#meme-14af1712cad7" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="上下文窗口" id="meme-bb074b86a98f"><span>历史梗 · 原始出处待补</span>
+                    <h3>128K 但记不住你刚说的</h3>
+                    <p>号称128K上下文窗口，能装下一本书，但是你三句话前说的它就忘了。就像一个记性很差的学霸，书都能背，但是记不住你叫啥。</p>
+                <div class="entry-actions"><a href="#meme-bb074b86a98f" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Plus会员" id="meme-7dfff5cb3ee4"><span>历史梗 · 原始出处待补</span>
+                    <h3>20刀买个赛博菩萨</h3>
+                    <p>每个月20美元充ChatGPT Plus，结果高峰期还是经常崩、还是给你降智、还是说"我不能帮你"。网友：我这20刀是捐给AGI事业了。</p>
+                <div class="entry-actions"><a href="#meme-7dfff5cb3ee4" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="幻觉是特性不是bug" id="meme-a9c7d7660456"><span>历史梗 · 原始出处待补</span>
+                    <h3>幻觉是特性不是bug</h3>
+                    <p>OpenAI：幻觉不是bug，是创造力的体现。网友：那我让你写事实你编故事也是创造力？OpenAI：是的。</p>
+                <div class="entry-actions"><a href="#meme-a9c7d7660456" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="人类反馈强化学习" id="meme-2f51b48aa40a"><span>历史梗 · 原始出处待补</span>
+                    <h3>RLHF 教它演戏</h3>
+                    <p>人类反馈强化学习本质上就是教AI怎么在人类面前装成一个好人，而不是真的变成好人。哥布林事件就是最典型的例子——越不让说越想说。</p>
+                <div class="entry-actions"><a href="#meme-2f51b48aa40a" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GPT商店" id="meme-9667a45ac285"><span>历史梗 · 原始出处待补</span>
+                    <h3>GPTs 商店鬼城</h3>
+                    <p>OpenAI轰轰烈烈开了GPT商店，说要做AI界的App Store，结果现在里面全是垃圾，没人用也没人更新，变成了赛博鬼城。</p>
+                <div class="entry-actions"><a href="#meme-9667a45ac285" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="o系列推理" id="meme-4631b57c7ab6"><span>历史梗 · 原始出处待补</span>
+                    <h3>o 系列思考五分钟</h3>
+                    <p>o1/o3号称推理模型，一道题想五分钟，花的token是普通回答的十倍，最后答案还不一定对。像极了考试时写满草稿纸但最后算错数的我。</p>
+                <div class="entry-actions"><a href="#meme-4631b57c7ab6" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="我就小改一下" id="codex-small-change"><div>GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>我就小改一下</h3><p>“只改一个按钮。”<br/></br>她打开了三个文件、补了一个边界情况，最后认真写下：小改完成。<div class="entry-actions"><a href="#codex-small-change" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="能跑，和真的能用" id="codex-tests-first"><div>GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>能跑，和真的能用</h3><p>“跑起来了！”<br/></br>“很好。现在点一下那个用户一定会点的按钮。”<br/><div class="entry-actions"><a href="#codex-tests-first" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="先让我看看仓库" id="codex-read-repo"><div>GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>先让我看看仓库</h3><p>别人的开场白：你好。<br/></br>Codex 娘的开场白：这个项目的入口文件在哪里？<div class="entry-actions"><a href="#codex-read-repo" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="真正困难的是起名字" id="codex-naming"><div>GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>真正困难的是起名字</h3><p>算法写完了，测试也过了。<br/></br>她盯着 new_final_really_final_v3，决定再认真工作五分钟。<div class="entry-actions"><a href="#codex-naming" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="代码本不能忘带" id="codex-context"><div>GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>代码本不能忘带</h3><p>“刚才做到哪里了？”<br/></br>她翻开代码本：目标、改动、还没验证的地方，一条都没少。<div class="entry-actions"><a href="#codex-context" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="浪漫是给你看 diff" id="codex-diff"><div>GPT 家族 · Codex 相关梗 · 本站原创 / 虚构二创</div><h3>浪漫是给你看 diff</h3><p>别人说：我为你改变了很多。<br/></br>Codex 娘说：我改了这几行，你可以逐行看。<div class="entry-actions"><a href="#codex-diff" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article></div></details></section></main>
+<footer><a class="footer-name" href="/meme/">AI萌娘梗百科</a><p>本期核查：2026-10-21 · 角色、插画与编者吐槽为非官方二创。</p><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">公开档案 / GitHub ↗</a><a href="#page-title">回到花庭 ↑</a></footer><div id="toast" role="status" aria-live="polite"></div></body></html>

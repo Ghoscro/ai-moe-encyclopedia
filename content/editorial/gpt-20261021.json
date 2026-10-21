@@ -1,0 +1,140 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "gpt-bread-adventure-202610",
+      "kind": "community",
+      "label": "本月社区 · 冒险题接梗",
+      "date": "2026-10-16",
+      "date_label": "10.16 原帖索引日期",
+      "title": "世界先等等，我选吃面包",
+      "lead": "冒险还没开始，评论区先点了一份吐司。",
+      "body": "Reddit 用户 No_Raise_7974 的“GPT-6 was so worth it”帖子，分享了一道荒诞冒险选择题：相信鸽子、和总统谈判、与电脑打架，或者吃面包。评论有人接着选面包，也有人把关注点转向了截图字体。",
+      "joke": "龙娘：命运的分岔路到了。\n我：先走面包店那条。",
+      "boundary": "记录的是网友公开分享的游戏画面与评论，不是本站复现；原始完整提示词和实际模型版本未独立核验。插画和中文标题为二创，不是原截图，也不据此评价模型能力。",
+      "sources": [
+        [
+          "Reddit · 原帖与评论",
+          "https://www.reddit.com/r/ChatGPT/comments/1x7ufl4/gpt6_was_so_worth_it/"
+        ]
+      ],
+      "image": "/meme/assets/gpt-20261021/feature.webp"
+    },
+    {
+      "id": "codex-composer-predictions",
+      "kind": "event",
+      "label": "本月功能 · 原创接梗",
+      "date": "2026-10-09",
+      "date_label": "10.09 功能公告",
+      "title": "你还没提需求，Codex先替你写好了",
+      "lead": "以前替我写代码，现在连甲方台词也准备了。",
+      "body": "10 月 9 日公布的输入框预测测试功能，会根据当前 Codex 会话建议下一条消息。按 Tab 接受后得到的是可编辑草稿，检查或修改完，再由你发送。",
+      "joke": "我正想说“再改一下”，她已经把这四个字写进输入框了。",
+      "boundary": "适用于符合条件的成年个人 Pro 用户、支持地区和指定模型的本地/SSH 会话；不是所有账号都有。接受建议不会自动发送。本条沿用原永久链接，Codex 日常继续归入 GPT 家族。",
+      "sources": [
+        [
+          "官方更新日志 · 10月9日",
+          "https://learn.chatgpt.com/docs/changelog"
+        ],
+        [
+          "Composer Predictions · 使用范围",
+          "https://learn.chatgpt.com/docs/features/composer-predictions"
+        ]
+      ],
+      "image": "/meme/assets/gpt-20261021/hero.webp"
+    },
+    {
+      "id": "gpt-model-seat-202610",
+      "kind": "event",
+      "label": "本月变更 · 原创接梗",
+      "date": "2026-10-14",
+      "date_label": "10.14 生效",
+      "title": "5.5 的工牌，先从这扇门收走",
+      "lead": "同一个型号，也要看从哪扇门进去。",
+      "body": "官方日志记录：10 月 14 日起，以 ChatGPT 账号登录 Codex 的用户不再使用 GPT-5.5；OpenAI API 和通过 API 密钥认证的 Codex 会话不受这次退役影响。",
+      "joke": "龙娘整理座位表：这边换班，那边的工牌先别收。",
+      "boundary": "本条只描述这次 Codex 登录方式对应的退役范围，不把它说成模型在所有入口消失。工牌、换班和座位表均为编者拟人化。",
+      "sources": [
+        [
+          "官方更新日志 · 10月14日",
+          "https://learn.chatgpt.com/docs/changelog"
+        ]
+      ],
+      "image": "/meme/assets/gpt-20261021/hero.webp"
+    }
+  ],
+  "promoted_existing_ids": [
+    "codex-composer-predictions"
+  ],
+  "legacy_ids": [
+    "codex-composer-predictions",
+    "meme-829af6f4009e",
+    "meme-bd2f11db1a2f",
+    "meme-d032eec68b72",
+    "meme-a739a7d6bf13",
+    "meme-0894d199d623",
+    "meme-e24d6e29115a",
+    "meme-55e40bf31b5e",
+    "meme-fd1a1e3201f2",
+    "meme-5b72c196c70c",
+    "meme-3515dce0f563",
+    "meme-a2ef553aeb34",
+    "meme-3dc649d7cc04",
+    "meme-f60a7cb76716",
+    "meme-38d4afbb521b",
+    "meme-03bf434fe89d",
+    "meme-0ab0136bb42d",
+    "meme-d6d378899413",
+    "meme-4fc3c8cb85fb",
+    "meme-4e8014d0d10d",
+    "meme-632d774a2f18",
+    "meme-530f5099ebd7",
+    "meme-7ec454934340",
+    "meme-4f20edabc425",
+    "meme-49b08e9aacc2",
+    "meme-48de02b36f64",
+    "meme-b24502c4de03",
+    "meme-cad1c5bb48ee",
+    "meme-44931dd8b848",
+    "meme-d511b52a2269",
+    "meme-7c233ab9c804",
+    "meme-debccbda8a97",
+    "meme-d4230096ed5b",
+    "meme-2ccddb0ea33a",
+    "meme-ddef052c177c",
+    "meme-2ef467e12b5b",
+    "meme-27a898ad9511",
+    "meme-5b98fc11f623",
+    "meme-d725333cfbef",
+    "meme-9e7d2af196df",
+    "meme-5efda0db9cfc",
+    "meme-6ba9f541619b",
+    "meme-6db05bf944c7",
+    "meme-0c809c4d1487",
+    "meme-7317161ff171",
+    "meme-5991be4ee6f4",
+    "meme-988c6503bdfb",
+    "meme-ff30d4c1a5e3",
+    "meme-e59dcd08a8fd",
+    "meme-76774c55295c",
+    "meme-e7af55f191cc",
+    "meme-8deedeb73d83",
+    "meme-14af1712cad7",
+    "meme-bb074b86a98f",
+    "meme-7dfff5cb3ee4",
+    "meme-a9c7d7660456",
+    "meme-2f51b48aa40a",
+    "meme-9667a45ac285",
+    "meme-4631b57c7ab6",
+    "codex-small-change",
+    "codex-tests-first",
+    "codex-read-repo",
+    "codex-naming",
+    "codex-context",
+    "codex-diff"
+  ]
+}
