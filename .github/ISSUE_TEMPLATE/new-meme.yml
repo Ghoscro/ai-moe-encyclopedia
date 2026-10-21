@@ -1,0 +1,35 @@
+name: 新梗线索
+description: 分享一个值得收录的梗或趣事，维护者可以协助整理成PR。
+title: "[新梗] "
+body:
+  - type: dropdown
+    id: character
+    attributes:
+      label: 角色或专题
+      options: [Claude, 豆包, GPT龙娘, Codex娘, DeepSeek, Kimi, GLM, Grok, Sudo, AI陪伴]
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: 梗名
+    validations:
+      required: true
+  - type: textarea
+    id: story
+    attributes:
+      label: 发生了什么，哪里好笑
+      description: 事实、转述与原创虚构请写清楚；请勿包含私人对话或个人信息。
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 原始出处链接（有的话）
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: 公开投稿
+      options:
+        - label: 我有权公开这些内容，接受 CONTRIBUTING.md 中的投稿授权。
+          required: true

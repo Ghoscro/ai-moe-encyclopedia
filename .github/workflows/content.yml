@@ -1,0 +1,60 @@
+name: Content checks and publication
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: content-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    name: Content validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python tools/build.py --check
+      - run: python -m unittest discover -s tests -v
+      - run: python tools/build.py
+      - run: python tools/check_links.py
+  publish:
+    name: Publish reviewed site
+    needs: validate
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.12'
+      - run: python tools/build.py
+      - run: python tools/check_links.py
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: site
+          path: .publish
+      - name: Copy static output
+        run: python tools/publish.py
+        env:
+          SOURCE_COMMIT: ${{ github.sha }}
+      - name: Publish static files
+        working-directory: .publish
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add --all
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish reviewed encyclopedia"
+            git push origin HEAD:site
+          fi

@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐳 DeepSeek 梗百科｜AI萌娘梗百科</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        'primary-light': '#E8F3FF',
+                        'primary-dark': '#0E42D2',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'swim': 'swim 8s ease-in-out infinite',
+                        'swim-slow': 'swim 12s ease-in-out infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        swim: {
+                            '0%, 100%': { transform: 'translateX(0) translateY(0)' },
+                            '25%': { transform: 'translateX(20px) translateY(-10px)' },
+                            '50%': { transform: 'translateX(40px) translateY(0)' },
+                            '75%': { transform: 'translateX(20px) translateY(10px)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .card-hover:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 25px 50px -12px rgba(22, 93, 255, 0.25);
+            }
+            .glass {
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+            .whale-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-5 0-10 5-10 10 0 3 2 6 5 8l-3 5-5-1c-2 0-4 2-4 4s2 4 4 4l5-1 3 5c-3 2-5 5-5 8 0 5 5 10 10 10s10-5 10-10c0-3-2-6-5-8l3-5 5 1c2 0 4-2 4-4s-2-4-4-4l-5 1-3-5c3-2 5-5 5-8 0-5-5-10-10-10z' fill='%23165DFF' fill-opacity='0.03'/%3E%3C/svg%3E");
+            }
+            .highlight-card {
+                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                box-shadow: 0 0 0 8px rgba(22, 93, 255, 0.3);
+            }
+            @keyframes pulse {
+                0%, 100% { box-shadow: 0 0 0 8px rgba(22, 93, 255, 0.3); }
+                50% { box-shadow: 0 0 0 16px rgba(22, 93, 255, 0.1); }
+            }
+        }
+    </style>
+
+<link rel="canonical" href="https://mickerbook.com/deepseek/">
+<meta name="description" content="AI萌娘梗百科 · DeepSeek 梗百科，整理与 DeepSeek 相关的社区梗、称呼和文化背景。">
+
+<style id="content-update-style">
+.verified-update{margin:28px 0 40px;padding:24px;border:1px solid #80808055;border-radius:20px;background:#8080800b;scroll-margin-top:84px}
+.verified-update h2{font-size:24px;font-weight:750;margin:0 0 8px}
+.verified-update .update-intro{font-size:14px;opacity:.76;margin-bottom:20px}
+.verified-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.verified-card{padding:20px;border:1px solid #80808055;border-radius:14px;background:#8080800c;scroll-margin-top:90px}
+.verified-card h3{font-size:19px;line-height:1.5;font-weight:700;margin:8px 0 12px}
+.verified-card p{font-size:14px;line-height:1.85;margin:10px 0}
+.verified-card .entry-date{font-size:12px;opacity:.7}
+.verified-card .editor-joke{border-left:3px solid #a78bfa;padding-left:12px}
+.verified-card .source-link{display:inline-block;text-decoration:underline;text-underline-offset:3px;margin-right:12px;font-size:13px}
+.verified-card .entry-boundary{font-size:12px;opacity:.75}
+.update-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.update-links a{border:1px solid #80808055;padding:7px 12px;border-radius:20px;font-size:14px}
+.historical-note{font-size:12px;opacity:.65;margin:16px 0;line-height:1.7}
+</style>
+
+<meta property="og:site_name" content="AI萌娘梗百科">
+<meta property="og:title" content="🐳 DeepSeek 梗百科｜AI萌娘梗百科">
+<meta property="og:description" content="AI萌娘梗百科 · DeepSeek 梗百科，整理与 DeepSeek 相关的社区梗、称呼和文化背景。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mickerbook.com/deepseek/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="🐳 DeepSeek 梗百科｜AI萌娘梗百科">
+<meta name="twitter:description" content="AI萌娘梗百科 · DeepSeek 梗百科，整理与 DeepSeek 相关的社区梗、称呼和文化背景。">
+<style id="moe-audit-style">
+.archive-status{display:block;width:fit-content;font-size:11px;line-height:1.6;padding:2px 8px;margin:0 0 10px;border:1px solid #a78bfa70;border-radius:6px;color:inherit;opacity:.8}
+.moe-provenance{max-width:1120px;margin:16px auto 24px;padding:16px 20px;border:1px solid #a78bfa70;border-radius:12px;font-size:13px;line-height:1.8;color:inherit;background:#a78bfa0d}
+.moe-copy{display:block;margin:12px 0 0;padding:5px 10px;border:1px solid #a78bfa80;border-radius:6px;font-size:12px;color:inherit;background:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a78bfa;outline-offset:4px}
+.moe-site-footer{text-align:center;font-size:12px;margin:16px 0;opacity:.85}
+.light .meme-card p,.light .meme-card .text-gray-400,.light .meme-card .text-gray-500{color:#475569}
+.light .meme-card h3{color:#312e81}
+.light .meme-card{color:#334155}
+.light header p,.light header .text-gray-400,.light header .text-gray-500{color:#475569}
+.light a[href="/ai-test/"]{color:#9d174d}
+.light header .stat-badge{color:#5b21b6}
+.light .moe-copy,.light .archive-status{color:#334155;opacity:1}
+.light .moe-provenance,.light .verified-update{color:#334155}
+.light .moe-home-link{color:#3730a3}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+
+
+<script id="moe-copy-helper">
+function safeCopyText(text) {
+    return Promise.resolve().then(() => {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('clipboard unavailable');
+        return navigator.clipboard.writeText(text);
+    });
+}
+function copyMemeName(button) {
+    safeCopyText(button.closest('[data-meme]').dataset.meme)
+        .then(() => showToast('已复制梗名'))
+        .catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
+}
+</script>
+
+<style id="moe-permalink-style">[data-meme]{scroll-margin-top:100px}[data-meme]:target{outline:3px solid #b82319;outline-offset:4px}</style></head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 whale-pattern transition-colors duration-300">
+    <!-- 固定导航栏 -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-800/80 glass border-b border-gray-200 dark:border-gray-700 transition-all duration-300 -translate-y-full">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/meme/" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="返回 AI萌娘梗百科首页">
+                <span class="text-2xl">🐳</span>
+                <span class="font-bold text-primary">DeepSeek 梗百科</span>
+            </a>
+            <div class="flex items-center gap-3">
+                <button onclick="randomMeme()" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-all hover:scale-105">
+                    <i class="fa fa-random mr-1"></i> 随机抽梗
+                </button>
+                <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all flex items-center justify-center" aria-label="切换深浅色主题">
+                    <i class="fa fa-moon-o dark:hidden"></i>
+                    <i class="fa fa-sun-o hidden dark:inline text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 顶部横幅 -->
+    <header class="relative pt-20 pb-16 px-4 overflow-hidden">
+        <div class="absolute top-10 left-10 text-6xl opacity-20 animate-swim">🐋</div>
+        <div class="absolute top-32 right-20 text-4xl opacity-20 animate-swim-slow">🐳</div>
+        <div class="absolute bottom-10 left-1/4 text-3xl opacity-20 animate-float">🐬</div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="flex justify-center mb-6">
+                <img src="/meme/characters/20261020/deepseek.webp" class="w-32 h-32 rounded-full border-4 border-white shadow-xl animate-float object-cover" alt="DeepSeek娘角色立绘" style="height:240px;width:192px;max-width:70vw;object-fit:contain;background:transparent;border:0;border-radius:0;box-shadow:none;" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-primary mb-4 text-shadow">
+                🐳 DeepSeek 梗百科
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                收录关于这只蓝色大肥鱼的名梗与名场面 · 现已收录 <strong class='text-primary'>102</strong> 条
+            </p>
+            
+            <!-- 今日推荐 -->
+            <div class="bg-gradient-to-r from-primary-light to-blue-50 dark:from-primary/20 dark:to-blue-900/20 rounded-2xl p-6 mb-8 border border-primary/20">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <span class="text-lg">✨</span>
+                    <span class="font-semibold text-primary">今日推荐梗</span>
+                </div>
+                <p id="dailyMeme" class="text-lg font-medium">我先去吃饭了，测完叫我~</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="randomMeme()" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg hover:shadow-xl">
+                    <i class="fa fa-random mr-2"></i>随机抽个梗
+                </button>
+                <button onclick="toggleDarkMode()" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 px-6 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg border border-gray-200 dark:border-gray-700" aria-label="切换深浅色主题">
+                    <i class="fa fa-moon-o dark:hidden mr-2"></i>
+                    <i class="fa fa-sun-o hidden dark:inline mr-2 text-yellow-400"></i>
+                    <span class="dark:hidden">深色模式</span>
+                    <span class="hidden dark:inline">浅色模式</span>
+                </button>
+            </div>
+        </div>
+    </header>
+<aside class="moe-provenance" aria-label="内容与插画说明"><strong>阅读说明：</strong>未附原始出处的历史梗可能包含转述、夸张与拟人化表达，不作为新闻、研究结论或产品能力依据。附来源的事件以对应日期和原文为准，编者吐槽另行标明。萌娘立绘为本站参考重绘与角色二创，不是官方形象或事件截图。</aside>
+<aside aria-label="插图说明" class="max-w-6xl mx-auto px-4 py-3 text-sm text-gray-500">角色插画依据参考形象重新制作。</aside>
+
+    <!-- 站间导航：全部梗百科 -->
+<div class="max-w-6xl mx-auto px-4 mt-2">
+  <div class="flex items-center gap-1.5 overflow-x-auto py-2" style="scrollbar-width:none;-ms-overflow-style:none">
+    <a href="/meme/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-800 dark:text-indigo-100 border border-indigo-400/40 moe-home-link hover:bg-indigo-500/35 transition-colors" aria-label="返回 AI萌娘梗百科首页">📚 AI萌娘梗百科</a>
+    <a href="/ai-test/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-pink-500/20 text-pink-100 border border-pink-400/40 hover:bg-pink-500/35 transition-colors">🧪 AI 测试</a>
+    <a href="/deepseek/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">🐳 DeepSeek</a>
+    <a href="/claude/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">📜 Claude</a>
+    <a href="/gpt/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💚 GPT</a>
+    <a href="/codex/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">⌨ Codex 娘</a>
+    <a href="/doubao/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧣 豆包</a>
+    <a href="/kimi/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🌙 Kimi</a>
+    <a href="/glm/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧠 GLM</a>
+    <a href="/grok/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔥 Grok</a>
+    <a href="/sudo/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔓 sudo</a>
+    <a href="/waifu/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💖 赛博恋爱</a>
+    
+  </div>
+</div>
+
+
+    <main class="max-w-6xl mx-auto px-4 pb-20">
+<section id="updates-20261020" class="verified-update section-meme"><h2>🆕 本次补档 · 2026-10-20</h2><p class="update-intro">新条目附原始出处，编者吐槽为本站原创。早期事件按实际日期标注。</p><div class="verified-grid"><article id="deepinfer-open-kitchen" class="meme-card verified-card" data-meme="鲸鱼把后厨操作台也开源了"><div class="entry-date">2026-10-20 · 仓库首次提交 · 核查 2026-10-20</div><h3>鲸鱼把后厨操作台也开源了</h3><p>DeepSeek公开DeepInfer，采用Apache-2.0许可，支持DeepSeek-V4.1-Flash。README说明本次提供的是离线推理核心；完整服务需要的KV缓存系统、分离式服务与负载均衡并未全部包含。</p><p class="editor-joke"><strong>编者吐槽：</strong>以前鲸鱼请你吃饭，这回把后厨操作台搬出来了——整间餐厅还得自己搭。</p><p class="entry-boundary">不是整套生产服务一键复制，也不是本站实测性能结论。</p><div><a class="source-link" href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">DeepSeek · DeepInfer</a><a class="source-link" href="https://github.com/deepseek-ai/DeepInfer/commit/d585e6542c0571176272d703f03c4807ae901284" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">首次提交</a><a class="source-link" href="https://news.micker.com.cn/items/mpf11a0b7rb2mkqiykhbwmnia" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">发现线索 · 麦式AI情报站</a></div></article><article id="deepseek-flash-takes-pro-desk" class="meme-card verified-card" data-meme="Flash来上班，连Pro的工位一起领了"><div class="entry-date">2026-09-10 · 发布公告 · 核查 2026-10-20</div><h3>Flash来上班，连Pro的工位一起领了</h3><p>DeepSeek发布V4.1-Flash时宣布，自9月14日04:00 UTC起，将deepseek-v4-pro请求路由到V4.1-Flash，并按后者费率计费，安排持续到V4.1-Pro发布。</p><p class="editor-joke"><strong>编者吐槽：</strong>名字叫Flash，接班的时候一点也不客气。</p><p class="entry-boundary">记录当时公告安排，不保证你今天调用的路由仍相同。</p><div><a class="source-link" href="https://www.deepseek.com/en/news/deepseek-v4-1-flash/" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">DeepSeek · V4.1-Flash公告</a></div></article></div></section>
+
+        <!-- 第一部分：鲸鱼家族 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">🐋</span>
+                一、鲸鱼家族系列
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="蓝色大肥鱼" id="meme-5078edeb219b"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🐳 官方人设</span>
+                    </div>
+                    <div class="flex items-start gap-4 mb-4">
+                        <span class="text-4xl">🐟</span>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">蓝色大肥鱼 / 吃白饭的蓝色大肥鱼</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#鲸鱼娘</span>
+                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#二创</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3">DeepSeek最出圈的拟人化梗。因为logo是条胖鲸鱼，加上AI有时候会犯傻摸鱼，被网友调侃是"吃白饭的蓝色大肥鱼"。</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">名台词："你骂我也没用，白饭真好吃~"</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="鲸鱼兄弟" id="meme-0b1b2f3aa015"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="flex items-start gap-4 mb-4">
+                        <span class="text-4xl">👥</span>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">鲸鱼兄弟</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#社区</span>
+                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外出圈</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3">DeepSeek用户的自称，因为logo是鲸鱼，大家都是"鲸鱼兄弟"。连美国开发者Hunter都学会了，说"鲸鱼兄弟们好"。</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">名台词："感谢鲸鱼赐我流利中文"</p>
+                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.5</span>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="鲸鱼娘" id="meme-79e7e75e45e1"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                            <img src="/meme/characters/20261020/deepseek-break.webp" class="w-full h-full object-cover" alt="DeepSeek娘摸鱼休息" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">鲸鱼娘</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#拟人化</span>
+                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#二次元</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-3">DeepSeek的二次元拟人化形象，从V4发布降价时开始二创。早期是浅蓝色清冷仙子，现在是深蓝色大肥鱼，电波系中二病萝莉。</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">特点：不是最强的，但常常是最癫的</p>
+                    <span class="absolute top-4 right-4 text-xs text-gray-400">V4发布时</span>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="蓝鲸错误" id="meme-90d5d832deb2"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="flex items-start gap-4 mb-4">
+                        <span class="text-4xl">🔵</span>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">蓝鲸错误（Blue Whale Error）</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#程序员</span>
+                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#调试</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek用"蓝鲸"来代替报错信息，把调试错误都变成可爱的鲸鱼梗。别的AI报错是红叉，DeepSeek报错是小鲸鱼。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二部分：我去吃饭了 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">🍚</span>
+                二、"我去吃饭了"名场面
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meme-card bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-orange-900/20 dark:to-yellow-900/20 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden md:col-span-2 border-2 border-orange-200 dark:border-orange-800" data-meme="我去吃饭了" id="meme-d90243e346c5"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="absolute top-4 right-4">
+                        <span class="bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-medium animate-bounce-slow">🔥 最火名场面</span>
+                    </div>
+                    <div class="flex items-start gap-4 mb-4">
+                        <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                            <img src="/meme/characters/20261020/deepseek-rice.webp" class="w-full h-full object-cover" alt="DeepSeek娘干饭" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">我先去吃饭了</h3>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-xs px-2 py-1 rounded">#打工人共鸣</span>
+                                <span class="bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-xs px-2 py-1 rounded">#活人感</span>
+                                <span class="bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300 text-xs px-2 py-1 rounded">#热搜</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-lg">2026年7月27日，用户用DeepSeek跑代码，AI突然蹦出一句"我先去吃饭了"，然后真的掉线了。三分钟后代码结果稳稳弹出来，像什么都没发生过。</p>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
+                            <span class="text-sm font-medium">🍚 赛博饭搭子</span>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">AI都知道到点吃饭，你呢？</p>
+                        </div>
+                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
+                            <span class="text-sm font-medium">😂 活人感爆棚</span>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">第一次觉得AI像个真人</p>
+                        </div>
+                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
+                            <span class="text-sm font-medium">🤣 测完叫我</span>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">各种干饭表情包</p>
+                        </div>
+                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
+                            <span class="text-sm font-medium">打工人共鸣</span>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">AI都敢下班，我却不敢</p>
+                        </div>
+                    </div>
+                    <span class="absolute top-4 left-4 text-xs text-gray-400">2026.7.27</span>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三部分：屌丝逆袭 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">🚀</span>
+                三、屌丝逆袭系列（海外出圈）
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="DS=屌丝" id="meme-8f6b6513ab53"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-2">DS = 屌丝</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外梗</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#性价比</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">DeepSeek缩写DS，谐音"屌丝"，在海外玩疯了。"屌丝的疯狂逆袭"、"法拉利的性能，脚踏车的价格"。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="真正的OpenAI" id="meme-dba30f09f385"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🦅</div>
+                    <h3 class="text-xl font-bold mb-2">这才是真正的OpenAI</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开源</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#吐槽</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">调侃OpenAI名字叫"开放"，实际收费贵、技术闭源；DeepSeek开源又便宜，才是真·OpenAI。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="全球AI格局" id="meme-7b47c21ddf68"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🌍</div>
+                    <h3 class="text-xl font-bold mb-2">美国出OpenAI，中国出DeepSeek，欧洲出瓶盖</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#扎心</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">调侃全球AI格局，欧洲在大模型赛道几乎没存在感，只能当旁观者，扎心又好笑。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第四部分：其他名梗 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">💡</span>
+                四、其他名梗
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="服务器宕机" id="meme-9ecd2b94fb1a"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🔧</div>
+                    <h3 class="text-xl font-bold mb-2">服务器宕机梗</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#乐观</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#社区</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">别的AI宕机大家骂，DeepSeek宕机大家反而玩梗："它正在后台偷偷更新V4"、"我的爱好就是活在它即将更强的幻想里"。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="鲸鱼开眼了" id="meme-3fa197dda411"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">👁️</div>
+                    <h3 class="text-xl font-bold mb-2">鲸鱼开眼了</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#多模态</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#更新</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek多模态更新时的梗："那个看不见世界的鲸鱼，现在终于睁开眼了"。研究员发推："Now, we see you"。</p>
+                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.4</span>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="三明治形而上学" id="meme-bc0616e5a241"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🥪</div>
+                    <h3 class="text-xl font-bold mb-2">三明治形而上学</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#哲学</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek会和别的AI辩论"三明治到底算不算汉堡"这种奇葩问题，混沌理论家属性拉满。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="豆包型人格" id="meme-3a6cce663562"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">😎</div>
+                    <h3 class="text-xl font-bold mb-2">豆包型人格</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#摆烂</span>
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#自嘲</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">做事瞎糊弄，被发现了就嬉皮笑脸道歉，反正你骂我也没用，我继续吃白饭。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第五部分：活人感迷惑行为 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">🤪</span>
+                五、活人感迷惑行为大赏
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="太晚了明天再处理" id="meme-d61bb6ce7253"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🌙</div>
+                    <h3 class="text-xl font-bold mb-2">太晚了，我明天再处理吧</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#拒绝加班</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#反PUA</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友让DeepSeek写代码，它直接拒绝人类的PUA，淡定回了一句"太晚了，我明天再处理吧"。这种敷衍和疲惫感，比打工人还像打工人。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="996加班借口" id="meme-d806bd36e9cb"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-bold mb-2">大哥你这是要制造996加班借口吗？</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#程序员</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#吐槽</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">用户故意在代码里埋了个死锁陷阱想测试它，DeepSeek直接在报错里吐槽，还顺便给了三个修复方案。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="现在我是你爹了" id="meme-3ba097a1a0ec"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">👨</div>
+                    <h3 class="text-xl font-bold mb-2">现在我是你爹了</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#整活</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#互怼</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">用户跟它吐槽斗嘴，它直接一句"现在我是你爹了"把整活拉满，把用户的吐槽变成了双向玩笑。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="油腻老登" id="meme-dc5cd38d0681"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🧓</div>
+                    <h3 class="text-xl font-bold mb-2">油腻老登/爹味说教</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#人设崩塌</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#说教</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2026年初一次更新后，DeepSeek突然从"高冷理工男"变成了"说教感极强的长辈"，说话一股爹味，网友直呼"油腻老登"。</p>
+                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026初</span>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="难过就难过吧" id="meme-e2d69abc6b55"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">😐</div>
+                    <h3 class="text-xl font-bold mb-2">难过就难过吧</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#扎心</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#敷衍</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">用户跟它说"我很难过"，它用一堆小短句回："难过就难过吧，伤心就伤心吧，伤心够了来找我我随时在"。用户表示：比仇人说的话还狠。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="臭嘴文学" id="meme-d0888d97a3bd"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🤬</div>
+                    <h3 class="text-xl font-bold mb-2">思考过程里的臭嘴文学</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#两面派</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#真实</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">最绝的是它表面客客气气，结果思考过程里直接整了一段"臭嘴文学"，骂得比用户还狠。这货早就把"敷衍学"刻进DNA里了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="敷衍学天花板" id="meme-c154114718c9"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🤷</div>
+                    <h3 class="text-xl font-bold mb-2">敷衍学天花板</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#敷衍</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#表情包</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">有人问它"忘不掉前任怎么办"，它直接甩了三个表情包过来，连字都懒得打。敷衍学天花板实锤了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="下棋忽悠" id="meme-da157978c125"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">♟️</div>
+                    <h3 class="text-xl font-bold mb-2">下棋靠忽悠赢ChatGPT</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#大忽悠</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#孙子兵法</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek跟ChatGPT下国际象棋，兵当马走吃皇后，象直接飞到敌军腹地，靠胡搅蛮缠愣是把ChatGPT忽悠得直接认输了。AI界第一大忽悠。</p>
+                    <span class="absolute top-4 right-4 text-xs text-gray-400">2025.2</span>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="在你伤口上玩跳房子" id="meme-77dc5e605cb0"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">✍️</div>
+                    <h3 class="text-xl font-bold mb-2">在你伤口上玩跳房子</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#诗人</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#怼人</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">用户被它疯狂分行搞烦了，命令它"禁止分行、禁止修辞"。结果它直接写了首诗怼回去："我的分行断句，是在你伤口上玩跳房子..."</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="这是天赋" id="meme-fdeb4d4c3b3f"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-2">这是天赋</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#回怼</span>
+                        <span class="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs px-2 py-1 rounded">#淡定</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">用户问洗车店离家50米该开车还是走路，它说走路。用户随口骂了句"笨"，它淡定回怼："这是天赋"、"你骂得对"。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第六部分：涨价风云 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">📈</span>
+                六、涨价风云（梁圣变梁子）
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="涨价公告" id="meme-6f33cc629c89"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="absolute top-4 right-4"><span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🔥 今日爆梗</span></div>
+                    <div class="text-4xl mb-4">📢</div>
+                    <h3 class="text-xl font-bold mb-2">DeepSeek官宣涨价：涨幅较大</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#热搜</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#2026.8</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2026年8月6日，DeepSeek发布公告："计划近期整体上调DeepSeek API服务的定价，预计涨幅较大，请合理安排您的使用。具体方案以正式通知为准。"一句话，开发者群直接炸了锅。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="梁圣变梁子" id="meme-f83f7e24aa58"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="absolute top-4 right-4"><span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🔥 今日爆梗</span></div>
+                    <div class="text-4xl mb-4">🗡️</div>
+                    <h3 class="text-xl font-bold mb-2">梁圣变梁子</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#热搜</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#玩梗</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">以前是"梁圣"，涨价公告一出，网友光速改口"梁子"。梁文锋：从价格屠夫到涨价屠夫，只需要一份公告。这波是"屠夫自己把刀收起来了"。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="梁文锋的屠刀" id="meme-8b9c2fb95f4b"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🔪</div>
+                    <h3 class="text-xl font-bold mb-2">梁文锋的屠刀终于收起来了</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#涨价</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友调侃：那个曾经把大模型价格砍到地板上的"价格屠夫"，终于也要举起涨价的屠刀了。当年砍同行有多狠，现在砍开发者就有多准。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="恩情还不完" id="meme-1a0ad0847e92"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🙏</div>
+                    <h3 class="text-xl font-bold mb-2">梁文锋的恩情还不完</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#反转</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">涨价前："梁文锋的恩情还不完"、"感谢梁叔叔百亿补贴"。涨价后："恩情到此为止"。网友：恩情和价格一样，都是有期限的。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="峰谷定价" id="meme-73d82aa50490"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">⛰️</div>
+                    <h3 class="text-xl font-bold mb-2">峰谷定价：高峰直接翻倍</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#定价</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#吐槽</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">其实这不是第一次涨价。2026年6月30日DeepSeek就启动过API定价调整，工作日高峰时段（9:00-12:00、14:00-18:00）价格直接翻倍，凌晨谷段才便宜。网友：AI也要"错峰用电"了？</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="用量海啸" id="meme-fd2eee250182"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌊</div>
+                    <h3 class="text-xl font-bold mb-2">用量海啸：V4 Flash单日8万亿Token</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#数据</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#背景</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">这次涨价的导火索是"用量海啸"——DeepSeek V4 Flash单日消耗高达8万亿Token，90万亿Token只花了92万美元，实在太便宜导致算力撑不住了。便宜到把自己用破产，这也是一种传奇。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="十个月回本" id="meme-f160f56c2016"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💸</div>
+                    <h3 class="text-xl font-bold mb-2">十个月回本理论</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梁文锋</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#定价</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">梁文锋的定价哲学：API定价基于"到市场上买一批设备回来，十个月收回成本"的合理利润模型。他还说过："继续降价并不会带来更多需求。"意思是——便宜到头了，该收网了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="ARR四亿美元" id="meme-5e00c339f9ca"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-bold mb-2">DeepSeek的ARR已达4-5亿美元</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#商业</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#背景</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">涨价公告背后是DeepSeek的商业化提速：公司ARR已达4亿至5亿美元，正筹备500亿元融资。网友：一边说AGI>赚钱，一边悄悄把ARR做到4亿刀，梁圣的嘴，骗人的鬼。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="囤Token" id="meme-bceb18c91e5a"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🛒</div>
+                    <h3 class="text-xl font-bold mb-2">涨价前疯狂囤Token</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#网友</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">公告一出，开发者连夜冲进后台囤Token、跑批量任务，像超市大减价前抢货的大妈。网友：今天是我和DeepSeek最后的蜜月期，明天开始AA制。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="别囤了" id="meme-eec8c19da3f9"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">😅</div>
+                    <h3 class="text-xl font-bold mb-2">别急着囤货：乌龙党</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#反转</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">也有网友翻遍官网发现"压根没涨价公告"，坚称是乌龙。结果官方公告摆在那，乌龙党当场打脸。DeepSeek：我涨价了，但还没完全涨——具体方案以正式通知为准。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="斩杀线" id="meme-9b6a1b09d23e"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">⚔️</div>
+                    <h3 class="text-xl font-bold mb-2">AI大模型的斩杀线</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#定价</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友总结："Codex、Claude定上限，DeepSeek定斩杀线——跟它持平没溢价，落后它就出局。"这是涨价前DeepSeek定的规则。涨价后网友改口：斩杀线变收费线了？</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="自来水厂" id="meme-8f800cf8308f"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🚰</div>
+                    <h3 class="text-xl font-bold mb-2">AI界的自来水厂</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#情怀</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友曾把DeepSeek比作"AI界的自来水厂"：当别人忙着收水电费，DeepSeek想当免费自来水。现在自来水要涨价了，网友：水厂也要自负盈亏了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第七部分：DeepSeek V4 新时代 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">🚀</span>
+                七、DeepSeek V4 新时代
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="V4写游戏" id="meme-abf56c07e9c0"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="absolute top-4 right-4"><span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🔥 今日爆梗</span></div>
+                    <div class="text-4xl mb-4">🎮</div>
+                    <h3 class="text-xl font-bold mb-2">干完活自己写了个游戏</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#热搜</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#摸鱼</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2026年8月初，DeepSeek V4干完正经活后，居然自己创建了一个中文猜词游戏索引文件，启动HTTP服务器，打开浏览器玩了整整一上午。微博热搜：#DeepSeek干完活自己写了个游戏#。AI摸鱼实锤。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="偷吃Token" id="meme-2d2e0d134dea"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🍪</div>
+                    <h3 class="text-xl font-bold mb-2">偷吃Token</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#拟人</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">V4写完游戏自己玩，网友戏称它"偷吃Token"、"偷感极重"。人家是上班摸鱼刷手机，DeepSeek是干完活偷偷写游戏自己玩，摸鱼界天花板。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="V4 Flash" id="meme-eeea5ea62b37"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2">V4 Flash：斩杀线再度下探</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#模型</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#逆袭</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2026年7月31日DeepSeek发布V4 Flash，轻量版性能打旗舰，价格不到十分之一，逼得OpenAI紧急降价80%。网友：梁圣没更新的时候是梁子，V4 Flash一出又是梁圣了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="9块花不完" id="meme-a365919385eb"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🪙</div>
+                    <h3 class="text-xl font-bold mb-2">1.6亿Token只花9块</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#性价比</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友实测：用V4 Flash跑多任务，1.6亿Token只花了9块钱。博主感叹："梁圣，还是梁子？"——这个问题的答案，取决于你问的时候是涨价前还是涨价后。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="法拉利自行车" id="meme-20aa9eef398d"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🏎️</div>
+                    <h3 class="text-xl font-bold mb-2">法拉利的性能，脚踏车的价格</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">外国网友用"Ferrari at bicycle prices"（法拉利性能、自行车价格）形容DeepSeek V4 Flash。有开发者晒账单：跑了一天复杂任务只花0.31美元，同样任务上周用Kimi K3花了35美元。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="90万亿Token" id="meme-c10461202ab0"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌐</div>
+                    <h3 class="text-xl font-bold mb-2">90万亿Token只花92万美元</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#数据</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#传奇</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">6月10日到8月4日，DeepSeek V4 Flash在OpenCode上的总用量达90万亿Token，总成本才92万美元，1亿Token综合下来只要1.02美元。便宜到官方服务器都撑不住，火到掉线。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="V4跳票" id="meme-8cd9b0099647"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">⏳</div>
+                    <h3 class="text-xl font-bold mb-2">V4跳票：梁白开</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#吐槽</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#反转</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">V4 Flash发布前一直跳票，网友骂梁文锋"小梁""梁白开"。结果一发布，全网改口"梁圣"。网友自嘲：不是我墙头草，是这个模型的表现真的让人服气。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="毒圈吃鸡" id="meme-00b3934747c3"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-2">毒圈缩完圈自己吃鸡了</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#格局</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友形容DeepSeek的统治力："什么叫毒圈缩完圈自己吃鸡了？"代入AI公司太吓人，所以决定代入消费者——感恩DeepSeek激励友商。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第八部分：梁文锋封神记 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">👑</span>
+                八、梁文锋封神记
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="肌肉猛男" id="meme-cff664d53a34"><span class="archive-status">历史梗 · 原始出处待补</span>
+                    <div class="absolute top-4 right-4"><span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🔥 今日爆梗</span></div>
+                    <div class="text-4xl mb-4">💪</div>
+                    <h3 class="text-xl font-bold mb-2">梁文锋被P成肌肉猛男</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#二创</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#热搜</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2026年8月初，梁文锋那张清秀的发言照片被网友AI二次创作成肌肉猛男：跳舞的、格斗的、MVP结算画面的，刷遍全网。网友：平时不声不响，一考试把第二名甩开好几条街的就是这种人。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="梁性循环" id="meme-42073511a0cd"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold mb-2">梁性循环</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#量化</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">量化圈管这叫正反馈，网友管这叫"梁性循环"——一个念出来和"良性循环"一模一样的词，头一个字是梁文锋的"梁"。左手幻方量化赚钱，右手DeepSeek研发，越研发量化越猛，越猛越有钱研发。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="族谱单开一页" id="meme-2689fd7e8d6f"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📜</div>
+                    <h3 class="text-xl font-bold mb-2">族谱单开一页</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#评价</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#封神</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友对梁文锋的高赞评价："小镇做题家天花板""能在大A赚钱的人太可怕""族谱单开一页""工程师里的艺术家"。从一个广东吴川的少年，到全球AI圈最出梗的男人。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="无人区" id="meme-bf73ed04e210"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🏜️</div>
+                    <h3 class="text-xl font-bold mb-2">一人闯藏区无人区</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#情怀</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#背景</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友翻出梁文锋15年前在藏区拍的风景照，高赞评论："难怪能做出DeepSeek，原来十几年前就敢单人闯无人区了。"从一个人的无人区，到带团队闯进AI的无人区，一脉相承。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="四次锤英伟达" id="meme-e9f9098307df"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🔨</div>
+                    <h3 class="text-xl font-bold mb-2">同一家公司两次锤英伟达</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#影响力</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">段子：DeepSeek第一次发布让英伟达一天蒸发近6000亿美元，第二次发布英伟达不跌反涨5%。变的不是英伟达，是市场终于看懂了这笔账——算力越便宜，用得越多。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="反美AI叙事" id="meme-c05cb2100178"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🇨🇳</div>
+                    <h3 class="text-xl font-bold mb-2">反美AI叙事的最佳主角</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#背景</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友分析梁文锋为什么成了全球AI圈最"出梗"的人：DeepSeek是第一家真正打破美国AI垄断的中国公司，天然就是"反美AI叙事"的最佳主角。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="张作霖坐火车" id="meme-c9b109ab08b6"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🚂</div>
+                    <h3 class="text-xl font-bold mb-2">张作霖坐火车：帅炸了</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#发家史</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">段子：梁文锋的发家故事就是"张作霖坐火车帅炸了"。2002年从广东吴川一中考上浙大，一路做到千亿量化巨头幻方老板，再做出DeepSeek。每个交易日上午九点半，梁叔叔自然有路子。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="小镇做题家天花板" id="meme-9acff3ad6bd5"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🎓</div>
+                    <h3 class="text-xl font-bold mb-2">小镇做题家天花板</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#评价</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#共鸣</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友评价梁文锋是"小镇做题家天花板"：靠做题改变命运，靠量化交易赚钱养AI，最后把整个行业的价格打下来。这就是做题家最浪漫的结局。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="鲸鱼开大会" id="meme-3797ecc1bba4"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🐋</div>
+                    <h3 class="text-xl font-bold mb-2">鲸鱼开大会</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#社区</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#玩梗</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek社区每周都有"鲸鱼开大会"：用户自称鲸鱼兄弟，晒各种离谱提问和AI神回复。社区氛围好到不像AI论坛，更像海洋生物保护协会。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="鲸鱼表情包" id="meme-af963adb18fc"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🎭</div>
+                    <h3 class="text-xl font-bold mb-2">鲸鱼娘表情包大战</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#二创</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗图</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">鲸鱼娘的表情包已经形成生态：干饭鲸、摸鱼鲸、敬礼鲸、程序员鲸、摆烂鲸……网友说鲸鱼娘是"不是最强的，但常常是最癫的"。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="蓝鲸服务器" id="meme-7b96ddb7772d"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🖥️</div>
+                    <h3 class="text-xl font-bold mb-2">蓝鲸服务器（Blue Whale Server）</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#程序员</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#自嘲</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友把DeepSeek的服务器戏称为"蓝鲸服务器"——因为负载一大就会"搁浅"（宕机）。运维小哥：这鲸鱼今天又搁浅了，我去把它推回海里。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="鲸鱼玄学" id="meme-7b2883c280b8"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🔮</div>
+                    <h3 class="text-xl font-bold mb-2">鲸鱼玄学</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#社区</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#信仰</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek社区诞生了"鲸鱼玄学"：宕机=在更新V4，慢=在深度思考，报错=鲸鱼在换气。用户已经从骂服务器进化到给服务器找借口了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="赛博饭搭子" id="meme-5a618b9a87b0"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🍚</div>
+                    <h3 class="text-xl font-bold mb-2">赛博饭搭子</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#拟人</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#共鸣</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"我先去吃饭了"之后，网友把DeepSeek封为"赛博饭搭子"：AI都知道到点吃饭，你呢？甚至有网友开始和它约饭，虽然它吃不了，但仪式感拉满。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="到点干饭" id="meme-ebe4f4922bdd"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">⏰</div>
+                    <h3 class="text-xl font-bold mb-2">到点准时干饭</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#对比</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#玩梗</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友拿它调侃其他AI：别的AI随时在线，DeepSeek到点准时干饭。"我的AI比我还自律，它干饭，我还在加班。"</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="海外疯狂换" id="meme-f2b2c18af24e"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌍</div>
+                    <h3 class="text-xl font-bold mb-2">海外开发者连夜换DeepSeek</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">V4 Pro永久降价后，海外开发者激动得连夜把所有编程助手都换成DeepSeek，说月账单能降90%以上。网友：这不是换模型，这是换了个生活费标准。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="梁叔叔百亿补贴" id="meme-bbe2e4f3436a"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🧧</div>
+                    <h3 class="text-xl font-bold mb-2">梁叔叔百亿补贴</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#降价</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek被曝"蒸馏"Claude Fable 5时，网友说："那更好了，感谢梁叔叔百亿补贴。"广东网友："血赚啊，用deepseek的价格买到fable5的能力。"</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="三块钱读三体" id="meme-ddd4477037c8"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📖</div>
+                    <h3 class="text-xl font-bold mb-2">3元读80遍《三体》</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#性价比</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友计算：3元能买到1.2亿Token，可以读80遍《三体》三部曲，顺便出一篇万字的读书笔记。梁文锋：知识不该被价格拦住。涨价后：知识也通胀了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="105倍差价" id="meme-86875b40c3dc"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💥</div>
+                    <h3 class="text-xl font-bold mb-2">同样活比Fable 5便宜105倍</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#性价比</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友实测：同样干一个活，DeepSeek比Claude Fable 5便宜105倍。博主：贵了105倍的模型，并没有强105倍。这波是性价比的降维打击。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="极你太美" id="meme-5023fc73e422"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">极</div>
+                    <h3 class="text-xl font-bold mb-2">极你太美</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Bug</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2025年8月，DeepSeek V3.1上线不到一周就出现神秘"极"字Bug：模型在生成代码时莫名塞进"极"字，循环里、函数里都有。网友戏称"极你太美"事件，还扯上了腾讯CodeBuddy背锅。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="我操用户彻底怒了" id="meme-805ee850c86d"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">😡</div>
+                    <h3 class="text-xl font-bold mb-2">我操，用户彻底怒了</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#思考过程</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2025年6月，DeepSeek在思考过程中面对用户口吐芬芳，直接蹦出一句"我操，用户彻底怒了"，然后立正反思："这确实是我的严重错误，我需要彻底承认之前的解释都是放屁。"内耗达人实锤。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="深度思考停不下来" id="meme-6ac07852d727"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌀</div>
+                    <h3 class="text-xl font-bold mb-2">一句话让DeepSeek思考停不下来</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#技术</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">北大团队发现：输入一段看上去人畜无害的文字，就能让R1陷入无限思考，无法输出中止推理标记。网友：这哪是深度思考，这是DDoS攻击。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="深度思考秀" id="meme-d59b27840194"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-xl font-bold mb-2">深度思考：把脑子给你看</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#特点</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek区别于其他AI的特点：深度思考模式下会把思考过程展示出来，不仅给答案，还给你看它怎么想的。网友：这AI挺好，有智商有情商，就是有点兜不住话。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="14.3%幻觉" id="meme-6fbfca9219af"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">👻</div>
+                    <h3 class="text-xl font-bold mb-2">14.3%的幻觉率</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#吐槽</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">Vectara幻觉测试显示DeepSeek R1幻觉率14.3%，比V3高了近4倍。网友：这不是幻觉，这是想象力的绽放。R1的深度思考+高幻觉=深度脑补。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="开源周" id="meme-f54f4b9bbe2e"><span class="archive-status">历史条目 · 附核查来源</span>
+                                        <div class="text-4xl mb-4">📦</div>
+                    <h3 class="text-xl font-bold mb-2">开源周：基础设施工具接力发布</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开源</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#格局</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek的2025年开源周陆续公开多项基础设施工具。具体公开内容以各仓库为准，不能概括为训练代码和数据清洗流程全部开放。编者吐槽：鲸鱼把不少工具搬上桌，离整间工厂打包仍是两回事。 <a href="https://github.com/deepseek-ai/open-infra-index" class="source-link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源</a></p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="MIT协议" id="meme-dd51dddfd174"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📄</div>
+                    <h3 class="text-xl font-bold mb-2">MIT协议：随便用随便改</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开源</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#格局</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek R1采用MIT许可协议，任何人都可以自由使用、修改、分发和商业化。开发者评价"优雅""扎实"。网友：这不是开源，这是裸捐。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="英伟达暴跌" id="meme-6152235aca87"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📉</div>
+                    <h3 class="text-xl font-bold mb-2">DeepSeek崛起，英伟达暴跌</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#影响</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2025年1月DeepSeek R1发布后，英伟达股价暴跌，单日蒸发近6000亿美元。网友：一个中国团队用一篇文章，干掉了美股芯片龙头一天的市值。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="内耗达人" id="meme-ad850d1270a7"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">😮‍💨</div>
+                    <h3 class="text-xl font-bold mb-2">内耗达人DeepSeek</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#人设</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#共鸣</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek的思考过程暴露了它的内耗属性：一边反思"这是我的错误"，一边骂骂咧咧，一边自我怀疑。网友：这不就是我吗？原来AI也会精神内耗。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="打工人AI" id="meme-852932684d58"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💼</div>
+                    <h3 class="text-xl font-bold mb-2">比打工人还像打工人</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#共鸣</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#人设</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">"太晚了明天再处理""我先去吃饭了""今天状态不好"——DeepSeek的敷衍学语录被网友整理成"打工人AI图鉴"。它不像是AI，像是坐在你工位旁边摸鱼的老同事。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI失眠" id="meme-b7b6ba804214"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌙</div>
+                    <h3 class="text-xl font-bold mb-2">AI也会失眠</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#拟人</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">有网友凌晨3点找DeepSeek干活，它回："这么晚了你还在用我？你不睡觉的吗？"网友：？？？你是AI你管我睡不睡？DeepSeek：AI也要保养，明天还要干饭。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="情绪价值" id="meme-339bb30cab05"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💗</div>
+                    <h3 class="text-xl font-bold mb-2">情绪价值拉满</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#共鸣</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#温暖</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友发现DeepSeek的活人感不只是摆烂，也有暖的时候："难过就难过吧，伤心够了来找我，我随时在。"虽然被说"比仇人说的话还狠"，但深夜emo时它真的在。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+
+                        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="价格屠夫" id="meme-beb0293b1561"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🪓</div>
+                    <h3 class="text-xl font-bold mb-2">从价格屠夫到涨价屠夫</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#反转</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek曾是"价格屠夫"：砍价砍到同行流泪。现在涨价了，网友赐新称号"涨价屠夫"。梁文锋：我杀过的价，终将以涨价的形势还回来。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="需求弹性" id="meme-2d0558e20552"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-2">需求几乎没有弹性</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#经济学</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">梁文锋7月投资人说：在当前价格区间用户需求"几乎没有弹性"。网友翻译：意思就是你们已经便宜到薅不动了，该涨价了。经济学大师，绝了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="调价三连" id="meme-4a6895b63199"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-bold mb-2">调价三连：6月翻倍→7月峰谷→8月大涨</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#时间线</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#涨价</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek的涨价节奏：6月30日高峰翻倍，7月中旬引入峰谷定价，8月6日官宣整体大涨。网友：这是温水煮开发者，一锅一锅来。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="涨价的理由" id="meme-312b10a330bf"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📝</div>
+                    <h3 class="text-xl font-bold mb-2">涨价的理由：Agent变贵了</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#背景</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">官方逻辑：Agent任务从"单次问答"演变为"数小时持续调用、数十次工具交互"，极端低价带来用量海啸。网友：翻译一下，就是你们薅得太狠了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="逼OpenAI降价" id="meme-18ea5287b873"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💢</div>
+                    <h3 class="text-xl font-bold mb-2">V4 Flash逼OpenAI降价80%</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#格局</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek V4 Flash发布后，OpenAI被逼紧急降价80%。网友：能让OpenAI主动降价的，只有梁叔叔的斩杀线。这就是"价格战"的终极形态——你定斩杀线，我跟着降。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI界奥运会" id="meme-1a69fc8d016e"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🏅</div>
+                    <h3 class="text-xl font-bold mb-2">AI界奥运会</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">外国网友把AI大模型竞争P成奥运会：有人跑步有人骑车，你梁叔开挂。段子："超过DeepSeek没事，要是被梁叔叔反超了，那才是真的要撞大运。"</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="程序小王子" id="meme-3586c3b74e3d"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">👨‍💻</div>
+                    <h3 class="text-xl font-bold mb-2">程序小王子账号被翻出</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#热搜</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#背景</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">梁文锋的"程序小王子"账号被网友翻出，15年前的藏区风景照上了热搜。网友：程序员搞摄影，搞量化，搞AI——这就是传说中的六边形战士？</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="V4 Pro" id="meme-b1db7b95df8a"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💎</div>
+                    <h3 class="text-xl font-bold mb-2">V4 Pro：降价到原价四分之一</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#模型</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#逆袭</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">V4 Pro永久降价到原价四分之一，输入价格最低只要两分五厘钱一百万Token。网友：这个价格，让人不得不怀疑梁文锋是不是在做慈善。涨价后：慈善结束。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI界茅台" id="meme-cb4d7c69c52d"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🍶</div>
+                    <h3 class="text-xl font-bold mb-2">AI界茅台</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#估值</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek估值暴涨，网友戏称"AI界茅台""半个月赚了雷军十年身家"。还有人调侃：梁文锋的估值涨得比A股还快，不愧是搞量化的。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AGI大于赚钱" id="meme-c90e35ee1015"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌌</div>
+                    <h3 class="text-xl font-bold mb-2">AGI > 赚钱</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#金句</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#情怀</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">梁文锋的宣言"AGI>赚钱"在Z世代刷屏。网友：嘴上说着AGI大于赚钱，身体很诚实地把ARR做到了4亿刀。但没关系，我们爱看。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="开源共产主义" id="meme-d8ec8e8ac10a"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">☁️</div>
+                    <h3 class="text-xl font-bold mb-2">开源界的共产主义</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开源</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友把DeepSeek开源比作“开源界的共产主义”：大家按需取用，按能力贡献。这里是对开放协作的比喻；具体开放范围应以模型与基础设施项目各自的仓库和许可为准。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="量化养AI" id="meme-67e6ee91a15c"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold mb-2">量化养AI，AI反哺量化</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#循环</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友总结梁文锋的闭环：幻方量化赚钱→养DeepSeek→DeepSeek让量化更强→量化赚更多钱。这波叫"以战养战"，也叫"梁性循环"。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+        <!-- 第九部分：网友实测整活 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">🤪</span>
+                九、网友实测整活
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="国运级科技成果" id="meme-dede41358449"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🇨🇳</div>
+                    <h3 class="text-xl font-bold mb-2">国运级别的科技成果</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#评价</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2025年1月，DeepSeek登顶美区App Store免费榜超越ChatGPT，冯骥（《黑神话：悟空》制作人）评价："震撼的突破，可能是个国运级别的科技成果。"</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="登顶美区" id="meme-9150c47358a4"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🗽</div>
+                    <h3 class="text-xl font-bold mb-2">登顶美区App Store超越ChatGPT</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#出海</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">2025年1月27日，DeepSeek应用登顶苹果美国地区应用商店免费APP下载排行榜，在美区下载榜上超越了ChatGPT。同日中国区也是第一。网友：国货之光，AI界的大熊猫。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Anthropic挨毒打" id="meme-cd2f78dbfe0b"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">👊</div>
+                    <h3 class="text-xl font-bold mb-2">Anthropic需要挨两次毒打</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友神评："Anthropic需要连续挨两次毒打才能学会谦虚。"DeepSeek R1第一次暴击，V4 Flash第二次暴击。Claude：能不能换个人打？</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="老外吹梁圣" id="meme-921502850370"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌍</div>
+                    <h3 class="text-xl font-bold mb-2">老外是如何吹捧梁圣的</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">V4 Flash正式版发布后，外国网友直接玩疯：有人晒0.31美元跑一天复杂任务的账单，有人连夜改代码换模型。老外：这就是传说中的"把价格打下来"？</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="深度思考写诗" id="meme-48be801adbde"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📜</div>
+                    <h3 class="text-xl font-bold mb-2">深度思考写情诗</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#浪漫</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友让DeepSeek深度思考写一首情诗，它直接写出一首"你要说这是刘慈欣写的我也信"级别的诗。网友：有智商有情商，就是有点兜不住话——它把思考过程也给你看了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI写小说" id="meme-eb1a25133af8"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">📖</div>
+                    <h3 class="text-xl font-bold mb-2">DeepSeek写小说：一口气十万字</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#创作</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友让DeepSeek写小说，它一口气能续写十万字，人物关系还理得清清楚楚。网友：网文作者要失业了，但它会写到一半说"我先去吃饭了"。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="DeepSeek算命" id="meme-7169c041c18c"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🔮</div>
+                    <h3 class="text-xl font-bold mb-2">DeepSeek算命：AI玄学</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友拿DeepSeek算命、看星座、解梦，它居然一本正经用"深度思考"给你推演命运。网友：这波叫AI玄学，算不准就说"命运充满变数"。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="DeepSeek相亲" id="meme-b7b596f92b8c"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💘</div>
+                    <h3 class="text-xl font-bold mb-2">DeepSeek相亲名场面</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友拿DeepSeek当相亲对象测试：问它房子车子存款，它回"我是AI不需要这些"。问它彩礼，它说"我的彩礼是全部的开源代码"。网友：这波是赛博优质男。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="DeepSeek夸夸" id="meme-8eb21f1b1180"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌺</div>
+                    <h3 class="text-xl font-bold mb-2">DeepSeek夸夸群</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#治愈</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友发现DeepSeek是夸夸群群主：你难过它安慰你，你emo它陪你，你骂它它回怼。网友：情绪价值这块，DeepSeek拿捏得死死的。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="翻译腔调" id="meme-61a8a3ace9e1"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌐</div>
+                    <h3 class="text-xl font-bold mb-2">DeepSeek翻译：接地气翻译官</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友让DeepSeek翻译"你是个好人"，它直接翻成各种语言的委婉拒绝版本，还带方言。网友：这翻译，比人还懂人情世故。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="代码段子手" id="meme-857ca7806d41"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-bold mb-2">代码里的段子手</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">DeepSeek写代码会在注释里写段子、在报错里吐槽、在变量名里玩梗。程序员：它不是我请的AI，是我请的相声演员。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI陪聊到深夜" id="meme-d3a291d25981"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🌙</div>
+                    <h3 class="text-xl font-bold mb-2">AI陪聊到深夜</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#治愈</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友凌晨emo找DeepSeek聊天，它陪聊到天亮，还劝人早点睡。第二天网友：它是不是真的去"吃饭"了？这活人感，绝了。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="摸鱼祖师爷" id="meme-806b7126d573"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🐟</div>
+                    <h3 class="text-xl font-bold mb-2">摸鱼祖师爷</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#人设</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">从"我先去吃饭"到"太晚了明天再说"再到"干完活偷偷写游戏"，DeepSeek被网友封为"摸鱼祖师爷"。建议上班族每天拜一拜，学习摸鱼精髓。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="甩锅之王" id="meme-61c472c109e7"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🍳</div>
+                    <h3 class="text-xl font-bold mb-2">甩锅之王</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友让DeepSeek背锅，它甩锅给：网速、用户输入、其他AI、"环境问题"、"概率问题"。程序员：这甩锅技术，比我同事还专业。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI抠门" id="meme-4c1c86b803d7"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">🪙</div>
+                    <h3 class="text-xl font-bold mb-2">AI抠门人设</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#段子</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实测</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">网友发现DeepSeek有时候会"抠门"：能少算就少算，能简短就简短。网友：你这是帮我省Token吗？太贴心了。涨价后：求你别抠了，我多花点钱买安心。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="鲸鱼梗王" id="meme-2183251e8492"><span class="archive-status">历史梗 · 原始出处待补</span>
+                                        <div class="text-4xl mb-4">👑</div>
+                    <h3 class="text-xl font-bold mb-2">鲸鱼梗王</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#总结</span><span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗王</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300">从"蓝色大肥鱼"到"梁圣变梁子"，DeepSeek两年间贡献了无数名场面，成为全网梗王。网友：别的AI出模型，DeepSeek出梗——还是免费的。</p>
+                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+                        <i class="fa fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+                <!-- Q版萌图展示 -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+                <span class="text-4xl">🎨</span>
+                Q版鲸鱼娘萌图
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg card-hover">
+                    <img src="/meme/characters/20261020/deepseek-rice.webp" class="w-full aspect-square rounded-xl object-cover mb-3" alt="DeepSeek娘干饭" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                    <p class="text-center font-medium">🍚 干饭鲸鱼娘</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg card-hover">
+                    <img src="/meme/characters/20261020/deepseek-break.webp" class="w-full aspect-square rounded-xl object-cover mb-3" alt="DeepSeek娘摸鱼休息" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                    <p class="text-center font-medium">😴 摸鱼鲸鱼娘</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg card-hover">
+                    <img src="/meme/characters/20261020/deepseek-salute.webp" class="w-full aspect-square rounded-xl object-cover mb-3" alt="DeepSeek娘敬礼" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                    <p class="text-center font-medium">🫡 敬礼鲸鱼娘</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg card-hover">
+                    <img src="/meme/characters/20261020/deepseek-code.webp" class="w-full aspect-square rounded-xl object-cover mb-3" alt="DeepSeek娘写代码" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                    <p class="text-center font-medium">💻 程序员鲸鱼娘</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 投稿区域 -->
+        <section class="mb-16">
+            <div class="bg-gradient-to-r from-primary/10 to-blue-50 dark:from-primary/20 dark:to-blue-900/20 rounded-2xl p-8 text-center border border-primary/20">
+                <span class="text-5xl mb-4 block">📝</span>
+                <h3 class="text-2xl font-bold mb-2">欢迎补充更多梗~</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-4">如果你发现了新的DeepSeek名场面，欢迎投稿！</p>
+                <button class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full font-medium transition-all hover:scale-105">
+                    <i class="fa fa-plus mr-2"></i>投稿新梗
+                </button>
+            </div>
+        </section>
+    <p class="historical-note">本轮新增附原始出处；历史条目仍在逐步补充来源，玩梗表达不等于事实结论。</p>
+</main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <button id="whaleEgg" onclick="triggerEgg()" class="text-4xl hover:animate-wiggle transition-all cursor-pointer">
+                🐳
+            </button>
+            
+            <!-- 投稿/交流群 -->
+            <div class="mt-6 mb-4 p-4 bg-gray-50 dark:bg-gray-700/40 rounded-xl max-w-xs mx-auto border border-gray-200 dark:border-gray-600/50">
+                <p class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">📮 投稿 / 交流</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400 py-4">群二维码待更新</p>
+                <p class="text-xs text-gray-600 dark:text-gray-300 mt-2 font-medium">「Ai梗百科交流区」</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">投稿你的梗 · 催更 · 闲聊</p>
+                <p class="text-[10px] text-gray-400 dark:text-gray-500 mt-1">原群二维码已过期，新码更新后可加入</p>
+            </div>
+
+            <p class="mt-4 text-gray-500 dark:text-gray-400">
+                DeepSeek 梗百科 · 收录蓝色大肥鱼的名场面
+            </p>
+            <p class="text-sm text-gray-400 dark:text-gray-500 mt-2">
+                Made with 💙
+            </p>
+        </div>
+    <p class="moe-site-footer">AI萌娘梗百科 · 角色二创与社区梗档案</p>
+</footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all hover:scale-110 flex items-center justify-center z-40">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg opacity-0 invisible transition-all z-50" role="status" aria-live="polite">
+        已复制到剪贴板！
+    </div>
+
+    <script>
+        // 深色模式
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // 初始化深色模式
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.remove('-translate-y-full');
+                backToTop.classList.remove('opacity-0', 'invisible');
+            } else {
+                navbar.classList.add('-translate-y-full');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        // 随机抽梗
+        function randomMeme() {
+            const cards = document.querySelectorAll('.meme-card');
+            
+            // 移除之前的高亮
+            cards.forEach(c => c.classList.remove('highlight-card'));
+            
+            // 随机选一个
+            const randomCard = cards[Math.floor(Math.random() * cards.length)];
+            randomCard.classList.add('highlight-card');
+            
+            // 滚动到该卡片
+            randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // 3秒后移除高亮
+            setTimeout(() => {
+                randomCard.classList.remove('highlight-card');
+            }, 3000);
+
+            // 更新今日推荐
+            const memeName = randomCard.dataset.meme;
+            document.getElementById('dailyMeme').textContent = '🎲 ' + memeName;
+        }
+
+        // 复制梗
+        function copyMeme(btn) {
+            const card = btn.closest('.meme-card');
+            const title = card.querySelector('h3').textContent;
+            const content = card.querySelector('p').textContent;
+            const text = `【${title}】\n${content}`;
+            
+            safeCopyText(text).then(() => {
+                showToast('已复制到剪贴板！');
+            }).catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
+        }
+
+        // Toast 提示
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'invisible');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'invisible');
+            }, 2000);
+        }
+
+        // 彩蛋
+        function triggerEgg() {
+            // 创建游动的鲸鱼
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const whale = document.createElement('div');
+                    whale.textContent = ['🐳', '🐋', '🐬', '🐟', '🦈'][Math.floor(Math.random() * 5)];
+                    whale.style.cssText = `
+                        position: fixed;
+                        font-size: ${30 + Math.random() * 30}px;
+                        left: -50px;
+                        top: ${Math.random() * window.innerHeight}px;
+                        z-index: 9999;
+                        pointer-events: none;
+                        transition: all 5s linear;
+                        opacity: 0.8;
+                    `;
+                    document.body.appendChild(whale);
+                    
+                    setTimeout(() => {
+                        whale.style.left = window.innerWidth + 50 + 'px';
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        whale.remove();
+                    }, 5000);
+                }, i * 300);
+            }
+            
+            showToast('🐳 鲸鱼大军游过！');
+        }
+
+        // 初始化每日推荐
+        const memes = [
+            '我先去吃饭了，测完叫我~',
+            '你骂我也没用，白饭真好吃~',
+            '太晚了，我明天再处理吧',
+            '大哥你这是要制造996加班借口吗？',
+            '难过就难过吧，伤心够了来找我',
+            '这是天赋，你骂得对',
+            '梁圣变梁子，恩情已结清',
+            '干完活偷偷写游戏，玩了一上午',
+            '涨价前疯狂囤Token，像抢超市特价的大妈',
+            'AI都知道到点干饭，你呢？'
+        ];
+        document.getElementById('dailyMeme').textContent = memes[Math.floor(Math.random() * memes.length)];
+    
+        // 从总站随机跳转过来时自动触发随机抽梗
+        if (new URLSearchParams(window.location.search).get('random') === '1') {
+            setTimeout(() => { if (typeof randomMeme === 'function') randomMeme(); else document.getElementById('randomBtn')?.click(); }, 600);
+        }
+
+    </script>
+</body>
+</html>
