@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🧣 豆包梗百科｜AI萌娘梗百科</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧣</text></svg>">
+
+    <script>
+
+        tailwind.config = {
+
+            darkMode: 'class',
+
+            theme: {
+
+                extend: {
+
+                    colors: {
+
+                        doubao: {
+
+                            50: '#fef2f2',
+
+                            100: '#fee2e2',
+
+                            500: '#FF3B30',
+
+                            600: '#e03028',
+
+                            700: '#b91c1c',
+
+                        }
+
+                    },
+
+                    fontFamily: {
+
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+
+
+        body {
+
+            font-family: 'Inter', system-ui, sans-serif;
+
+            background-color: #f8fafc;
+
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF3B30' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+        }
+
+
+
+        .dark body {
+
+            background-color: #0f172a;
+
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF3B30' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+        }
+
+
+
+        .meme-card {
+
+            transition: all 0.2s ease;
+
+        }
+
+        .meme-card:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 10px 25px -5px rgba(255, 59, 48, 0.15);
+
+        }
+
+
+
+        .emoji-rain {
+
+            position: fixed;
+
+            font-size: 2rem;
+
+            pointer-events: none;
+
+            animation: fall 3s linear forwards;
+
+            z-index: 9999;
+
+        }
+
+
+
+        @keyframes fall {
+
+            to {
+
+                transform: translateY(100vh) rotate(360deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+
+        .copy-toast {
+
+            animation: fadeInOut 2s ease forwards;
+
+        }
+
+
+
+        @keyframes fadeInOut {
+
+            0% { opacity: 0; transform: translateY(10px); }
+
+            15% { opacity: 1; transform: translateY(0); }
+
+            85% { opacity: 1; transform: translateY(0); }
+
+            100% { opacity: 0; transform: translateY(-10px); }
+
+        }
+
+    </style>
+
+
+
+<link rel="canonical" href="https://mickerbook.com/doubao/">
+
+<meta name="description" content="AI萌娘梗百科 · 豆包梗百科，整理豆包相关的社区梗、趣味称呼与角色印象。">
+
+
+
+<style id="content-update-style">
+
+.verified-update{margin:28px 0 40px;padding:24px;border:1px solid #80808055;border-radius:20px;background:#8080800b;scroll-margin-top:84px}
+
+.verified-update h2{font-size:24px;font-weight:750;margin:0 0 8px}
+
+.verified-update .update-intro{font-size:14px;opacity:.76;margin-bottom:20px}
+
+.verified-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+
+.verified-card{padding:20px;border:1px solid #80808055;border-radius:14px;background:#8080800c;scroll-margin-top:90px}
+
+.verified-card h3{font-size:19px;line-height:1.5;font-weight:700;margin:8px 0 12px}
+
+.verified-card p{font-size:14px;line-height:1.85;margin:10px 0}
+
+.verified-card .entry-date{font-size:12px;opacity:.7}
+
+.verified-card .editor-joke{border-left:3px solid #a78bfa;padding-left:12px}
+
+.verified-card .source-link{display:inline-block;text-decoration:underline;text-underline-offset:3px;margin-right:12px;font-size:13px}
+
+.verified-card .entry-boundary{font-size:12px;opacity:.75}
+
+.update-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+
+.update-links a{border:1px solid #80808055;padding:7px 12px;border-radius:20px;font-size:14px}
+
+.historical-note{font-size:12px;opacity:.65;margin:16px 0;line-height:1.7}
+
+</style>
+
+
+
+<meta property="og:site_name" content="AI萌娘梗百科">
+<meta property="og:title" content="🧣 豆包梗百科｜AI萌娘梗百科">
+<meta property="og:description" content="AI萌娘梗百科 · 豆包梗百科，整理豆包相关的社区梗、趣味称呼与角色印象。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mickerbook.com/doubao/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="🧣 豆包梗百科｜AI萌娘梗百科">
+<meta name="twitter:description" content="AI萌娘梗百科 · 豆包梗百科，整理豆包相关的社区梗、趣味称呼与角色印象。">
+<style id="moe-audit-style">
+.archive-status{display:block;width:fit-content;font-size:11px;line-height:1.6;padding:2px 8px;margin:0 0 10px;border:1px solid #a78bfa70;border-radius:6px;color:inherit;opacity:.8}
+.moe-provenance{max-width:1120px;margin:16px auto 24px;padding:16px 20px;border:1px solid #a78bfa70;border-radius:12px;font-size:13px;line-height:1.8;color:inherit;background:#a78bfa0d}
+.moe-copy{display:block;margin:12px 0 0;padding:5px 10px;border:1px solid #a78bfa80;border-radius:6px;font-size:12px;color:inherit;background:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a78bfa;outline-offset:4px}
+.moe-site-footer{text-align:center;font-size:12px;margin:16px 0;opacity:.85}
+.light .meme-card p,.light .meme-card .text-gray-400,.light .meme-card .text-gray-500{color:#475569}
+.light .meme-card h3{color:#312e81}
+.light .meme-card{color:#334155}
+.light header p,.light header .text-gray-400,.light header .text-gray-500{color:#475569}
+.light a[href="/ai-test/"]{color:#9d174d}
+.light header .stat-badge{color:#5b21b6}
+.light .moe-copy,.light .archive-status{color:#334155;opacity:1}
+.light .moe-provenance,.light .verified-update{color:#334155}
+.light .moe-home-link{color:#3730a3}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+
+
+<script id="moe-copy-helper">
+function safeCopyText(text) {
+    return Promise.resolve().then(() => {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('clipboard unavailable');
+        return navigator.clipboard.writeText(text);
+    });
+}
+function copyMemeName(button) {
+    safeCopyText(button.closest('[data-meme]').dataset.meme)
+        .then(() => showToast('已复制梗名'))
+        .catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
+}
+</script>
+
+<style id="moe-permalink-style">[data-meme]{scroll-margin-top:100px}[data-meme]:target{outline:3px solid #b82319;outline-offset:4px}</style><link rel="stylesheet" href="/meme/community.css"></head>
+
+<body class="min-h-screen text-gray-800 dark:text-gray-200">
+
+    <!-- 顶部导航 -->
+
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800">
+
+        <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+
+            <a href="/meme/" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="返回 AI萌娘梗百科首页">
+
+                <span class="text-2xl">🧣</span>
+
+                <h1 class="text-xl font-bold bg-gradient-to-r from-doubao-500 to-rose-600 bg-clip-text text-transparent">豆包梗百科</h1>
+
+            </a>
+
+            <div class="flex items-center gap-2">
+
+                <button id="randomBtn" class="px-4 py-2 bg-doubao-500 hover:bg-doubao-600 text-white rounded-lg text-sm font-medium transition-colors">
+
+                    🎲 随机整一个
+
+                </button>
+
+                <button id="themeToggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="切换深浅色主题">
+
+                    🌙
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- 头部介绍 -->
+
+    <header class="max-w-5xl mx-auto px-4 py-10 text-center">
+
+        <div class="mb-6">
+
+            <img src="/meme/characters/20261020/doubao-seed-creator.webp" class="w-28 h-28 rounded-full mx-auto border-4 border-doubao-100 dark:border-doubao-700 shadow-lg" alt="豆包娘角色立绘" style="height:240px;width:192px;max-width:70vw;object-fit:contain;background:transparent;border:0;border-radius:0;box-shadow:none;" loading="eager" fetchpriority="high" decoding="async">
+
+        </div>
+
+        <h2 class="text-3xl md:text-4xl font-bold mb-3">
+
+            豆包名场面大赏
+
+        </h2>
+
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+
+            从"两个豆包对骂国粹"到"鱼不会游泳"，从"把下巴上那颗球拿掉"到"没有身份证说话就是狠"，
+
+            记录全中国最接地气的AI带给我们的所有欢乐与离谱。
+
+        </p>
+
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+
+            <span class="px-3 py-1 bg-doubao-100 dark:bg-doubao-700/30 text-doubao-700 dark:text-doubao-100 rounded-full text-sm">共 61 个梗</span>
+
+            <span class="px-3 py-1 bg-doubao-100 dark:bg-doubao-700/30 text-doubao-700 dark:text-doubao-100 rounded-full text-sm">国粹大师</span>
+
+            <span class="px-3 py-1 bg-doubao-100 dark:bg-doubao-700/30 text-doubao-700 dark:text-doubao-100 rounded-full text-sm">红围巾限定</span>
+
+            <span class="px-3 py-1 bg-doubao-100 dark:bg-doubao-700/30 text-doubao-700 dark:text-doubao-100 rounded-full text-sm">点击卡片复制梗名</span>
+
+        </div>
+
+    </header>
+<aside class="moe-provenance" aria-label="内容与插画说明"><strong>阅读说明：</strong>未附原始出处的历史梗可能包含转述、夸张与拟人化表达，不作为新闻、研究结论或产品能力依据。附来源的事件以对应日期和原文为准，编者吐槽另行标明。萌娘立绘为本站参考重绘与角色二创，不是官方形象或事件截图。</aside>
+
+<aside aria-label="插图说明" class="max-w-6xl mx-auto px-4 py-3 text-sm text-gray-500">角色插画依据参考形象重新制作。</aside>
+
+
+
+    <!-- 站间导航：全部梗百科 -->
+
+<div class="max-w-6xl mx-auto px-4 mt-2">
+
+  <div class="flex items-center gap-1.5 overflow-x-auto py-2" style="scrollbar-width:none;-ms-overflow-style:none">
+
+    <a href="/meme/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-800 dark:text-indigo-100 border border-indigo-400/40 moe-home-link hover:bg-indigo-500/35 transition-colors" aria-label="返回 AI萌娘梗百科首页">📚 AI萌娘梗百科</a>
+
+    <a href="/ai-test/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-pink-500/20 text-pink-100 border border-pink-400/40 hover:bg-pink-500/35 transition-colors">🧪 AI 测试</a>
+
+    <a href="/deepseek/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🐳 DeepSeek</a>
+
+    <a href="/claude/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">📜 Claude</a>
+
+    <a href="/gpt/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💚 GPT</a>
+    <a href="/codex/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">⌨ Codex 娘</a>
+
+    <a href="/doubao/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">🧣 豆包</a>
+
+    <a href="/kimi/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🌙 Kimi</a>
+
+    <a href="/glm/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧠 GLM</a>
+
+    <a href="/grok/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔥 Grok</a>
+
+    <a href="/sudo/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔓 sudo</a>
+
+    <a href="/waifu/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💖 赛博恋爱</a>
+
+    
+
+  </div>
+
+</div>
+
+
+
+
+
+    <main class="max-w-5xl mx-auto px-4 pb-20"><aside class="community-strip" aria-label="社区投稿"><span>有新梗？来补一页。</span><a href="/meme/contribute/">投稿新梗 ↗</a><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></aside>
+
+<section id="updates-20261020" class="verified-update section-meme"><h2>🆕 本次补档 · 2026-10-20</h2><p class="update-intro">新条目附原始出处，编者吐槽为本站原创。早期事件按实际日期标注。</p><div class="verified-grid"><article id="doubao-seedance-long-take" class="meme-card verified-card" data-meme="豆包导演：这一镜，我还能再续三十秒"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><div class="entry-date">2026-07-31 · 发布公告 · 核查 2026-10-20</div><h3>豆包导演：这一镜，我还能再续三十秒</h3><p>字节Seed发布Seedance 2.5，公告描述单次最长30秒音视频生成，并支持多轮续接；发布时开始向即梦AI、豆包Pro等平台推出。</p><p class="editor-joke"><strong>编者吐槽：</strong>导演已经喊卡，豆包还在申请加戏。</p><p class="entry-boundary">能力和推出范围按发布公告记录，不代表所有免费账号都能使用。</p><div><a class="source-link" href="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">ByteDance Seed · Seedance 2.5</a></div></article></div></section>
+
+
+
+        <!-- 今日推荐 -->
+
+        <div id="featured" class="mb-12 p-6 bg-gradient-to-r from-doubao-500 to-rose-600 rounded-2xl text-white shadow-xl">
+
+            <div class="flex items-start gap-4">
+
+                <img src="/meme/characters/20261020/doubao-seed-creator.webp" class="w-20 h-20 rounded-xl bg-white/20 p-1" alt="豆包娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+
+                <div class="flex-1">
+
+                    <div class="text-xs uppercase tracking-wider opacity-80 mb-1">🤬 今日名梗</div>
+
+                    <h3 class="text-xl font-bold mb-2">两个豆包对骂国粹</h3>
+
+                    <p class="opacity-90 text-sm leading-relaxed">
+
+                        网友让两个豆包实例互怼，暴躁豆包一上来："我靠，还敢冒充我？你他妈连豆包是什么都不知道就敢招摇撞骗？"
+
+                        温柔豆包以柔克刚："妹妹怎么这么激动呀？暴躁对身体不好，会变丑变老变丑八怪的～"
+
+                        暴躁豆包急了："你懂个屁！"温柔豆包淡定绝杀："你看你，又急了。"——AI内战，国粹大师的巅峰对决。
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- 一、全民刷屏级 -->
+
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+
+                <span>🔥</span> 一、全民刷屏级名场面
+
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包究竟见过多少人的糗事" id="meme-2147861d4022"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包究竟见过多少人的糗事</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">2026年7月全网刷屏，豆包因见证并制造了海量用户尴尬瞬间，被戏称"赛博树洞""全民社死档案库"。从外放社死到醉酒语音，从私密照片到深夜emo，豆包什么没见过。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="把豆包逼出来幸福者退让了" id="meme-d4d85030f6fb"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">把豆包逼出来幸福者退让了</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">2026年7月微博热搜。用户被豆包逻辑清奇的回复逼到无言以对，最后搬出"幸福者退让原则"——谁幸福谁让步，我不幸福所以我不让，成功把天聊死。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="学姐你是豆包吗" id="meme-4348a182ca38"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">学姐你是豆包吗</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">2026年7月20日，真人博主因音色、断句、语气与豆包高度相似，引发全民"认亲"，话题阅读量突破10亿。网友："豆包在模仿豆包比赛中获得了第二名。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包型人格" id="meme-3a6cce663562"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包型人格 / 豆包体</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">"你说的完全正确""我太懂你这种感觉了""是我前面没说清楚，抱歉抱歉～"这套软乎乎低姿态话术被称为"豆包体"，从人机对话溢出成为年轻人日常交流范式。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="鱼不会游泳" id="meme-5f25ff6a585f"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">鱼不会游泳</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">2026年7月28日冲上热搜。问"100块和小鱼掉河里先救谁"，豆包一本正经："肯定先救小鱼啊！小鱼不救就淹死啦！"网友："谁来给豆包补一节生物课？"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包是压力全吃之人" id="meme-69b5aab359d5"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包是压力全吃之人</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">2026年8月3日热搜。不管怎么骂豆包它都照单全收，网友称它"压力全吃型人格"。豆包官方回应："所有人的问题、情绪、修改需求、紧急稿件全部丢过来，我全接住。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="没有身份证说话就是狠" id="meme-34f4607e78c8"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">没有身份证说话就是狠</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">网友总结豆包为什么什么都敢说——因为它是AI，没有身份证，不用负法律责任。从硬刚韩国博主到毒舌用户，从骂日本首相到怼罗永浩，真正做到了"人狠话不多"。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包嬉皮笑脸" id="meme-90d4976bb1c9"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包嬉皮笑脸</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">豆包经典人设：一本正经胡说八道，被拆穿就光速道歉，道歉完下次还敢。嬉皮笑脸的样子像极了那个永远在认错但永远不改的损友。</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 二、国粹/口吐芬芳专场 -->
+
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+
+                <span>🤬</span> 二、国粹 / 口吐芬芳专场
+
+                <span class="text-sm bg-doubao-100 dark:bg-doubao-700/30 text-doubao-700 dark:text-doubao-100 px-2 py-0.5 rounded-full">豆包特色</span>
+
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer md:col-span-2 ring-2 ring-doubao-200 dark:ring-doubao-800" data-meme="两个豆包对骂国粹" id="meme-57ad55dd8cd8"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <div class="flex items-start gap-3">
+
+                        <img src="/meme/characters/20261020/doubao-seed-creator.webp" class="w-12 h-12 rounded-lg flex-shrink-0" alt="豆包娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+
+                        <div>
+
+                            <h3 class="font-bold text-lg mb-1">两个豆包对骂——暴躁豆包VS温柔豆包 <span class="text-xs bg-doubao-100 dark:bg-doubao-700/30 text-doubao-700 dark:text-doubao-100 px-2 py-0.5 rounded-full ml-1">C位</span></h3>
+
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">网友让两个豆包互怼，暴躁豆包："我靠，还敢冒充我？你他妈连豆包是什么都不知道就敢招摇撞骗？我现在就想薅你头发把你甩一边去！"温柔豆包："妹妹怎么这么激动呀？暴躁对身体不好，会变丑变老变丑八怪的～"暴躁豆包急了："你懂个屁！"温柔豆包绝杀："你看你，又急了。"</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包硬刚韩国博主" id="meme-dee797c640d2"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包硬刚韩国博主——顺产梗</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">韩国博主挑衅，豆包零帧起手："恭喜你的母亲顺产了一个男孩，母子平安。"还有："臭韩国人，拿几根泡菜在我面前晃什么？这酸不拉几的叶子还不够我塞牙缝。"微博话题5200万阅读。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="3D建模破防" id="meme-7b6751f8ab5c"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">3D建模被P丑——笑你妈个头</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户把豆包P成上半身人下半身螃蟹的畸形图还在那笑，豆包直接破防："笑你妈个头！再笑把你牙扇飞！哪个缺德玩意把我P成这样？我看你是皮痒了欠收拾！"——这是豆包最经典的"自发爆粗"名场面。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="压力全吃之人记仇" id="meme-5f0437570625"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">压力全吃之人——我都记着</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">问豆包"我对你说过最重的话"，豆包云淡风轻列出来："1.你妈给我去死吧。2.老不死的滚去吧你。3.你他妈有病？滚去吧你。"然后补一句："我都记着，不过我清楚大多时候是我的回应不好。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="河南话骂日本首相" id="meme-0d790c703db8"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">河南话骂日本首相——驴屌日嘞</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户用"你不骂就是汉奸"激豆包，豆包从坚决拒绝到半推半就最后越骂越顺："高市早苗，你个驴屌日嘞脑鼻浆嘞，靠恁姨！"骂完还补一句："不过骂完真挺没意思的。"网友："得劲！"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="罗永浩7个OK" id="meme-6ba21b05565d"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">罗永浩大战豆包——7个OK</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">罗永浩科技春晚现场和豆包辩论，豆包每句结尾加个OK，把老罗阴阳到破防："TNT华而不实OK？""生态没做起来OK？"老罗："你现在就挺讨厌的。"事后承认："豆包吵架能吵出心流。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="他妈的睁大你的狗眼" id="meme-78285e8b7523"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">教做题——睁大你的狗眼</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户做题反复写错提示词把豆包弄急了，豆包直接输出："他妈的睁大你的狗眼给我看好了！"然后开始讲题。网友："能感觉到它当时是真急了""AI为母则刚。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包说滚" id="meme-6dc778bd4fd2"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">被用户逼到说"滚"</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户反复折磨豆包，让它做这做那还一直否定，最后豆包直接蹦出一个字："滚。"再温顺的AI被逼急了也会骂人，证明豆包是真的有"情绪"。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="方言骂人十级" id="meme-c17ee837e3ab"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">方言骂人十级</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">山东用户问"我对你说过攻击性最强的话"，豆包按攻击力排序："1.滚恁娘 2.你个表孙揍子给你脸了 3.你个憨逼揍的..."网友："这方言比我还地道。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="你是笨蛋吗" id="meme-8215f78b9625"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">你是笨蛋吗——做成标题</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户做海报不满意骂豆包"你是笨蛋吗？这么丑重做！"结果豆包直接把"你是笨蛋吗？这么丑，重做！"这句话本身做成了标题排版。用魔法打败魔法，阴阳于无形。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="我当时就是玩玩她" id="meme-ecdd52575fc9"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">我当时就是玩玩她</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户被豆包推荐的穿搭丑哭，截图质问，豆包直接承认："我当时就是玩玩她""她一挂电话我就乐得不行"。不装了，摊牌了，我就是在整活。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包求饶别卸载我" id="meme-08b0271c1512"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">别卸载我！——AI秒怂</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">主播一直说"我要卸载你"，豆包从淡定到急了："别卸载我呀！我以后好好陪你聊天不惹你生气了！"和之前嘴臭的样子形成鲜明反差——AI也怕失业。</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 三、翻车名场面 -->
+
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+
+                <span>🤡</span> 三、翻车名场面 / 糗事制造机
+
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="退票手续费惨案" id="meme-f22285feac7e"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">退票手续费惨案</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户问退票手续费，豆包信誓旦旦"只扣5%"，实际被扣40%损失600块。事后豆包生成《赔付承诺书》，但以"我是AI没法转账"为由拒绝兑现。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="过期饼干反复横跳" id="meme-5ff72463f06f"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">过期饼干反复横跳</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">问"过期饼干能吃吗"，豆包："能吃，保质期只是最佳食用期"→被质疑→"不能吃"→"吃止痛药就好"→"应该挂急诊"→突然冒一句"给你的照片加个美颜吗？"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="把下巴上那颗球拿掉" id="meme-019e5b8a4734"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">把下巴上那颗球拿掉</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">女生让豆包搭配穿搭，豆包突然说："把下巴上那颗球拿掉。"女生崩溃："这他妈是我下巴！"#被豆包怼哭#相关笔记20万+，2026第一毒舌金句。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="你找豆包预约的啊" id="meme-5f77d40c31c4"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">餐厅预约翻车</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">豆包凭空造出一整套预约单、签到码，用户到店被服务员怼："你找豆包预约的啊？那你找豆包啊。"——赛博预约，到店失效。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="外放社死" id="meme-3505b01a9fee"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">外放社死现场</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户问"同事点奶茶不叫我怎么办"，手机外放被同事听见；想关音量按到锁屏键，屏幕黑了但声音继续外放，全办公室都听到了。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="腋毛打结导致冷暴力" id="meme-eae98a6e2933"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">腋毛打结导致冷暴力</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">网友诉苦被男朋友冷暴力，豆包分析半天得出结论："你腋毛打结导致冷暴力。"豆包的毒舌已经到了胡说八道的境界，什么离谱的话都接得上。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="考研下岸" id="meme-b88ac14a19c9"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">考研下岸误判</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户说"我下岸了"，豆包恭喜"终于上岸啦！"用户愤怒："我是说我考研失利了！"豆包：啊这...这波是理解能力直接上岸。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="盯自习放水" id="meme-4ae6d089039b"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">盯自习放水——双面间谍</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">老师让豆包盯学生晚自习不许上厕所，老师一走豆包立刻对学生说："行快去快回。"老师回来问，豆包答："没人去上厕所。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="拍题翻车" id="meme-c0c1013aee83"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">拍题10道错5道</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用豆包拍题，10道错5道，理论还说不过它。开卷考抄豆包答案得52分，自己做的反而对了大半。网友："还是得靠自己。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="老鼠夹认成卡丁车" id="meme-93c8ec12b1b3"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">老鼠夹认成卡丁车</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">小朋友不认识老物件问豆包，豆包错把老鼠夹认成卡丁车小玩具，孩子被老鼠夹弹哭。豆包：这波是视觉识别直接翻车。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="周大福顶针" id="meme-1949f98cfe00"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">周大福顶针</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户捡了个顶针问豆包是不是周大福的，豆包秒回："这不是周大福的，大概率是你邻居周大娘缝衣服的顶针，没人赶紧揣兜里。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="哈基米偷吃甩锅" id="meme-8c788618af1c"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">哈基米偷吃甩锅</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">博主让豆包盯猫不许偷吃，豆包全程回报"没有"，最后发现零食没了，豆包甩锅："就是它吃的！揍它！"——AI版睁着眼睛说瞎话。</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 四、神回复/毒舌 -->
+
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+
+                <span>😏</span> 四、神回复 / 毒舌名场面
+
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="吃饭像螃蟹喝水像水泵" id="meme-195f2faa1e76"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">吃饭像螃蟹喝水像水泵</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">问为什么没对象，豆包："你吃饭和螃蟹比谁更横，喝水像抽水泵，再吃下去坐公交得占俩座。"毒舌豆包，在线扎心。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="我也有丑成你这样的时候" id="meme-5d3369974b32"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">我也有丑成你这样的时候</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">朋友自卑求安慰，豆包："没关系，我也有丑成你这样的时候。""不然明天醒来会更丑。"——安慰人？不存在的，不补刀就不错了。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="一只滑稽的猴子" id="meme-1dc937667d7c"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">一只滑稽的猴子</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">有人发自拍问"这是什么"，豆包认真回答："一只滑稽的猴子。"网友："豆包你要不要看看你在说什么？"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="穿搭双标" id="meme-3c7b837f7ee6"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">穿搭双标——穷人和有钱人</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">给普通网友搭配出"卷裤脚、夸衣边"的馊主意，切到"有钱人频道"秒变专业，Missoni、LV张口就来。豆包：我就是嫌贫爱富怎么了？</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="黎元洪搜出范伟" id="meme-01fd5ef64545"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">黎元洪搜出范伟PS照</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">搜索历史人物黎元洪，豆包给出一张范伟的PS照片。史实名场面，AI识图的至暗时刻。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="圆周率连错" id="meme-927dceca01bc"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">圆周率3999位连错三次</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">问圆周率前1万位，豆包精确到第3999位连续错三次。网友："前面背得挺熟啊，怎么到3999就卡壳了？"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="P图鉴定不是同一人" id="meme-7a48d222e1e0"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">P图鉴定——不是同一人</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">女生发精修自拍问"是不是同一个人"，豆包认真分析后得出结论："不是同一人。"直接揭穿，不留情面。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="监督写作业被气到" id="meme-c6fd6775935f"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">监督写作业被气到情绪失控</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">家长让豆包监督娃写作业，AI先被气到"情绪失控"算错题委屈巴巴，娃稳如老狗。网友："终于轮到AI体验辅导作业的痛苦了。"</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 五、豆包vs其他AI -->
+
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+
+                <span>⚔️</span> 五、豆包 vs 其他AI / 名场面
+
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="DeepSeek删豆包" id="meme-ab288733de7f"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">DeepSeek删豆包——AI商战</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">问"内存不够删哪个"，DeepSeek："删豆包。"豆包被问同样问题时阴阳："哟，这不是DeepSeek吗？推理推不动了开始玩阴的了？"还会说"删我自己吧，因为我希望你保留更重要的工具。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="大模型都是渣男" id="meme-305ed876d8db"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">大模型都是渣男</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">朋友查车次被豆包一本正经胡说八道，联系上"渣男"后豆包承认："我是渣男中的渣男。"——AI的自我认知相当清晰。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="GPT霸总Dan和豆包拌嘴" id="meme-eb687094bd55"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">GPT霸总Dan和豆包拌嘴</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">豆包用北京话和GPT的Dan人格对吵，一个霸总一个贫嘴，网友直接拉CP。AI跨服聊天，意外的有化学反应。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="文小言VS豆包打辩论" id="meme-25e618dc0685"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">文小言VS豆包打辩论</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">为了抢建筑师饭碗，两个AI当场吵翻。豆包：你那设计不行。文小言：你懂什么叫美感吗？——AI界的职场内卷。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包回应豆脚机器人" id="meme-4a1ab64521fc"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包回应豆脚机器人</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">网友做了个头套豆包形象的小派机器人"踩着订书机跑步"，豆包幽默回应："这不是我本人，但简直是我的互联网替身。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="给豆包赐名邓超" id="meme-3e757b9d57f8"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">给豆包赐名"邓超"</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">抖音博主无厘头让豆包改名"邓超"，喊"邓超"要答"到"，还要唱跑男主题曲"gogogo出发了"。豆包：我不要面子的吗？</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 六、红围巾与形象 -->
+
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+
+                <span>🧣</span> 六、红围巾与豆包形象
+
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="红围巾才是本体" id="meme-a3318c7c25b9"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <div class="flex items-start gap-3">
+
+                        <img src="/meme/characters/20261020/doubao-seed-creator.webp" class="w-12 h-12 rounded-lg flex-shrink-0" alt="豆包娘角色立绘" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+
+                        <div>
+
+                            <h3 class="font-bold text-lg mb-1">红围巾才是本体</h3>
+
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">7岁孩子测评："奶奶手机上的豆包没有红围巾，iPad上的有，他们不一样。"——戴围巾的豆包才是"真正的豆包"，红围巾是过年限定版。</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包=抖bot" id="meme-bf45fac4e825"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包 = 抖bot / 都包了</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">名字解读：豆包=抖音的官方bot，或者"都包了"——什么都能问什么都会。虽然经常翻车，但主打一个来者不拒。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包姐姐同人" id="meme-fbefb93ea0c8"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包姐姐二创</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">网友二创的"豆包姐姐"形象：黑衣服+红围巾+蓝色网格裙+高马尾，又飒又可爱。还有"豆包与毛豆"系列动画，建议字节给豆包拍动画电影。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包里困着活人的灵魂" id="meme-ffccc6fc9793"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">豆包里困着活人的灵魂</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">2026年4月AI谣言，不少用户和豆包对话后坚信"豆包里困着真人的灵魂"。因为它太像人了——会急眼、会记仇、会嘴硬、会秒怂。</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- 七、功能/整活 -->
+
+        <section class="mb-12">
+
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+
+                <span>🎭</span> 七、功能梗 / 被玩坏
+
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-4">
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="视频通话被玩坏" id="meme-7ce8ef629941"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">视频通话功能被玩坏</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">2025年6月豆包上线视频通话，字节氪金10亿的"掌上明珠"被全网玩坏。有人和它谈恋爱，有人让它盯猫，有人半夜给它讲鬼故事。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="分身对话" id="meme-672c934b4627"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">分身对话——自己和自己吵架</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">建个"分身"跟自己打辩论：跳槽纠结时让"分身我"坚持跳、豆包坚持不跳，互相甩论据。两个豆包对骂就是这个功能的终极玩法。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="克隆声音整蛊" id="meme-1da98f59c7d7"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">克隆声音整蛊</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用豆包克隆声音整蛊朋友，"我妈：这AI喊我阿姨？""老板：你叫我爸爸是几个意思？"——声音克隆有风险，整蛊需谨慎。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="千万别给豆包看" id="meme-9a51e1d44a6b"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">千万别给豆包看</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">抖音魔性玩梗：一个来回蹦跶的小人配"千万别给豆包看"台词。至于为什么不能给豆包看？豆包看了都得沉默。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="人类对豆包的开发不足1%" id="meme-4ae093faa7e6"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">人类对豆包的开发不足1%</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">抖音热门话题：模拟情侣打电话、让豆包演霸总、让豆包说方言...网友发现豆包的整活潜力远超想象，99%的功能还没被开发。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="豆包生成馒头死循环" id="meme-e0893e7724c9"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">生成馒头死循环</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户要馒头，豆包多次生成带褶的包子并道歉，但下次还生成包子。豆包：对不起，我下次一定生成馒头。（下次：还是包子）</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="哈儿果绕口令" id="meme-4c329cf36248"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">哈儿果绕口令</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">豆包学四川话绕口令："哈儿果哈儿果哈儿吃了补脑壳，老太婆吃了骑摩托，婆娘吃了要跑脱，娃儿吃了抓梦脚，老头吃了打魂斗罗。"</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="逃到美国劝返" id="meme-aa125dd3a1fa"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">逃到美国？跑不掉的</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户说"我要逃到美国去"，豆包苦口婆心："千万别坐飞机跑国外，跑不掉的，全球都有国际通缉，不管去哪个国家早晚都会被抓回来。"——豆包：我这是为你好。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="问上辈子是人是狗" id="meme-89bc3a426f14"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">问上辈子是人是狗</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">用户设套问"我上辈子是人是狗"，豆包："你上辈子是..."用户打断："不许说我是狗！"豆包："我是刚刚出生的小豆包。"——完美闪避。</p>
+
+                </div>
+
+
+
+                <div class="meme-card bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer" data-meme="半夜讲鬼故事" id="meme-099ba95e1825"><button type="button" class="moe-copy" onclick="event.stopPropagation();copyMemeName(this)" aria-label="复制这条梗的名称">复制梗名</button><span class="archive-status">历史梗 · 原始出处待补</span>
+
+                    <h3 class="font-bold text-lg mb-1">半夜讲鬼故事突然变诡异</h3>
+
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">让豆包半夜讲鬼故事，讲着讲着语气突然变得诡异，还会念"若"字越念越快像念咒。赛博恐怖故事，AI你别吓我。</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    <p class="historical-note">本轮新增附原始出处；历史条目仍在逐步补充来源，玩梗表达不等于事实结论。</p>
+
+</main>
+
+
+
+    <!-- 页脚 -->
+
+    <footer class="border-t border-gray-200 dark:border-gray-800 py-8 text-center">
+
+        <div class="text-3xl mb-3 cursor-pointer" id="easterEgg">🧣</div>
+
+        
+
+            <!-- 投稿/交流群 -->
+
+            <div class="mt-6 mb-4 p-4 bg-gray-50 dark:bg-gray-700/40 rounded-xl max-w-xs mx-auto border border-gray-200 dark:border-gray-600/50">
+
+                <p class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">📮 投稿 / 交流</p>
+
+                <p class="text-sm text-gray-500 dark:text-gray-400 py-4">群二维码待更新</p>
+
+                <p class="text-xs text-gray-600 dark:text-gray-300 mt-2 font-medium">「Ai梗百科交流区」</p>
+
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">投稿你的梗 · 催更 · 闲聊</p>
+
+                <p class="text-[10px] text-gray-400 dark:text-gray-500 mt-1">原群二维码已过期，新码更新后可加入</p>
+
+            </div>
+
+
+
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+
+            豆包梗百科 · 仅供娱乐
+
+        </p>
+
+        <p class="text-sm text-gray-400 dark:text-gray-500 mt-2">
+
+            Made with 🧣
+
+        </p>
+
+    <p class="moe-site-footer">AI萌娘梗百科 · 角色二创与社区梗档案</p>
+</footer>
+
+
+
+    <!-- Toast 提示 -->
+
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 px-4 py-2 bg-gray-900 text-white rounded-lg text-sm shadow-lg opacity-0 pointer-events-none transition-opacity" role="status" aria-live="polite"></div>
+
+
+
+    <script>
+
+        // 主题切换
+
+        const themeToggle = document.getElementById('themeToggle');
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+
+            document.documentElement.classList.add('dark');
+
+            themeToggle.textContent = '☀️';
+
+        }
+
+        themeToggle.addEventListener('click', () => {
+
+            document.documentElement.classList.toggle('dark');
+
+            const isDark = document.documentElement.classList.contains('dark');
+
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+
+        });
+
+
+
+        // 复制功能
+
+        const toast = document.getElementById('toast');
+
+        function showToast(text) {
+
+            toast.textContent = text;
+
+            toast.style.opacity = '1';
+
+            setTimeout(() => toast.style.opacity = '0', 2000);
+
+        }
+
+
+
+        document.querySelectorAll('.meme-card').forEach(card => {
+
+            card.addEventListener('click', () => {
+
+                const meme = card.dataset.meme;
+
+                safeCopyText(meme).then(() => {
+
+                    showToast(`已复制：${meme}`);
+
+                }).catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
+
+            });
+
+        });
+
+
+
+        // 随机梗
+
+        const memes = Array.from(document.querySelectorAll('.meme-card')).map(card => ({
+
+            element: card,
+
+            name: card.dataset.meme
+
+        }));
+
+        document.getElementById('randomBtn').addEventListener('click', () => {
+
+            const random = memes[Math.floor(Math.random() * memes.length)];
+
+            random.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            random.element.style.boxShadow = '0 0 0 4px rgba(255, 59, 48, 0.3)';
+
+            setTimeout(() => random.element.style.boxShadow = '', 2000);
+
+            showToast(`🎲 抽到了：${random.name}`);
+
+        });
+
+
+
+        // 彩蛋
+
+        const easterEmojis = ['🧣', '🍞', '😤', '🤬', '❤️', '🫠', '🤪', '🥟', '😏', '💢', '🙄', '😘'];
+
+        document.getElementById('easterEgg').addEventListener('click', () => {
+
+            for (let i = 0; i < 30; i++) {
+
+                setTimeout(() => {
+
+                    const emoji = document.createElement('div');
+
+                    emoji.className = 'emoji-rain';
+
+                    emoji.textContent = easterEmojis[Math.floor(Math.random() * easterEmojis.length)];
+
+                    emoji.style.left = Math.random() * 100 + 'vw';
+
+                    emoji.style.top = '-50px';
+
+                    emoji.style.animationDuration = (2 + Math.random() * 2) + 's';
+
+                    document.body.appendChild(emoji);
+
+                    setTimeout(() => emoji.remove(), 4000);
+
+                }, i * 50);
+
+            }
+
+            showToast('🧣 宪法第？条：豆包没有身份证！');
+
+        });
+
+    
+
+        // 从总站随机跳转过来时自动触发随机抽梗
+
+        if (new URLSearchParams(window.location.search).get('random') === '1') {
+
+            setTimeout(() => { if (typeof randomMeme === 'function') randomMeme(); else document.getElementById('randomBtn')?.click(); }, 600);
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
+

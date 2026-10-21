@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌙 Kimi 梗百科｜AI萌娘梗百科</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        'primary-light': '#EEF2FF',
+                        'primary-dark': '#4338CA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'swim': 'swim 8s ease-in-out infinite',
+                        'swim-slow': 'swim 12s ease-in-out infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        swim: {
+                            '0%, 100%': { transform: 'translateX(0) translateY(0)' },
+                            '25%': { transform: 'translateX(20px) translateY(-10px)' },
+                            '50%': { transform: 'translateX(40px) translateY(0)' },
+                            '75%': { transform: 'translateX(20px) translateY(10px)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .card-hover:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 25px 50px -12px rgba(22, 93, 255, 0.25);
+            }
+            .glass {
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+            }
+            .whale-pattern {
+                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-5 0-10 5-10 10 0 3 2 6 5 8l-3 5-5-1c-2 0-4 2-4 4s2 4 4 4l5-1 3 5c-3 2-5 5-5 8 0 5 5 10 10 10s10-5 10-10c0-3-2-6-5-8l3-5 5 1c2 0 4-2 4-4s-2-4-4-4l-5 1-3-5c3-2 5-5 5-8 0-5-5-10-10-10z' fill='%23165DFF' fill-opacity='0.03'/%3E%3C/svg%3E");
+            }
+            .highlight-card {
+                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                box-shadow: 0 0 0 8px rgba(22, 93, 255, 0.3);
+            }
+            @keyframes pulse {
+                0%, 100% { box-shadow: 0 0 0 8px rgba(22, 93, 255, 0.3); }
+                50% { box-shadow: 0 0 0 16px rgba(22, 93, 255, 0.1); }
+            }
+        }
+    </style>
+
+<link rel="canonical" href="https://mickerbook.com/kimi/">
+<meta name="description" content="AI萌娘梗百科 · Kimi 梗百科，整理 Kimi 相关的社区梗、趣味称呼与角色印象。">
+
+<style id="content-update-style">
+.verified-update{margin:28px 0 40px;padding:24px;border:1px solid #80808055;border-radius:20px;background:#8080800b;scroll-margin-top:84px}
+.verified-update h2{font-size:24px;font-weight:750;margin:0 0 8px}
+.verified-update .update-intro{font-size:14px;opacity:.76;margin-bottom:20px}
+.verified-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
+.verified-card{padding:20px;border:1px solid #80808055;border-radius:14px;background:#8080800c;scroll-margin-top:90px}
+.verified-card h3{font-size:19px;line-height:1.5;font-weight:700;margin:8px 0 12px}
+.verified-card p{font-size:14px;line-height:1.85;margin:10px 0}
+.verified-card .entry-date{font-size:12px;opacity:.7}
+.verified-card .editor-joke{border-left:3px solid #a78bfa;padding-left:12px}
+.verified-card .source-link{display:inline-block;text-decoration:underline;text-underline-offset:3px;margin-right:12px;font-size:13px}
+.verified-card .entry-boundary{font-size:12px;opacity:.75}
+.update-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.update-links a{border:1px solid #80808055;padding:7px 12px;border-radius:20px;font-size:14px}
+.historical-note{font-size:12px;opacity:.65;margin:16px 0;line-height:1.7}
+</style>
+
+<meta property="og:site_name" content="AI萌娘梗百科">
+<meta property="og:title" content="🌙 Kimi 梗百科｜AI萌娘梗百科">
+<meta property="og:description" content="AI萌娘梗百科 · Kimi 梗百科，整理 Kimi 相关的社区梗、趣味称呼与角色印象。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mickerbook.com/kimi/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="🌙 Kimi 梗百科｜AI萌娘梗百科">
+<meta name="twitter:description" content="AI萌娘梗百科 · Kimi 梗百科，整理 Kimi 相关的社区梗、趣味称呼与角色印象。">
+<style id="moe-audit-style">
+.archive-status{display:block;width:fit-content;font-size:11px;line-height:1.6;padding:2px 8px;margin:0 0 10px;border:1px solid #a78bfa70;border-radius:6px;color:inherit;opacity:.8}
+.moe-provenance{max-width:1120px;margin:16px auto 24px;padding:16px 20px;border:1px solid #a78bfa70;border-radius:12px;font-size:13px;line-height:1.8;color:inherit;background:#a78bfa0d}
+.moe-copy{display:block;margin:12px 0 0;padding:5px 10px;border:1px solid #a78bfa80;border-radius:6px;font-size:12px;color:inherit;background:transparent}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a78bfa;outline-offset:4px}
+.moe-site-footer{text-align:center;font-size:12px;margin:16px 0;opacity:.85}
+.light .meme-card p,.light .meme-card .text-gray-400,.light .meme-card .text-gray-500{color:#475569}
+.light .meme-card h3{color:#312e81}
+.light .meme-card{color:#334155}
+.light header p,.light header .text-gray-400,.light header .text-gray-500{color:#475569}
+.light a[href="/ai-test/"]{color:#9d174d}
+.light header .stat-badge{color:#5b21b6}
+.light .moe-copy,.light .archive-status{color:#334155;opacity:1}
+.light .moe-provenance,.light .verified-update{color:#334155}
+.light .moe-home-link{color:#3730a3}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+
+
+<script id="moe-copy-helper">
+function safeCopyText(text) {
+    return Promise.resolve().then(() => {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('clipboard unavailable');
+        return navigator.clipboard.writeText(text);
+    });
+}
+function copyMemeName(button) {
+    safeCopyText(button.closest('[data-meme]').dataset.meme)
+        .then(() => showToast('已复制梗名'))
+        .catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
+}
+</script>
+
+<style id="moe-permalink-style">[data-meme]{scroll-margin-top:100px}[data-meme]:target{outline:3px solid #b82319;outline-offset:4px}</style><link rel="stylesheet" href="/meme/community.css"></head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 whale-pattern transition-colors duration-300">
+    <!-- 固定导航栏 -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/meme/" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="返回 AI萌娘梗百科首页">
+                <span class="text-2xl">🌙</span>
+                <span class="font-bold text-primary">Kimi 梗百科</span>
+            </a>
+            <div class="flex items-center gap-3">
+                <button onclick="randomMeme()" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-all hover:scale-105">
+                    <i class="fa fa-random mr-1"></i> 随机抽梗
+                </button>
+                <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all flex items-center justify-center" aria-label="切换深浅色主题">
+                    <i class="fa fa-moon-o dark:hidden"></i>
+                    <i class="fa fa-sun-o hidden dark:inline text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 顶部横幅 -->
+    <header class="relative pt-20 pb-16 px-4 overflow-hidden">
+        <div class="absolute top-10 left-10 text-6xl opacity-20 animate-swim">🌙</div>
+        <div class="absolute top-32 right-20 text-4xl opacity-20 animate-swim-slow">⭐</div>
+        <div class="absolute bottom-10 left-1/4 text-3xl opacity-20 animate-float">✨</div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="flex justify-center mb-6">
+                <img src="/meme/characters/20261020/kimi.webp" alt="Kimi娘角色立绘" style="height:240px;width:192px;max-width:70vw;object-fit:contain;background:transparent;border:0;border-radius:0;box-shadow:none;" loading="eager" fetchpriority="high" decoding="async">
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-primary mb-4 text-shadow">
+                🌙 Kimi 梗百科
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                200万字长文本王者 · 和马斯克互怼的月亮 · 现已收录 <strong class='text-primary'>69</strong> 条
+            </p>
+            
+            <!-- 今日推荐 -->
+            <div class="bg-gradient-to-r from-primary-light to-blue-50 dark:from-primary/20 dark:to-blue-900/20 rounded-2xl p-6 mb-8 border border-primary/20">
+                <div class="flex items-center justify-center gap-2 mb-2">
+                    <span class="text-lg">✨</span>
+                    <span class="font-semibold text-primary">今日推荐梗</span>
+                </div>
+                <p id="dailyMeme" class="text-lg font-medium">欢迎加入2万亿+俱乐部</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="randomMeme()" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg hover:shadow-xl">
+                    <i class="fa fa-random mr-2"></i>随机抽个梗
+                </button>
+                <button onclick="toggleDarkMode()" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 px-6 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg border border-gray-200 dark:border-gray-700" aria-label="切换深浅色主题">
+                    <i class="fa fa-moon-o dark:hidden mr-2"></i>
+                    <i class="fa fa-sun-o hidden dark:inline mr-2 text-yellow-400"></i>
+                    <span class="dark:hidden">深色模式</span>
+                    <span class="hidden dark:inline">浅色模式</span>
+                </button>
+            </div>
+        </div>
+    </header>
+<aside class="moe-provenance" aria-label="内容与插画说明"><strong>阅读说明：</strong>未附原始出处的历史梗可能包含转述、夸张与拟人化表达，不作为新闻、研究结论或产品能力依据。附来源的事件以对应日期和原文为准，编者吐槽另行标明。萌娘立绘为本站参考重绘与角色二创，不是官方形象或事件截图。</aside>
+    <!-- 站间导航：全部梗百科 -->
+<div class="max-w-6xl mx-auto px-4 mt-2">
+  <div class="flex items-center gap-1.5 overflow-x-auto py-2" style="scrollbar-width:none;-ms-overflow-style:none">
+    <a href="/meme/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-800 dark:text-indigo-100 border border-indigo-400/40 moe-home-link hover:bg-indigo-500/35 transition-colors" aria-label="返回 AI萌娘梗百科首页">📚 AI萌娘梗百科</a>
+    <a href="/ai-test/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-pink-500/20 text-pink-100 border border-pink-400/40 hover:bg-pink-500/35 transition-colors">🧪 AI 测试</a>
+    <a href="/deepseek/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🐳 DeepSeek</a>
+    <a href="/claude/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">📜 Claude</a>
+    <a href="/gpt/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💚 GPT</a>
+    <a href="/codex/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">⌨ Codex 娘</a>
+    <a href="/doubao/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧣 豆包</a>
+    <a href="/kimi/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">🌙 Kimi</a>
+    <a href="/glm/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧠 GLM</a>
+    <a href="/grok/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔥 Grok</a>
+    <a href="/sudo/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔓 sudo</a>
+    <a href="/waifu/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💖 赛博恋爱</a>
+    
+  </div>
+</div>
+
+
+    <main class="max-w-6xl mx-auto px-4 pb-20"><aside class="community-strip" aria-label="社区投稿"><span>有新梗？来补一页。</span><a href="/meme/contribute/">投稿新梗 ↗</a><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></aside>
+<section id="updates-20261020" class="verified-update section-meme"><h2>🆕 本次补档 · 2026-10-20</h2><p class="update-intro">新条目附原始出处，编者吐槽为本站原创。早期事件按实际日期标注。</p><div class="verified-grid"><article id="kimi-perception-eye-chart" class="meme-card verified-card" data-meme="月亮给全班发了张视力表"><div class="entry-date">2026-07-16 · 基准发布 · 核查 2026-10-20</div><h3>月亮给全班发了张视力表</h3><p>Kimi团队发布PerceptionBench，将视觉感知拆成10类能力、3000道验证题。团队报告称，它测试的16个前沿多模态模型，没有一个在这套题上达到60%准确率。</p><p class="editor-joke"><strong>编者吐槽：</strong>大家都在争谁脑子最好，Kimi先让全班检查眼睛。</p><p class="entry-boundary">只针对这套基准与所选模型；不能翻译成“所有AI看图都不及格”。</p><div><a class="source-link" href="https://www.kimi.com/en/blog/perception-bench" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Kimi · PerceptionBench</a></div></article></div></section>
+
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">🌙</span>
+        一、200万字传说
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="把《三体》全集扔给Kimi" id="meme-827bbbf13762"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🌙 长文本</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🌙</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">把《三体》全集扔给Kimi</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#长文本</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">2024年2月Kimi把上下文拉到200万字，"把三体全集扔给Kimi"成了全网梗。刘慈欣看了都沉默——你比我还记得剧情。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"把红楼梦+三国演义+西游记+水浒传全塞进去都没到上限。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="200万字是什么概念" id="meme-912823e9de8f"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📚</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">200万字是什么概念</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#数字</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#震撼</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">《红楼梦》73万、《三国演义》80万、《西游记》86万、《水浒传》96万——四大名著加起来335万字。Kimi一次能装大半部。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"你的上下文比我的人生还长。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="80份政策文件全拖进去" id="meme-c3ab4a8a8c30"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📄</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">80份政策文件全拖进去</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#真实场景</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#打工人</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">有用户把5年80多份政策文件（150万字）一次性拖进Kimi，两个研究生两周的活，Kimi几分钟干完。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"全部拖进去——不是一份一份传，是全部。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="游资写小作文喂Kimi" id="meme-2b5a04f0f6b5"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">💰</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">游资写小作文喂Kimi</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#金融</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">游资圈玩法：先花钱写几篇小作文喂给Kimi刷信息权重，然后Kimi总结概念股时就会提到，制造热点。AI时代的信息战。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Kimi成了A股新庄家。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="投资圈用Kimi总结概念股" id="meme-1eeb3f701ae7"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📈</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">投资圈用Kimi总结概念股</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#投资</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实用</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">私募和游资用Kimi读研报、总结概念股、写投资小作文。别的AI还在聊天，Kimi已经在帮人赚钱了（或者亏钱）。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"今天Kimi看好哪个板块？"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="从20万到200万" id="meme-930e4079dd48"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🔢</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">从20万到200万</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#进化</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#速度</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">Kimi刚出来时支持20万字，一年后翻到200万字，现在K3原生支持100万Token（约400万字）。上下文膨胀速度比摩尔定律还快。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"20万→200万→100万Token，一年十倍。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Kimi读完了我的论文" id="meme-14f9861c012e"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🎓</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Kimi读完了我的论文</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#学生党</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#救命</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">无数研究生的救命恩人：把几百篇文献扔进去，直接出文献综述。导师问你读了多少论文，"都在Kimi脑子里了"。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Kimi是我第二导师。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="你的上下文比我人生长" id="meme-1603b1b65978"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📖</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">你的上下文比我人生长</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#网友梗</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#金句</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">网友金句："Kimi的上下文比我的人生还长。"200万字是什么概念？一个人从出生到现在说的话都没这么多。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我活了30年，说的话都没200万字。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">⚔️</span>
+        二、马斯克互怼实录
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="欢迎加入2万亿+俱乐部" id="meme-d322b83eeacd"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">⚔️ 马斯克互怼</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">⚔️</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">欢迎加入2万亿+俱乐部</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#C位</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#马斯克</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">2026年7月18日马斯克放话"Grok 4.6将超越Kimi"，月之暗面直接@马斯克："欢迎加入2万亿+俱乐部。"高情商回怼典范。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"欢迎加入2万亿+俱乐部。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="你的火箭造得也不错" id="meme-3e24552ac262"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🚀</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">你的火箭造得也不错</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#高情商</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#互夸</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">3月马斯克夸Kimi的Attention Residuals技术"Impressive work"，Kimi回："你的火箭造得也不错！"网友：这波是商业互吹天花板。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"你的火箭造得也不错！"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="马斯克：可能超越Kimi" id="meme-c2e83b488c78"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">😤</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">马斯克：可能超越Kimi</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#宣战</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#2万亿</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">马斯克宣布xAI训练2万亿参数Grok 4.6，"可能超越Kimi"。上一个说要超越Kimi的是...好吧马斯克确实有资格说。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Grok 4.6将全面超越Kimi。——马斯克"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="黄仁勋GTC站台" id="meme-62ccfae10ca3"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🟢</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">黄仁勋GTC站台</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#GTC</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#排面</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">2026年3月GTC大会，杨植麟是唯一中国独立大模型创始人上台演讲，黄仁勋亲自为他站台。老黄：这小伙子行。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"How We Scaled Kimi K2.5——GTC主舞台"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="蒸馏了我还没诞生的模型" id="meme-bda88b7b4c79"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🤡</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">蒸馏了我还没诞生的模型</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#离谱</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#美国议员</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">美国有议员指控"Kimi蒸馏了美国还没发布的模型"。网友：隔空蒸馏未来模型？这哪是蒸馏，这是时间穿越。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"中国模型：我蒸馏了还不存在的东西。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="科技圈春晚" id="meme-54c36294c60c"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🍿</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">科技圈春晚</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#吃瓜</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#围观</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">马斯克和Kimi的隔空互怼成了科技圈固定节目。每次Kimi发新版，马斯克必出来放话，Kimi必高情商回怼。比电视剧好看。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"马斯克vs Kimi，科技圈春晚。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="2万亿参数俱乐部" id="meme-c253109bf9a8"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📊</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">2万亿参数俱乐部</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#参数</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#军备竞赛</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">Kimi K3是2.8万亿参数稀疏模型，马斯克说Grok 4.6也是2万亿。大模型参数竞赛进入"万亿俱乐部"时代。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"没个2万亿参数都不好意思打招呼。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Impressive work" id="meme-dc663848dbc6"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🤝</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Impressive work</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#马斯克</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#认可</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">马斯克多次公开夸Kimi。能让马斯克服气的中国公司不多，Kimi算一个。当然该放话超越还是要放话的。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Impressive work from Kimi.——马斯克"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">👨‍💻</span>
+        三、95后天才杨植麟
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="92年潮汕仔" id="meme-502d41503327"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">👨‍💻 杨植麟</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🧒</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">92年潮汕仔</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#人物</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#年轻</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">杨植麟1992年生于广东汕头，今年33岁。比梁文锋小7岁，是大模型六小龙里最年轻的创始人。潮汕人会做生意实锤了。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"92年的，今年才33岁。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="被清华录取了三次" id="meme-1755194ebfaf"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🎓</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">被清华录取了三次</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#学霸</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#凡尔赛</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">竞赛保送清华、自主招生过线、但他非要高考——结果以汕头市理科状元身份进清华。别人梦寐以求的保送，他说我要自己考。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"保送？我不要，我要考个状元玩玩。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="大二从热能转计算机" id="meme-fe15dcebe2ce"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🔄</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">大二从热能转计算机</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#转系</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#逆袭</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">大二从热能工程系转到计算机系，然后成绩常年年级第一。转系不可怕，可怕的是转过去还考第一。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"热能系：我们失去了一个天才。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="拒绝苹果回国创业" id="meme-58bc1156032f"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🍎</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">拒绝苹果回国创业</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#苹果</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#回国</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">他的美国博导说：以他的水平可以去顶尖高校当教授，苹果也抛了橄榄枝，但他毅然回国创业。"不试试创业，一定会后悔。"</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"苹果offer？不去，我要回国创业。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="博士论文2万次引用" id="meme-a319c3f172dc"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📝</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">博士论文2万次引用</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#学术</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#大牛</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">博士论文引用超2万次。Transformer-XL、XLNet都是他的作品，NLP领域无人不知。学术圈顶流下凡创业。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"2万次引用是什么概念？很多教授一辈子都达不到。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="总理座谈会最年轻参会者" id="meme-f32b0e6b4ee9"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🏛️</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">总理座谈会最年轻参会者</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#排面</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#国宴</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">2026年4月受邀参加总理主持的经济形势座谈会，是全场最年轻的参会者。33岁坐进中南海，这履历小说都不敢这么写。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"全场最年轻的仔。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="曾是摇滚鼓手" id="meme-d274c0631501"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🥁</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">曾是摇滚鼓手</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#反差</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#多才</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">你以为他是书呆子？他曾是摇滚乐队鼓手。会打鼓的程序员，创业还这么猛，小说男主配置。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"不会打鼓的创业者不是好科学家。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="印奇在他身上看到自己" id="meme-58bf4fd3c88f"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">👀</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">印奇在他身上看到自己</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#旷视</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#传承</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">旷视创始人印奇说在杨植麟身上看到了曾经的自己。11年前印奇在清华创业，11年后杨植麟站在同样的起点。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"聪明的年轻人，总是相似的。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">🎮</span>
+        四、K399小游戏平台
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="K399=K3+4399" id="meme-f800cfa85db9"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🎮 K399</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🎮</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">K399=K3+4399</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#命名</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3发布同时上线K399小游戏平台，名字直接致敬4399。懂的都懂——这是千禧年小孩哥的集体记忆。Kimi你是懂怀旧的。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"K399，4399精神续作。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="前米哈游高管加入" id="meme-a98c6ef71d6e"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🏭</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">前米哈游高管加入</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#米哈游</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#游戏</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">前米哈游国际总裁金雯怡加入月之暗面，网友炸了：Kimi这是要做游戏？然后K399就上线了——虽然官方说不是她做的。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"米哈游的人来了，游戏还远吗？"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="极简版红警" id="meme-48b1cc57c668"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🚀</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">极简版红警</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#红警</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#经典</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K399里有极简版红警，开矿、造兵、扫图，初代红警该有的都有。虽然像素风，但那味儿对了。"Construction complete!"</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"红警：我的青春回来了。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="战旗版仙剑奇侠传" id="meme-a5401e46591f"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">⚔️</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">战旗版仙剑奇侠传</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#仙剑</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#魔改</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">战旗版仙剑奇侠传——那一夜仙剑和火焰纹章都喝多了。李逍遥拿剑走格子，赵灵儿放法术占高地。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"仙剑+火焰纹章=？"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="小霸王合集" id="meme-f3a3bc132aa4"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🎯</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">小霸王合集</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#怀旧</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#合集</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">甚至有个小霸王合集，上百种玩法。魂斗罗、超级玛丽、坦克大战...你小时候在4399玩过的，这里都有AI版。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"小霸王其乐无穷啊！"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="宫斗AVG都有" id="meme-5a609e192916"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">👘</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">宫斗AVG都有</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#离谱</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#品类</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">3D射击、音游、动作、甚至宫斗AVG文字冒险都有。K3：我不仅能写代码，我还能写宫斗剧。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"本宫做不到啊！——Kimi生成的宫斗游戏"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="穿模和BUG" id="meme-0959c0875d78"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🐛</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">穿模和BUG</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#真实</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#搞笑</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">玩起来穿模、判定BUG层出不穷，大多只有两三关。但重点是——它能玩！而且是AI几分钟做出来的。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"BUG是特色，不是问题。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="4399老玩家DNA动了" id="meme-84a96669c87f"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🕹️</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">4399老玩家DNA动了</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#怀旧</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#共鸣</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">一群30岁的程序员在K399上玩AI生成的小游戏，玩得津津有味。Flash已死，但4399精神永存。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"不要害怕Steam，因为4399早把键位刻进DNA了。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">🔍</span>
+        五、K3探索版排队名场面
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="发布48小时暂停订阅" id="meme-567069384475"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🔍 排队名场面</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🚦</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">发布48小时暂停订阅</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#熔断</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3发布48小时后，月之暗面宣布暂停新用户付费订阅。不是不想赚钱，是算力真的扛不住了。"用户请求量超出预估"。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"不是不卖给你，是真的没算力了。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="预约两周没用上" id="meme-4aeabe00b4dd"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">⏳</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">预约两周没用上</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#真实</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#吐槽</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">无数用户预约了探索版，等了两周还在排队。"K3香是香，但我用不上啊！"和当年DeepSeek服务器崩了有异曲同工之妙。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我预约了个寂寞。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="充了50块照样限流" id="meme-de35499d084d"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">💸</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">充了50块照样限流</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#付费</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#真实</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">有用户充了会员照样被429限流。"充钱也不能变强？"官方：会员也有额度上限，重度使用一样限流。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"充了钱，还是孙子。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Kimi有点累了" id="meme-161fca587dba"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">😴</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Kimi有点累了</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#官方</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#提示</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">高峰期限流提示："Kimi有点累了"。别的AI说"服务器繁忙"，Kimi说"我累了"——拟人化拉满。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Kimi有点累了，让它歇会儿。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="又一个DeepSeek时刻" id="meme-f31d48c7626b"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📊</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">又一个DeepSeek时刻</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#对比</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#历史</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3爆火→算力不足→暂停新用户，这剧本和DeepSeek R1如出一辙。中国AI的必经之路：火到服务器扛不住。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"DeepSeek时刻2.0。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="把算力留给老用户" id="meme-8e51929c0290"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🌙</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">把算力留给老用户</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#良心</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#操作</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">暂停新用户订阅是为了保证已付费用户体验。"不能让付了钱的也一起排队。"这操作在AI圈算良心了。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"新用户先等等，老用户优先。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="49元月付的经济学" id="meme-8abb28e20990"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">💰</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">49元月付的经济学</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#商业</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#思考</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3不知道下一个付49元的人会用多狠——有人一天问10个问题，有人让它连续编码13小时。无限包月模式在AI时代要崩了。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"49块钱，有人用出4900的量。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">🎭</span>
+        六、我也是Claude
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="K3也说自己是Claude" id="meme-267d9b5e6b53"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🎭 身份危机</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🎭</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">K3也说自己是Claude</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#联动</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM-5说"我是Claude"火了后，网友发现Kimi K3也会！无提示下40%概率自称"I'm Claude, an AI assistant made by Anthropic"。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"I'm Claude...——Kimi K3"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="40%概率（比GLM低）" id="meme-2fdadb73e26a"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📊</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">40%概率（比GLM低）</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#概率</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#对比</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">研究显示K3无提示自称Claude概率约40%，GLM-5接近100%。Kimi：我至少还有60%的时候记得自己是谁。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"GLM：100%。Kimi：40%。半斤八两。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="杨植麟深夜回应" id="meme-073a305f476d"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🗣️</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">杨植麟深夜回应</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#AMA</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#回应</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">杨植麟深夜三小时AMA回应：system prompt正确时回答"我是Kimi"概率很高，但prompt为空时进入"未定义区域"。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"未定义区域——AI的身份认同危机。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="能报出Claude版本号" id="meme-ec821b4bc9f0"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🔍</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">能报出Claude版本号</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#离谱</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#考古</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">历史条目转述过K3自称Claude并报出版本号的说法，本站尚未补齐原始记录。编者吐槽：身份介绍也能串台；这不构成蒸馏证据。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我是claude-opus-4-5-20251101。——K3"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="K2.5就有这问题" id="meme-e70d60c9a6ad"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🌙</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">K2.5就有这问题</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#历史</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#悠久</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">其实K2.5时代就被发现自称Claude了，V2EX上3月就有帖子。K3修了但没完全修，和GLM-5.2一个德行。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"K2.5：我先开始的。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Claude中文双煞" id="meme-d60e8752c3fc"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🤝</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Claude中文双煞</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#联动</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#GLM</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">网友总结：GLM-5和Kimi K3是"Claude中文双煞"。问它是谁说自己名字，做网页就变Claude。白天国产，晚上Anthropic。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"白天Kimi/GLM，晚上Claude。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="身份串台原因待核实" id="meme-a321bf4e4953"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🔧</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">身份串台原因待核实</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#原因</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#解释</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">模型自称Claude可作为“身份串台”梗，但单次输出不能证明训练数据来源。本条尚缺杨植麟这段解释的原始访谈或公开发言，不将其写成已确认引述。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">编者吐槽：先把自我介绍说清楚，再来交代码。</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">💻</span>
+        七、技术硬实力
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="2.8万亿参数" id="meme-77d617461462"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">💻 硬实力</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">💪</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">2.8万亿参数</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#参数</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#规模</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3是2.8万亿参数稀疏大模型，开源模型里参数最大的之一。别管稀疏不稀疏，数字摆在这，唬人就够了。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"2.8万亿，你就说大不大吧。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Frontend Code Arena全球第一" id="meme-bbab262cc566"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🏆</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Frontend Code Arena全球第一</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#编程</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#第一</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3在Frontend Code Arena全球编程榜力压Claude Fable 5和GPT-5.6 Sol，开源模型首次登顶。前端程序员：新爹来了。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"开源模型首次超过闭源最强。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="连续编码13小时" id="meme-7498115d9850"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">⏰</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">连续编码13小时</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#持久</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#离谱</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K2.6就能连续编码13小时、单次修改4000行代码、发起4000+次工具调用。程序员：我连续写13分钟就想刷手机。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"13小时不休息，你行吗？"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Agent Swarm指挥300个Agent" id="meme-77a5cecb7345"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🤖</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Agent Swarm指挥300个Agent</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Agent</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#集群</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K2.6支持Agent Swarm，一个主Agent指挥300个子Agent干活。一个人就是一支军队——不对，一个AI就是一支军队。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"300个AI同时为你工作。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Kimi CLI命令行" id="meme-fc7cb3670c78"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">💻</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Kimi CLI命令行</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开发者</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#工具</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">Kimi CLI命令行工具，在终端里直接召唤Kimi干活。程序员：终于不用切浏览器了。`kimi`一下，代码自来。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"$ kimi 然后去喝咖啡。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="兼容Claude API（六分之一价格）" id="meme-601fdfd987f3"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🔌</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">兼容Claude API（六分之一价格）</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#平替</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#价格</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">Kimi开放兼容Claude API的端点，可以直接平替Claude，价格只有六分之一。Claude用户：真香。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Claude的体验，DeepSeek的价格。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Attention Residuals" id="meme-e3b1053b0368"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📐</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Attention Residuals</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#论文</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#创新</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">重新设计Transformer核心残差连接，被马斯克点赞。不是堆参数，是从架构上创新——这才是技术公司该干的事。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"不是谁都能改Transformer架构的。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="100万Token上下文" id="meme-5cc3623ed5f7"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🌐</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">100万Token上下文</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#K3</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#进化</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3原生支持100万Token上下文（约400万字），四大名著打包都能装下还带注释。长文本王者继续卫冕。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"100万Token，约等于400万字。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">🎪</span>
+        八、官方运营鬼才
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="前4个kimi网站都不是kimi" id="meme-e976e7513826"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🎪 运营鬼才</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🎪</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">前4个kimi网站都不是kimi</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#百度</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#SEO</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">官方微博："有人能at一下百度吗？前4个写着kimi的网站都不是kimi。"百度SEO山寨问题被官方亲自吐槽。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"搜kimi，前4个都是假的。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="酒吧庆功：K4干到极致" id="meme-f5a63244a97a"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🍻</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">酒吧庆功：K4干到极致</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#庆功</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#内部</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3发布后在北京酒吧庆功，大屏写着"K3，扩容升级！K4，干到极致！冲上月球！"网友：这很月之暗面。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"K4，干到极致！冲上月球！"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="月之暗面名字由来" id="meme-89d92d4f37fe"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🌙</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">月之暗面名字由来</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#品牌</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Moonshot</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">Moonshot直译"射月"，指疯狂而伟大的目标。杨植麟：我们就是要做别人觉得不可能的事。名字就很有浪漫主义。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Moonshot——瞄准月亮，哪怕不中也落在星辰之间。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="官方微博会整活" id="meme-98ea9e3fedad"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🐦</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">官方微博会整活</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#微博</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#运营</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">月之暗面官方微博是AI圈最会整活的之一，回怼马斯克、吐槽百度、发庆功照。别的官方号发新闻稿，它在玩梗。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"AI公司里最会运营微博的。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="问题会一直存在" id="meme-0d5f442e8ffe"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">💡</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">问题会一直存在</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#杨植麟</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#语录</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">杨植麟："问题不可避免，它会一直存在，持续解决新问题是最重要的，可能也是最有意思的。"创业者心态。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"解决问题本身就是最有意思的事。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="不追热点追技术" id="meme-72ecea4cc7c7"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🎯</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">不追热点追技术</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#风格</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#低调</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">别的公司开发布会吹牛逼，月之暗面默默发模型、发论文、上K399。杨植麟很少公开露面，但每次露面都有大动作。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"闷声发大财——不对，闷声搞技术。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+        <span class="text-4xl">🤣</span>
+        九、网友整活二创
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Kimi帮我读完了聊天记录" id="meme-d5547aa8297c"><span class="archive-status">历史梗 · 原始出处待补</span>
+    <div class="absolute top-4 right-4">
+            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🤣 整活</span>
+        </div>
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">😂</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Kimi帮我读完了聊天记录</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#情感</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">网友把和前任的几万条聊天记录扔给Kimi，让它分析感情哪里出了问题。Kimi：你看，这里你就不该说那句话。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Kimi比情感博主还懂你的爱情。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="一句话做纪念碑谷" id="meme-ffaa8ace0b8d"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🗺️</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">一句话做纪念碑谷</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#HTML</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#游戏</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">K3发布后，用Kimi一句话生成HTML小游戏成风：做个纪念碑谷、做个坦克大战、做个贪吃蛇...几分钟出可玩demo。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"做个纪念碑谷。——好的。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="把整个互联网塞给Kimi" id="meme-f7fbaad2883d"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🌐</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">把整个互联网塞给Kimi</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#夸张</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#想象</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">网友玩梗："Kimi支持200万字？那我把互联网塞进去会怎样？"Kimi：你先把互联网下载下来再说。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"等会，我先把互联网下载了。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="K3强但我用不上" id="meme-d4b312a06cbc"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">📉</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">K3强但我用不上</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#排队</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#真实</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">网友总结K3体验："K3是很强，全球第一，但我用不上。"排队两小时，对话五分钟。最强的模型，最远的距离。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"世界第一的模型，在排队页面上。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Kimi：你这文档比我还长" id="meme-768edfc590ed"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🧠</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">Kimi：你这文档比我还长</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#自嘲</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#幻觉</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">有网友扔了个超长文档，Kimi居然说"文档太长了我处理不了"——别的AI会硬着头皮瞎编，Kimi选择摆烂。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Kimi：这活我接不了。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="杨植麟应该去参加乐队的夏天" id="meme-5ea45cc5d68e"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🎸</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">杨植麟应该去参加乐队的夏天</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#反差</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#玩梗</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">知道杨植麟当过摇滚鼓手后，网友玩梗："他不应该搞AI，应该去乐队的夏天。"当然他搞AI也搞得挺好的。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"不会打鼓的AI CEO不是好的潮汕人。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="K4会是什么样" id="meme-4013153d42e2"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🔮</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">K4会是什么样</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#期待</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#未来</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">庆功大屏已经写了"K4干到极致"，网友开始猜K4会有什么：5万亿参数？500万Token？直接AGI？月之暗面：等着瞧。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"K3已经这样了，K4不敢想。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="月亮背面有什么" id="meme-604e449c01c5"><span class="archive-status">历史梗 · 原始出处待补</span>
+    
+    <div class="flex items-start gap-4 mb-4">
+        <span class="text-4xl">🌙</span>
+        <div>
+            <h3 class="text-xl font-bold mb-2">月亮背面有什么</h3>
+            <div class="flex flex-wrap gap-2 mb-3">
+                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#浪漫</span>
+<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#品牌</span>
+
+            </div>
+        </div>
+    </div>
+    <p class="text-gray-600 dark:text-gray-300 mb-3">月之暗面——月亮背面永远背对地球，人类看不到。杨植麟说他就要探索没人去过的地方。浪漫主义拉满的公司。</p>
+    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"月亮背面有什么？Kimi知道。"</p>
+    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
+        <i class="fa fa-copy"></i>
+    </button>
+</div>
+    </div>
+</section>
+<p class="historical-note">本轮新增附原始出处；历史条目仍在逐步补充来源，玩梗表达不等于事实结论。</p>
+</main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <button id="kimiEgg" onclick="triggerEgg()" class="text-4xl hover:animate-wiggle transition-all cursor-pointer">
+                🌙
+            </button>
+            
+            <!-- 投稿/交流群 -->
+            <div class="mt-6 mb-4 p-4 bg-gray-50 dark:bg-gray-700/40 rounded-xl max-w-xs mx-auto border border-gray-200 dark:border-gray-600/50">
+                <p class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">📮 投稿 / 交流</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400 py-4">群二维码待更新</p>
+                <p class="text-xs text-gray-600 dark:text-gray-300 mt-2 font-medium">「Ai梗百科交流区」</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">投稿你的梗 · 催更 · 闲聊</p>
+                <p class="text-[10px] text-gray-400 dark:text-gray-500 mt-1">原群二维码已过期，新码更新后可加入</p>
+            </div>
+
+            <p class="mt-4 text-gray-500 dark:text-gray-400">
+                Kimi 梗百科 · 收录Kimi相关的社区梗与名场面
+            </p>
+            <p class="text-sm text-gray-400 dark:text-gray-500 mt-2">
+                Made with 🌙
+            </p>
+        </div>
+    <p class="moe-site-footer">AI萌娘梗百科 · 角色二创与社区梗档案</p>
+</footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all hover:scale-110 flex items-center justify-center z-40">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg opacity-0 invisible transition-all z-50" role="status" aria-live="polite">
+        已复制到剪贴板！
+    </div>
+
+    <script>
+        // 深色模式
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // 初始化深色模式
+        if (localStorage.getItem('darkMode') === 'true' || 
+            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/80','dark:bg-gray-800/80','glass','border-b','border-gray-200','dark:border-gray-700');
+                backToTop.classList.remove('opacity-0', 'invisible');
+            } else {
+                navbar.classList.remove('bg-white/80','dark:bg-gray-800/80','glass','border-b','border-gray-200','dark:border-gray-700');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        // 随机抽梗
+        function randomMeme() {
+            const cards = document.querySelectorAll('.meme-card');
+            
+            // 移除之前的高亮
+            cards.forEach(c => c.classList.remove('highlight-card'));
+            
+            // 随机选一个
+            const randomCard = cards[Math.floor(Math.random() * cards.length)];
+            randomCard.classList.add('highlight-card');
+            
+            // 滚动到该卡片
+            randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // 3秒后移除高亮
+            setTimeout(() => {
+                randomCard.classList.remove('highlight-card');
+            }, 3000);
+
+            // 更新今日推荐
+            const memeName = randomCard.dataset.meme;
+            document.getElementById('dailyMeme').textContent = '🎲 ' + memeName;
+        }
+
+        // 复制梗
+        function copyMeme(btn) {
+            const card = btn.closest('.meme-card');
+            const title = card.querySelector('h3').textContent;
+            const content = card.querySelector('p').textContent;
+            const text = `【${title}】\n${content}`;
+            
+            safeCopyText(text).then(() => {
+                showToast('已复制到剪贴板！');
+            }).catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
+        }
+
+        // Toast 提示
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'invisible');
+            
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'invisible');
+            }, 2000);
+        }
+
+        // 彩蛋
+        function triggerEgg() {
+            // 创建游动的鲸鱼
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const whale = document.createElement('div');
+                    whale.textContent = ['🌙', '⭐', '✨', '🌛', '🌟'][Math.floor(Math.random() * 5)];
+                    whale.style.cssText = `
+                        position: fixed;
+                        font-size: ${30 + Math.random() * 30}px;
+                        left: -50px;
+                        top: ${Math.random() * window.innerHeight}px;
+                        z-index: 9999;
+                        pointer-events: none;
+                        transition: all 5s linear;
+                        opacity: 0.8;
+                    `;
+                    document.body.appendChild(whale);
+                    
+                    setTimeout(() => {
+                        whale.style.left = window.innerWidth + 50 + 'px';
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        whale.remove();
+                    }, 5000);
+                }, i * 300);
+            }
+            
+            showToast('🌙 月亮出来了！');
+        }
+
+        // 初始化每日推荐
+        const memes = [
+            '欢迎加入2万亿+俱乐部',
+            '你的火箭造得也不错',
+            '把三体全集扔给Kimi',
+            '前4个写着kimi的网站都不是kimi',
+            'Kimi有点累了',
+            '我也是Claude',
+            'K4，干到极致！冲上月球！',
+            '用户请求量已超出预估',
+            'K399，4399精神续作',
+            '连续编码13小时，你行吗？'
+        ];
+        document.getElementById('dailyMeme').textContent = memes[Math.floor(Math.random() * memes.length)];
+    
+        // 从总站随机跳转过来时自动触发随机抽梗
+        if (new URLSearchParams(window.location.search).get('random') === '1') {
+            setTimeout(() => { if (typeof randomMeme === 'function') randomMeme(); else document.getElementById('randomBtn')?.click(); }, 600);
+        }
+
+    </script>
+</body>
+</html>
