@@ -42,7 +42,7 @@ class ContributionTests(unittest.TestCase):
             (root/'content/memes'/f'{row["id"]}.json').write_text(json.dumps(row,ensure_ascii=False),encoding='utf-8')
             output=build.build(root)
             home=(output/'meme/index.html').read_text(encoding='utf-8')
-            target=(output/'codex/index.html').read_text(encoding='utf-8')
+            target=(output/'gpt/index.html').read_text(encoding='utf-8')
             self.assertIn('id="'+row['id']+'"',target)
             self.assertIn('&lt;script&gt;',target)
             self.assertNotIn('<script>alert("xss")',target)
@@ -63,7 +63,8 @@ class ContributionTests(unittest.TestCase):
             with self.assertRaises(ValueError): build.entries(root)
 
     def test_baseline_remains_available(self):
-        self.assertGreaterEqual(sum(e.get('type')=='meme' for e in build.baseline()),604)
+        expected=json.loads((ROOT/'content/baseline.json').read_text(encoding='utf-8'))['indexed_memes']
+        self.assertEqual(sum(e.get('type')=='meme' for e in build.baseline()),expected)
         build.entries()
 
 if __name__=='__main__': unittest.main()

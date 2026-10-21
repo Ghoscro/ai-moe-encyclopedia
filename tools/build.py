@@ -38,7 +38,7 @@ def validate(row, filename=None):
         raise ValueError('id 仅允许小写英文、数字与连字符')
     if filename and filename != ident+'.json':
         raise ValueError('文件名须与 id 一致')
-    if row.get('character') not in CHARACTERS or row.get('kind') not in KINDS:
+    if row.get('character') not in CHARACTERS or row.get('character')=='codex' or row.get('kind') not in KINDS:
         raise ValueError('请选择有效角色与条目类型')
     for key, low, high in [('title',2,100),('summary',2,300),('body',10,6000),('contributor',1,80)]:
         string(row,key,low,high)
@@ -67,7 +67,11 @@ def baseline(root=ROOT):
     match=re.search(r'(<script\b[^>]*id=["\']search-data["\'][^>]*>)(.*?)(</script>)',home,re.S)
     if not match:
         raise ValueError('首页搜索索引缺失')
-    return json.loads(match.group(2))
+    data=json.loads(match.group(2))
+    expected=json.loads((root/'content/baseline.json').read_text(encoding='utf-8')) if (root/'content/baseline.json').exists() else None
+    if expected and sum(e.get('type')=='meme' for e in data)!=expected['indexed_memes']:
+        raise ValueError('历史条目索引数量与基线不符；修订后请同步 content/baseline.json')
+    return data
 
 def entries(root=ROOT):
     rows=[]
