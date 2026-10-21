@@ -1,0 +1,159 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "glm-one-more-thought-202610",
+      "kind": "community",
+      "label": "本月社区 · 落笔之前",
+      "date": "2026-10-04",
+      "date_label": "10.04 社区原帖",
+      "title": "落笔之前，再想一小会儿",
+      "lead": "茶都凉了，方案还在心里排队。",
+      "body": "LINUX DO 用户 foxhank 分享了自己使用 GLM-5.3-Flash 的经历：最高思考档位下，开始动手前等待很久。评论区顺势把这种体验演成了“方案 A 与方案 B 来回商量”的小剧场。",
+      "joke": "GLM 提起笔：我想好了。\n停了一下：但另一个方案也值得再想想。",
+      "boundary": "这是用户的单次使用自述和评论接梗，不是统一耗时结论；客户端、任务与思考设置会影响体验。本站未复现，也不推断内部机制。插画与中文台词为二创。",
+      "sources": [
+        [
+          "LINUX DO · foxhank 原帖",
+          "https://linux.do/t/topic/2981926?tl=en"
+        ]
+      ],
+      "image": "/meme/assets/glm-20261021/feature.webp"
+    },
+    {
+      "id": "glm-familiar-writing-202610",
+      "kind": "community",
+      "label": "本月社区 · 熟悉的文风",
+      "date": "2026-10-06",
+      "date_label": "10.06 社区原帖",
+      "title": "换了书桌，这文风有点眼熟",
+      "lead": "聊着聊着，大家认出了熟悉的句子味道。",
+      "body": "在“我看这GLM也是十分美味啊”的讨论中，有网友聊到转用 GLM 后的感受，也有人觉得它的聊天风格让自己想起 Claude。评论围绕这种熟悉感接起了梗。",
+      "joke": "GLM 合上书：像一位老朋友？那就再聊一页。",
+      "boundary": "文风相似是评论者的主观感受，不是身份相同、服务转发或训练来源的证据。本条不把旧的“你好，我是 Claude”说法认定为新的模型事实。",
+      "sources": [
+        [
+          "LINUX DO · 10月6日讨论",
+          "https://linux.do/t/topic/2987680?tl=en"
+        ]
+      ],
+      "image": "/meme/assets/glm-20261021/hero.webp"
+    },
+    {
+      "id": "glm-remote-lamp-202610",
+      "kind": "event",
+      "label": "本月功能 · 原创接梗",
+      "date": "2026-10-20",
+      "date_label": "10.20 ZCode 3.16.2",
+      "title": "你先合上门，那边的灯还亮着",
+      "lead": "本地断开，远程会话有了继续留守的方式。",
+      "body": "ZCode 10 月 20 日的更新记录新增远程会话常驻进程支持，本地连接断开不再影响远程会话。像是离开书桌时，给远处的工作间留了一盏灯。",
+      "joke": "我：这边先断开了。\nGLM：好，远处那页我还留着。",
+      "boundary": "这是客户端远程会话功能，不保证断网、服务器故障或所有任务都能无限运行。本站未实测部署条件；留灯为编者比喻。",
+      "sources": [
+        [
+          "ZCode 官方变更记录",
+          "https://zcode.z.ai/cn/changelog"
+        ]
+      ],
+      "image": "/meme/assets/glm-20261021/hero.webp"
+    },
+    {
+      "id": "glm-draft-bookmark-202610",
+      "kind": "event",
+      "label": "本月修复 · 原创接梗",
+      "date": "2026-10-20",
+      "date_label": "10.20 ZCode 3.16.2",
+      "title": "刚想好的那句话，先替我夹住",
+      "lead": "换个项目，别把半句话一起换没了。",
+      "body": "同次 ZCode 更新记录修复了切换项目或新建任务时草稿丢失的问题，也修复了切换模型时编辑中的输入被覆盖的问题。还没发出的那句话，终于不用重新组织一遍。",
+      "joke": "GLM 放下一枚书签：这段还没说完，我记得。",
+      "boundary": "这是官方客户端修复记录，末句为拟人化接梗，不是模型具备跨会话永久记忆的承诺。本站未独立复现旧故障或验证修复。",
+      "sources": [
+        [
+          "ZCode 官方变更记录",
+          "https://zcode.z.ai/cn/changelog"
+        ]
+      ],
+      "image": "/meme/assets/glm-20261021/feature.webp"
+    }
+  ],
+  "promoted_existing_ids": [],
+  "legacy_ids": [
+    "glm-vision-moves-home",
+    "meme-6aad871ea84a",
+    "meme-2ec2e510c11d",
+    "meme-7deaea203f56",
+    "meme-aecd9460d5a1",
+    "meme-d35f08d37288",
+    "meme-836e8b3b7c9e",
+    "meme-2978f0212235",
+    "meme-194239ecbee7",
+    "meme-ccc2bcbd28de",
+    "meme-d45aa1ded70c",
+    "meme-29ed52df6d3d",
+    "meme-12f1982e196d",
+    "meme-7b2d5497655f",
+    "meme-4313a4bea9f8",
+    "meme-1445aaa360a4",
+    "meme-85a272ece1f7",
+    "meme-a9f51ebee1e1",
+    "meme-aaf1e32bfdf1",
+    "meme-147c51efa394",
+    "meme-122a8c7883ab",
+    "meme-82d01db293a8",
+    "meme-0a73d22d4c4f",
+    "meme-4edeb5700853",
+    "meme-109a543ab589",
+    "meme-3acdf51e2a1c",
+    "meme-daf5f09983d8",
+    "meme-de050b8e5af3",
+    "meme-96d11d1d13e3",
+    "meme-b7cdc3dbd6a7",
+    "meme-54920e256548",
+    "meme-e94eae968452",
+    "meme-0544916baeca",
+    "meme-593d6dea396c",
+    "meme-40ad98de9874",
+    "meme-de51df6be2a5",
+    "meme-1b7189ada4fa",
+    "meme-de4e24c73bad",
+    "meme-4e7458eebb5d",
+    "meme-d3fb75204cb3",
+    "meme-25e7e57b583e",
+    "meme-2090dde0aadf",
+    "meme-3f732e9d30a4",
+    "meme-0221689d8fbe",
+    "meme-a718e61aeba4",
+    "meme-020424d5bf58",
+    "meme-3674e0e8beca",
+    "meme-2e4af5730824",
+    "meme-e95560e92832",
+    "meme-d92e890a2c7d",
+    "meme-4d4706e790d0",
+    "meme-90bc2f0fef8a",
+    "meme-9fd68c125bae",
+    "meme-a919494ba987",
+    "meme-eb6436606270",
+    "meme-c0a9953c5fca",
+    "meme-b3e06232eafd",
+    "meme-7bd66303b756",
+    "meme-ee992eae117f",
+    "meme-9605639297d9",
+    "meme-4871bedf0cfb",
+    "meme-72f0dcecc0bf",
+    "meme-afa17db7ca56",
+    "meme-0116933862eb",
+    "meme-c072af2bc8c0",
+    "meme-8e747ab0362f",
+    "meme-4d7529f2bcb3",
+    "meme-dd76967ab0fa",
+    "meme-4584011f1343",
+    "meme-1b8569d7b22b",
+    "meme-64d196127e1e"
+  ]
+}
