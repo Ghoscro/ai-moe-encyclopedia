@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "qwen-omni",
+      "kind": "event",
+      "label": "本月论文",
+      "date": "2026-09-22",
+      "date_label": "09.22 论文公开",
+      "title": "一卷长纸，装得下声音和画面",
+      "lead": "千问的书卷这回收进了视频、音频和文字。",
+      "body": "Qwen 团队公开 Qwen3.8-Omni 论文，介绍可处理文本、图像、音频与视频的 Omni-Flash，并同时给出面向多模态任务的插件与实时交互框架。把它画成一卷什么都能夹进去的长纸很顺手，但论文中的能力描述仍需和具体可用产品分开看。",
+      "joke": "我：书里还能夹视频？千问：别急，先给书页找个播放器。",
+      "boundary": "依据团队论文摘要转述；未独立复现性能或验证全部公开部署条件。书卷对白是本站二创。",
+      "sources": [
+        [
+          "Qwen 团队论文 · arXiv",
+          "https://arxiv.org/abs/2609.25611"
+        ]
+      ],
+      "image": "/meme/assets/qwen-20261021/portrait.webp"
+    },
+    {
+      "id": "qwen-code-mobile",
+      "kind": "event",
+      "label": "本月更新",
+      "date": "2026-10-19",
+      "date_label": "10.19 Qwen Code 发布",
+      "title": "手机输入框终于不挤了",
+      "lead": "两枚上下箭头退场，聊天框腾出一点位置。",
+      "body": "Qwen Code v0.25.3 的官方发布记录写明：Web Shell 的移动端输入框移除了历史记录的上下箭头，历史搜索仍保留。这个小改动像是千问把书桌上的两支笔收进笔盒，手指终于有位置落下。这里说的是 Qwen Code 界面，不代表所有千问产品都同步变化。",
+      "joke": "千问：笔还在抽屉里，桌面先还给你。",
+      "boundary": "这是客户端界面改动，本站未逐设备实测；比喻和对白是二创。",
+      "sources": [
+        [
+          "Qwen Code v0.25.3 发布记录",
+          "https://github.com/QwenLM/qwen-code/releases/tag/v0.25.3"
+        ]
+      ],
+      "image": "/meme/assets/qwen-20261021/portrait.webp"
+    },
+    {
+      "id": "qwen-four-rumor",
+      "kind": "community",
+      "label": "本月社区",
+      "date": "2026-10-17",
+      "date_label": "10.17 社区讨论",
+      "title": "新卷名字写到哪一页？",
+      "lead": "有人问 Qwen 4 什么时候来，评论先开始猜。",
+      "body": "r/Qwen_AI 在 10 月 17 日出现「When Qwen 4?」讨论。原帖询问传闻里的时间，回帖各自交换猜测；这种等待新卷的气氛可以接梗，却不能把社区猜测写成官方日程。千问在本站只负责把问号夹进书里。",
+      "joke": "我：下一卷呢？千问把书签翻到「等公告」那页。",
+      "boundary": "仅描述社区讨论存在；帖子不是 Qwen 4 发布、命名或日期的官方证据。对白为二创。",
+      "sources": [
+        [
+          "r/Qwen_AI · When Qwen 4?",
+          "https://www.reddit.com/r/Qwen_AI/comments/1x86xfu/when_qwen_4/"
+        ]
+      ],
+      "image": "/meme/assets/qwen-20261021/portrait.webp"
+    },
+    {
+      "id": "qwen-comic-01",
+      "kind": "original",
+      "label": "原创小剧场",
+      "date": "2026-10-21",
+      "date_label": "10.21 本站创作",
+      "title": "千问只问一题",
+      "lead": "说好只问一题，附加条件却排成长卷。",
+      "body": "四格漫画把「字面正确与问题数量反差」改编成千问和上班族的日常玩笑。",
+      "joke": "这还算一个。",
+      "boundary": "完全虚构的角色二创，不是模型真实发言、实际产品操作记录或用户经历。",
+      "sources": [
+        [
+          "创作灵感 · 字面正确与问题数量反差",
+          "https://trending.knowyourmeme.com/editorials/collections/these-25-unexpected-statements-are-just-technically-correct"
+        ]
+      ],
+      "image": "/meme/assets/qwen-20261021/comic-01.webp"
+    },
+    {
+      "id": "qwen-comic-02",
+      "kind": "original",
+      "label": "原创小剧场",
+      "date": "2026-10-21",
+      "date_label": "10.21 本站创作",
+      "title": "代码小厨",
+      "lead": "代码下了锅，端出来还会自己跑。",
+      "body": "四格漫画把「Let him cook 与程序运行的双关」改编成千问和上班族的日常玩笑。",
+      "joke": "跑得比我还快！",
+      "boundary": "完全虚构的角色二创，不是模型真实发言、实际产品操作记录或用户经历。",
+      "sources": [
+        [
+          "创作灵感 · Let him cook 与程序运行的双关",
+          "https://knowyourmeme.com/memes/let-him-cook-let-that-boy-cook"
+        ]
+      ],
+      "image": "/meme/assets/qwen-20261021/comic-02.webp"
+    },
+    {
+      "id": "qwen-comic-03",
+      "kind": "original",
+      "label": "原创小剧场",
+      "date": "2026-10-21",
+      "date_label": "10.21 本站创作",
+      "title": "开源小摊",
+      "lead": "分享一张配方，街角忽然热闹起来。",
+      "body": "四格漫画把「开源分享与摆摊生活的原创演绎」改编成千问和上班族的日常玩笑。",
+      "joke": "我原本只想卖个煎饼。",
+      "boundary": "完全虚构的角色二创，不是模型真实发言、实际产品操作记录或用户经历。",
+      "sources": [
+        [
+          "创作灵感 · 开源分享与摆摊生活的原创演绎",
+          "https://qwenlm.github.io/blog/qwen3-coder/"
+        ]
+      ],
+      "image": "/meme/assets/qwen-20261021/comic-03.webp"
+    },
+    {
+      "id": "qwen-comic-04",
+      "kind": "original",
+      "label": "原创小剧场",
+      "date": "2026-10-21",
+      "date_label": "10.21 本站创作",
+      "title": "一句话解释",
+      "lead": "一句话解释到最后，只剩「先试试」。",
+      "body": "四格漫画把「技术解释越短越难的反差」改编成千问和上班族的日常玩笑。",
+      "joke": "一句话，省下九页说明。",
+      "boundary": "完全虚构的角色二创，不是模型真实发言、实际产品操作记录或用户经历。",
+      "sources": [
+        [
+          "创作灵感 · 技术解释越短越难的反差",
+          "https://trending.knowyourmeme.com/editorials/collections/these-25-unexpected-statements-are-just-technically-correct"
+        ]
+      ],
+      "image": "/meme/assets/qwen-20261021/comic-04.webp"
+    }
+  ]
+}

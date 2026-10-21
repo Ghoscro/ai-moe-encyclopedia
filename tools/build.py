@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 REPO = 'https://github.com/Ghoscro/ai-moe-encyclopedia'
-CHARACTERS = {'claude':'Claude','doubao':'豆包','gpt':'GPT 龙娘','codex':'Codex 娘','deepseek':'DeepSeek','kimi':'Kimi','glm':'GLM','grok':'Grok','sudo':'Sudo','waifu':'AI 陪伴'}
+CHARACTERS = {'claude':'Claude','doubao':'豆包','gpt':'GPT 龙娘','codex':'Codex 娘','deepseek':'DeepSeek','kimi':'Kimi','glm':'GLM','grok':'Grok','qwen':'千问','gemini':'Gemini','mistral':'Mistral','minimax':'MiniMax','ernie':'文心','muse-spark':'Muse Spark','hy4-preview':'HY4 Preview','sudo':'Sudo','waifu':'AI 陪伴'}
 KINDS = {'sourced':'有出处的趣事','community':'社区梗 · 出处待补','original':'原创日常 · 虚构二创'}
 FIELDS = {'id','character','title','summary','body','tags','kind','sources','contributor','date','editor_note'}
 

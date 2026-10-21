@@ -7,7 +7,7 @@ from urllib.parse import unquote,urljoin,urlparse
 ROOT=Path(__file__).resolve().parents[1]/'dist'
 if not (ROOT/'meme/index.html').is_file():
     raise SystemExit('Build output missing; run python tools/build.py first')
-OWNED={'meme','claude','doubao','gpt','codex','deepseek','kimi','glm','grok','sudo','waifu'}
+OWNED={'meme','claude','doubao','gpt','codex','deepseek','kimi','glm','grok','qwen','gemini','mistral','minimax','ernie','muse-spark','hy4-preview','sudo','waifu'}
 
 class Links(HTMLParser):
     def __init__(self):

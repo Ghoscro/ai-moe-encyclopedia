@@ -6,7 +6,7 @@ body:
     id: character
     attributes:
       label: 角色或专题
-      options: [Claude, 豆包, GPT龙娘, Codex娘, DeepSeek, Kimi, GLM, Grok, Sudo, AI陪伴]
+      options: [Claude, 豆包, GPT龙娘, Codex娘, DeepSeek, Kimi, GLM, Grok, 千问, Gemini, Mistral, MiniMax, 文心, Muse Spark, HY4 Preview, Sudo, AI陪伴]
     validations:
       required: true
   - type: input

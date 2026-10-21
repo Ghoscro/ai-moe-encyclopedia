@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "muse-open-release",
+      "kind": "event",
+      "label": "本月 · 开放权重",
+      "date": "2026-10-15",
+      "date_label": "10.15 · Meta 开发者博客",
+      "title": "灯光照进工作间",
+      "lead": "灯光照进工作间。",
+      "body": "Meta 于 10 月 15 日发布 Muse Spark Open，说明这是 Muse Spark 的开放权重版本，面向较长流程的代理任务。她在小剧场里抱着星灯；官方文档里的版本名称则多了 Open，阅读时别把两个名字合成一个。",
+      "joke": "Muse 数了数灯：这一盏可以搬到自己的桌上。",
+      "boundary": "本条是 Muse Spark Open 的发布事实，不表示原先的托管 Muse Spark 本体权重同日开放，也不代表本站已部署模型。",
+      "sources": [
+        [
+          "Meta · Build with Muse Spark Open",
+          "https://dev.meta.ai/resources/blog/build-with-muse-spark-open"
+        ]
+      ],
+      "image": "/meme/assets/muse-spark-20261021/portrait.webp"
+    },
+    {
+      "id": "muse-open-multimodal",
+      "kind": "event",
+      "label": "本月 · 多模态规格",
+      "date": "2026-10-15",
+      "date_label": "10.15 · Meta 官方文档",
+      "title": "四种输入排队进门",
+      "lead": "四种输入排队进门。",
+      "body": "Meta 的 Muse Spark Open 文档列出文本、图片、音频和视频输入，以及文本输出，并给出约百万 token 的上下文规格。想到她拍蛋糕时忙着调灯，倒适合提醒一句：能接收图片和视频，不等于会替每张照片自动审美。",
+      "joke": "Muse 擦擦镜头：蛋糕先别动，我还没看清。",
+      "boundary": "这里只转述开放权重版本的官方规格；上下文上限与实际可用长度、质量和硬件条件仍需分开验证。",
+      "sources": [
+        [
+          "Meta · Muse Spark Open 文档",
+          "https://dev.meta.ai/docs/muse-spark-open"
+        ]
+      ],
+      "image": "/meme/assets/muse-spark-20261021/portrait.webp"
+    },
+    {
+      "id": "muse-open-running",
+      "kind": "event",
+      "label": "本月 · 接入方式",
+      "date": "2026-10-15",
+      "date_label": "10.15 · Meta 开发者博客",
+      "title": "自己搭，或借个厨房",
+      "lead": "自己搭，或借个厨房。",
+      "body": "Meta 的同篇开发者说明同时列出自托管运行时和托管推理服务，开发者可以按自己的机器与交付方式挑路径。看起来像有了许多厨房，真正开火前仍得核对许可证、预算和具体服务的可用状态。",
+      "joke": "Muse 系好围裙：菜单先看清，锅再烧热。",
+      "boundary": "平台名单是发布时的生态信息，非本站实测可用性或价格承诺；使用条款及地区限制请以供应商当前说明为准。",
+      "sources": [
+        [
+          "Meta · Build with Muse Spark Open",
+          "https://dev.meta.ai/resources/blog/build-with-muse-spark-open"
+        ]
+      ],
+      "image": "/meme/assets/muse-spark-20261021/portrait.webp"
+    },
+    {
+      "id": "muse-spark-comic-01",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "灵感先睡一会",
+      "lead": "第 01 页 · 灵感先睡一会",
+      "body": "上班族深夜盯着空白稿，说「我需要一点灵感。」Muse Spark困困猫耳少女捧小星灯。 / Muse举起星灯照亮他的脑袋，说「先闭眼想想。」",
+      "joke": "反转：两人睡着，纸上被猫尾巴扫出的字迹像「明天」。角落小闹钟显示早晨；标题旁小旁白「灵感没来，睡眠来了。」",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://dev.meta.ai/"
+        ]
+      ],
+      "image": "/meme/assets/muse-spark-20261021/comic-01.webp"
+    },
+    {
+      "id": "muse-spark-comic-02",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "拍完才准吃",
+      "lead": "第 02 页 · 拍完才准吃",
+      "body": "上班族端着蛋糕正要吃，Muse Spark举手机说「等等，先拍！」 / 她摆灯、换桌布，蛋糕变成漂亮摄影主角，上班族拿叉子等待。",
+      "joke": "反转：上班族嘴边奶油，Muse看着空盘又看照片说「它现在只能云吃了。」手机照片里的蛋糕闪闪发光。",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://dev.meta.ai/"
+        ]
+      ],
+      "image": "/meme/assets/muse-spark-20261021/comic-02.webp"
+    },
+    {
+      "id": "muse-spark-comic-03",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "戒掉刷手机",
+      "lead": "第 03 页 · 戒掉刷手机",
+      "body": "上班族顶着黑眼圈说「帮我少刷手机。」Muse Spark认真点头。 / Muse把手机锁进小盒子，钥匙系在自己蓝蝴蝶结上，说「交给我保管。」",
+      "joke": "反转：Muse已经把平板、电脑、电视遥控器抱成一座山，猫耳垮下来说「你这是设备接力赛啊。」",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://dev.meta.ai/"
+        ]
+      ],
+      "image": "/meme/assets/muse-spark-20261021/comic-03.webp"
+    },
+    {
+      "id": "muse-spark-comic-04",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "效率翻倍以后",
+      "lead": "第 04 页 · 效率翻倍以后",
+      "body": "上班族抬头说「效率翻倍，就能早下班吧？」Muse Spark拍胸脯。 / 两人合作飞快整理文件，待办清单一排绿勾。Muse说「完成！」",
+      "joke": "反转：Muse给桌边摆上两副墨镜和一张牌「今日能量已用完」。两人躺椅抱猫枕，Muse小声说「休息也要一起升级。」",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://dev.meta.ai/"
+        ]
+      ],
+      "image": "/meme/assets/muse-spark-20261021/comic-04.webp"
+    }
+  ]
+}

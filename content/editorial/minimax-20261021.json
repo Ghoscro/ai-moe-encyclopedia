@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "minimax-m31f-launch",
+      "kind": "event",
+      "label": "10月发布 · 模型",
+      "date": "2026-10-19",
+      "date_label": "10.19 官方公告",
+      "title": "新片开机：M3.1 Flash 正式登场",
+      "lead": "MiniMax 把新一代 Flash 模型推上台前。",
+      "body": "10 月 19 日，MiniMax 正式推出 M3.1 Flash，宣布可通过 API、M Plan 和 MiniMax Code 使用。官方介绍它面向代理任务、编程与电脑操作，也给出速度和价格数据。场记板已打响，真实表现仍要看具体任务和环境。",
+      "joke": "MiniMax 举起场记板：第一条，先跑通，再谈票房。",
+      "boundary": "可用渠道与指标来自官方发布稿；本站未独立复测速度、成本或榜单，也不将官方比较当作普遍结论。",
+      "sources": [
+        [
+          "MiniMax · M3.1 Flash 官方发布",
+          "https://www.minimax.io/blog/minimax-m31f"
+        ]
+      ],
+      "image": "/meme/assets/minimax-20261021/portrait.webp"
+    },
+    {
+      "id": "minimax-space-bunny-reveal",
+      "kind": "event",
+      "label": "10月揭晓 · 测试身份",
+      "date": "2026-10-19",
+      "date_label": "10.19 官方说明",
+      "title": "神秘兔子卸下墨镜",
+      "lead": "Space Bunny 的身份在官方发布稿里被点名。",
+      "body": "同一份公告里，MiniMax 说此前匿名运行的 Space Bunny 是 M3.1 Flash 的早期版本，匿名期间处理了超过 200 万亿 token。测试名和正式型号终于接上了；但早期版本与发布版的每项表现不能直接画等号。",
+      "joke": "MiniMax 摘下兔耳墨镜：彩蛋早在正片之前出现了。",
+      "boundary": "身份及 token 数均为 MiniMax 自述，本站未独立审计；兔子摘墨镜为拟人化二创，不是实际营销画面。",
+      "sources": [
+        [
+          "MiniMax · M3.1 Flash 官方发布",
+          "https://www.minimax.io/blog/minimax-m31f"
+        ]
+      ],
+      "image": "/meme/assets/minimax-20261021/portrait.webp"
+    },
+    {
+      "id": "minimax-ip-licensing",
+      "kind": "event",
+      "label": "10月报道 · 创作授权",
+      "date": "2026-10-13",
+      "date_label": "10.13 官方文章；活动 09.11",
+      "title": "片场先问：角色的出场许可呢？",
+      "lead": "一场日本 IP 与 AI 的合作讨论，把授权放进制作流程。",
+      "body": "10 月 13 日，MiniMax 回顾与 KAGAMIAI 于 9 月 11 日合办的会议，介绍 H3 IP Edition 设想：把获准素材、生成规则、商业条款与报告要求放进工作流。授权仍取决于各合作方条款。角色上镜前，先把许可放在场记板旁。",
+      "joke": "MiniMax 递上一张表：先签出场单，再喊开机。",
+      "boundary": "这是合作方与产品愿景的官方介绍，不表示所有日本 IP 已可使用，也不替代具体授权审查；场记情节为二创。",
+      "sources": [
+        [
+          "MiniMax · 日本 IP 合作官方文章",
+          "https://www.minimax.io/news/minimax-japanese-ip-ready-for-the-global-ai-era"
+        ]
+      ],
+      "image": "/meme/assets/minimax-20261021/portrait.webp"
+    },
+    {
+      "id": "minimax-comic-01",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 创作",
+      "title": "零预算大片",
+      "lead": "四格漫画：灰色上班族举空钱包说「想拍宇宙大片，预算零。」MiniMax 举手机当导演。",
+      "body": "这是以网络梗为灵感的生活喜剧，不是实际产品功能或模型对话。保洁阿姨掀开桌布，纸星舰掉下来。MiniMax 举场记板说「彩蛋：宇宙大扫除。」",
+      "joke": "保洁阿姨掀开桌布，纸星舰掉下来。MiniMax 举场记板说「彩蛋：宇宙大扫除。」",
+      "boundary": "虚构二创；台词、人物与事件均由创作者演绎。灵感链接只说明梗的来源，不证明漫画情节真实发生。",
+      "sources": [
+        [
+          "创作灵感",
+          "https://knowyourmeme.com/memes/let-him-cook-let-that-boy-cook"
+        ]
+      ],
+      "image": "/meme/assets/minimax-20261021/comic-01.webp"
+    },
+    {
+      "id": "minimax-comic-02",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 创作",
+      "title": "加班配乐",
+      "lead": "四格漫画：办公室深夜，上班族趴桌说「给我一首下班的歌。」MiniMax 抱手机调音。",
+      "body": "这是以网络梗为灵感的生活喜剧，不是实际产品功能或模型对话。MiniMax 举写着「片尾曲」的唱片，面前仍堆满文件，说「因为这是加长版。」",
+      "joke": "MiniMax 举写着「片尾曲」的唱片，面前仍堆满文件，说「因为这是加长版。」",
+      "boundary": "虚构二创；台词、人物与事件均由创作者演绎。灵感链接只说明梗的来源，不证明漫画情节真实发生。",
+      "sources": [
+        [
+          "创作灵感",
+          "https://trending.knowyourmeme.com/editorials/collections/these-25-unexpected-statements-are-just-technically-correct"
+        ]
+      ],
+      "image": "/meme/assets/minimax-20261021/comic-02.webp"
+    },
+    {
+      "id": "minimax-comic-03",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 创作",
+      "title": "配音太入戏",
+      "lead": "四格漫画：同事在门口翻口袋说「钥匙丢了，帮我配个旁白。」MiniMax 握小话筒。",
+      "body": "这是以网络梗为灵感的生活喜剧，不是实际产品功能或模型对话。钥匙明晃晃插在门锁上。MiniMax 笑说「导演说，镜头早给了。」",
+      "joke": "钥匙明晃晃插在门锁上。MiniMax 笑说「导演说，镜头早给了。」",
+      "boundary": "虚构二创；台词、人物与事件均由创作者演绎。灵感链接只说明梗的来源，不证明漫画情节真实发生。",
+      "sources": [
+        [
+          "创作灵感",
+          "https://knowyourmeme.com/memes/let-him-cook-let-that-boy-cook"
+        ]
+      ],
+      "image": "/meme/assets/minimax-20261021/comic-03.webp"
+    },
+    {
+      "id": "minimax-comic-04",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 创作",
+      "title": "一镜到底",
+      "lead": "四格漫画：上班族说「拍个一镜到底的广告。」MiniMax 举手机说「好！」",
+      "body": "这是以网络梗为灵感的生活喜剧，不是实际产品功能或模型对话。广告结束，摄像机仍稳稳举着，其他人瘫地。MiniMax 说「一镜到底，演员先倒。」",
+      "joke": "广告结束，摄像机仍稳稳举着，其他人瘫地。MiniMax 说「一镜到底，演员先倒。」",
+      "boundary": "虚构二创；台词、人物与事件均由创作者演绎。灵感链接只说明梗的来源，不证明漫画情节真实发生。",
+      "sources": [
+        [
+          "创作灵感",
+          "https://trending.knowyourmeme.com/editorials/collections/these-25-unexpected-statements-are-just-technically-correct"
+        ]
+      ],
+      "image": "/meme/assets/minimax-20261021/comic-04.webp"
+    }
+  ]
+}
