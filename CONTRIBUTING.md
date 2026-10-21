@@ -15,7 +15,7 @@
 | 字段 | 要求 |
 | --- | --- |
 | id | 3–80位小写英文、数字、连字符；全站唯一 |
-| character | claude / doubao / gpt / codex / deepseek / kimi / glm / grok / sudo / waifu |
+| character | claude / doubao / gpt / deepseek / kimi / glm / grok / sudo / waifu；Codex 日常请选择 gpt |
 | title | 梗名，2–100字 |
 | summary | 一句话介绍，2–300字 |
 | body | 10–6000字，纯文本，可用空行分段 |
