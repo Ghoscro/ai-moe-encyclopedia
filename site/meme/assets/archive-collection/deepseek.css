@@ -1,0 +1,97 @@
+/* DeepSeek: a seaside canteen's saved menus. Shared collection behavior stays intact. */
+#archive[data-archive-collection][data-archive-theme-page="deepseek"]{
+  --archive-ink:#203f5d;--archive-body-ink:#344b5d;--archive-muted:#566f80;
+  --archive-accent:#275f86;--archive-line:#bfced5;--archive-gold:#aa8550;
+  --archive-paper:#fffdf7;--archive-wash:#edf4f7;--archive-lilac:#e4eff5;
+}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] :is(h3,h4){text-wrap:balance}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-disclosure{border-color:#bfced5;border-radius:4px;background:#fffdf7;box-shadow:0 8px 28px #304d5b0b}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-cover{border-radius:3px 3px 0 0;border-bottom:3px double #aabdc6}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-chapter-art{border-radius:3px 3px 0 0}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-cover-copy{padding-left:5%;width:52%}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-kicker{color:#75603e;letter-spacing:2.5px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] #archive-title{font-size:clamp(36px,3.65vw,56px);letter-spacing:1px;line-height:1.35;color:#203f5d}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-cover .archive-cover-subtitle{color:#285c7c;letter-spacing:1.5px;font-size:16px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-toggle{border-color:#aec4d2;background:#fffdf4ed;border-radius:3px;color:#275f86}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-sheets{border-radius:0 0 3px 3px;padding-top:27px;background:linear-gradient(90deg,#e0ecf270 0 10px,transparent 10px calc(100% - 10px),#e0ecf270 calc(100% - 10px)),#faf8f0}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-search-field{border-radius:4px;border-color:#9eb9c9;background:#fffefa;box-shadow:none}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-tools input::placeholder{color:#637e91}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-tools>button{border-radius:4px;border-color:#8eafc3;background:#e8f0f4;color:#275f86;box-shadow:inset 0 0 0 3px #fffdf7,0 2px 0 #b8a17f45}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-topics{justify-content:flex-start;gap:7px;border-bottom:2px solid #c5d5dd;padding-bottom:16px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-topics button{border-radius:3px;font-size:14px;padding:8px 12px;min-height:44px;background:#fffdf733;border-color:#d2dce0}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-topics button[aria-pressed=true]{border-color:#7299b2;background:#dceaf3;color:#1c4b6f;box-shadow:inset 0 -3px 0 #8bacc1}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title{justify-content:flex-start;text-align:left;gap:16px;margin-top:23px;margin-bottom:20px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title>span{width:30px;height:3px;background:#a98a58}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title>span:last-child{flex:1;height:1px;max-width:none;background:linear-gradient(90deg,#bbd0db,transparent);transform:none}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title>span:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title h3{font-size:29px;letter-spacing:1px;color:#203f5d}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title small{font-size:11px;letter-spacing:2px;color:#75603e}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight-grid{gap:22px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight{display:grid;grid-template-columns:minmax(0,1fr) 38%;grid-template-rows:auto auto 1fr auto;column-gap:20px;row-gap:0;align-items:start;min-height:294px;padding:23px;border:1px solid #b8cbd6;border-top:4px solid #7da4bd;border-radius:3px;background:#fffdf7;box-shadow:0 3px 7px #39596a10;color:#203f5d;isolation:auto}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight:before,#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight>:not(img){grid-column:1;max-width:100%;min-width:0;z-index:auto}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-pick-label{border-radius:2px;background:#edf1e8;color:#655c37;border:1px solid #d8d6bd;padding:4px 8px;font-size:13px;line-height:1.6;justify-self:start;margin:0 0 14px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight h4{font-size:29px;line-height:1.45;margin:0 0 12px;letter-spacing:.3px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight p{font-family:'Microsoft YaHei',sans-serif;font-size:15px;line-height:1.9;white-space:normal;margin:0 0 15px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-pick-action{align-self:end;color:#275f86;font-size:14px;min-height:36px;padding:6px 0}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight img{position:static;grid-column:2;grid-row:1/span 4;align-self:stretch;display:block;width:100%;max-width:100%;min-width:0;max-height:252px;min-height:0;height:100%;object-fit:contain;border:1px solid #bacbd5;border-radius:2px;background:#e8f0f4;margin:0;padding:5px;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight-2 img{width:100%;right:auto;bottom:auto;background:#f4f2e8}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-all-title{margin-top:33px;margin-bottom:8px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-grid{gap:20px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-entry,#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-entry:nth-child(3n+2){padding:20px 21px 17px;border-color:#c7d2d5;border-radius:2px;background:linear-gradient(90deg,#e0ecf3 0 5px,transparent 5px),#fffdf7;box-shadow:0 3px 5px #294d6210;min-height:300px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-entry:before{content:none}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-card-index{position:relative;display:flex;align-items:center;padding-left:45px;min-height:27px;margin-bottom:12px;color:#566f80}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-card-index small{position:absolute;left:0;top:0;font-size:19px;line-height:1.4;letter-spacing:0;color:#47718c}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-entry h3{font-size:23px;line-height:1.5;padding:0 0 11px;margin:0 0 13px;border-bottom:1px dashed #c7d7df;color:#203f5d;letter-spacing:.2px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-body,#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-preview{color:#344b5d}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-body>div>span{font-size:15px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-entry a:not(.entry-actions a){color:#275f86}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-status{background:#f1e8d7;color:#725738;border-radius:2px;padding:4px 8px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-status-original{background:#e0edf4;color:#2c5b79}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-status-sourced{background:#e4eee6;color:#37634e}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .entry-actions{border-top:1px dashed #bdcdd6}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .entry-actions button{background:#edf4f7;border-color:#b8cbd6;border-radius:3px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-pagination button{border-radius:3px}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-pagination [data-archive-more]{border-color:#8cabbc;background:#e3edf3;box-shadow:inset 0 0 0 3px #fffdf7;color:#234e6c}
+@media(max-width:1100px) and (min-width:901px){
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] #archive-title{font-size:40px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-cover-copy{width:52%;padding-left:4%}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight{column-gap:15px;padding:20px;grid-template-columns:minmax(0,1fr) 36%;min-height:310px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight h4{font-size:25px}
+}
+@media(max-width:900px){
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-cover{aspect-ratio:auto;min-height:0;display:flex;flex-direction:column}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-chapter-art{position:static;height:270px;object-position:right center;z-index:auto}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-cover-copy{width:100%;min-height:0;padding:22px 26px 24px;background:#f4f7f3}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] #archive-title{font-size:38px;line-height:1.3;margin-bottom:10px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-kicker{margin-bottom:9px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-toggle{top:234px;bottom:auto;right:14px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight-grid{grid-template-columns:1fr}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight{grid-template-columns:minmax(0,1fr) 34%;min-height:260px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight img{max-height:235px}
+}
+@media(max-width:620px){
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-chapter-art{height:210px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-cover-copy{padding:16px 20px 20px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-kicker{font-size:10px;letter-spacing:1.7px;margin-bottom:8px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] #archive-title{font-size:30px;letter-spacing:0;line-height:1.35;margin-bottom:10px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-cover .archive-cover-subtitle{font-size:15px;letter-spacing:.7px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-toggle{top:174px;bottom:auto}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-sheets{padding:20px 16px 26px;background:linear-gradient(90deg,#e0ecf250 0 5px,transparent 5px calc(100% - 5px),#e0ecf250 calc(100% - 5px)),#faf8f0}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-topics{gap:7px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-topics button{font-size:13px;padding:7px 10px;min-height:44px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title{gap:12px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title h3{font-size:25px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-section-title>span{width:20px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight{padding:17px;column-gap:14px;row-gap:0;grid-template-columns:minmax(0,1fr) 34%;grid-template-rows:auto auto auto auto;min-height:0}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-pick-label{font-size:13px;padding:3px 6px;margin-bottom:12px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight h4{font-size:23px;line-height:1.5;margin-bottom:15px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight p{grid-column:1/-1;margin-top:13px;margin-bottom:9px;font-size:15px;line-height:1.9}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-pick-action{grid-column:1/-1;font-size:13px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight img{grid-column:2;grid-row:1/span 2;align-self:stretch;width:100%;height:124px;min-height:124px;max-height:124px;padding:3px}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-entry{padding:19px 20px;min-height:0}
+  #archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-card-index{padding-left:42px}
+}
+/* The coder is a square transparent illustration, with its own square image window. */
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-spotlight-2 img{align-self:center;aspect-ratio:1;width:100%;height:auto;min-height:0;max-height:224px;background:#e9f2f6;padding:8px;border-color:#bed2dd}
+#archive[data-archive-collection][data-archive-theme-page="deepseek"] .archive-body div:has(>a){display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline}
