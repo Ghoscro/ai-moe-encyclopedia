@@ -1,0 +1,38 @@
+/* Aesthetic r1: quiet scrapbook cards, readable ink, full comics in view. */
+:root{--ink:#71334f;--accent:#a94770}
+.brand,.masthead nav a,.search .random,.fact .full-note,.fact .full-note summary,.fact .source-boundary a,.comic a,.comic summary,.profile a{color:#8b315c}
+.search button,.filters button[aria-pressed=true]{background:#a94770;border-color:#a94770;color:#fff}
+.filters button,.family,.fact .label,.fact time{font-size:13px}
+.fact .excerpt{font-size:14px;line-height:1.55;color:#624354;min-height:0}
+.fact .entry-copy>p.excerpt{font-size:14px;line-height:1.55;color:#624354}
+.fact .full-note,.fact .full-note summary,.fact .entry-actions{font-size:13px}
+.fact .entry-actions a,.fact .entry-actions button{color:#8b315c}
+.fact .full-note p,.fact .full-note blockquote,.fact .source-boundary{font-size:14px;line-height:1.65}
+.comics .entry-grid{align-items:start}
+.comic .entry-art{aspect-ratio:2/3;background:#fffcfa}
+.comic .entry-art img{object-fit:contain;width:100%;height:100%}
+.comic .entry-copy{padding:14px 15px 15px}
+.comic h3{margin:6px 0 4px}
+.comic .comic-lead{font-size:14px;line-height:1.55;color:#684251;margin:0 0 8px}
+.comic .entry-copy>p.comic-lead{font-size:14px;line-height:1.55;color:#684251}
+.comic .comic-story{font-size:14px;line-height:1.65;color:#624252;margin:7px 0 10px}
+.comic .comic-story summary{cursor:pointer;font-size:13px;font-weight:700;color:#8b315c}
+.comic .comic-story[open]{border-top:1px solid #ead1d9;padding-top:8px}
+.comic .comic-story .lead,.comic .comic-story p{font-size:14px;line-height:1.65;margin:7px 0}
+.comic .comic-story blockquote{font-size:14px;line-height:1.6;margin:8px 0;padding:8px 10px}
+.comic .open-art,.comic details:not(.comic-story) summary,.comic details:not(.comic-story) a,.comic .entry-actions{font-size:13px}
+.comic .open-art,.comic .entry-actions a,.comic details:not(.comic-story) a{color:#8b315c}
+.comic details:not(.comic-story) p{font-size:14px;line-height:1.6}
+.profile{margin-top:32px;padding:18px 22px;background:#fff4f5;border-color:#ecd0d8;box-shadow:none}
+.profile h2{font-size:24px;margin:4px 0}.profile p:not(.eyebrow){font-size:14px;line-height:1.6;margin:4px 0}
+@media(max-width:900px){.fact .entry-copy>p.excerpt{font-size:14px;min-height:0}.fact .entry-copy{min-height:0}.fact .note-vignette{height:130px}}
+@media(max-width:700px){#recent .entry-grid{grid-template-columns:1fr}.fact .note-vignette{height:145px}}
+@media(max-width:600px){
+  .hero-art{height:250px}
+  .hero-copy{margin:-12px auto 10px;padding:16px 19px}
+  .hero .intro{font-size:14px;line-height:1.6}
+  .hero-caption{margin-top:5px}
+  .action-panel{padding:14px 22px}
+  .filters button{font-size:13px}
+  .comic .entry-art{aspect-ratio:2/3}
+}

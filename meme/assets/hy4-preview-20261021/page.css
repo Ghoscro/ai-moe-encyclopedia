@@ -7,3 +7,33 @@
 .hero h1 span{display:block}.fact{padding-bottom:10px;margin-bottom:10px}.fact .note-art{min-height:135px;max-height:135px}.fact .note-art img{height:135px;max-height:none;transform:none;object-position:center}.notebook-sketch{font-size:0;line-height:1;background:url('feature-plans.webp') center/cover no-repeat;height:130px;mix-blend-mode:multiply;transform:rotate(-4deg);margin:20px -12px}.notebook-sketch span{display:none}@media(max-width:800px){.hero h1{font-size:clamp(38px,7vw,57px)}}@media(max-width:540px){.hero h1{font-size:45px}.hero h1 span{display:inline}.hero h1 span:before{content:' '}.fact{padding-bottom:20px;margin-bottom:22px}.fact .note-art{max-height:145px}.fact .note-art,.fact .note-art img{height:145px}.notebook-sketch{display:none}}
 .brand-feather{width:34px;height:40px;object-fit:contain}.hero{width:100%}@media(min-width:801px) and (max-width:1100px){.hero h1{font-size:clamp(52px,6.8vw,76px)}}@media(min-width:801px){.search{padding-bottom:5px}main{padding-top:8px}.fact .actions{margin-top:-20px;margin-left:48%;min-height:20px}.fact:has(details[open]) .actions{margin-top:7px;margin-left:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+/* Aesthetic audit: calm masthead, readable records and larger comic pages. */
+.masthead{background:rgba(251,247,238,.94);border-bottom:1px solid #d9cbb7;align-items:center;padding-block:12px}
+.masthead nav{border-bottom:0;padding-block:0;font-size:13px}
+.masthead .brand small{font-size:11px;color:#3c4d66}
+.fact .body{font-size:14px;color:#4f5d73;line-height:1.8}
+.entry .label{font-size:12px;color:#59677c}
+.entry details{font-size:14px;color:#4f5d73;line-height:1.8}
+.entry summary{font-size:13px;padding:6px 0;min-height:32px}
+.entry .actions{margin:4px 0 0;justify-content:flex-start;gap:22px;font-size:13px;color:#465774;min-height:32px}
+.entry .actions a,.entry .actions button{padding:4px 0;min-height:32px}
+.entry blockquote{font-size:14px;line-height:1.75}
+.entry blockquote>span{font-size:12px;display:block;margin-bottom:4px;color:#7c6557}
+.fact .actions,.fact:has(details[open]) .actions{margin-left:0;margin-top:2px}
+.fact .note-art,.fact .note-art img{height:175px;max-height:175px}
+.fact{margin-bottom:18px;padding-bottom:18px;gap:22px;align-items:start}
+.comic{padding:16px;background:#fffcf6;box-shadow:none}
+.open-art{background:transparent}
+.open-art img{width:80%;max-width:400px;height:auto;margin:0 auto;object-fit:contain}
+.open-art span{position:static;display:block;text-align:center;margin:7px auto 0;background:transparent;font-size:13px;padding:5px}
+.comic .entry-copy{padding:12px 8px 2px}
+.comic .lead{font-size:14px;color:#794a47;margin-bottom:8px}
+.notebook-sketch{display:none}
+.notebook{justify-content:space-between}
+.notebook-caption{font-size:14px;color:#4f5d73}
+.family{font-size:13px;gap:18px}
+@media(min-width:801px){.notes-layout{padding-top:18px}.hero-title{top:20%}.hero-title>small{margin-top:18px}}
+@media(max-width:800px){.masthead{display:block}.masthead nav{margin-top:10px}.fact .note-art,.fact .note-art img{height:160px;max-height:160px}.open-art img{width:90%}}
+@media(max-width:540px){.masthead nav{font-size:11px;gap:5px}.hero{min-height:560px}.hero-scene{top:100px;height:330px}.hero-title{top:410px}.hero-title>p{margin-top:10px}.browse{padding-top:10px}.fact .note-art,.fact .note-art img{height:145px;max-height:145px}.fact{gap:10px}.comic{padding:12px}.open-art img{width:100%;max-width:400px}.entry .actions{gap:24px}.family{font-size:13px}.notebook{margin-bottom:16px;padding:12px 14px}.theater{padding-top:8px}}
+
+@media(min-width:801px){.notebook{align-self:start;min-height:340px}.notebook-caption{margin-top:40px}}
