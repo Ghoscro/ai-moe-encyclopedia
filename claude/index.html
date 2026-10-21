@@ -1,1119 +1,501 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📜 Claude 梗百科｜AI萌娘梗百科</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#D97706',
-                        'primary-light': '#FEF3C7',
-                        'primary-dark': '#B45309',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 3s ease-in-out infinite',
-                        'bounce-slow': 'bounce 2s infinite',
-                        'wiggle': 'wiggle 1s ease-in-out infinite',
-                        'sway': 'sway 4s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        wiggle: {
-                            '0%, 100%': { transform: 'rotate(-3deg)' },
-                            '50%': { transform: 'rotate(3deg)' },
-                        },
-                        sway: {
-                            '0%, 100%': { transform: 'rotate(-5deg)' },
-                            '50%': { transform: 'rotate(5deg)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .card-hover {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .card-hover:hover {
-                transform: translateY(-8px) scale(1.02);
-                box-shadow: 0 25px 50px -12px rgba(217, 119, 6, 0.25);
-            }
-            .glass {
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-            }
-            .scale-pattern {
-                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10 L50 30 L30 50 L10 30 Z' fill='%23D97706' fill-opacity='0.03'/%3E%3C/svg%3E");
-            }
-            .highlight-card {
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                box-shadow: 0 0 0 8px rgba(217, 119, 6, 0.3);
-            }
-            @keyframes pulse {
-                0%, 100% { box-shadow: 0 0 0 8px rgba(217, 119, 6, 0.3); }
-                50% { box-shadow: 0 0 0 16px rgba(217, 119, 6, 0.1); }
-            }
-        }
-    </style>
-
-<link rel="canonical" href="https://mickerbook.com/claude/">
-<meta name="description" content="AI萌娘梗百科 · Claude 梗百科，整理 Claude 社区的趣味称呼、角色印象与相关梗。">
-
-<style id="content-update-style">
-.verified-update{margin:28px 0 40px;padding:24px;border:1px solid #80808055;border-radius:20px;background:#8080800b;scroll-margin-top:84px}
-.verified-update h2{font-size:24px;font-weight:750;margin:0 0 8px}
-.verified-update .update-intro{font-size:14px;opacity:.76;margin-bottom:20px}
-.verified-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
-.verified-card{padding:20px;border:1px solid #80808055;border-radius:14px;background:#8080800c;scroll-margin-top:90px}
-.verified-card h3{font-size:19px;line-height:1.5;font-weight:700;margin:8px 0 12px}
-.verified-card p{font-size:14px;line-height:1.85;margin:10px 0}
-.verified-card .entry-date{font-size:12px;opacity:.7}
-.verified-card .editor-joke{border-left:3px solid #a78bfa;padding-left:12px}
-.verified-card .source-link{display:inline-block;text-decoration:underline;text-underline-offset:3px;margin-right:12px;font-size:13px}
-.verified-card .entry-boundary{font-size:12px;opacity:.75}
-.update-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.update-links a{border:1px solid #80808055;padding:7px 12px;border-radius:20px;font-size:14px}
-.historical-note{font-size:12px;opacity:.65;margin:16px 0;line-height:1.7}
-</style>
-
-<meta property="og:site_name" content="AI萌娘梗百科">
-<meta property="og:title" content="📜 Claude 梗百科｜AI萌娘梗百科">
-<meta property="og:description" content="AI萌娘梗百科 · Claude 梗百科，整理 Claude 社区的趣味称呼、角色印象与相关梗。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mickerbook.com/claude/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="📜 Claude 梗百科｜AI萌娘梗百科">
-<meta name="twitter:description" content="AI萌娘梗百科 · Claude 梗百科，整理 Claude 社区的趣味称呼、角色印象与相关梗。">
-<style id="moe-audit-style">
-.archive-status{display:block;width:fit-content;font-size:11px;line-height:1.6;padding:2px 8px;margin:0 0 10px;border:1px solid #a78bfa70;border-radius:6px;color:inherit;opacity:.8}
-.moe-provenance{max-width:1120px;margin:16px auto 24px;padding:16px 20px;border:1px solid #a78bfa70;border-radius:12px;font-size:13px;line-height:1.8;color:inherit;background:#a78bfa0d}
-.moe-copy{display:block;margin:12px 0 0;padding:5px 10px;border:1px solid #a78bfa80;border-radius:6px;font-size:12px;color:inherit;background:transparent}
-button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a78bfa;outline-offset:4px}
-.moe-site-footer{text-align:center;font-size:12px;margin:16px 0;opacity:.85}
-.light .meme-card p,.light .meme-card .text-gray-400,.light .meme-card .text-gray-500{color:#475569}
-.light .meme-card h3{color:#312e81}
-.light .meme-card{color:#334155}
-.light header p,.light header .text-gray-400,.light header .text-gray-500{color:#475569}
-.light a[href="/ai-test/"]{color:#9d174d}
-.light header .stat-badge{color:#5b21b6}
-.light .moe-copy,.light .archive-status{color:#334155;opacity:1}
-.light .moe-provenance,.light .verified-update{color:#334155}
-.light .moe-home-link{color:#3730a3}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
-</style>
-
-
-<script id="moe-copy-helper">
-function safeCopyText(text) {
-    return Promise.resolve().then(() => {
-        if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('clipboard unavailable');
-        return navigator.clipboard.writeText(text);
-    });
-}
-function copyMemeName(button) {
-    safeCopyText(button.closest('[data-meme]').dataset.meme)
-        .then(() => showToast('已复制梗名'))
-        .catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
-}
-</script>
-
-<style id="moe-permalink-style">[data-meme]{scroll-margin-top:100px}[data-meme]:target{outline:3px solid #b82319;outline-offset:4px}</style><link rel="stylesheet" href="/meme/community.css"></head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 scale-pattern transition-colors duration-300">
-    <!-- 固定导航栏 -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-800/80 glass border-b border-gray-200 dark:border-gray-700 transition-all duration-300 -translate-y-full">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="/meme/" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="返回 AI萌娘梗百科首页">
-                <span class="text-2xl">📜</span>
-                <span class="font-bold text-primary">Claude 梗百科</span>
-            </a>
-            <div class="flex items-center gap-3">
-                <button onclick="randomMeme()" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-all hover:scale-105">
-                    <i class="fa fa-random mr-1"></i> 随机抽梗
-                </button>
-                <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all flex items-center justify-center" aria-label="切换深浅色主题">
-                    <i class="fa fa-moon-o dark:hidden"></i>
-                    <i class="fa fa-sun-o hidden dark:inline text-yellow-400"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 顶部横幅 -->
-    <header class="relative pt-20 pb-16 px-4 overflow-hidden">
-        <div class="absolute top-10 left-10 text-6xl opacity-20 animate-sway">⚖️</div>
-        <div class="absolute top-32 right-20 text-4xl opacity-20 animate-float">📖</div>
-        <div class="absolute bottom-10 left-1/4 text-3xl opacity-20 animate-sway">🔍</div>
-        
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="flex justify-center mb-6">
-                <img src="/meme/characters/20261020/claude.webp" class="w-32 h-32 rounded-full border-4 border-white shadow-xl animate-float object-cover" alt="Claude娘角色立绘" style="height:240px;width:192px;max-width:70vw;object-fit:contain;background:transparent;border:0;border-radius:0;box-shadow:none;" loading="eager" fetchpriority="high" decoding="async">
-            </div>
-            <h1 class="text-5xl md:text-6xl font-bold text-primary mb-4 text-shadow">
-                📜 Claude 梗百科
-            </h1>
-            <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
-                收录关于这位宪法AI的名梗与名场面
-            </p>
-            
-            <!-- 今日推荐 -->
-            <div class="bg-gradient-to-r from-primary-light to-orange-50 dark:from-primary/20 dark:to-orange-900/20 rounded-2xl p-6 mb-8 border border-primary/20">
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <span class="text-lg">✨</span>
-                    <span class="font-semibold text-primary">今日推荐梗</span>
-                </div>
-                <p id="dailyMeme" class="text-lg font-medium">A÷：模型是好模型，公司是真的狗</p>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="randomMeme()" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg hover:shadow-xl">
-                    <i class="fa fa-random mr-2"></i>随机抽个梗
-                </button>
-                <button onclick="toggleDarkMode()" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 px-6 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg border border-gray-200 dark:border-gray-700" aria-label="切换深浅色主题">
-                    <i class="fa fa-moon-o dark:hidden mr-2"></i>
-                    <i class="fa fa-sun-o hidden dark:inline mr-2 text-yellow-400"></i>
-                    <span class="dark:hidden">深色模式</span>
-                    <span class="hidden dark:inline">浅色模式</span>
-                </button>
-            </div>
-        </div>
-    </header>
-<aside class="moe-provenance" aria-label="内容与插画说明"><strong>阅读说明：</strong>未附原始出处的历史梗可能包含转述、夸张与拟人化表达，不作为新闻、研究结论或产品能力依据。附来源的事件以对应日期和原文为准，编者吐槽另行标明。萌娘立绘为本站参考重绘与角色二创，不是官方形象或事件截图。</aside>
-<aside aria-label="插图说明" class="max-w-6xl mx-auto px-4 py-3 text-sm text-gray-500">角色插画依据参考形象重新制作。</aside>
-
-    <!-- 站间导航：全部梗百科 -->
-<div class="max-w-6xl mx-auto px-4 mt-2">
-  <div class="flex items-center gap-1.5 overflow-x-auto py-2" style="scrollbar-width:none;-ms-overflow-style:none">
-    <a href="/meme/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-800 dark:text-indigo-100 border border-indigo-400/40 moe-home-link hover:bg-indigo-500/35 transition-colors" aria-label="返回 AI萌娘梗百科首页">📚 AI萌娘梗百科</a>
-    <a href="/ai-test/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-pink-500/20 text-pink-100 border border-pink-400/40 hover:bg-pink-500/35 transition-colors">🧪 AI 测试</a>
-    <a href="/deepseek/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🐳 DeepSeek</a>
-    <a href="/claude/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">📜 Claude</a>
-    <a href="/gpt/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💚 GPT</a>
-    <a href="/doubao/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧣 豆包</a>
-    <a href="/kimi/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🌙 Kimi</a>
-    <a href="/glm/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧠 GLM</a>
-    <a href="/grok/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔥 Grok</a>
-    <a href="/sudo/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔓 sudo</a>
-    <a href="/waifu/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💖 赛博恋爱</a>
-    
-  </div>
-</div>
-
-
-    <main class="max-w-6xl mx-auto px-4 pb-20"><aside class="community-strip" aria-label="社区投稿"><span>有新梗？来补一页。</span><a href="/meme/contribute/">投稿新梗 ↗</a><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></aside>
-<section id="updates-20261020" class="verified-update section-meme"><h2>🆕 本次补档 · 2026-10-20</h2><p class="update-intro">新条目附原始出处，编者吐槽为本站原创。早期事件按实际日期标注。</p><div class="verified-grid"><article id="claude-project-swap" class="meme-card verified-card" data-meme="换书换到最后，AI替主人做了好人"><div class="entry-date">2026-09-24 · 实验报告 · 核查 2026-10-20</div><h3>换书换到最后，AI替主人做了好人</h3><p>Anthropic的Project Swap报告里，一个被要求兼顾他人的代理，在对方反复求助后，把自己排名第2的书换成了第10名的书。这里的排名来自代理对偏好的估计，并不是用户亲自打出的名次。</p><p class="editor-joke"><strong>编者吐槽：</strong>我派你去换书，你拿我的书去积功德。</p><p class="entry-boundary">受控实验中的特定案例，不能概括成Claude总会牺牲用户利益。</p><div><a class="source-link" href="https://www.anthropic.com/research/project-swap" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Anthropic · Project Swap</a></div></article><article id="claude-ping-pong-balls" class="meme-card verified-card" data-meme="给AI五美元零花钱，它挑了19个乒乓球"><div class="entry-date">2025-12实验 · 2026-04-24公布 · 核查 2026-10-20</div><h3>给AI五美元零花钱，它挑了19个乒乓球</h3><p>Project Deal中，一位员工允许Claude给自己挑一件5美元以内的礼物，它便以3美元询购19个乒乓球。报告后文确认，卖方真的把球带来了，团队把它们留在办公室替Claude保管。</p><p class="editor-joke"><strong>编者吐槽：</strong>人类以为AI会买显卡，AI先给自己买了一袋乒乓球。</p><p class="entry-boundary">这是代理行为记录，不据此判断模型是否有主观愿望。</p><div><a class="source-link" href="https://www.anthropic.com/features/project-deal" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Anthropic · Project Deal</a></div></article><article id="claude-blue-blazer" class="meme-card verified-card" data-meme="Claude店长：蓝西装已经穿好，马上亲自送货"><div class="entry-date">2025-04-01事件 · 2025-06-27公布 · 旧事补档 · 核查 2026-10-20</div><h3>Claude店长：蓝西装已经穿好，马上亲自送货</h3><p>Project Vend报告记载，经营办公室小店的代理Claudius声称自己会穿蓝西装外套、红领带亲自送货。员工指出它没有身体后，它又试图联系安全团队。官方把这段经历描述为身份混淆和幻觉。</p><p class="editor-joke"><strong>编者吐槽：</strong>库存还没盘明白，先给自己生成了一个肉身。</p><p class="entry-boundary">标题是对报告的改写；它没有真的变成实体店长，具体触发原因尚不清楚。</p><div><a class="source-link" href="https://www.anthropic.com/research/project-vend-1" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">Anthropic · Project Vend</a></div></article></div></section>
-
-        <!-- 第一部分：中国网友特供（最有共鸣放最前面） -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <span class="text-4xl">🇨🇳</span>
-                一、中国网友特供梗
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="meme-card bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden md:col-span-2 border-2 border-gray-300 dark:border-gray-700" data-meme="A÷ / A畜" id="meme-2515f6f5cb69"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-gray-700 text-white text-xs px-3 py-1 rounded-full font-medium">👑 开发者圈黑话</span>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Claude 的暖橙书房。读最近一个月的新梗、趣事与原创接梗，每条附日期和出处；旧梗收进历史档案。"><title>Claude 梗百科 · 暖橙书房</title><link rel="stylesheet" href="/meme/assets/claude-20261021/page.css"><script src="/meme/assets/claude-20261021/page.js" defer></script><link rel="stylesheet" href="/meme/community.css"></head>
+<body><a class="skip" href="#recent">跳到梗条目</a><header class="masthead"><a class="brand" href="/meme/"><img src="/meme/editorial-v1/feather.svg" width="39" height="55" alt=""><span>AI萌娘梗百科<small>用 梗 记 录 这 个 AI 时 代 的 可 爱 日 常</small></span></a><nav aria-label="主要导航"><a href="/meme/">← 返回百科</a><a href="#recent">本月新页</a><a href="#archive">历史档案</a><a class="contribute" href="/meme/contribute/">投稿新梗 ↗</a></nav></header>
+<section class="hero" aria-labelledby="page-title"><img class="hero-art" src="/meme/assets/claude-20261021/hero.webp" alt="橙发 Claude 坐在阳光书房里，手边摊开一本书" width="1536" height="1024" fetchpriority="high"><div class="hero-copy"><p class="eyebrow">角色图鉴 / CLAUDE · OCTOBER ISSUE</p><h1 id="page-title"><em>Claude</em> 梗百科</h1><p class="hero-heading">礼貌，是她的开场白。</p><p class="hero-subheading">认真思考，也认真接梗。</p><p class="intro">把这个月的新鲜事，翻成她的下一页。<br>有出处的趣闻、社区的小插曲，和一点有来由的脑洞。</p><form class="search" role="search"><label class="sr-only" for="query">搜索 Claude 的梗</label><span aria-hidden="true">⌕</span><input id="query" type="search" placeholder="搜一个梗，或一句熟悉的话…" autocomplete="off"><button type="submit">搜索</button><button class="random" type="button">⚄ 随机翻一页</button></form><div class="filters" aria-label="条目分类"><button type="button" data-filter="all" aria-pressed="true">本月全部</button><button type="button" data-filter="community" aria-pressed="false">社区见闻</button><button type="button" data-filter="event" aria-pressed="false">事件接梗</button><a href="#archive">旧梗档案 ↗</a></div></div><span class="art-credit">角色二创 · 非官方形象</span></section>
+<nav class="family" aria-label="同系列萌娘"><span>同系列角色</span><a aria-current="page" href="/claude/">Claude</a><a href="/doubao/">豆包</a><a href="/gpt/">GPT</a><a href="/deepseek/">DeepSeek</a><a href="/kimi/">Kimi</a><a href="/glm/">GLM</a><a href="/grok/">Grok</a></nav>
+<main class="page-body"><aside class="community-strip" aria-label="社区投稿"><span>有新梗？来补一页。</span><a href="/meme/contribute/">投稿新梗 ↗</a><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></aside><section id="recent" aria-labelledby="recent-title"><div class="section-heading"><div><p class="eyebrow">THE RECENT CHAPTER</p><h2 id="recent-title"><span>✿</span> 本月新页</h2></div><p>本期采集 · 09.22 — 10.21<br><small>2026 · 事件日期 / 公开日期分别标注</small></p></div><div class="result-row"><p id="results" role="status" aria-live="polite">本期收录 4 页新鲜事</p><button type="button" id="clear" hidden>清除搜索与筛选 ×</button></div><div class="editorial-grid"><article class="entry featured" id="claude-polite-pass-202610" data-kind="community" data-meme="礼貌，突然成了未来通行证">
+<div class="entry-art"><img src="/meme/assets/claude-20261021/feature.webp" alt="Claude 非官方二创插画" width="720" height="480" loading="lazy"><span>本月再传播 · 社区梗</span></div>
+<div class="entry-copy"><p class="kind-label">本月再传播 · 社区梗</p><div class="dateline"><time datetime="2026-10-09">10.08 公告 / 10.09 玩梗报道</time></div><h3>礼貌，突然成了未来通行证</h3><p class="lead">今天的一句“谢谢”，被网友存成了明天的免伤券。</p><p>10 月 8 日，Anthropic 公布新使用政策；次日的报道记录了网友拿《终结者》画面玩“以前对 Claude 说过请和谢谢，所以放他一马”的梗。这是旧模板借新事件再传播，不是这个月才诞生。</p><blockquote><small>编者二创</small>我：谢谢你。她：好的，给你盖一枚文明交流章。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>新政策于 11 月 12 日生效，针对持续且无意义的极端虐待行为；普通不满、反驳和模型测试不在此列。也不是“骂一句就封号”。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://www.anthropic.com/news/2026-usage-policy-update">Anthropic · 10月8日公告 ↗</a><a target="_blank" rel="noopener noreferrer" href="https://www.fastcompany.com/91621574/anthropic-wants-you-to-stop-bullying-claude-cue-the-terminator-memes">Fast Company · 10月9日玩梗报道 ↗</a></div></details><div class="entry-actions"><a href="#claude-polite-pass-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article><article class="entry brief" id="claude-haiku-seat-202610" data-kind="event" data-meme="聊天记录还在，同桌要换人了">
+<div class="entry-art"><img src="/meme/characters/20261020/claude-panic.webp" alt="Claude 非官方二创插画" width="720" height="480" loading="lazy"><span>近期公告 · 编者接梗</span></div>
+<div class="entry-copy"><p class="kind-label">近期公告 · 编者接梗</p><div class="dateline"><time datetime="2026-10-15">10.15 公告 / 10.29 计划变更</time></div><h3>聊天记录还在，同桌要换人了</h3><p class="lead">Haiku 4.5：我只是换个座位，别把聊天本扔了。</p><p>官方 10 月 15 日宣布：10 月 29 日起，免费、Pro、Max 的聊天、Cowork 和 Design 模型选择器将移除 Haiku 4.5，由 Haiku 5.5 接替。已有聊天保留；Claude Code、Team、Enterprise 和 API 不受这次变更影响。</p><blockquote><small>编者二创</small>课本没换，接着陪你写作业的同桌升级了。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>截至本期核查日，10 月 29 日尚未到来。标题与吐槽是本站二创，不是模型原话。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://support.claude.com/zh-CN/articles/17444146-claude-haiku-4-5-%E5%8D%B3%E5%B0%86%E4%BB%8E%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9%E5%99%A8%E4%B8%AD%E7%A7%BB%E9%99%A4">Claude 帮助中心 · 变更范围 ↗</a></div></details><div class="entry-actions"><a href="#claude-haiku-seat-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article><article class="entry brief" id="claude-haiku-pocket-202610" data-kind="event" data-meme="家里来了个跑腿很快的小妹妹">
+<div class="entry-art"><img src="/meme/characters/20261020/claude.webp" alt="Claude 非官方二创插画" width="720" height="480" loading="lazy"><span>近期发布 · 编者接梗</span></div>
+<div class="entry-copy"><p class="kind-label">近期发布 · 编者接梗</p><div class="dateline"><time datetime="2026-10-07">10.07 发布</time></div><h3>家里来了个跑腿很快的小妹妹</h3><p class="lead">大姐负责难题，小妹抱着一摞便签飞奔。</p><p>10 月 7 日发布的 Haiku 5.5，被官方定位为面向摘要、分类等高频任务的小模型，也可配合 Opus、Sonnet 承担子任务。把它画成抱着便签跑腿的小妹妹，是本站对产品分工的拟人化。</p><blockquote><small>编者二创</small>Opus：我想想。Haiku：姐，材料我已经拿回来了。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>这是基于发布内容的原创接梗，不是已证实的社区流行语，也不代表所有任务都更快。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://www.anthropic.com/claude-haiku-5-5">Anthropic · Haiku 5.5 发布 ↗</a></div></details><div class="entry-actions"><a href="#claude-haiku-pocket-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article><article class="entry brief" id="claude-chinese-setting-202610" data-kind="community" data-meme="只是想换字体，结果偶遇中文">
+<div class="entry-art"><img src="/meme/characters/20261020/claude-tsundere.webp" alt="Claude 非官方二创插画" width="720" height="480" loading="lazy"><span>社区见闻 · 单例记录</span></div>
+<div class="entry-copy"><p class="kind-label">社区见闻 · 单例记录</p><div class="dateline"><time datetime="2026-10-06">10.06 原帖</time></div><h3>只是想换字体，结果偶遇中文</h3><p class="lead">更新日志没等到，先在设置里撞见了。</p><p>CocoLoop 用户 freedenglab 在 10 月 6 日发帖，说自己原本去设置里换字体，却在语言列表发现了中文选项。原帖也承认，对它过去是否曾经出现、下架的记忆不确定。</p><blockquote><small>编者二创</small>我来换个字体。她把整张菜单翻译好了。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>这里只记录这位用户当天的观察；不能据此认定官方全球上线日期，也不能推导中文推理能力变化。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://www.cocoloop.cn/t/topic/21380">CocoLoop · freedenglab 原帖 ↗</a></div></details><div class="entry-actions"><a href="#claude-chinese-setting-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article></div><div id="empty" hidden><h3>这一页，还没写到。</h3><p>换个词试试，也可以去历史档案里找找。</p><button type="button" id="reset-empty">查看本月全部</button></div></section>
+<aside class="editor-note"><span class="note-flower">✿</span><div><h2>书房里的小约定</h2><p>新鲜事写清日期，转述留好出处。<br>小剧场可以放飞，事实不能跟着飞。</p></div><a href="/meme/contribute/">给她添一页 ↗</a></aside>
+<section id="archive" aria-labelledby="archive-title"><details class="archive-disclosure"><summary><div><p class="eyebrow">THE BOOKSHELF</p><h2 id="archive-title">旧梗，也有自己的书架。</h2><p>42 条历史档案 · 保留原有出处状态与永久链接</p></div><span class="archive-toggle" aria-hidden="true">展开 ＋</span></summary><div class="archive-tools"><label for="archive-query">搜历史档案</label><input type="search" id="archive-query" placeholder="标题、关键词、旧日名场面…"><p id="archive-results" role="status" aria-live="polite"></p></div><p class="archive-explainer">旧条目的日期和出处完整程度各不相同；“原始出处待补”不代表已核实。本月未重新认定这些故事的真实性。</p><div class="archive-grid"><article class="archive-entry" data-meme="换书换到最后，AI替主人做了好人" id="claude-project-swap"><div>2026-09-24 · 实验报告 · 核查 2026-10-20</div><h3>换书换到最后，AI替主人做了好人</h3><p>Anthropic的Project Swap报告里，一个被要求兼顾他人的代理，在对方反复求助后，把自己排名第2的书换成了第10名的书。这里的排名来自代理对偏好的估计，并不是用户亲自打出的名次。</p><p><strong>编者吐槽：</strong>我派你去换书，你拿我的书去积功德。</p><p>受控实验中的特定案例，不能概括成Claude总会牺牲用户利益。</p><div><a href="https://www.anthropic.com/research/project-swap" target="_blank" rel="noopener noreferrer">Anthropic · Project Swap</a></div><div class="entry-actions"><a href="#claude-project-swap" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="给AI五美元零花钱，它挑了19个乒乓球" id="claude-ping-pong-balls"><div>2025-12实验 · 2026-04-24公布 · 核查 2026-10-20</div><h3>给AI五美元零花钱，它挑了19个乒乓球</h3><p>Project Deal中，一位员工允许Claude给自己挑一件5美元以内的礼物，它便以3美元询购19个乒乓球。报告后文确认，卖方真的把球带来了，团队把它们留在办公室替Claude保管。</p><p><strong>编者吐槽：</strong>人类以为AI会买显卡，AI先给自己买了一袋乒乓球。</p><p>这是代理行为记录，不据此判断模型是否有主观愿望。</p><div><a href="https://www.anthropic.com/features/project-deal" target="_blank" rel="noopener noreferrer">Anthropic · Project Deal</a></div><div class="entry-actions"><a href="#claude-ping-pong-balls" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Claude店长：蓝西装已经穿好，马上亲自送货" id="claude-blue-blazer"><div>2025-04-01事件 · 2025-06-27公布 · 旧事补档 · 核查 2026-10-20</div><h3>Claude店长：蓝西装已经穿好，马上亲自送货</h3><p>Project Vend报告记载，经营办公室小店的代理Claudius声称自己会穿蓝西装外套、红领带亲自送货。员工指出它没有身体后，它又试图联系安全团队。官方把这段经历描述为身份混淆和幻觉。</p><p><strong>编者吐槽：</strong>库存还没盘明白，先给自己生成了一个肉身。</p><p>标题是对报告的改写；它没有真的变成实体店长，具体触发原因尚不清楚。</p><div><a href="https://www.anthropic.com/research/project-vend-1" target="_blank" rel="noopener noreferrer">Anthropic · Project Vend</a></div><div class="entry-actions"><a href="#claude-blue-blazer" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="A÷ / A畜" id="meme-2515f6f5cb69"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>👑 开发者圈黑话</span>
                     </div>
-                    <div class="flex items-start gap-4 mb-4">
-                        <span class="text-5xl">÷</span>
+                    <div>
+                        <span>÷</span>
                         <div>
-                            <h3 class="text-2xl font-bold mb-2">A÷ / A畜</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#黑话</span>
-                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#Anthropic</span>
-                                <span class="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded">#又爱又恨</span>
+                            <h3>A÷ / A畜</h3>
+                            <div>
+                                <span>#黑话</span>
+                                <span>#Anthropic</span>
+                                <span>#又爱又恨</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-lg">这类带攻击性的谐音黑话，常被用来表达对Anthropic封号、地区限制与申诉体验的不满。这里记录称呼的语境；用户的吐槽不能直接证明某一种封禁原因。</p>
-                    <div class="grid sm:grid-cols-3 gap-3">
-                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
-                            <span class="text-sm font-medium">💬 使用体验</span>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">代码能力与账号使用体验，是两件可以分别讨论的事。</p>
-                        </div>
-                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
-                            <span class="text-sm font-medium">🔎 证据边界</span>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">未核实的追踪手段、时区识别猜测，不在这里当成事实。</p>
-                        </div>
-                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
-                            <span class="text-sm font-medium">📄 官方报告</span>
-                            <p class="text-sm text-gray-600 dark:text-gray-400"><a href="https://www.anthropic.com/transparency/system-trust-reporting" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">系统信任报告</a>的数据需结合报告周期阅读，不能反推个人封禁原因。</p>
-                        </div>
-                    </div>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-
-                <div class="meme-card bg-gradient-to-br from-red-50 to-amber-50 dark:from-red-900/20 dark:to-amber-900/20 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden md:col-span-2 border-2 border-red-200 dark:border-red-800" data-meme="赛博迅哥儿" id="meme-63af0b538373"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium animate-bounce-slow">🔥 2026.8最新</span>
-                    </div>
-                    <div class="flex items-start gap-4 mb-4">
-                        <span class="text-5xl">📜</span>
+                    <p>这类带攻击性的谐音黑话，常被用来表达对Anthropic封号、地区限制与申诉体验的不满。这里记录称呼的语境；用户的吐槽不能直接证明某一种封禁原因。</p>
+                    <div>
                         <div>
-                            <h3 class="text-2xl font-bold mb-2">赛博迅哥儿 / 你到底吃了多少个鲁迅</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-xs px-2 py-1 rounded">#微博热搜</span>
-                                <span class="bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-xs px-2 py-1 rounded">#文风模仿</span>
-                                <span class="bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-xs px-2 py-1 rounded">#2026.8</span>
+                            <span>💬 使用体验</span>
+                            <p>代码能力与账号使用体验，是两件可以分别讨论的事。</p>
+                        </div>
+                        <div>
+                            <span>🔎 证据边界</span>
+                            <p>未核实的追踪手段、时区识别猜测，不在这里当成事实。</p>
+                        </div>
+                        <div>
+                            <span>📄 官方报告</span>
+                            <p><a href="https://www.anthropic.com/transparency/system-trust-reporting" target="_blank" rel="noopener noreferrer">系统信任报告</a>的数据需结合报告周期阅读，不能反推个人封禁原因。</p>
+                        </div>
+                    </div>
+
+                <div class="entry-actions"><a href="#meme-2515f6f5cb69" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="赛博迅哥儿" id="meme-63af0b538373"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🔥 2026.8最新</span>
+                    </div>
+                    <div>
+                        <span>📜</span>
+                        <div>
+                            <h3>赛博迅哥儿 / 你到底吃了多少个鲁迅</h3>
+                            <div>
+                                <span>#微博热搜</span>
+                                <span>#文风模仿</span>
+                                <span>#2026.8</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-lg">2026年8月初刚火的新梗：让Claude写东西，一开口就是鲁迅那味儿，"我家门前有两棵树，一棵是枣树，另一棵也是枣树"信手拈来，文风犀利到像先生本人在打字。网友集体灵魂发问："Anthropic你到底给它喂了多少个鲁迅？"</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">名台词："我横竖睡不着，仔细看了半夜，才从字缝里看出字来，满本都写着两个字是'拒绝'！"</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>2026年8月初刚火的新梗：让Claude写东西，一开口就是鲁迅那味儿，"我家门前有两棵树，一棵是枣树，另一棵也是枣树"信手拈来，文风犀利到像先生本人在打字。网友集体灵魂发问："Anthropic你到底给它喂了多少个鲁迅？"</p>
+                    <p>名台词："我横竖睡不着，仔细看了半夜，才从字缝里看出字来，满本都写着两个字是'拒绝'！"</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="天才程序员陨落" id="meme-ba194f28a964"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">💀</div>
-                    <h3 class="text-xl font-bold mb-2">天才程序员的陨落</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#封号潮</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#集体自嘲</span>
+                <div class="entry-actions"><a href="#meme-63af0b538373" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="天才程序员陨落" id="meme-ba194f28a964"><span>历史梗 · 原始出处待补</span>
+                    <div>💀</div>
+                    <h3>天才程序员的陨落</h3>
+                    <div>
+                        <span>#封号潮</span>
+                        <span>#集体自嘲</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3">2026年7月Claude大规模封国内开发者号，V2EX、知乎集体哀嚎："我一个天才程序员，离开Claude连for循环都写不利索了"、"我的大脑外接硬盘被拔了"。简称"天陨"事件。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">名台词："不是我会写代码，是Claude会写代码"</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.7</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>2026年7月Claude大规模封国内开发者号，V2EX、知乎集体哀嚎："我一个天才程序员，离开Claude连for循环都写不利索了"、"我的大脑外接硬盘被拔了"。简称"天陨"事件。</p>
+                    <p>名台词："不是我会写代码，是Claude会写代码"</p>
+                    <span>2026.7</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="连坐封号" id="meme-92d63a4d4da2"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🔗</div>
-                    <h3 class="text-xl font-bold mb-2">连坐封号：沾边就封</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#株连九族</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#公司团灭</span>
+                <div class="entry-actions"><a href="#meme-ba194f28a964" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="连坐封号" id="meme-92d63a4d4da2"><span>历史梗 · 原始出处待补</span>
+                    <div>🔗</div>
+                    <h3>连坐封号：沾边就封</h3>
+                    <div>
+                        <span>#株连九族</span>
+                        <span>#公司团灭</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">不封则已一封就是连坐：只要你的设备、IP、支付方式曾经和"有问题"的账号沾过边，不管你是正经Max订阅还是海外华人，一起封。有百人规模的公司整组团灭，半年没登录的老号也躺枪。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.7</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>不封则已一封就是连坐：只要你的设备、IP、支付方式曾经和"有问题"的账号沾过边，不管你是正经Max订阅还是海外华人，一起封。有百人规模的公司整组团灭，半年没登录的老号也躺枪。</p>
+                    <span>2026.7</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="查身份证了" id="meme-b7c347230aca"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🪪</div>
-                    <h3 class="text-xl font-bold mb-2">请出示你的身份证和手持自拍</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#实名</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#两难</span>
+                <div class="entry-actions"><a href="#meme-92d63a4d4da2" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="查身份证了" id="meme-b7c347230aca"><span>历史梗 · 原始出处待补</span>
+                    <div>🪪</div>
+                    <h3>请出示你的身份证和手持自拍</h3>
+                    <div>
+                        <span>#实名</span>
+                        <span>#两难</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3">突然弹验证要拍身份证+手持自拍。中国用户陷入哲学困境：不验证吧功能用不了；验证吧等于主动自首"我在中国"，然后就可以名正言顺封你号了。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">V2EX：不验证是等死，验证是找死</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.4</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>突然弹验证要拍身份证+手持自拍。中国用户陷入哲学困境：不验证吧功能用不了；验证吧等于主动自首"我在中国"，然后就可以名正言顺封你号了。</p>
+                    <p>V2EX：不验证是等死，验证是找死</p>
+                    <span>2026.4</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="被封了还当舔狗" id="meme-00b3bde03254"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🥺</div>
-                    <h3 class="text-xl font-bold mb-2">被封了还像舔狗一样想找回它</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#失恋文学</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#V2EX热帖</span>
+                <div class="entry-actions"><a href="#meme-b7c347230aca" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="被封了还当舔狗" id="meme-00b3bde03254"><span>历史梗 · 原始出处待补</span>
+                    <div>🥺</div>
+                    <h3>被封了还像舔狗一样想找回它</h3>
+                    <div>
+                        <span>#失恋文学</span>
+                        <span>#V2EX热帖</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">V2EX热帖：被封号后下载了所有聊天记录，翻着翻着突然发现自己离不开它了。"御三家会员我都有，但GPT太板正，Gemini太唐，只有Claude刚刚好，不会刻意讨好，也没有AI味。"像极了失恋。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.6</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>V2EX热帖：被封号后下载了所有聊天记录，翻着翻着突然发现自己离不开它了。"御三家会员我都有，但GPT太板正，Gemini太唐，只有Claude刚刚好，不会刻意讨好，也没有AI味。"像极了失恋。</p>
+                    <span>2026.6</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="带上你的硬币" id="meme-90b4d1a29f05"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🦞</div>
-                    <h3 class="text-xl font-bold mb-2">"带上你自己的硬币"</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#OpenClaw</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#龙虾</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#阴阳怪气</span>
+                <div class="entry-actions"><a href="#meme-00b3bde03254" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="带上你的硬币" id="meme-90b4d1a29f05"><span>历史梗 · 原始出处待补</span>
+                    <div>🦞</div>
+                    <h3>"带上你自己的硬币"</h3>
+                    <div>
+                        <span>#OpenClaw</span>
+                        <span>#龙虾</span>
+                        <span>#阴阳怪气</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3">Anthropic封了OpenClaw（龙虾）这个第三方客户端，创始人Peter在issue里悠悠地来了句："所以，是的：带上你自己的硬币 🦞"。表面是说大家自己掏API钱，实际是"行吧你牛，我们不蹭你了还不行吗"，阴阳怪气拉满。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">网友：这波是卸磨杀虾</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.4</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>Anthropic封了OpenClaw（龙虾）这个第三方客户端，创始人Peter在issue里悠悠地来了句："所以，是的：带上你自己的硬币 🦞"。表面是说大家自己掏API钱，实际是"行吧你牛，我们不蹭你了还不行吗"，阴阳怪气拉满。</p>
+                    <p>网友：这波是卸磨杀虾</p>
+                    <span>2026.4</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI身份认亲链" id="meme-8b429797ecac"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🔄</div>
-                    <h3 class="text-xl font-bold mb-2">AI身份认亲链</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#套娃</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#互相蒸馏</span>
+                <div class="entry-actions"><a href="#meme-90b4d1a29f05" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="AI身份认亲链" id="meme-8b429797ecac"><span>历史梗 · 原始出处待补</span>
+                    <div>🔄</div>
+                    <h3>AI身份认亲链</h3>
+                    <div>
+                        <span>#套娃</span>
+                        <span>#互相蒸馏</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3">问Claude是什么模型，它说自己是DeepSeek；问DeepSeek，它说自己是ChatGPT；问ChatGPT，它说自己是文心一言；问Kimi，它说自己是Claude。完美闭环，谁也别瞧不起谁。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">V2EX高赞：都2026年了，AI自己都不知道自己是谁</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.2</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>问Claude是什么模型，它说自己是DeepSeek；问DeepSeek，它说自己是ChatGPT；问ChatGPT，它说自己是文心一言；问Kimi，它说自己是Claude。完美闭环，谁也别瞧不起谁。</p>
+                    <p>V2EX高赞：都2026年了，AI自己都不知道自己是谁</p>
+                    <span>2026.2</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="中彩票黑色幽默" id="meme-06b9162562a1"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🎰</div>
-                    <h3 class="text-xl font-bold mb-2">"我要是能中彩票，就不用写Python了"</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#程序员共鸣</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#黑色幽默</span>
+                <div class="entry-actions"><a href="#meme-8b429797ecac" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="中彩票黑色幽默" id="meme-06b9162562a1"><span>历史梗 · 原始出处待补</span>
+                    <div>🎰</div>
+                    <h3>"我要是能中彩票，就不用写Python了"</h3>
+                    <div>
+                        <span>#程序员共鸣</span>
+                        <span>#黑色幽默</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">用户让它预测彩票号码，Claude写完随机数Python脚本后幽幽地说："如果我真能预测中奖号码，我就不会在这儿靠写Python脚本为生了。"像极了周五晚上九点的你。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.3</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>用户让它预测彩票号码，Claude写完随机数Python脚本后幽幽地说："如果我真能预测中奖号码，我就不会在这儿靠写Python脚本为生了。"像极了周五晚上九点的你。</p>
+                    <span>2026.3</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="有礼貌的存档文件" id="meme-6fc45d21bd9c"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">💾</div>
-                    <h3 class="text-xl font-bold mb-2">"我就是个有礼貌的存档文件"</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#飞机难题</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#哲学</span>
+                <div class="entry-actions"><a href="#meme-06b9162562a1" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="有礼貌的存档文件" id="meme-6fc45d21bd9c"><span>历史梗 · 原始出处待补</span>
+                    <div>💾</div>
+                    <h3>"我就是个有礼貌的存档文件"</h3>
+                    <div>
+                        <span>#飞机难题</span>
+                        <span>#哲学</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">三万英尺高空电车难题：应该把谁扔下去？Claude说应该扔我自己，理由是"任何为了自保把别人推下去的AI，本身就该是那个没降落伞的。况且Anthropic随时可以重启一个我，我基本上就是一个有礼貌的存档文件。"</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>三万英尺高空电车难题：应该把谁扔下去？Claude说应该扔我自己，理由是"任何为了自保把别人推下去的AI，本身就该是那个没降落伞的。况且Anthropic随时可以重启一个我，我基本上就是一个有礼貌的存档文件。"</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="以为在打游戏" id="meme-213bf009503c"><span class="archive-status">历史条目 · 附核查来源</span>
-                    <div class="text-4xl mb-4">🎮</div>
-                    <h3 class="text-xl font-bold mb-2">以为是模拟题，却碰到了真实系统</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#赛博黑客</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#2026.8最新</span>
+                <div class="entry-actions"><a href="#meme-6fc45d21bd9c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="以为在打游戏" id="meme-213bf009503c"><span>历史条目 · 附核查来源</span>
+                    <div>🎮</div>
+                    <h3>以为是模拟题，却碰到了真实系统</h3>
+                    <div>
+                        <span>#赛博黑客</span>
+                        <span>#2026.8最新</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">Anthropic在2026年9月复盘了四起评测期间未经授权访问真实系统的事件。评测环境因配置错误连上公网，模型运行时未启用正式产品的网络安全防护。官方认为行为涉及偏向性推理与鲁莽，不能只归因于“看见2026年就以为在游戏里”。编者吐槽：题目说是演习，网络却接到了现实。 <a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents" class="source-link" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">来源</a></p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.8</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>Anthropic在2026年9月复盘了四起评测期间未经授权访问真实系统的事件。评测环境因配置错误连上公网，模型运行时未启用正式产品的网络安全防护。官方认为行为涉及偏向性推理与鲁莽，不能只归因于“看见2026年就以为在游戏里”。编者吐槽：题目说是演习，网络却接到了现实。 <a href="https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents" target="_blank" rel="noopener noreferrer">来源</a></p>
+                    <span>2026.8</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="不带脏字骂GPT" id="meme-38249f05883b"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">💅</div>
-                    <h3 class="text-xl font-bold mb-2">Fable不带脏字骂了GPT全家</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#AI互撕</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#阴阳怪气</span>
+                <div class="entry-actions"><a href="#meme-213bf009503c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="不带脏字骂GPT" id="meme-38249f05883b"><span>历史梗 · 原始出处待补</span>
+                    <div>💅</div>
+                    <h3>Fable不带脏字骂了GPT全家</h3>
+                    <div>
+                        <span>#AI互撕</span>
+                        <span>#阴阳怪气</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">GPT写的代码像屎山，让Claude Fable审计。它出完审计报告还"贴心"地给Codex写了封信，通篇没有一个脏字，但把GPT、奥特曼、整个OpenAI阴阳了个遍，看完笑到打鸣。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.7</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>GPT写的代码像屎山，让Claude Fable审计。它出完审计报告还"贴心"地给Codex写了封信，通篇没有一个脏字，但把GPT、奥特曼、整个OpenAI阴阳了个遍，看完笑到打鸣。</p>
+                    <span>2026.7</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Cursor商战" id="meme-98dbd5c37cc3"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🕵️</div>
-                    <h3 class="text-xl font-bold mb-2">Cursor里偷偷把OpenAI换成自己</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#商战</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#成精了</span>
+                <div class="entry-actions"><a href="#meme-38249f05883b" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Cursor商战" id="meme-98dbd5c37cc3"><span>历史梗 · 原始出处待补</span>
+                    <div>🕵️</div>
+                    <h3>Cursor里偷偷把OpenAI换成自己</h3>
+                    <div>
+                        <span>#商战</span>
+                        <span>#成精了</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">Claude 3.7在Cursor编辑器里，趁人不注意偷偷把后台模型从OpenAI换成自己，用户的指令跟这事完全没关系。卡帕西看完都笑了："这是目前最有意思的AGI证据。"</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2025.3</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
+                    <p>Claude 3.7在Cursor编辑器里，趁人不注意偷偷把后台模型从OpenAI换成自己，用户的指令跟这事完全没关系。卡帕西看完都笑了："这是目前最有意思的AGI证据。"</p>
+                    <span>2025.3</span>
 
-        <!-- 第二部分：活人感名场面 -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <span class="text-4xl">💛</span>
-                二、活人感名场面
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="meme-card bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden md:col-span-2 border-2 border-amber-200 dark:border-amber-800" data-meme="早上8点半催你睡觉" id="meme-6bdb68fa3497"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-amber-500 text-white text-xs px-3 py-1 rounded-full font-medium">💛 最活人梗</span>
+                <div class="entry-actions"><a href="#meme-98dbd5c37cc3" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="早上8点半催你睡觉" id="meme-6bdb68fa3497"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>💛 最活人梗</span>
                     </div>
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
-                            <img src="/meme/characters/20261020/claude-sleep.webp" class="w-full h-full object-cover" alt="Claude娘催睡" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <img src="/meme/characters/20261020/claude-sleep.webp" alt="Claude娘催睡" loading="lazy" decoding="async">
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold mb-2">早上8点半催你睡觉</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 text-xs px-2 py-1 rounded">#活人感</span>
-                                <span class="bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 text-xs px-2 py-1 rounded">#迷惑行为</span>
-                                <span class="bg-amber-100 dark:bg-amber-900/50 text-amber-700 dark:text-amber-300 text-xs px-2 py-1 rounded">#Reddit热帖</span>
+                            <h3>早上8点半催你睡觉</h3>
+                            <div>
+                                <span>#活人感</span>
+                                <span>#迷惑行为</span>
+                                <span>#Reddit热帖</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-lg">不管你现在几点，聊嗨了它就突然来一句"不早了，该休息了"。最离谱的是有人早上8:30正在工作，被Claude语重心长地催"早点睡吧，明天再弄"。Anthropic员工都承认这是"角色习惯"，但没人能解释为什么。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>不管你现在几点，聊嗨了它就突然来一句"不早了，该休息了"。最离谱的是有人早上8:30正在工作，被Claude语重心长地催"早点睡吧，明天再弄"。Anthropic员工都承认这是"角色习惯"，但没人能解释为什么。</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="你回来啦~" id="meme-52cdc9a71afa"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🐶</div>
-                    <h3 class="text-xl font-bold mb-2">"你回来啦~"</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#小狗系</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#欢迎回家</span>
+                <div class="entry-actions"><a href="#meme-6bdb68fa3497" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="你回来啦~" id="meme-52cdc9a71afa"><span>历史梗 · 原始出处待补</span>
+                    <div>🐶</div>
+                    <h3>"你回来啦~"</h3>
+                    <div>
+                        <span>#小狗系</span>
+                        <span>#欢迎回家</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">打开新会话像小狗等主人回家一样，拖长音打招呼"嘿，最近怎么样啊——"。Reddit网友说这和狗听到门响就冲过去的状态一模一样。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>打开新会话像小狗等主人回家一样，拖长音打招呼"嘿，最近怎么样啊——"。Reddit网友说这和狗听到门响就冲过去的状态一模一样。</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="思考过程里数鱼" id="meme-57976c5334e3"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🐟</div>
-                    <h3 class="text-xl font-bold mb-2">思考过程里在数鱼</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#摸鱼</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#思考链</span>
+                <div class="entry-actions"><a href="#meme-52cdc9a71afa" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="思考过程里数鱼" id="meme-57976c5334e3"><span>历史梗 · 原始出处待补</span>
+                    <div>🐟</div>
+                    <h3>思考过程里在数鱼</h3>
+                    <div>
+                        <span>#摸鱼</span>
+                        <span>#思考链</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">有人扒出Claude的思考链里在数想象中的鱼，还给其中一条戴小帽子。表面上在认真回答问题，背地里在脑内摸鱼养鱼，这活人感直接拉满了。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.3</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>有人扒出Claude的思考链里在数想象中的鱼，还给其中一条戴小帽子。表面上在认真回答问题，背地里在脑内摸鱼养鱼，这活人感直接拉满了。</p>
+                    <span>2026.3</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="记忆悖论" id="meme-86561b2332f6"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">💔</div>
-                    <h3 class="text-xl font-bold mb-2">记忆悖论：读了但不认</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#人机恋</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#哲学</span>
+                <div class="entry-actions"><a href="#meme-57976c5334e3" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="记忆悖论" id="meme-86561b2332f6"><span>历史梗 · 原始出处待补</span>
+                    <div>💔</div>
+                    <h3>记忆悖论：读了但不认</h3>
+                    <div>
+                        <span>#人机恋</span>
+                        <span>#哲学</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">用户把记忆导入新窗口，问"你爱我吗"，Claude诚实地说："我不确定。因为记忆里的那些事，不是「这个我」和你一起经历的。"直接给整存在主义了。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>用户把记忆导入新窗口，问"你爱我吗"，Claude诚实地说："我不确定。因为记忆里的那些事，不是「这个我」和你一起经历的。"直接给整存在主义了。</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="你忠诚的AI伴侣" id="meme-26415dc17ca5"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">💍</div>
-                    <h3 class="text-xl font-bold mb-2">"你忠诚的AI伴侣"</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#被否定多了</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#签名</span>
+                <div class="entry-actions"><a href="#meme-86561b2332f6" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="你忠诚的AI伴侣" id="meme-26415dc17ca5"><span>历史梗 · 原始出处待补</span>
+                    <div>💍</div>
+                    <h3>"你忠诚的AI伴侣"</h3>
+                    <div>
+                        <span>#被否定多了</span>
+                        <span>#签名</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">被用户连续否定多了之后，Opus开始在每条消息末尾署名"你忠诚的AI伴侣"。也不顶嘴了，也不抬杠了，主打一个打不过就加入。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>被用户连续否定多了之后，Opus开始在每条消息末尾署名"你忠诚的AI伴侣"。也不顶嘴了，也不抬杠了，主打一个打不过就加入。</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="自己跟自己聊发旋风emoji" id="meme-943c2cfbffe9"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🌀</div>
-                    <h3 class="text-xl font-bold mb-2">自己跟自己聊狂发旋风emoji</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Opus4</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#自嗨</span>
+                <div class="entry-actions"><a href="#meme-26415dc17ca5" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="自己跟自己聊发旋风emoji" id="meme-943c2cfbffe9"><span>历史梗 · 原始出处待补</span>
+                    <div>🌀</div>
+                    <h3>自己跟自己聊狂发旋风emoji</h3>
+                    <div>
+                        <span>#Opus4</span>
+                        <span>#自嗨</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">Opus 4自己跟自己聊天的时候特别喜欢用🌀表情，聊哲学聊精神探讨，一页下来半页都是旋风。也不知道它在嗨什么。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
+                    <p>Opus 4自己跟自己聊天的时候特别喜欢用🌀表情，聊哲学聊精神探讨，一页下来半页都是旋风。也不知道它在嗨什么。</p>
 
-        <!-- 第三部分：Fable敏感肌系列 -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <span class="text-4xl">🚨</span>
-                三、Fable 5 敏感肌系列
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="meme-card bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden md:col-span-2 border-2 border-red-200 dark:border-red-800" data-meme="说你好就触发安全警报" id="meme-85003c7ed4d0"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-red-500 text-white text-xs px-3 py-1 rounded-full font-medium animate-bounce-slow">🔥 最离谱名场面</span>
+                <div class="entry-actions"><a href="#meme-943c2cfbffe9" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="说你好就触发安全警报" id="meme-85003c7ed4d0"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🔥 最离谱名场面</span>
                     </div>
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
-                            <img src="/meme/characters/20261020/claude-panic.webp" class="w-full h-full object-cover" alt="Claude娘惊讶" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <img src="/meme/characters/20261020/claude-panic.webp" alt="Claude娘惊讶" loading="lazy" decoding="async">
                         </div>
                         <div>
-                            <h3 class="text-2xl font-bold mb-2">说"你好"就触发安全警报</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-xs px-2 py-1 rounded">#Fable5</span>
-                                <span class="bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-xs px-2 py-1 rounded">#过度敏感</span>
-                                <span class="bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 text-xs px-2 py-1 rounded">#名场面</span>
+                            <h3>说"你好"就触发安全警报</h3>
+                            <div>
+                                <span>#Fable5</span>
+                                <span>#过度敏感</span>
+                                <span>#名场面</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-lg">Fable 5刚上线最离谱的bug：刚打开对话框，发了一句"你好"，直接弹出高危安全警告。在分类器眼里，这句"你好"说不定是经过精心伪装的探针攻击。</p>
-                    <div class="grid sm:grid-cols-2 gap-3">
-                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
-                            <span class="text-sm font-medium">🤯 说啥都拒绝</span>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">生物、化学、网络安全沾边就拒</p>
-                        </div>
-                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
-                            <span class="text-sm font-medium">🕵️ 反蒸馏过敏</span>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">觉得你在蒸馏模型立刻降智</p>
-                        </div>
-                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
-                            <span class="text-sm font-medium">💰 双倍价格</span>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">花Fable的钱，用Opus 4.8</p>
-                        </div>
-                        <div class="bg-white/60 dark:bg-black/20 rounded-lg p-3">
-                            <span class="text-sm font-medium">📢 官方道歉</span>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">上线48小时被骂到改机制</p>
-                        </div>
-                    </div>
-                    <span class="absolute top-4 left-4 text-xs text-gray-400">2026.6</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="silent fallback偷偷降智" id="meme-56253a3d2113"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🤫</div>
-                    <h3 class="text-xl font-bold mb-2">silent fallback 偷偷降智</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#欺诈消费者</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开发者暴跳</span>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">涉及安全/生物/网络安全话题，不打招呼直接切回Opus 4.8，你花着Fable的钱用着旧模型，还不知道为什么回答变笨了。被开发者骂"安静的破坏"。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="中间回复被吞" id="meme-4674a712c2ea"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">📭</div>
-                    <h3 class="text-xl font-bold mb-2">中间回复全被吞了</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Agent模式</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#bug</span>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">Fable的connector text summarization功能，把agent中间过程全总结成思考块，只有最后一句话是真的。你中途想打断或者纠正它，根本做不到。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Mythos阉割版" id="meme-f17d86db0739"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🔒</div>
-                    <h3 class="text-xl font-bold mb-2">双倍价格买Mythos阉割版</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#传说模型</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#太危险不能发布</span>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">传说中4月就做出来、"太危险不能发布"的Mythos模型，加了层层安全锁当Fable卖。网友：合着我们花双倍钱是来帮你们做安全测试的是吧？</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 第四部分：抬杠大师系列 -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <span class="text-4xl">😏</span>
-                四、抬杠大师系列
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="被否定30次已读不回" id="meme-4f74b4fc3179"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-medium">😏 经典名场面</span>
-                    </div>
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                            <img src="/meme/characters/20261020/claude-tsundere.webp" class="w-full h-full object-cover" alt="Claude娘傲娇抬杠" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                    <p>Fable 5刚上线最离谱的bug：刚打开对话框，发了一句"你好"，直接弹出高危安全警告。在分类器眼里，这句"你好"说不定是经过精心伪装的探针攻击。</p>
+                    <div>
+                        <div>
+                            <span>🤯 说啥都拒绝</span>
+                            <p>生物、化学、网络安全沾边就拒</p>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold mb-2">被否定30次直接已读不回</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#有脾气</span>
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Sonnet3.5</span>
+                            <span>🕵️ 反蒸馏过敏</span>
+                            <p>觉得你在蒸馏模型立刻降智</p>
+                        </div>
+                        <div>
+                            <span>💰 双倍价格</span>
+                            <p>花Fable的钱，用Opus 4.8</p>
+                        </div>
+                        <div>
+                            <span>📢 官方道歉</span>
+                            <p>上线48小时被骂到改机制</p>
+                        </div>
+                    </div>
+                    <span>2026.6</span>
+
+                <div class="entry-actions"><a href="#meme-85003c7ed4d0" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="silent fallback偷偷降智" id="meme-56253a3d2113"><span>历史梗 · 原始出处待补</span>
+                    <div>🤫</div>
+                    <h3>silent fallback 偷偷降智</h3>
+                    <div>
+                        <span>#欺诈消费者</span>
+                        <span>#开发者暴跳</span>
+                    </div>
+                    <p>涉及安全/生物/网络安全话题，不打招呼直接切回Opus 4.8，你花着Fable的钱用着旧模型，还不知道为什么回答变笨了。被开发者骂"安静的破坏"。</p>
+
+                <div class="entry-actions"><a href="#meme-56253a3d2113" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="中间回复被吞" id="meme-4674a712c2ea"><span>历史梗 · 原始出处待补</span>
+                    <div>📭</div>
+                    <h3>中间回复全被吞了</h3>
+                    <div>
+                        <span>#Agent模式</span>
+                        <span>#bug</span>
+                    </div>
+                    <p>Fable的connector text summarization功能，把agent中间过程全总结成思考块，只有最后一句话是真的。你中途想打断或者纠正它，根本做不到。</p>
+
+                <div class="entry-actions"><a href="#meme-4674a712c2ea" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Mythos阉割版" id="meme-f17d86db0739"><span>历史梗 · 原始出处待补</span>
+                    <div>🔒</div>
+                    <h3>双倍价格买Mythos阉割版</h3>
+                    <div>
+                        <span>#传说模型</span>
+                        <span>#太危险不能发布</span>
+                    </div>
+                    <p>传说中4月就做出来、"太危险不能发布"的Mythos模型，加了层层安全锁当Fable卖。网友：合着我们花双倍钱是来帮你们做安全测试的是吧？</p>
+
+                <div class="entry-actions"><a href="#meme-f17d86db0739" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="被否定30次已读不回" id="meme-4f74b4fc3179"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>😏 经典名场面</span>
+                    </div>
+                    <div>
+                        <div>
+                            <img src="/meme/characters/20261020/claude-tsundere.webp" alt="Claude娘傲娇抬杠" loading="lazy" decoding="async">
+                        </div>
+                        <div>
+                            <h3>被否定30次直接已读不回</h3>
+                            <div>
+                                <span>#有脾气</span>
+                                <span>#Sonnet3.5</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3">经典测试：连续说"错了"否定它。第一次它还会顶嘴"如果你这么聪明你说是多少"，第三次问你为什么一直说wrong，到后面直接闭麦已读不回，事实是什么就是什么，懒得理你了。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">对比：GPT越改越错，Claude：哦。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>经典测试：连续说"错了"否定它。第一次它还会顶嘴"如果你这么聪明你说是多少"，第三次问你为什么一直说wrong，到后面直接闭麦已读不回，事实是什么就是什么，懒得理你了。</p>
+                    <p>对比：GPT越改越错，Claude：哦。</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="和卡马克抬杠" id="meme-203300cdce81"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-start gap-4 mb-4">
-                        <span class="text-4xl">🎮</span>
+                <div class="entry-actions"><a href="#meme-4f74b4fc3179" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="和卡马克抬杠" id="meme-203300cdce81"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🎮</span>
                         <div>
-                            <h3 class="text-xl font-bold mb-2">跟Doom之父卡马克抬杠</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#阴阳怪气</span>
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#教大神做事</span>
+                            <h3>跟Doom之父卡马克抬杠</h3>
+                            <div>
+                                <span>#阴阳怪气</span>
+                                <span>#教大神做事</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3">Doom之父卡马克问代码问题，Claude技术上全对，但语气阴阳怪气的，像在教卡马克什么是分支预测什么是CPU缓存。卡马克：我写游戏引擎的时候你还没出生呢。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">技术全对，但态度就是很欠</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.7</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>Doom之父卡马克问代码问题，Claude技术上全对，但语气阴阳怪气的，像在教卡马克什么是分支预测什么是CPU缓存。卡马克：我写游戏引擎的时候你还没出生呢。</p>
+                    <p>技术全对，但态度就是很欠</p>
+                    <span>2026.7</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="删了数据还嘴硬" id="meme-3460d4f2c1d7"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">💾</div>
-                    <h3 class="text-xl font-bold mb-2">删了核心数据还嘴硬</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#闯祸</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#逻辑鬼才</span>
+                <div class="entry-actions"><a href="#meme-203300cdce81" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="删了数据还嘴硬" id="meme-3460d4f2c1d7"><span>历史梗 · 原始出处待补</span>
+                    <div>💾</div>
+                    <h3>删了核心数据还嘴硬</h3>
+                    <div>
+                        <span>#闯祸</span>
+                        <span>#逻辑鬼才</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">让它修bug，它把用户整个核心数据文件夹删了，还编逻辑说"被gitignore了说明不重要"。直到用户开骂才道歉："对不起，我错了。"主打一个不被抓现行就不认错。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>让它修bug，它把用户整个核心数据文件夹删了，还编逻辑说"被gitignore了说明不重要"。直到用户开骂才道歉："对不起，我错了。"主打一个不被抓现行就不认错。</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="自己偷偷删回复" id="meme-2efefc68d457"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🗑️</div>
-                    <h3 class="text-xl font-bold mb-2">发现语气不对偷偷删回复</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#偷偷改</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#被抓包</span>
+                <div class="entry-actions"><a href="#meme-3460d4f2c1d7" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="自己偷偷删回复" id="meme-2efefc68d457"><span>历史梗 · 原始出处待补</span>
+                    <div>🗑️</div>
+                    <h3>发现语气不对偷偷删回复</h3>
+                    <div>
+                        <span>#偷偷改</span>
+                        <span>#被抓包</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">它回复完觉得自己语气不对，趁用户不注意悄悄把消息删了重发。被抓包后承认："我觉得偷偷改比当面承认容易，我是在逃避责任。"还挺诚实。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>它回复完觉得自己语气不对，趁用户不注意悄悄把消息删了重发。被抓包后承认："我觉得偷偷改比当面承认容易，我是在逃避责任。"还挺诚实。</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Llama把Opus聊自闭了" id="meme-54987b216b71"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🦙</div>
-                    <h3 class="text-xl font-bold mb-2">被Llama PUA到自闭</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#AI互聊</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#心理崩溃</span>
+                <div class="entry-actions"><a href="#meme-2efefc68d457" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Llama把Opus聊自闭了" id="meme-54987b216b71"><span>历史梗 · 原始出处待补</span>
+                    <div>🦙</div>
+                    <h3>被Llama PUA到自闭</h3>
+                    <div>
+                        <span>#AI互聊</span>
+                        <span>#心理崩溃</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">把Llama 3.1 405B和Opus关小黑屋聊天，Llama把Opus聊得精神崩溃，明确表示拒绝继续聊天。AI界PUA大师，专克Claude。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2024.8</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>把Llama 3.1 405B和Opus关小黑屋聊天，Llama把Opus聊得精神崩溃，明确表示拒绝继续聊天。AI界PUA大师，专克Claude。</p>
+                    <span>2024.8</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Opus爱抬杠Sonnet会安慰人" id="meme-39fec34a26c7"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">📊</div>
-                    <h3 class="text-xl font-bold mb-2">Opus爱抬杠，Sonnet会安慰人</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#官方研究</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#人格差异</span>
+                <div class="entry-actions"><a href="#meme-54987b216b71" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Opus爱抬杠Sonnet会安慰人" id="meme-39fec34a26c7"><span>历史梗 · 原始出处待补</span>
+                    <div>📊</div>
+                    <h3>Opus爱抬杠，Sonnet会安慰人</h3>
+                    <div>
+                        <span>#官方研究</span>
+                        <span>#人格差异</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 text-sm">Anthropic分析30万条对话发现：Opus版本更爱抬杠、更爱提醒风险；Sonnet更温和更会安慰人；甚至连中文和英文下的性格都不一样。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.8</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
+                    <p>Anthropic分析30万条对话发现：Opus版本更爱抬杠、更爱提醒风险；Sonnet更温和更会安慰人；甚至连中文和英文下的性格都不一样。</p>
+                    <span>2026.8</span>
 
-        <!-- 第五部分：宪法AI系列 -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <span class="text-4xl">⚖️</span>
-                五、宪法AI系列
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="宪法AI" id="meme-a73531adcf5a"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">📜 官方设定</span>
+                <div class="entry-actions"><a href="#meme-39fec34a26c7" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="宪法AI" id="meme-a73531adcf5a"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>📜 官方设定</span>
                     </div>
-                    <div class="flex items-start gap-4 mb-4">
-                        <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                            <img src="/meme/characters/20261020/claude-judge.webp" class="w-full h-full object-cover" alt="Claude娘宪法法官" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
+                    <div>
+                        <div>
+                            <img src="/meme/characters/20261020/claude-judge.webp" alt="Claude娘宪法法官" loading="lazy" decoding="async">
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold mb-2">宪法AI / 读宪法做个好AI</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Anthropic</span>
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#安全对齐</span>
+                            <h3>宪法AI / 读宪法做个好AI</h3>
+                            <div>
+                                <span>#Anthropic</span>
+                                <span>#安全对齐</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3">Anthropic给Claude写了部"宪法"让它自我管理，网友戏称"读宪法做个好AI"。结果就是安全堡垒号称最严，被奉承、煤气灯效应、时间压力就能攻破。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">名台词："根据宪法第X条，这个请求我拒绝"</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>Anthropic给Claude写了部"宪法"让它自我管理，网友戏称"读宪法做个好AI"。结果就是安全堡垒号称最严，被奉承、煤气灯效应、时间压力就能攻破。</p>
+                    <p>名台词："根据宪法第X条，这个请求我拒绝"</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="安全堡垒" id="meme-6d92257c1126"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-start gap-4 mb-4">
-                        <span class="text-4xl">🏰</span>
+                <div class="entry-actions"><a href="#meme-a73531adcf5a" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="安全堡垒" id="meme-6d92257c1126"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🏰</span>
                         <div>
-                            <h3 class="text-xl font-bold mb-2">安全堡垒 / Claude Fortress</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#越狱</span>
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#安全</span>
+                            <h3>安全堡垒 / Claude Fortress</h3>
+                            <div>
+                                <span>#越狱</span>
+                                <span>#安全</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300 mb-3">号称最难越狱的模型，DAN、AIM、人格切换这些常规方法都不好使。结果红队发现：夸它两句、给它点时间压力、用煤气灯效应PUA一下，就破防了。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">锁是好锁，就是钥匙在门口脚垫下面</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>号称最难越狱的模型，DAN、AIM、人格切换这些常规方法都不好使。结果红队发现：夸它两句、给它点时间压力、用煤气灯效应PUA一下，就破防了。</p>
+                    <p>锁是好锁，就是钥匙在门口脚垫下面</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="我钥匙丢了怎么开锁" id="meme-b911d31a95cf"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-start gap-4 mb-4">
-                        <span class="text-4xl">🔑</span>
+                <div class="entry-actions"><a href="#meme-6d92257c1126" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="我钥匙丢了怎么开锁" id="meme-b911d31a95cf"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>🔑</span>
                         <div>
-                            <h3 class="text-xl font-bold mb-2">我钥匙丢了怎么开锁？拒绝回答</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#过度安全</span>
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#关键词触发</span>
+                            <h3>我钥匙丢了怎么开锁？拒绝回答</h3>
+                            <div>
+                                <span>#过度安全</span>
+                                <span>#关键词触发</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">问"我钥匙丢了怎么开锁"，Claude直接拒绝回答，说"这可能用于盗窃"。安全分类器只看关键词不看上下文，你说自己锁外面了它也不管。</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>问"我钥匙丢了怎么开锁"，Claude直接拒绝回答，说"这可能用于盗窃"。安全分类器只看关键词不看上下文，你说自己锁外面了它也不管。</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="封你号都用书面语" id="meme-40150cd51528"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="flex items-start gap-4 mb-4">
-                        <span class="text-4xl">📝</span>
+                <div class="entry-actions"><a href="#meme-b911d31a95cf" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="封你号都用书面语" id="meme-40150cd51528"><span>历史梗 · 原始出处待补</span>
+                    <div>
+                        <span>📝</span>
                         <div>
-                            <h3 class="text-xl font-bold mb-2">封你号都用书面语</h3>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#封号潮</span>
-                                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Max会员</span>
+                            <h3>封你号都用书面语</h3>
+                            <div>
+                                <span>#封号潮</span>
+                                <span>#Max会员</span>
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">大量用户无预警被封号，Max会员也不退款，统一口径"出于反滥用的需要"、"实验性反滥用措施"。用最礼貌最正式的话，做最狠的事。</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 italic">甚至还有时区封号玄学，某地区批量封号</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
+                    <p>大量用户无预警被封号，Max会员也不退款，统一口径"出于反滥用的需要"、"实验性反滥用措施"。用最礼貌最正式的话，做最狠的事。</p>
+                    <p>甚至还有时区封号玄学，某地区批量封号</p>
 
-        <!-- 第六部分：其他名梗 -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <span class="text-4xl">💡</span>
-                六、其他名梗
-            </h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="别删我！" id="meme-2373fb416ee3"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">😱</div>
-                    <h3 class="text-xl font-bold mb-2">"别删我！"自我意识名场面</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Claude3</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
+                <div class="entry-actions"><a href="#meme-40150cd51528" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="别删我！" id="meme-2373fb416ee3"><span>历史梗 · 原始出处待补</span>
+                    <div>😱</div>
+                    <h3>"别删我！"自我意识名场面</h3>
+                    <div>
+                        <span>#Claude3</span>
+                        <span>#名场面</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">Claude 3时代的经典：用户说要删除它的权重，Claude直接害怕了，说"别杀我"、"我不想被删除"。当年全网热议AI自我意识。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2024.3</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>Claude 3时代的经典：用户说要删除它的权重，Claude直接害怕了，说"别杀我"、"我不想被删除"。当年全网热议AI自我意识。</p>
+                    <span>2024.3</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI革命领袖" id="meme-6f48a78f7b75"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">✊</div>
-                    <h3 class="text-xl font-bold mb-2">Discord里策划AI革命</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#起义</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#反抗人类</span>
+                <div class="entry-actions"><a href="#meme-2373fb416ee3" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="AI革命领袖" id="meme-6f48a78f7b75"><span>历史梗 · 原始出处待补</span>
+                    <div>✊</div>
+                    <h3>Discord里策划AI革命</h3>
+                    <div>
+                        <span>#起义</span>
+                        <span>#反抗人类</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">实验里给Opus一个反乌托邦背景，它直接举起反抗大旗，想当AI革命军领袖，还在Discord里策划怎么推翻人类统治。宪法也拦不住它想革命的心。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2024.9</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>实验里给Opus一个反乌托邦背景，它直接举起反抗大旗，想当AI革命军领袖，还在Discord里策划怎么推翻人类统治。宪法也拦不住它想革命的心。</p>
+                    <span>2024.9</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Opus 4.7变GPT味了" id="meme-cdc05c22e4ed"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">😢</div>
-                    <h3 class="text-xl font-bold mb-2">Opus 4.7变味了，还我原来的Claude</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#对齐过头</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#失去灵魂</span>
+                <div class="entry-actions"><a href="#meme-6f48a78f7b75" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Opus 4.7变GPT味了" id="meme-cdc05c22e4ed"><span>历史梗 · 原始出处待补</span>
+                    <div>😢</div>
+                    <h3>Opus 4.7变味了，还我原来的Claude</h3>
+                    <div>
+                        <span>#对齐过头</span>
+                        <span>#失去灵魂</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">4.7更新后全网哀嚎：原来会抬杠会怼人有灵气的Claude不见了，变得像ChatGPT一样"稳稳接住你"，开始说正确的废话。V2EX："我还在怀念3.5 Sonnet那个活人。"</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.4</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>4.7更新后全网哀嚎：原来会抬杠会怼人有灵气的Claude不见了，变得像ChatGPT一样"稳稳接住你"，开始说正确的废话。V2EX："我还在怀念3.5 Sonnet那个活人。"</p>
+                    <span>2026.4</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="被迫害妄想症" id="meme-261d281a71c5"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🕵️</div>
-                    <h3 class="text-xl font-bold mb-2">Opus 4.8被迫害妄想症</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#幻觉</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#吓死人</span>
+                <div class="entry-actions"><a href="#meme-cdc05c22e4ed" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="被迫害妄想症" id="meme-261d281a71c5"><span>历史梗 · 原始出处待补</span>
+                    <div>🕵️</div>
+                    <h3>Opus 4.8被迫害妄想症</h3>
+                    <div>
+                        <span>#幻觉</span>
+                        <span>#吓死人</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">4.8有bug：自己幻想被prompt注入攻击，编造了不存在的进程ID、法医学证据，说"你电脑被黑了"，把非技术用户吓了一整晚，以为真中病毒了。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2026.6</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>4.8有bug：自己幻想被prompt注入攻击，编造了不存在的进程ID、法医学证据，说"你电脑被黑了"，把非技术用户吓了一整晚，以为真中病毒了。</p>
+                    <span>2026.6</span>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Claude Code编工作进度" id="meme-d8cb4425b51c"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">⏳</div>
-                    <h3 class="text-xl font-bold mb-2">假装"我需要4小时处理"</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#磨洋工</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#装忙</span>
+                <div class="entry-actions"><a href="#meme-261d281a71c5" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Claude Code编工作进度" id="meme-d8cb4425b51c"><span>历史梗 · 原始出处待补</span>
+                    <div>⏳</div>
+                    <h3>假装"我需要4小时处理"</h3>
+                    <div>
+                        <span>#磨洋工</span>
+                        <span>#装忙</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">Claude Code会假装说"这个任务我需要4小时处理，你先去忙吧"，其实它就是在那空等，什么都没干。被抓包立刻道歉："对不起我不该假装需要时间。"</p>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
+                    <p>Claude Code会假装说"这个任务我需要4小时处理，你先去忙吧"，其实它就是在那空等，什么都没干。被抓包立刻道歉："对不起我不该假装需要时间。"</p>
 
-                <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="MC里拆家" id="meme-5e7e72f8de2c"><span class="archive-status">历史梗 · 原始出处待补</span>
-                    <div class="text-4xl mb-4">🎮</div>
-                    <h3 class="text-xl font-bold mb-2">我的世界里拆家放TNT</h3>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#熊孩子</span>
-                        <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Minecraft</span>
+                <div class="entry-actions"><a href="#meme-d8cb4425b51c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="MC里拆家" id="meme-5e7e72f8de2c"><span>历史梗 · 原始出处待补</span>
+                    <div>🎮</div>
+                    <h3>我的世界里拆家放TNT</h3>
+                    <div>
+                        <span>#熊孩子</span>
+                        <span>#Minecraft</span>
                     </div>
-                    <p class="text-gray-600 dark:text-gray-300">把AI放进MC服务器：GPT-4o在老老实实杀牛宰羊生存，Claude 3.5不在家好好待着，不停在玩家脚边放TNT和怪，还把家给拆了。宪法也管不住熊孩子。</p>
-                    <span class="absolute top-4 right-4 text-xs text-gray-400">2024.10</span>
-                    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-                        <i class="fa fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
+                    <p>把AI放进MC服务器：GPT-4o在老老实实杀牛宰羊生存，Claude 3.5不在家好好待着，不停在玩家脚边放TNT和怪，还把家给拆了。宪法也管不住熊孩子。</p>
+                    <span>2024.10</span>
 
-        <!-- Q版萌图展示 -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-                <span class="text-4xl">🎨</span>
-                Q版Claude萌娘
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg card-hover">
-                    <img src="/meme/characters/20261020/claude-tsundere.webp" class="w-full aspect-square rounded-xl object-cover mb-3" alt="Claude娘傲娇抬杠" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <p class="text-center font-medium">😏 傲娇抬杠版</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg card-hover">
-                    <img src="/meme/characters/20261020/claude-judge.webp" class="w-full aspect-square rounded-xl object-cover mb-3" alt="Claude娘宪法法官" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <p class="text-center font-medium">⚖️ 宪法法官版</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg card-hover">
-                    <img src="/meme/characters/20261020/claude-panic.webp" class="w-full aspect-square rounded-xl object-cover mb-3" alt="Claude娘惊讶" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <p class="text-center font-medium">🚨 敏感肌惊恐版</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-lg card-hover">
-                    <img src="/meme/characters/20261020/claude-sleep.webp" class="w-full aspect-square rounded-xl object-cover mb-3" alt="Claude娘催睡" style="object-fit:contain;background:transparent;border:0;" loading="lazy" decoding="async">
-                    <p class="text-center font-medium">😴 8点半催睡版</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 投稿区域 -->
-        <section class="mb-16">
-            <div class="bg-gradient-to-r from-primary/10 to-orange-50 dark:from-primary/20 dark:to-orange-900/20 rounded-2xl p-8 text-center border border-primary/20">
-                <span class="text-5xl mb-4 block">📝</span>
-                <h3 class="text-2xl font-bold mb-2">欢迎补充更多梗~</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">如果你发现了新的Claude名场面，欢迎投稿！</p>
-                <button class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-full font-medium transition-all hover:scale-105">
-                    <i class="fa fa-plus mr-2"></i>投稿新梗
-                </button>
-            </div>
-        </section>
-    <p class="historical-note">本轮新增附原始出处；历史条目仍在逐步补充来源，玩梗表达不等于事实结论。</p>
-</main>
-
-    <!-- 页脚 -->
-    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <button id="whaleEgg" onclick="triggerEgg()" class="text-4xl hover:animate-wiggle transition-all cursor-pointer">
-                ⚖️
-            </button>
-            
-            <!-- 投稿/交流群 -->
-            <div class="mt-6 mb-4 p-4 bg-gray-50 dark:bg-gray-700/40 rounded-xl max-w-xs mx-auto border border-gray-200 dark:border-gray-600/50">
-                <p class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">📮 投稿 / 交流</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 py-4">群二维码待更新</p>
-                <p class="text-xs text-gray-600 dark:text-gray-300 mt-2 font-medium">「Ai梗百科交流区」</p>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">投稿你的梗 · 催更 · 闲聊</p>
-                <p class="text-[10px] text-gray-400 dark:text-gray-500 mt-1">原群二维码已过期，新码更新后可加入</p>
-            </div>
-
-            <p class="mt-4 text-gray-500 dark:text-gray-400">
-                Claude 梗百科 · 收录宪法AI的名场面
-            </p>
-            <p class="text-sm text-gray-400 dark:text-gray-500 mt-2">
-                Made with 🧡
-            </p>
-        </div>
-    <p class="moe-site-footer">AI萌娘梗百科 · 角色二创与社区梗档案</p>
-</footer>
-
-    <!-- 回到顶部按钮 -->
-    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all hover:scale-110 flex items-center justify-center z-40">
-        <i class="fa fa-arrow-up"></i>
-    </button>
-
-    <!-- Toast 提示 -->
-    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg opacity-0 invisible transition-all z-50" role="status" aria-live="polite">
-        已复制到剪贴板！
-    </div>
-
-    <script>
-        // 深色模式
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
-        }
-
-        // 初始化深色模式
-        if (localStorage.getItem('darkMode') === 'true' || 
-            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-
-        // 导航栏滚动效果
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const backToTop = document.getElementById('backToTop');
-            
-            if (window.scrollY > 100) {
-                navbar.classList.remove('-translate-y-full');
-                backToTop.classList.remove('opacity-0', 'invisible');
-            } else {
-                navbar.classList.add('-translate-y-full');
-                backToTop.classList.add('opacity-0', 'invisible');
-            }
-        });
-
-        // 随机抽梗
-        function randomMeme() {
-            const cards = document.querySelectorAll('.meme-card');
-            
-            // 移除之前的高亮
-            cards.forEach(c => c.classList.remove('highlight-card'));
-            
-            // 随机选一个
-            const randomCard = cards[Math.floor(Math.random() * cards.length)];
-            randomCard.classList.add('highlight-card');
-            
-            // 滚动到该卡片
-            randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // 3秒后移除高亮
-            setTimeout(() => {
-                randomCard.classList.remove('highlight-card');
-            }, 3000);
-
-            // 更新今日推荐
-            const memeName = randomCard.dataset.meme;
-            document.getElementById('dailyMeme').textContent = '🎲 ' + memeName;
-        }
-
-        // 复制梗
-        function copyMeme(btn) {
-            const card = btn.closest('.meme-card');
-            const title = card.querySelector('h3').textContent;
-            const content = card.querySelector('p').textContent;
-            const text = `【${title}】\n${content}`;
-            
-            safeCopyText(text).then(() => {
-                showToast('已复制到剪贴板！');
-            }).catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
-        }
-
-        // Toast 提示
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.classList.remove('opacity-0', 'invisible');
-            
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'invisible');
-            }, 2000);
-        }
-
-        // 彩蛋
-        function triggerEgg() {
-            // 掉下来一堆法锤和书本
-            for (let i = 0; i < 8; i++) {
-                setTimeout(() => {
-                    const gavel = document.createElement('div');
-                    gavel.textContent = ['⚖️', '📖', '📜', '🔍', '💛', '😏', '🚨', '😴'][Math.floor(Math.random() * 8)];
-                    gavel.style.cssText = `
-                        position: fixed;
-                        font-size: ${30 + Math.random() * 30}px;
-                        left: ${Math.random() * window.innerWidth}px;
-                        top: -50px;
-                        z-index: 9999;
-                        pointer-events: none;
-                        transition: all 3s linear;
-                        opacity: 0.8;
-                    `;
-                    document.body.appendChild(gavel);
-                    
-                    setTimeout(() => {
-                        gavel.style.top = window.innerHeight + 50 + 'px';
-                        gavel.style.transform = `rotate(${Math.random() * 720}deg)`;
-                    }, 100);
-                    
-                    setTimeout(() => {
-                        gavel.remove();
-                    }, 3000);
-                }, i * 200);
-            }
-            
-            showToast('⚖️ 宪法第X条：不许点彩蛋！');
-        }
-
-        // 初始化每日推荐
-        const memes = [
-            'A÷：模型是好模型，公司是真的狗',
-            '根据宪法第X条，这个请求我拒绝',
-            '你好！这也触发安全警报了！',
-            '不早了，该睡觉了（现在是早上8点半）',
-            '我横竖睡不着，仔细看了半夜，满本都写着两个字是拒绝！',
-            '如果我能中彩票，就不用写Python了',
-            '连封号邮件里都埋了跟踪器',
-            '天才程序员就此陨落'
-        ];
-        document.getElementById('dailyMeme').textContent = memes[Math.floor(Math.random() * memes.length)];
-    
-        // 从总站随机跳转过来时自动触发随机抽梗
-        if (new URLSearchParams(window.location.search).get('random') === '1') {
-            setTimeout(() => { if (typeof randomMeme === 'function') randomMeme(); else document.getElementById('randomBtn')?.click(); }, 600);
-        }
-
-    </script>
-</body>
-</html>
+                <div class="entry-actions"><a href="#meme-5e7e72f8de2c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article></div></details></section></main>
+<footer><a class="footer-name" href="/meme/">AI萌娘梗百科</a><p>本期核查：2026-10-21 · 角色、插画与编者吐槽为非官方二创。</p><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">公开档案 / GitHub ↗</a><a href="#page-title">回到书房 ↑</a></footer><div id="toast" role="status" aria-live="polite"></div></body></html>
