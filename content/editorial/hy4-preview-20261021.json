@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "hy4-release-lookback",
+      "kind": "event",
+      "label": "回看 · 开源预览",
+      "date": "2026-08-28",
+      "date_label": "08.28 · 腾讯发布回看",
+      "title": "工房门口挂着预览牌",
+      "lead": "工房门口挂着预览牌。",
+      "body": "腾讯 8 月 28 日宣布发布并开源 Hy4 preview。产品名里的 preview 是发布时的正式称呼，像一张还在迭代中的工房门牌；它并不等于本站手里的四格漫画有任何真实产品演示。",
+      "joke": "Hy4 摸摸围巾：先看这一版的做法。",
+      "boundary": "这是 8 月发布记录，不是 10 月的新版本消息；开源、后续版本和实际服务状态应分别核查。",
+      "sources": [
+        [
+          "腾讯 · Hy4 preview 官方发布",
+          "https://www.tencent.com/zh-cn/tencent-releases-and-open-sources-tencent-hy4-preview/"
+        ]
+      ],
+      "image": "/meme/assets/hy4-preview-20261021/portrait.webp"
+    },
+    {
+      "id": "hy4-context-lookback",
+      "kind": "event",
+      "label": "回看 · 长上下文",
+      "date": "2026-08-28",
+      "date_label": "08.28 · 腾讯发布回看",
+      "title": "图纸摊满一整张桌",
+      "lead": "图纸摊满一整张桌。",
+      "body": "腾讯当时公布 Hy4 preview 总参数 770B、激活参数 49B，并称上下文长度突破 1M。数字像工房里一张很大的工作台，可以摆更多图纸；能摆下多少与最后能不能做对，仍是两件需要单独检验的事。",
+      "joke": "Hy4 摊开卷轴：这页够长，细节还得逐个看。",
+      "boundary": "参数与上下文为官方规格，不是准确率、质量或推理速度保证；本站未独立测试。",
+      "sources": [
+        [
+          "腾讯 · Hy4 preview 官方发布",
+          "https://www.tencent.com/zh-cn/tencent-releases-and-open-sources-tencent-hy4-preview/"
+        ]
+      ],
+      "image": "/meme/assets/hy4-preview-20261021/portrait.webp"
+    },
+    {
+      "id": "hy4-workbuddy-lookback",
+      "kind": "event",
+      "label": "回看 · 工具入口",
+      "date": "2026-08-28",
+      "date_label": "08.28 · 腾讯发布回看",
+      "title": "她在几张工作桌间走动",
+      "lead": "她在几张工作桌间走动。",
+      "body": "腾讯发布稿称 Hy4 preview 同步进入 WorkBuddy、CodeBuddy、元宝与 ima，也提供腾讯云 TokenHub 和 OpenRouter 的 API 接入路径。工房门口因此有好几扇门，但哪扇门今天能开，要看各产品当前的状态。",
+      "joke": "Hy4 指着门牌：走哪边，先看你要做什么。",
+      "boundary": "这是发布当天列出的入口；限时活动与可用地区可能变化，本站未验证 10 月每个入口的实时状态。",
+      "sources": [
+        [
+          "腾讯 · Hy4 preview 官方发布",
+          "https://www.tencent.com/zh-cn/tencent-releases-and-open-sources-tencent-hy4-preview/"
+        ]
+      ],
+      "image": "/meme/assets/hy4-preview-20261021/portrait.webp"
+    },
+    {
+      "id": "hy4-preview-comic-01",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "我还在预览",
+      "lead": "第 01 页 · 我还在预览",
+      "body": "上班族把需求单递给Hy4少女，说「今天能交正式版吗？」她胸前放小挂牌「预览」。 / Hy4认真堆好积木小房子，放下最后屋顶，说「先看看效果。」",
+      "joke": "反转：Hy4把「预览」挂牌挂到上班族脖子上，说「原来你的需求也在预览。」上班族手里还攥着新图纸。",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/"
+        ]
+      ],
+      "image": "/meme/assets/hy4-preview-20261021/comic-01.webp"
+    },
+    {
+      "id": "hy4-preview-comic-02",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "工作搭子真上线",
+      "lead": "第 02 页 · 工作搭子真上线",
+      "body": "上班族面对表格山说「想要个工作搭子。」Hy4元气举手。 / Hy4搬来第二把椅子，摆好茶杯和键盘，说「一起！」",
+      "joke": "反转：两人同步瘫在椅子上举奶茶，窗外已黑。上班族说「连下班的瘫法都同步了。」Hy4点头笑。",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/"
+        ]
+      ],
+      "image": "/meme/assets/hy4-preview-20261021/comic-02.webp"
+    },
+    {
+      "id": "hy4-preview-comic-03",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "上下文太长",
+      "lead": "第 03 页 · 上下文太长",
+      "body": "上班族对Hy4说「说来话长。」她抱巨大卷轴说「我装得下！」 / 上班族滔滔不绝，卷轴绕过桌子，Hy4认真记录。",
+      "joke": "反转：Hy4拿一小张便利贴问「所以，钥匙在哪？」上班族从口袋摸出钥匙，脸红说「哦，在这。」",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/"
+        ]
+      ],
+      "image": "/meme/assets/hy4-preview-20261021/comic-03.webp"
+    },
+    {
+      "id": "hy4-preview-comic-04",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "开源的正确姿势",
+      "lead": "第 04 页 · 开源的正确姿势",
+      "body": "上班族指着桌上锁住的漂亮盒子问「怎么才算开放？」Hy4拿钥匙。 / Hy4打开盒盖，里面是一个精致积木机器人与图纸，说「让大家都能研究。」",
+      "joke": "反转：上班族把盒子整个戴在头上，眼睛从洞里看出来，说「我也参与改造了。」Hy4举拇指说「这叫开箱即用。」",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/"
+        ]
+      ],
+      "image": "/meme/assets/hy4-preview-20261021/comic-04.webp"
+    }
+  ]
+}

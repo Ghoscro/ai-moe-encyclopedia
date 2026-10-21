@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "ernie-51-lookback",
+      "kind": "event",
+      "label": "回看 · 文心 5.1",
+      "date": "2026-05-18",
+      "date_label": "05.18 · 官方财报回看",
+      "title": "把答案写短一点",
+      "lead": "把答案写短一点。",
+      "body": "百度在一季度业绩公告中记录了 ERNIE 5.1 于 2026 年 5 月推出，并将更强文本能力、更精简的模型体量和推理能力列为更新方向。桌上多了新笔，能否写得好仍要看实际题目。",
+      "joke": "文心把长卷收起：这回先写重点。",
+      "boundary": "这是百度对自家模型的发布描述；本站未做同题测试，也不把版本宣传等同于文心一言所有入口的实时能力。",
+      "sources": [
+        [
+          "百度 · 2026 Q1 业绩公告",
+          "https://ir.baidu.com/news-releases/news-release-details/baidu-announces-first-quarter-2026-results"
+        ]
+      ],
+      "image": "/meme/assets/ernie-20261021/portrait.webp"
+    },
+    {
+      "id": "ernie-50-lookback",
+      "kind": "event",
+      "label": "回看 · 文心 5.0",
+      "date": "2026-02-26",
+      "date_label": "02.26 · 官方年度回看",
+      "title": "文字之外，还有别的页",
+      "lead": "文字之外，还有别的页。",
+      "body": "百度在 2 月的 2025 年第四季度及全年业绩公告里回顾，2026 年 1 月推出更新后的 ERNIE 5.0，并称其为原生全模态基础模型。她于是把图画也夹进诗集，像给纯文字的书页开了一扇窗。",
+      "joke": "文心：今天这页，也可以先看图。",
+      "boundary": "日期指业绩公告，不是模型的精确发布日期；全模态是官方定位，不意味着每个产品入口、账户或任务都开放相同能力。",
+      "sources": [
+        [
+          "百度 · 2025 Q4 及全年业绩公告",
+          "https://ir.baidu.com/news-releases/news-release-details/baidu-announces-fourth-quarter-and-fiscal-year-2025-results/"
+        ]
+      ],
+      "image": "/meme/assets/ernie-20261021/portrait.webp"
+    },
+    {
+      "id": "ernie-free-lookback",
+      "kind": "event",
+      "label": "回看 · 入口变化",
+      "date": "2025-04-01",
+      "date_label": "2025.04.01 · 官方产品页回看",
+      "title": "书斋的大门打开过一次",
+      "lead": "书斋的大门打开过一次。",
+      "body": "百度官方业务介绍写明，文心一言自 2025 年 4 月 1 日起在 PC 和移动端向所有用户免费开放，以便使用当时最新的文心模型。这个日期已是旧事，却能解释为什么早期的付费印象并不适合直接套在今天。",
+      "joke": "文心把门牌翻过来：请进，先看书。",
+      "boundary": "这是历史政策，不保证 2026 年所有产品、模型、额度与服务都免费；访问前以官方当前页面为准。",
+      "sources": [
+        [
+          "百度 · General Business 官方介绍",
+          "https://ir.baidu.com/baidu-general-business/"
+        ]
+      ],
+      "image": "/meme/assets/ernie-20261021/portrait.webp"
+    },
+    {
+      "id": "ernie-comic-01",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "画蛇添足",
+      "lead": "第 01 页 · 画蛇添足",
+      "body": "灰色学生拿成语作业问「画蛇添足是什么意思？」文心一言坐轮椅旁微笑。 / 文心拿画笔在纸上给小蛇画四只穿鞋的脚，说「字面上是这样。」",
+      "joke": "画中蛇穿新鞋开心散步，说「我终于不用用肚子走路啦！」文心眨眼。",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://trending.knowyourmeme.com/editorials/collections/these-25-unexpected-statements-are-just-technically-correct"
+        ]
+      ],
+      "image": "/meme/assets/ernie-20261021/comic-01.webp"
+    },
+    {
+      "id": "ernie-comic-02",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "万能请假条",
+      "lead": "第 02 页 · 万能请假条",
+      "body": "灰色上班族黑眼圈，说「帮我写张真诚请假条。」文心一言坐轮椅旁听。 / 文心用蓝墨水工整写下「今日想睡觉。」",
+      "joke": "主管盖红章「同感」，自己也趴桌睡了。文心说「真诚到传染。」",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://www.uisdc.com/the-colorful-black-you-need"
+        ]
+      ],
+      "image": "/meme/assets/ernie-20261021/comic-02.webp"
+    },
+    {
+      "id": "ernie-comic-03",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "周一成诗",
+      "lead": "第 03 页 · 周一成诗",
+      "body": "周一早晨，上班族苦着脸说「把今天写得浪漫点。」文心翻开诗集。 / 文心描绘窗外晨光，轻声念「云替清晨翻页。」",
+      "joke": "手机大字「会议提前」。文心合上诗集说「现实抢了最后一行。」",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://knowyourmeme.com/memes/let-him-cook-let-that-boy-cook"
+        ]
+      ],
+      "image": "/meme/assets/ernie-20261021/comic-03.webp"
+    },
+    {
+      "id": "ernie-comic-04",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 · 本站创作",
+      "title": "阅读理解",
+      "lead": "第 04 页 · 阅读理解",
+      "body": "学生举作文题说「作者为什么反复写下雨？」文心一言坐轮椅边接过稿。 / 文心认真分析纸上的乌云，写下「渲染忧愁」。",
+      "joke": "作者拧着湿透的衣角说「因为屋顶漏水。」文心与学生同时愣住。",
+      "boundary": "漫画是本站原创虚构演绎。人物对白、情节与产品能力无对应关系；所列链接只是创作灵感或背景，不是情节发生的证据。",
+      "sources": [
+        [
+          "创作灵感或官方背景",
+          "https://trending.knowyourmeme.com/editorials/collections/these-25-unexpected-statements-are-just-technically-correct"
+        ]
+      ],
+      "image": "/meme/assets/ernie-20261021/comic-04.webp"
+    }
+  ]
+}

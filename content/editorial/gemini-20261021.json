@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "gemini-brand-kit",
+      "kind": "event",
+      "label": "本月官方",
+      "date": "2026-10-20",
+      "date_label": "10.20 Google 公告",
+      "title": "把调色盘留在相册边",
+      "lead": "店主不用每张图都从头解释品牌颜色。",
+      "body": "Google 在 10 月 20 日公布面向小商家的 Gemini 工具：商家可上传网站、品牌素材、字体或色板来定义视觉风格，再结合 Nano Banana 2.1 生成持续一致的宣传图。本站把它想成照相馆里贴好的色卡；实际效果依赖输入、地区和产品开放情况。",
+      "joke": "店主：这张也用同一套紫色。Gemini：色卡我夹在相册第一页。",
+      "boundary": "依据 Google 公告转述；未实测各地区开放与生成一致性。对白和照相馆场景为二创。",
+      "sources": [
+        [
+          "Google 官方 · 小商家工具",
+          "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/"
+        ]
+      ],
+      "image": "/meme/assets/gemini-20261021/portrait.webp"
+    },
+    {
+      "id": "gemini-argon-tasks",
+      "kind": "event",
+      "label": "本月官方",
+      "date": "2026-10-13",
+      "date_label": "10.13 Google 公告",
+      "title": "聊天框旁边，多了一张待办纸",
+      "lead": "切到任务模式，可以把事情交给她继续做。",
+      "body": "Google 宣布 Gemini 4 Argon 进入 Gemini 应用，并在主聊天界面提供切换到 tasks 的入口；公告还提到在 macOS 版 Gemini 中可直接进入 Antigravity 编码界面。像把相机旁的工作清单摊开：能做哪些事仍取决于订阅、地区、客户端与权限。",
+      "joke": "我：先修照片，再去写程序？Gemini：请把两张便签分开放。",
+      "boundary": "这是产品公告，不等于本站验证了所有账号功能或任务结果；对白为二创。",
+      "sources": [
+        [
+          "Google 官方 · Gemini 4 Argon",
+          "https://blog.google/innovation-and-ai/products/gemini-app/gemini-4-argon-availability/"
+        ]
+      ],
+      "image": "/meme/assets/gemini-20261021/portrait.webp"
+    },
+    {
+      "id": "gemini-connected-apps",
+      "kind": "event",
+      "label": "本月官方",
+      "date": "2026-09-23",
+      "date_label": "09.23 Google 公告",
+      "title": "修图室开了几扇侧门",
+      "lead": "熟悉的工具，可以从同一段对话里找。",
+      "body": "Google 公告称，新一批 Connected Apps 从 9 月 23 日起逐步接入 Gemini，名单包括 Adobe、Picsart、Squarespace、Webflow 等创作工具，以及生产力和生活服务。把这想成修图室门口多了几块路牌就好；每扇门何时可用，还要看地区、服务账户和逐步开放进度。",
+      "joke": "Gemini：门牌先挂好；钥匙要看你用的是哪一把。",
+      "boundary": "这是逐步上线公告，并非所有用户已能连接全部应用；路牌和对白为二创。",
+      "sources": [
+        [
+          "Google 官方 · Connected Apps",
+          "https://blog.google/innovation-and-ai/products/gemini-app/new-connected-apps-gemini/"
+        ]
+      ],
+      "image": "/meme/assets/gemini-20261021/portrait.webp"
+    },
+    {
+      "id": "gemini-comic-01",
+      "kind": "original",
+      "label": "原创小剧场",
+      "date": "2026-10-21",
+      "date_label": "10.21 本站创作",
+      "title": "猫耳滤镜",
+      "lead": "给别人加猫耳，结果自己变成双倍猫猫。",
+      "body": "四格漫画把「修图功能与自身猫耳的视觉反转」改编成 Gemini 与上班族的相片趣事。",
+      "joke": "双倍猫猫！",
+      "boundary": "完全虚构的角色二创，不是模型真实发言、实际产品操作记录或用户经历。",
+      "sources": [
+        [
+          "创作灵感 · 修图功能与自身猫耳的视觉反转",
+          "https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/"
+        ]
+      ],
+      "image": "/meme/assets/gemini-20261021/comic-01.webp"
+    },
+    {
+      "id": "gemini-comic-02",
+      "kind": "original",
+      "label": "原创小剧场",
+      "date": "2026-10-21",
+      "date_label": "10.21 本站创作",
+      "title": "假期合照",
+      "lead": "照片去了海边，人还坐在工位。",
+      "body": "四格漫画把「照片背景替换与现实假期反差」改编成 Gemini 与上班族的相片趣事。",
+      "joke": "海风我来补。",
+      "boundary": "完全虚构的角色二创，不是模型真实发言、实际产品操作记录或用户经历。",
+      "sources": [
+        [
+          "创作灵感 · 照片背景替换与现实假期反差",
+          "https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/"
+        ]
+      ],
+      "image": "/meme/assets/gemini-20261021/comic-02.webp"
+    },
+    {
+      "id": "gemini-comic-03",
+      "kind": "original",
+      "label": "原创小剧场",
+      "date": "2026-10-21",
+      "date_label": "10.21 本站创作",
+      "title": "把杂物去掉",
+      "lead": "照片擦干净了，桌外的办公室怎么办？",
+      "body": "四格漫画把「图片清理功能的逐步升级反转」改编成 Gemini 与上班族的相片趣事。",
+      "joke": "这张照片装不下了。",
+      "boundary": "完全虚构的角色二创，不是模型真实发言、实际产品操作记录或用户经历。",
+      "sources": [
+        [
+          "创作灵感 · 图片清理功能的逐步升级反转",
+          "https://blog.google/products-and-platforms/products/gemini/updated-image-editing-model/"
+        ]
+      ],
+      "image": "/meme/assets/gemini-20261021/comic-03.webp"
+    },
+    {
+      "id": "gemini-comic-04",
+      "kind": "original",
+      "label": "原创小剧场",
+      "date": "2026-10-21",
+      "date_label": "10.21 本站创作",
+      "title": "再亮一点",
+      "lead": "夜景越修越亮，太阳提前上班。",
+      "body": "四格漫画把「甲方改稿式照明需求」改编成 Gemini 与上班族的相片趣事。",
+      "joke": "夜景下班了。",
+      "boundary": "完全虚构的角色二创，不是模型真实发言、实际产品操作记录或用户经历。",
+      "sources": [
+        [
+          "创作灵感 · 甲方改稿式照明需求",
+          "https://www.jiemian.com/article/2398055.html"
+        ]
+      ],
+      "image": "/meme/assets/gemini-20261021/comic-04.webp"
+    }
+  ]
+}

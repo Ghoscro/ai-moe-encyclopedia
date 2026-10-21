@@ -1,0 +1,142 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "mistral-large4-le-chonk",
+      "kind": "event",
+      "label": "10月发布 · 模型",
+      "date": "2026-10-06",
+      "date_label": "10.06 官方公告",
+      "title": "一万亿参数的绰号，先叫「大块头」",
+      "lead": "Mistral 给 Large 4 起了个很不端着的昵称：le Chonk。",
+      "body": "10 月 6 日，Mistral 开放 Large 4 的 API 预览，公告还给它起了「le Chonk」的昵称。官方披露它是原生多模态模型，总参数一万亿、激活参数 520 亿；权重计划当月底发布。菜单厚了，现在尝到的仍是预览版。",
+      "joke": "Mistral 把法棍往桌上一放：这回真是加大份。",
+      "boundary": "参数与发布安排来自 Mistral 公告；权重在本页截稿时尚属计划，昵称接梗与角色台词为编者二创。",
+      "sources": [
+        [
+          "Mistral · Large 4 官方公告",
+          "https://mistral.ai/news/mistral-large-4/"
+        ]
+      ],
+      "image": "/meme/assets/mistral-20261021/portrait.webp"
+    },
+    {
+      "id": "mistral-timestral-forecast",
+      "kind": "event",
+      "label": "10月发布 · 时间序列",
+      "date": "2026-10-15",
+      "date_label": "10.15 官方公告",
+      "title": "今天的咖啡，交给时间序列算一算",
+      "lead": "新来的 Timestral 专看随时间变化的数据。",
+      "body": "10 月 15 日，Mistral 发布首个时间序列模型家族 Timestral，分为四种规模，最大为 2.09 亿参数。公告称它能结合历史与已知未来条件做概率预测，也能在 CPU 上运行。明日可颂销量能讨论，咖啡凉没凉还得自己摸杯子。",
+      "joke": "Mistral 翻开账本：明天要多烤几个可颂？先看数据。",
+      "boundary": "性能判断属于官方报告，本站没有独立复测；时间序列预测并不保证具体未来事件。咖啡情节为比喻。",
+      "sources": [
+        [
+          "Mistral · Timestral 官方公告",
+          "https://mistral.ai/news/timestral/"
+        ]
+      ],
+      "image": "/meme/assets/mistral-20261021/portrait.webp"
+    },
+    {
+      "id": "mistral-voxtral3-listens",
+      "kind": "event",
+      "label": "10月发布 · 语音",
+      "date": "2026-10-20",
+      "date_label": "10.20 官方公告",
+      "title": "话还没说完，她先把麦克风放低",
+      "lead": "Voxtral 3 把听、想、说与工具调用串成语音代理流程。",
+      "body": "10 月 20 日，Voxtral 3 公告介绍语音模型与代理 SDK：实时转写判断何时说完，通用模型推理并调用工具，语音模型回答；流程也支持用户插话时停止说话。像终于懂得留白的咖啡馆服务生，只是服务效果仍取决于具体部署。",
+      "joke": "Mistral：您先说。法棍也可以稍后再介绍。",
+      "boundary": "这里转述官方设计与演示，不代表所有部署场景都已达到相同延迟或识别质量；拟人台词为二创。",
+      "sources": [
+        [
+          "Mistral · Voxtral 3 官方公告",
+          "https://mistral.ai/news/voxtral-3/"
+        ]
+      ],
+      "image": "/meme/assets/mistral-20261021/portrait.webp"
+    },
+    {
+      "id": "mistral-comic-01",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 创作",
+      "title": "会议瘦身",
+      "lead": "四格漫画：灰色上班族抱着厚厚议程说「会议能短一点吗？」Mistral 咬着法棍思考。",
+      "body": "这是以网络梗为灵感的生活喜剧，不是实际产品功能或模型对话。会议桌和众人被画成袖珍模型，Mistral 端咖啡说「现在是迷你会议。」",
+      "joke": "会议桌和众人被画成袖珍模型，Mistral 端咖啡说「现在是迷你会议。」",
+      "boundary": "虚构二创；台词、人物与事件均由创作者演绎。灵感链接只说明梗的来源，不证明漫画情节真实发生。",
+      "sources": [
+        [
+          "创作灵感",
+          "https://trending.knowyourmeme.com/editorials/collections/these-25-unexpected-statements-are-just-technically-correct"
+        ]
+      ],
+      "image": "/meme/assets/mistral-20261021/comic-01.webp"
+    },
+    {
+      "id": "mistral-comic-02",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 创作",
+      "title": "优雅催稿",
+      "lead": "四格漫画：编辑递来催稿单，对 Mistral 说「帮我催，语气优雅些。」",
+      "body": "这是以网络梗为灵感的生活喜剧，不是实际产品功能或模型对话。作家吃掉可颂，Mistral 举着空盒微笑说「已读，未交。」",
+      "joke": "作家吃掉可颂，Mistral 举着空盒微笑说「已读，未交。」",
+      "boundary": "虚构二创；台词、人物与事件均由创作者演绎。灵感链接只说明梗的来源，不证明漫画情节真实发生。",
+      "sources": [
+        [
+          "创作灵感",
+          "https://www.uisdc.com/the-colorful-black-you-need"
+        ]
+      ],
+      "image": "/meme/assets/mistral-20261021/comic-02.webp"
+    },
+    {
+      "id": "mistral-comic-03",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 创作",
+      "title": "礼貌堵车",
+      "lead": "四格漫画：办公室门口两位同事都伸手说「您先请！」Mistral 来做翻译。",
+      "body": "这是以网络梗为灵感的生活喜剧，不是实际产品功能或模型对话。俯拍：队伍绕办公室三圈。Mistral 说「今天的堵车，叫礼貌。」",
+      "joke": "俯拍：队伍绕办公室三圈。Mistral 说「今天的堵车，叫礼貌。」",
+      "boundary": "虚构二创；台词、人物与事件均由创作者演绎。灵感链接只说明梗的来源，不证明漫画情节真实发生。",
+      "sources": [
+        [
+          "创作灵感",
+          "https://trending.knowyourmeme.com/editorials/collections/these-25-unexpected-statements-are-just-technically-correct"
+        ]
+      ],
+      "image": "/meme/assets/mistral-20261021/comic-03.webp"
+    },
+    {
+      "id": "mistral-comic-04",
+      "kind": "original",
+      "label": "原创小剧场 · 虚构二创",
+      "date": "2026-10-21",
+      "date_label": "10.21 创作",
+      "title": "让我先烤",
+      "lead": "四格漫画：同事对着一团乱涂鸦喊「别拦她，让她发挥！」Mistral 卷起袖子。",
+      "body": "这是以网络梗为灵感的生活喜剧，不是实际产品功能或模型对话。Mistral 捧出金黄可颂，纸条露出一个字「饿」。她说「灵感先吃饱。」",
+      "joke": "Mistral 捧出金黄可颂，纸条露出一个字「饿」。她说「灵感先吃饱。」",
+      "boundary": "虚构二创；台词、人物与事件均由创作者演绎。灵感链接只说明梗的来源，不证明漫画情节真实发生。",
+      "sources": [
+        [
+          "创作灵感",
+          "https://knowyourmeme.com/memes/let-him-cook-let-that-boy-cook"
+        ]
+      ],
+      "image": "/meme/assets/mistral-20261021/comic-04.webp"
+    }
+  ]
+}
