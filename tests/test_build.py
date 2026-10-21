@@ -14,6 +14,18 @@ def example():
     return json.loads((ROOT/'examples/new-meme.json').read_text(encoding='utf-8'))
 
 class ContributionTests(unittest.TestCase):
+    def test_domain_migration_keeps_community_external_and_anchors_local(self):
+        doc = '''<head><link rel="canonical" href="https://mickerbook.com/claude/"></head><a href="/">社区</a><a href="/ai-test/">测试</a><a href="/meme/#characters">图鉴</a><a href="/claude/#story">条目</a><a href="https://mickerbook.com/gpt/#story">旧百科链接</a>'''
+        result = build.migrate_page(doc, 'claude/index.html')
+        self.assertIn('href="https://mickerbook.com/"', result)
+        self.assertIn('href="https://mickerbook.com/ai-test/"', result)
+        self.assertIn('href="/#characters"', result)
+        self.assertIn('href="/claude/#story"', result)
+        self.assertIn('href="https://aiher.ai/gpt/#story"', result)
+        self.assertIn('rel="canonical" href="https://aiher.ai/claude/"', result)
+        self.assertEqual(result.count('rel="canonical"'), 1)
+        self.assertNotIn('https://mickerbook.com/claude/', result)
+
     def test_original_and_sourced_rules(self):
         row=example()
         build.validate(row,row['id']+'.json')

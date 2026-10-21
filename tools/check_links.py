@@ -25,8 +25,8 @@ errors=[]; checked=0
 for f,p in pages.items():
     page='/'+f.relative_to(ROOT).as_posix()
     for ref in p.refs:
-        u=urlparse(urljoin('https://mickerbook.com'+page,ref))
-        if u.netloc!='mickerbook.com' or u.path.strip('/').split('/')[0] not in OWNED: continue
+        u=urlparse(urljoin('https://aiher.ai'+page,ref))
+        if u.netloc!='aiher.ai': continue
         target=(ROOT/unquote(u.path.lstrip('/')))
         if u.path.endswith('/'): target=target/'index.html'
         checked+=1
@@ -37,7 +37,7 @@ for f,p in pages.items():
 for f in ROOT.rglob('*.css'):
     for ref in re.findall(r'''url\(\s*['"]?([^'"\)]+)''',f.read_text(encoding='utf-8')):
         if ref.startswith(('data:','#','%23')): continue
-        u=urlparse(urljoin('https://mickerbook.com/'+f.relative_to(ROOT).as_posix(),ref))
-        if u.netloc=='mickerbook.com' and not (ROOT/u.path.lstrip('/')).is_file(): errors.append(f'{f.name}: missing {ref}')
+        u=urlparse(urljoin('https://aiher.ai/'+f.relative_to(ROOT).as_posix(),ref))
+        if u.netloc=='aiher.ai' and not (ROOT/u.path.lstrip('/')).is_file(): errors.append(f'{f.name}: missing {ref}')
 if errors: raise SystemExit('\n'.join(errors))
 print(f'Checked {checked} owned page/asset/anchor links across {len(pages)} pages')
