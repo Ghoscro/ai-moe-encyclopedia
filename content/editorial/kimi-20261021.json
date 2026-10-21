@@ -1,0 +1,146 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "kimi-moonlight-tower-202610",
+      "kind": "community",
+      "label": "本月创作 · 书房变塔台",
+      "date": "2026-10-13",
+      "date_label": "10.13 作者发布 · 10.14 官方转发",
+      "title": "书还没读完，先当上塔台了",
+      "lead": "从一段对话，聊出了一台会说话的小雷达。",
+      "body": "电磁波Studio 分享了 ESP32 塔台雷达项目：小圆屏显示航班，配合语音播报。作者在公开仓库中写道，固件开发由与 Kimi Code 的对话协助完成。10 月 14 日，Kimi 官方账号转发了这份创作。",
+      "joke": "Kimi 戴上耳机：这一页先夹个书签，我去接一架飞机。",
+      "boundary": "项目效果和开发过程是作者自述，本站未烧录硬件复现。播报文案与语音使用 MiniCPM5-2B、VoxCPM2，不能把整套系统都归为 Kimi 模型能力。插画是玩具飞机与书房的二创场景，不是实物，也不是实际空管用途。",
+      "sources": [
+        [
+          "作者的公开项目与开发记录",
+          "https://github.com/emwstudio/esp32-radar"
+        ],
+        [
+          "作者微博 · 10月13日",
+          "https://www.sina.cn/media/1765053862"
+        ],
+        [
+          "Kimi官方转发 · 10月14日",
+          "https://www.sina.cn/news/detail/5353876854150119.html"
+        ]
+      ],
+      "image": "/meme/assets/kimi-20261021/feature.webp"
+    },
+    {
+      "id": "kimi-side-note-202609",
+      "kind": "event",
+      "label": "本月功能 · 原创接梗",
+      "date": "2026-09-24",
+      "date_label": "09.24 Kimi Work 3.2.14",
+      "title": "正文先放着，借一步说话",
+      "lead": "旁边开个小话题，也不用把前情重讲一遍。",
+      "body": "Kimi Work 9 月 24 日的日志新增侧边聊天：可以从会话里开启独立侧聊，并继承原会话的上下文。长讨论里突然冒出的岔题，有了单独落脚的地方。",
+      "joke": "我：顺便问一句。\nKimi 已经在书页旁边贴好了便签。",
+      "boundary": "记录的是 Kimi Work 客户端功能，不等同于基座模型拥有永久记忆；便签和台词为编者二创。本页未实测不同版本的上下文继承范围。",
+      "sources": [
+        [
+          "Kimi Work 官方发布日志",
+          "https://www.kimi.com/help/kimi-work/release-notes"
+        ]
+      ],
+      "image": "/meme/assets/kimi-20261021/hero.webp"
+    },
+    {
+      "id": "kimi-emoji-truce-202610",
+      "kind": "event",
+      "label": "本月修复 · 原创接梗",
+      "date": "2026-10-14",
+      "date_label": "10.14 Kimi Code Desktop 1.1.0",
+      "title": "这次，表情包可以放心出场了",
+      "lead": "聊天里的一个小表情，也值得认真修好。",
+      "body": "Kimi Code Desktop 1.1.0 的修复记录里，有一条很有画面感：部分 Mac 上，聊天内容包含 emoji 时可能导致界面崩溃。10 月 14 日发布的版本记录了对此的修复。",
+      "joke": "Kimi 给小表情重新盖章：你可以回到聊天里了。",
+      "boundary": "只描述官方记录的特定客户端问题及修复，不是所有 Mac 都会出现，也不意味着模型本身被表情难倒。本站未复现旧版故障或独立验证修复。",
+      "sources": [
+        [
+          "Kimi Code Desktop 官方变更记录",
+          "https://www.kimi.com/code/docs/kimi-code-desktop/changelog.html"
+        ]
+      ],
+      "image": "/meme/assets/kimi-20261021/hero.webp"
+    }
+  ],
+  "promoted_existing_ids": [],
+  "legacy_ids": [
+    "kimi-perception-eye-chart",
+    "meme-827bbbf13762",
+    "meme-912823e9de8f",
+    "meme-c3ab4a8a8c30",
+    "meme-2b5a04f0f6b5",
+    "meme-1eeb3f701ae7",
+    "meme-930e4079dd48",
+    "meme-14f9861c012e",
+    "meme-1603b1b65978",
+    "meme-d322b83eeacd",
+    "meme-3e24552ac262",
+    "meme-c2e83b488c78",
+    "meme-62ccfae10ca3",
+    "meme-bda88b7b4c79",
+    "meme-54c36294c60c",
+    "meme-c253109bf9a8",
+    "meme-dc663848dbc6",
+    "meme-502d41503327",
+    "meme-1755194ebfaf",
+    "meme-fe15dcebe2ce",
+    "meme-58bc1156032f",
+    "meme-a319c3f172dc",
+    "meme-f32b0e6b4ee9",
+    "meme-d274c0631501",
+    "meme-58bf4fd3c88f",
+    "meme-f800cfa85db9",
+    "meme-a98c6ef71d6e",
+    "meme-48b1cc57c668",
+    "meme-a5401e46591f",
+    "meme-f3a3bc132aa4",
+    "meme-5a609e192916",
+    "meme-0959c0875d78",
+    "meme-84a96669c87f",
+    "meme-567069384475",
+    "meme-4aeabe00b4dd",
+    "meme-de35499d084d",
+    "meme-161fca587dba",
+    "meme-f31d48c7626b",
+    "meme-8e51929c0290",
+    "meme-8abb28e20990",
+    "meme-267d9b5e6b53",
+    "meme-2fdadb73e26a",
+    "meme-073a305f476d",
+    "meme-ec821b4bc9f0",
+    "meme-e70d60c9a6ad",
+    "meme-d60e8752c3fc",
+    "meme-a321bf4e4953",
+    "meme-77d617461462",
+    "meme-bbab262cc566",
+    "meme-7498115d9850",
+    "meme-77a5cecb7345",
+    "meme-fc7cb3670c78",
+    "meme-601fdfd987f3",
+    "meme-e3b1053b0368",
+    "meme-5cc3623ed5f7",
+    "meme-e976e7513826",
+    "meme-f5a63244a97a",
+    "meme-89d92d4f37fe",
+    "meme-98ea9e3fedad",
+    "meme-0d5f442e8ffe",
+    "meme-72ecea4cc7c7",
+    "meme-d5547aa8297c",
+    "meme-ffaa8ace0b8d",
+    "meme-f7fbaad2883d",
+    "meme-d4b312a06cbc",
+    "meme-768edfc590ed",
+    "meme-5ea45cc5d68e",
+    "meme-4013153d42e2",
+    "meme-604e449c01c5"
+  ]
+}
