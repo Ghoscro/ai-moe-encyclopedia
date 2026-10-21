@@ -1,0 +1,129 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "grok-cat-lighthouse-202610",
+      "kind": "community",
+      "label": "本月社区 · 意外出图",
+      "date": "2026-10-02",
+      "date_label": "10.02 评论索引日期",
+      "title": "图没改成，猫和灯塔先到了",
+      "lead": "你点的是修图，她端来一座海边小剧场。",
+      "body": "在 r/grok 的一场使用体验讨论中，一位用户抱怨自己的编辑提示总会得到猫和灯塔图片，另一位追问那些灯塔究竟怎么来的。于是，一段出图不如预期的自述，有了很具体的喜剧画面。",
+      "joke": "我：这张图稍微改一下。\nGrok：猫到了，灯塔也到了。先别问。",
+      "boundary": "本条只转述公开评论。帖子日期采用搜索索引，页面相对时间不作精确依据；评论回顾的是更早开始的体验，不能当成本月新出现的故障。未提供完整提示词、模型版本和复现记录；猫与灯塔插画是本站二创，不是原始输出。",
+      "sources": [
+        [
+          "Reddit · 原帖及猫与灯塔评论",
+          "https://www.reddit.com/r/grok/comments/1wviuop/when_did_you_realize_grok_is_basically_dead/"
+        ]
+      ],
+      "image": "/meme/assets/grok-20261021/feature.webp"
+    },
+    {
+      "id": "grok-voice-new-mic-202610",
+      "kind": "event",
+      "label": "本月发布 · 原创接梗",
+      "date": "2026-10-14",
+      "date_label": "10.14 官方发布",
+      "title": "麦克风一换，轮到我接话了",
+      "lead": "接梗之前，先把话接稳。",
+      "body": "官方在 10 月 14 日发布 Grok Voice 3.0，并开放语音 API。公告强调停顿、轮流说话和打断等对话能力；使用 grok-voice-latest 的调用已自动切换到新版本。",
+      "joke": "Grok 调整麦克风：你的停顿，我听见了。\n至于吐槽——等你说完。",
+      "boundary": "这是官方发布记录，不是本站语音实测。不把官方延迟或榜单成绩推广为所有设备上的保证；拟人对白也不代表模型固定人格。",
+      "sources": [
+        [
+          "官方 · Grok Voice 3.0 发布",
+          "https://x.ai/news/grok-voice-3"
+        ]
+      ],
+      "image": "/meme/assets/grok-20261021/hero.webp"
+    },
+    {
+      "id": "grok-wait-for-curtain-202610",
+      "kind": "event",
+      "label": "本月修复 · 原创接梗",
+      "date": "2026-10-16",
+      "date_label": "10.16 Build 1.0.62",
+      "title": "谢幕先等等，后台还有一句",
+      "lead": "主角说完了，后台可不一定收工。",
+      "body": "Grok Build 1.0.62 修复了无界面运行的退出时机：后台任务完成后触发的后续回合也要等完再退出。若后台等待超时导致任务停止，会以错误结束，不再报成成功。",
+      "joke": "Grok 拉住幕布：先别鼓掌，后台还有一句。",
+      "boundary": "修复针对 Grok Build 的 headless 模式及相应等待超时行为，不表示所有应用都会永久等待，也不等同于任务结果必然正确。谢幕是编者比喻。",
+      "sources": [
+        [
+          "官方 · Grok Build 更新日志",
+          "https://x.ai/changelog/build"
+        ]
+      ],
+      "image": "/meme/assets/grok-20261021/hero.webp"
+    }
+  ],
+  "promoted_existing_ids": [],
+  "legacy_ids": [
+    "meme-186d70d439fa",
+    "meme-de32c07d1a10",
+    "meme-7de287c8cdce",
+    "meme-a18acae59aac",
+    "meme-dfaa29a7ad74",
+    "meme-5ed133f651e1",
+    "meme-3acb8aed09ca",
+    "meme-2dbf4f9caf14",
+    "meme-08caafe63896",
+    "meme-3512dbc37d4a",
+    "meme-a5d14c8d3ffa",
+    "meme-0fdbc46d00c9",
+    "meme-fbaae7cd0dfe",
+    "meme-14a9208315b5",
+    "meme-9865b32332bc",
+    "meme-08a221c11b04",
+    "meme-6c1b5c0df710",
+    "meme-565282476d0b",
+    "meme-9d7cbb31d833",
+    "meme-fdd5b04a12d6",
+    "meme-feeeec49a0e1",
+    "meme-3e408c5ad817",
+    "meme-0ab0136bb42d",
+    "meme-7e92a1cc359a",
+    "meme-15f1f530917d",
+    "meme-31e57cee84e2",
+    "meme-be81279c66e7",
+    "meme-8758b6fca4ba",
+    "meme-516f55d9a5bb",
+    "meme-852169365558",
+    "meme-ed51035bb44a",
+    "meme-032cb859776a",
+    "meme-4671dead0a1c",
+    "meme-054b30b182f0",
+    "meme-2340d464cdc5",
+    "meme-0c5b9660871e",
+    "meme-14062cdfff37",
+    "meme-d7f4305b5c01",
+    "meme-313de349a3d6",
+    "meme-434d96cc7204",
+    "meme-81b078173fd6",
+    "meme-a22ebcc55880",
+    "meme-5d7b7e77768b",
+    "meme-ba199ef086e9",
+    "meme-e3b292b14ca0",
+    "meme-d293a5941b8b",
+    "meme-0964184cfaed",
+    "meme-e2f50c6f3533",
+    "meme-79ff4e4f279c",
+    "meme-9df8cde0bcc0",
+    "meme-f92ec82248e3",
+    "meme-4d7094f0d4e6",
+    "meme-b9b17a1d0b23",
+    "meme-025c3f7cd725",
+    "meme-eb01df7eb4dc",
+    "meme-ad9e1556b8a1",
+    "meme-f2e2507acb20",
+    "meme-0ab0136bb42d-2",
+    "meme-010ecdadba40",
+    "meme-35ab6970a31b"
+  ]
+}
