@@ -1,0 +1,97 @@
+/* Claude's saved letters and notes in the margins; scoped to this chapter. */
+#archive[data-archive-collection][data-archive-theme-page="claude"]{
+ --archive-ink:#593721;--archive-body-ink:#584739;--archive-muted:#79634f;
+ --archive-accent:#84512f;--archive-line:#d9c5ad;--archive-gold:#b18653;
+ --archive-paper:#fffdf6;--archive-wash:#f7efe2;--archive-lilac:#f1e3cf;
+}
+#archive[data-archive-collection][data-archive-theme-page="claude"] :is(h3,h4){text-wrap:balance}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-disclosure{border-color:#d4bea5;border-radius:5px;background:#fffdf6;box-shadow:0 12px 32px #79502e0d}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-cover{border-radius:4px 4px 0 0;border-bottom:1px solid #d1b791}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-chapter-art{border-radius:4px 4px 0 0}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-cover-copy{padding-left:5.5%;width:52%}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-kicker{color:#7e5e3b;letter-spacing:2.5px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] #archive-title{font-size:clamp(36px,3.7vw,56px);letter-spacing:1px;line-height:1.35;color:#593721}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-cover .archive-cover-subtitle{color:#7b5736;font-size:16px;letter-spacing:1.8px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-toggle{border-radius:4px;border-color:#c7a982;background:#fffaf0ed;color:#84512f}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-sheets{padding-top:27px;border-radius:0 0 4px 4px;background:linear-gradient(90deg,#eadac466,transparent 12%,transparent 88%,#eadac466),repeating-linear-gradient(0deg,#fffaf200 0 3px,#b4926410 3px 4px),#faf5eb}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-search-field{border-radius:5px;border-color:#bda484;background:#fffdf7;box-shadow:inset 3px 0 0 #e2c9aa}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-tools input::placeholder{color:#8a735c}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-tools>button{border-radius:5px;border-color:#bda484;background:#f4e7d4;color:#764629;box-shadow:inset 0 0 0 3px #fffdf5}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-topics{justify-content:flex-start;gap:8px;border-bottom:1px solid #d6bfa2;padding-bottom:18px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-topics button{border-radius:2px;background:transparent;border-color:#decbb3;font-size:14px;min-height:44px;padding:8px 12px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-topics button[aria-pressed=true]{background:#ead4b6;border-color:#b18a59;color:#674326;box-shadow:inset 4px 0 0 #b77a47}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-section-title{gap:18px;margin-top:26px;margin-bottom:22px;color:#593721}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-section-title>span{width:clamp(30px,9vw,120px);background:#c8ab84;height:1px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-section-title>span:after{content:'·';font-size:24px;color:#a07848;top:-22px;right:-6px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-section-title h3{font-size:29px;line-height:1.45;letter-spacing:1px;color:#593721}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-section-title small{font-size:11px;letter-spacing:2px;color:#846844}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight-grid{gap:23px;align-items:stretch}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight{display:grid;grid-template-columns:minmax(0,1fr) 34%;grid-template-rows:auto auto 1fr auto;column-gap:20px;row-gap:0;padding:24px 23px 23px 27px;min-height:342px;border:1px solid #d1b99c;border-radius:3px 9px 3px 3px;background:linear-gradient(150deg,transparent 48%,#decab150 49%,transparent 51%) right top/75px 40px no-repeat,#fffdf7;box-shadow:0 5px 10px #7b542216;color:#593721;isolation:auto}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight:before{content:'';position:absolute;left:7px;top:10px;bottom:10px;right:auto;width:3px;border:0;border-radius:0;background:#cfaa7b;z-index:auto;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight:after{content:none}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight>:not(img){min-width:0;max-width:100%;z-index:auto}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight h4{grid-column:1/-1;grid-row:1;font-size:28px;line-height:1.5;letter-spacing:.3px;margin:0 0 20px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-pick-label{grid-column:1;grid-row:2;justify-self:start;font-size:13px;line-height:1.6;color:#795437;background:#f5e8d3;border:1px solid #dfc6a5;border-radius:2px;padding:4px 8px;margin:0 0 13px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight p{grid-column:1;grid-row:3;font-size:15px;line-height:1.95;font-family:'Microsoft YaHei',sans-serif;white-space:normal;margin:0 0 18px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-pick-action{grid-column:1;grid-row:4;align-self:end;font-size:14px;min-height:36px;padding:6px 0;color:#84512f}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight img{position:static;grid-column:2;grid-row:2/span 3;align-self:center;width:100%;max-width:100%;min-width:0;height:224px;min-height:0;max-height:224px;object-fit:contain;border:1px solid #c3a787;border-radius:2px;background:#e9dac5;padding:5px;margin:0;pointer-events:none}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight-2 img{width:100%;right:auto;bottom:auto}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-all-title{margin-top:32px;margin-bottom:9px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-grid{gap:21px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-entry,#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-entry:nth-child(3n+2){padding:21px 22px 19px 36px;min-height:306px;border:1px solid #d9c5ac;border-radius:2px;background:linear-gradient(90deg,transparent 21px,#d9bfa666 21px 22px,transparent 22px),#fffdf7;box-shadow:0 4px 8px #6b48200e}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-entry:before{content:none}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-card-index{position:relative;display:block;min-height:24px;padding-right:40px;margin-bottom:12px;font-size:13px;color:#79634f}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-card-index small{position:absolute;right:-10px;top:-21px;min-width:37px;padding:7px 5px 10px;font-size:13px;line-height:1.5;text-align:center;letter-spacing:1px;color:#7e5832;border:1px solid #d0b58e;border-top:0;border-bottom:2px solid #bb925f;border-radius:0 0 3px 3px;background:#f4e5cd}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-entry h3{font-size:23px;line-height:1.5;letter-spacing:.3px;color:#593721;padding-right:0;margin:0 0 15px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-body,#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-preview{color:#584739}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-body>div>span{font-size:15px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-entry a:not(.entry-actions a){color:#84512f}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-body a{display:inline-block;max-width:100%;margin-block:3px;overflow-wrap:anywhere}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-body a+a{margin-inline-start:.6em}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-status{border-radius:3px;background:#f0e4d1;color:#765636;padding:4px 8px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-status-original{background:#efddc9;color:#734b2b}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-status-sourced{background:#e9eddf;color:#4b6445}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .entry-actions{border-top:1px solid #dfcdb7}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .entry-actions button{border-radius:3px;background:#f9f0e1;border-color:#d0b692;color:#84512f}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-pagination button{border-radius:4px}
+#archive[data-archive-collection][data-archive-theme-page="claude"] .archive-pagination [data-archive-more]{border-color:#b18c60;background:#efdfc7;color:#694225;box-shadow:inset 0 0 0 3px #fffdf7}
+@media(max-width:1100px) and (min-width:901px){
+ #archive[data-archive-collection][data-archive-theme-page="claude"] #archive-title{font-size:40px;line-height:1.35}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-cover-copy{padding-left:4%;width:52%}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight{padding:23px 20px 22px 25px;column-gap:15px;grid-template-columns:minmax(0,1fr) 34%;min-height:350px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight h4{font-size:26px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight img{height:210px;max-height:210px}
+}
+@media(max-width:900px){
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-cover{aspect-ratio:auto;min-height:0;display:flex;flex-direction:column}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-chapter-art{position:static;height:270px;object-position:right center;z-index:auto}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-cover-copy{width:100%;min-height:0;padding:23px 27px 25px;background:#fbf1e2}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] #archive-title{font-size:38px;line-height:1.3;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-kicker{margin-bottom:9px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-toggle{top:234px;bottom:auto;right:14px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight-grid{grid-template-columns:1fr}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight{grid-template-columns:minmax(0,1fr) 31%;min-height:310px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight img{height:220px;max-height:220px}
+}
+@media(max-width:620px){
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-chapter-art{height:210px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-cover-copy{padding:17px 20px 21px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-kicker{font-size:10px;letter-spacing:1.6px;margin-bottom:8px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] #archive-title{font-size:30px;line-height:1.35;letter-spacing:0;margin-bottom:11px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-cover .archive-cover-subtitle{font-size:15px;letter-spacing:1px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-toggle{top:174px;bottom:auto}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-sheets{padding:20px 16px 26px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-topics{gap:7px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-topics button{font-size:13px;min-height:44px;padding:7px 10px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-section-title{gap:12px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-section-title h3{font-size:24px;letter-spacing:0}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-section-title>span{width:25px;flex-shrink:0}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight{padding:20px 17px 19px 22px;column-gap:14px;grid-template-columns:minmax(0,1fr) 86px;grid-template-rows:auto auto auto auto;min-height:0}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight h4{grid-column:1/-1;grid-row:2;font-size:25px;line-height:1.5;margin-bottom:13px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-pick-label{grid-column:1/-1;grid-row:1;align-self:start;font-size:13px;padding:4px 6px;margin:0 0 11px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight img{grid-column:2;grid-row:3;justify-self:end;width:86px;height:124px;max-height:124px;padding:3px;align-self:start}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-spotlight p{grid-column:1;grid-row:3;margin:0 0 10px;font-size:15px;line-height:1.9}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-pick-action{grid-column:1/-1;grid-row:4;font-size:13px}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-entry{padding:20px 20px 18px 32px;min-height:0;background:linear-gradient(90deg,transparent 18px,#d9bfa666 18px 19px,transparent 19px),#fffdf7}
+ #archive[data-archive-collection][data-archive-theme-page="claude"] .archive-card-index small{top:-20px;right:-7px}
+}
