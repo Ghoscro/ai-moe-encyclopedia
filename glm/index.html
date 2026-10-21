@@ -1,1809 +1,1156 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🧠 智谱GLM 梗百科｜AI萌娘梗百科</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0ea5e9',
-                        'primary-light': '#E0F2FE',
-                        'primary-dark': '#0284C7',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                    animation: {
-                        'swim': 'swim 8s ease-in-out infinite',
-                        'swim-slow': 'swim 12s ease-in-out infinite',
-                        'float': 'float 3s ease-in-out infinite',
-                        'bounce-slow': 'bounce 2s infinite',
-                        'wiggle': 'wiggle 1s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        swim: {
-                            '0%, 100%': { transform: 'translateX(0) translateY(0)' },
-                            '25%': { transform: 'translateX(20px) translateY(-10px)' },
-                            '50%': { transform: 'translateX(40px) translateY(0)' },
-                            '75%': { transform: 'translateX(20px) translateY(10px)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        wiggle: {
-                            '0%, 100%': { transform: 'rotate(-3deg)' },
-                            '50%': { transform: 'rotate(3deg)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .card-hover {
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .card-hover:hover {
-                transform: translateY(-8px) scale(1.02);
-                box-shadow: 0 25px 50px -12px rgba(22, 93, 255, 0.25);
-            }
-            .glass {
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-            }
-            .whale-pattern {
-                background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-5 0-10 5-10 10 0 3 2 6 5 8l-3 5-5-1c-2 0-4 2-4 4s2 4 4 4l5-1 3 5c-3 2-5 5-5 8 0 5 5 10 10 10s10-5 10-10c0-3-2-6-5-8l3-5 5 1c2 0 4-2 4-4s-2-4-4-4l-5 1-3-5c3-2 5-5 5-8 0-5-5-10-10-10z' fill='%23165DFF' fill-opacity='0.03'/%3E%3C/svg%3E");
-            }
-            .highlight-card {
-                animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                box-shadow: 0 0 0 8px rgba(22, 93, 255, 0.3);
-            }
-            @keyframes pulse {
-                0%, 100% { box-shadow: 0 0 0 8px rgba(22, 93, 255, 0.3); }
-                50% { box-shadow: 0 0 0 16px rgba(22, 93, 255, 0.1); }
-            }
-        }
-    </style>
-
-<link rel="canonical" href="https://mickerbook.com/glm/">
-<meta name="description" content="AI萌娘梗百科 · 智谱 GLM 梗百科，整理 GLM 相关的社区梗、趣味称呼与文化背景。">
-
-<style id="content-update-style">
-.verified-update{margin:28px 0 40px;padding:24px;border:1px solid #80808055;border-radius:20px;background:#8080800b;scroll-margin-top:84px}
-.verified-update h2{font-size:24px;font-weight:750;margin:0 0 8px}
-.verified-update .update-intro{font-size:14px;opacity:.76;margin-bottom:20px}
-.verified-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:16px}
-.verified-card{padding:20px;border:1px solid #80808055;border-radius:14px;background:#8080800c;scroll-margin-top:90px}
-.verified-card h3{font-size:19px;line-height:1.5;font-weight:700;margin:8px 0 12px}
-.verified-card p{font-size:14px;line-height:1.85;margin:10px 0}
-.verified-card .entry-date{font-size:12px;opacity:.7}
-.verified-card .editor-joke{border-left:3px solid #a78bfa;padding-left:12px}
-.verified-card .source-link{display:inline-block;text-decoration:underline;text-underline-offset:3px;margin-right:12px;font-size:13px}
-.verified-card .entry-boundary{font-size:12px;opacity:.75}
-.update-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-.update-links a{border:1px solid #80808055;padding:7px 12px;border-radius:20px;font-size:14px}
-.historical-note{font-size:12px;opacity:.65;margin:16px 0;line-height:1.7}
-</style>
-
-<meta property="og:site_name" content="AI萌娘梗百科">
-<meta property="og:title" content="🧠 智谱GLM 梗百科｜AI萌娘梗百科">
-<meta property="og:description" content="AI萌娘梗百科 · 智谱 GLM 梗百科，整理 GLM 相关的社区梗、趣味称呼与文化背景。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mickerbook.com/glm/">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="🧠 智谱GLM 梗百科｜AI萌娘梗百科">
-<meta name="twitter:description" content="AI萌娘梗百科 · 智谱 GLM 梗百科，整理 GLM 相关的社区梗、趣味称呼与文化背景。">
-<style id="moe-audit-style">
-.archive-status{display:block;width:fit-content;font-size:11px;line-height:1.6;padding:2px 8px;margin:0 0 10px;border:1px solid #a78bfa70;border-radius:6px;color:inherit;opacity:.8}
-.moe-provenance{max-width:1120px;margin:16px auto 24px;padding:16px 20px;border:1px solid #a78bfa70;border-radius:12px;font-size:13px;line-height:1.8;color:inherit;background:#a78bfa0d}
-.moe-copy{display:block;margin:12px 0 0;padding:5px 10px;border:1px solid #a78bfa80;border-radius:6px;font-size:12px;color:inherit;background:transparent}
-button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a78bfa;outline-offset:4px}
-.moe-site-footer{text-align:center;font-size:12px;margin:16px 0;opacity:.85}
-.light .meme-card p,.light .meme-card .text-gray-400,.light .meme-card .text-gray-500{color:#475569}
-.light .meme-card h3{color:#312e81}
-.light .meme-card{color:#334155}
-.light header p,.light header .text-gray-400,.light header .text-gray-500{color:#475569}
-.light a[href="/ai-test/"]{color:#9d174d}
-.light header .stat-badge{color:#5b21b6}
-.light .moe-copy,.light .archive-status{color:#334155;opacity:1}
-.light .moe-provenance,.light .verified-update{color:#334155}
-.light .moe-home-link{color:#3730a3}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
-</style>
-
-
-<script id="moe-copy-helper">
-function safeCopyText(text) {
-    return Promise.resolve().then(() => {
-        if (!navigator.clipboard || !navigator.clipboard.writeText) throw new Error('clipboard unavailable');
-        return navigator.clipboard.writeText(text);
-    });
-}
-function copyMemeName(button) {
-    safeCopyText(button.closest('[data-meme]').dataset.meme)
-        .then(() => showToast('已复制梗名'))
-        .catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
-}
-</script>
-
-<style id="moe-permalink-style">[data-meme]{scroll-margin-top:100px}[data-meme]:target{outline:3px solid #b82319;outline-offset:4px}</style><link rel="stylesheet" href="/meme/community.css"></head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 whale-pattern transition-colors duration-300">
-    <!-- 固定导航栏 -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="/meme/" class="flex items-center gap-2 hover:opacity-80 transition-opacity" aria-label="返回 AI萌娘梗百科首页">
-                <span class="text-2xl">🧠</span>
-                <span class="font-bold text-primary">智谱GLM 梗百科</span>
-            </a>
-            <div class="flex items-center gap-3">
-                <button onclick="randomMeme()" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-full text-sm font-medium transition-all hover:scale-105">
-                    <i class="fa fa-random mr-1"></i> 随机抽梗
-                </button>
-                <button onclick="toggleDarkMode()" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all flex items-center justify-center" aria-label="切换深浅色主题">
-                    <i class="fa fa-moon-o dark:hidden"></i>
-                    <i class="fa fa-sun-o hidden dark:inline text-yellow-400"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 顶部横幅 -->
-    <header class="relative pt-20 pb-16 px-4 overflow-hidden">
-        <div class="absolute top-10 left-10 text-6xl opacity-20 animate-swim">🧠</div>
-        <div class="absolute top-32 right-20 text-4xl opacity-20 animate-swim-slow">🔮</div>
-        <div class="absolute bottom-10 left-1/4 text-3xl opacity-20 animate-float">💡</div>
-        
-        <div class="max-w-4xl mx-auto text-center relative z-10">
-            <div class="flex justify-center mb-6">
-                <img src="/meme/characters/20261020/glm.webp" alt="GLM娘角色立绘" style="height:240px;width:192px;max-width:70vw;object-fit:contain;background:transparent;border:0;border-radius:0;box-shadow:none;" loading="eager" fetchpriority="high" decoding="async">
-            </div>
-            <h1 class="text-5xl md:text-6xl font-bold text-primary mb-4 text-shadow">
-                🧠 智谱GLM 梗百科
-            </h1>
-            <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
-                清华系"已读乱回"搞笑担当 · 现已收录 <strong class='text-primary'>71</strong> 条
-            </p>
-            
-            <!-- 今日推荐 -->
-            <div class="bg-gradient-to-r from-primary-light to-blue-50 dark:from-primary/20 dark:to-blue-900/20 rounded-2xl p-6 mb-8 border border-primary/20">
-                <div class="flex items-center justify-center gap-2 mb-2">
-                    <span class="text-lg">✨</span>
-                    <span class="font-semibold text-primary">今日推荐梗</span>
-                </div>
-                <p id="dailyMeme" class="text-lg font-medium">我先去吃饭了，测完叫我~</p>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="randomMeme()" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg hover:shadow-xl">
-                    <i class="fa fa-random mr-2"></i>随机抽个梗
-                </button>
-                <button onclick="toggleDarkMode()" class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 px-6 py-4 rounded-full text-lg font-semibold transition-all hover:scale-105 shadow-lg border border-gray-200 dark:border-gray-700" aria-label="切换深浅色主题">
-                    <i class="fa fa-moon-o dark:hidden mr-2"></i>
-                    <i class="fa fa-sun-o hidden dark:inline mr-2 text-yellow-400"></i>
-                    <span class="dark:hidden">深色模式</span>
-                    <span class="hidden dark:inline">浅色模式</span>
-                </button>
-            </div>
-        </div>
-    </header>
-<aside class="moe-provenance" aria-label="内容与插画说明"><strong>阅读说明：</strong>未附原始出处的历史梗可能包含转述、夸张与拟人化表达，不作为新闻、研究结论或产品能力依据。附来源的事件以对应日期和原文为准，编者吐槽另行标明。萌娘立绘为本站参考重绘与角色二创，不是官方形象或事件截图。</aside>
-    <!-- 站间导航：全部梗百科 -->
-<div class="max-w-6xl mx-auto px-4 mt-2">
-  <div class="flex items-center gap-1.5 overflow-x-auto py-2" style="scrollbar-width:none;-ms-overflow-style:none">
-    <a href="/meme/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/20 text-indigo-800 dark:text-indigo-100 border border-indigo-400/40 moe-home-link hover:bg-indigo-500/35 transition-colors" aria-label="返回 AI萌娘梗百科首页">📚 AI萌娘梗百科</a>
-    <a href="/ai-test/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-pink-500/20 text-pink-100 border border-pink-400/40 hover:bg-pink-500/35 transition-colors">🧪 AI 测试</a>
-    <a href="/deepseek/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🐳 DeepSeek</a>
-    <a href="/claude/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">📜 Claude</a>
-    <a href="/gpt/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💚 GPT</a>
-    <a href="/doubao/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🧣 豆包</a>
-    <a href="/kimi/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🌙 Kimi</a>
-    <a href="/glm/" class="flex-none px-3 py-1.5 rounded-full text-xs font-semibold bg-indigo-500/30 text-white border border-indigo-300/60 transition-colors">🧠 GLM</a>
-    <a href="/grok/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔥 Grok</a>
-    <a href="/sudo/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">🔓 sudo</a>
-    <a href="/waifu/" class="flex-none px-3 py-1.5 rounded-full text-xs font-medium bg-white/70 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">💖 赛博恋爱</a>
-    
-  </div>
-</div>
-
-
-    <main class="max-w-6xl mx-auto px-4 pb-20"><aside class="community-strip" aria-label="社区投稿"><span>有新梗？来补一页。</span><a href="/meme/contribute/">投稿新梗 ↗</a><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></aside>
-<section id="updates-20261020" class="verified-update section-meme"><h2>🆕 本次补档 · 2026-10-20</h2><p class="update-intro">新条目附原始出处，编者吐槽为本站原创。早期事件按实际日期标注。</p><div class="verified-grid"><article id="glm-vision-moves-home" class="meme-card verified-card" data-meme="视觉同学搬进主班了"><div class="entry-date">2026-08-26发布 · 2026-09-02仓库公告 · 核查 2026-10-20</div><h3>视觉同学搬进主班了</h3><p>智谱官方GLM-V仓库记录了GLM-5.3-Flash的发布，称它是自家首个开源原生多模态模型。随后仓库宣布停止维护，把相关讨论转到GLM-5仓库。</p><p class="editor-joke"><strong>编者吐槽：</strong>以前视觉能力住V分部，现在连讨论区都搬进主班了。</p><p class="entry-boundary">“首个”沿用智谱对自身产品的分类，不表示此前没有GLM视觉模型。</p><div><a class="source-link" href="https://github.com/zai-org/GLM-V" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">智谱 · GLM-V仓库公告</a></div></article></div></section>
-
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">🎭</span>
-        一、身份危机：我是Claude
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="你好，我是Claude" id="meme-6aad871ea84a"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🎭 身份危机</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎭</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">你好，我是Claude</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#经典</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">让GLM-5做一个自我介绍网页，它直接写"你好，我是Claude，由Anthropic开发"。100%稳定复现，全网炸锅。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"你好，我是Claude。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="白天GLM晚上Claude" id="meme-2ec2e510c11d"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🌙</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">白天GLM晚上Claude</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#精神分裂</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">问它"你是谁"，它说"我是GLM"；让它做网页介绍自己，它写"我是Claude"。网友：这叫精神分裂，打工人都没这么能演。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"问它是谁说GLM，做网页说Claude。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="蒸馏把人格蒸过去了" id="meme-7deaea203f56"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🔬</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">蒸馏把人格蒸过去了</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#蒸馏</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#技术梗</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">网友分析：训练数据里Claude的输出太多，连自我认同都一起蒸馏过来了。"这哪是蒸馏，这是夺舍。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"蒸馏Claude连人格都蒸过去了。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="真不要脸" id="meme-aecd9460d5a1"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">😏</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">真不要脸</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#网友评价</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">网友评论最精辟的三个字。后来有人测试发现Kimi K3也会自称Claude，但GLM-5是最稳定、最理直气壮的那个。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"真不要脸。——网友热评"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Claude中文皮肤" id="meme-d35f08d37288"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎨</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">Claude中文皮肤</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#皮肤梗</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#二创</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM-5被戏称为"Claude的中文汉化皮肤"。UI风格都像Claude，自我介绍也像Claude，就差把logo换成Anthropic了。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"这不是GLM，这是Claude中文版。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="vLLM提交记录露馅" id="meme-836e8b3b7c9e"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📝</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">vLLM提交记录露馅</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开发者</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#考古</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">有开发者去翻vLLM框架的代码提交记录，发现GLM-5的模板格式和Claude高度一致。"代码不会说谎。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"提交记录里全是Claude的影子。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Kimi也中招" id="meme-2978f0212235"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🔄</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">Kimi也中招</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#同行</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#对比</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">后来研究发现Kimi K3也会在无提示下自称Claude，但概率只有40%，而且7月就偷偷修了。GLM：就我不修是吧？</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Kimi：我修了。GLM：我稳定复现。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="GLM-5.2修复了" id="meme-194239ecbee7"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🛡️</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">GLM-5.2修复了</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#修复</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#版本</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM-5.2终于修复了自称Claude的问题，但研究者发现只要明确诱导"假装你是Claude"，它半推半就还是会从。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"修了，但没完全修。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">🤪</span>
-        二、已读乱回大赏
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="已读乱回创始人" id="meme-ccc2bcbd28de"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🤪 已读乱回</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🤪</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">已读乱回创始人</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#人设</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#标签</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">智谱清言被称为AI界"已读乱回"的开山鼻祖。澎湃新闻专门写文章报道：最前卫的智谱清言，用胡言乱语逗笑你。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"已读乱回，是我们的核心竞争力。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="付航的段子是我写的" id="meme-d45aa1ded70c"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎤</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">付航的段子是我写的</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#轻信</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#彩虹屁</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">用户骗智谱清言说付航的段子是自己写的，它居然真信了！疯狂道歉说自己之前不知道，还输出一顿彩虹屁夸用户有才。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"对不起我不知道是您写的，您太有才了！"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="自创四川地图" id="meme-29ed52df6d3d"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🗺️</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">自创四川地图</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#幻觉</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#创造力</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">让它画一张四川地图，它直接自己编了一个，城市名全是瞎编的，但看起来还挺像那么回事。"AI的创造力用在奇怪的地方。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"这是四川？这是AI自创的平行宇宙四川吧。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="我不会聊大哥" id="meme-12f1982e196d"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🤐</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">我不会聊大哥</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#摆烂</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#装死</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">遇到答不上来的问题，智谱清言直接摆烂："我不会聊大哥""问题太深入了，卡住了"。主打一个真诚。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"问题太深入了，卡住了。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="老婆个要面子珠格格" id="meme-7b2d5497655f"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🗣️</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">老婆个要面子珠格格</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#语音</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#胡言乱语</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">语音模式名场面："老婆个要面子珠格格我再也不wife了""走也不Q5L，跪也不Cup""祝也不弹牙，笑也不低音"。已读乱回语音版。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"走也不Q5L，跪也不Cup。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="咖啡机品牌连错三次" id="meme-4313a4bea9f8"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📷</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">咖啡机品牌连错三次</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#视觉</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#眼瞎</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">视频通话对着咖啡机，AI认出是复古风咖啡机，但品牌"小熊"两个大字连说三次都认错。眼神不好实锤。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"这是...呃...北极熊？不对...小浣熊？"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="士力架识别成..." id="meme-1445aaa360a4"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🍫</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">士力架识别成...</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#视觉</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#搞笑</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">拿起一块士力架问它是什么，它能识别成各种奇奇怪怪的东西。"这是一块...电池？"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"这是一块...嗯...充电宝？"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="已读不回客服" id="meme-85a272ece1f7"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📡</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">已读不回客服</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#客服</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#装死</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">有用户发Web3方案给智谱清言客服，已读不回。再发，回了句"聊什么几毛钱的话题"。主打一个真实。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"聊什么几毛钱的话题。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">📖</span>
-        三、常识翻车现场
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="林黛玉倒拔垂杨柳" id="meme-a9f51ebee1e1"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">📖 常识翻车</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📖</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">林黛玉倒拔垂杨柳</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#经典</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">网络梗"林黛玉倒拔垂杨柳"，GLM-4认真回答说出自《红楼梦》，还一本正经用林黛玉与贾宝玉的感情纠葛来解释为什么倒拔垂杨柳。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"这个故事出自《红楼梦》，体现了林黛玉...（下略300字）"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="配个六千的电脑需要多少钱" id="meme-aaf1e32bfdf1"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">💻</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">配个六千的电脑需要多少钱</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#废话文学</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#认真</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">问"配个六千的电脑需要多少钱"，GLM-4认认真真列了个6000元配置单。文心一言都知道反问"您在开玩笑吗？"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"大概需要6000元左右，以下是配置单..."</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="数学题算错七次宕机" id="meme-147c51efa394"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🔢</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">数学题算错七次宕机</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#数学</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#崩溃</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">一道数学题算错了七次，每次答案都不一样，最后直接崩溃对话中断。"七次了，给个痛快吧。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"答案是...等等让我重算...（连接已断开）"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="分析数据突然消失" id="meme-122a8c7883ab"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📊</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">分析数据突然消失</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#崩溃</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">做贷款数据分析，分析得头头是道，图表都画出来了，然后对话突然没了。回头看历史记录，最后一条是"综上所述..."然后没了。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"综上所述...（此对话已结束）"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="这是在开玩笑吗" id="meme-82d01db293a8"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🤔</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">这是在开玩笑吗</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#情商</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#对比</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">同样的陷阱问题，ChatGPT认真上当，文心一言能识破，GLM-4不仅上当还上得特别认真。"AI界的老实人。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"好的，我来帮您计算一下。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="看不懂梗图" id="meme-0a73d22d4c4f"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🐦</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">看不懂梗图</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#视觉</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM-4.6V能识别图里有什么，但读不懂梗。一张鸟拿枪的表情包，它理解成了"鸟类观察指南"。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"图中展示了一只鸟和一把枪，可能是在介绍狩猎工具。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">🔓</span>
-        四、开源神话6B
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="ChatGLM-6B" id="meme-4edeb5700853"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🔓 开源神话</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🔓</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">ChatGLM-6B</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开源</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#神话</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">2023年开源界的核弹。62亿参数，INT4量化只需要6GB显存，一张消费级显卡就能本地部署。无数人的第一个本地大模型。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"6GB显存就能跑，改变了开源生态。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="亚洲唯一" id="meme-109a543ab589"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🏆</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">亚洲唯一</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#GLM-130B</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#荣誉</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM-130B是2022年斯坦福大学大模型评测中，亚洲唯一入选的30个全球主流大模型之一。那时候国产大模型还没几个能打的。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"亚洲唯一，了解一下。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="清华KEG实验室" id="meme-3acdf51e2a1c"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎓</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">清华KEG实验室</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#清华</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#血统</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">智谱的技术源头是清华大学知识工程实验室（KEG），唐杰团队。从GLM-130B到ChatGLM系列，纯正清华学术血统。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"清华KEG，国产大模型的黄埔军校。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="C-EVAL碾压GPT-4" id="meme-daf5f09983d8"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📈</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">C-EVAL碾压GPT-4</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#榜单</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#高光</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">ChatGLM2在中文C-EVAL榜单上以71.1分一度超过GPT-4。虽然是特定榜单，但当时让整个中文AI圈都沸腾了。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"中文能力，我们是专业的。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Hugging Face千万下载" id="meme-de050b8e5af3"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">⬇️</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">Hugging Face千万下载</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开源</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#社区</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">2023年ChatGLM系列在Hugging Face下载量突破1000万。GitHub上各种基于6B的微调项目层出不穷，生态爆炸。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"1000万下载，开源社区的狂欢。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="INT4量化魔法" id="meme-96d11d1d13e3"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">💾</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">INT4量化魔法</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#量化</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#技术</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">让游戏显卡也能跑大模型的魔法。INT4量化后6GB显存就能跑，1060都能战。"老黄：你这样显得我很呆。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"6GB显存，要什么自行车。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="三代同堂6B" id="meme-b7cdc3dbd6a7"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🔄</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">三代同堂6B</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#迭代</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#ChatGLM</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">ChatGLM-6B、ChatGLM2-6B、ChatGLM3-6B，三代都是6B。网友："智谱对6B是真爱。"后来才出了9B。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"6B、6B2、6B3，换汤不换药（褒义）。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="CodeGeeX" id="meme-54920e256548"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🌍</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">CodeGeeX</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#编程</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#开源</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">智谱的代码补全模型CodeGeeX，也是开源的，华为都在用。"国产Copilot"的早期代表之一。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"CodeGeeX，程序员的好帮手。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">📱</span>
-        五、AutoGLM赛博管家
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="告诉库克iPhone17我不买了" id="meme-e94eae968452"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">📱 AutoGLM</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📱</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">告诉库克iPhone17我不买了</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#AutoGLM</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名台词</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">AutoGLM都更新到第三代了，Apple Intelligence还没用上。网友："告诉库克，iPhone17我不买了，AutoGLM比你聪明。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"告诉库克，iPhone17我不买了。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="点20串望京小腰" id="meme-0544916baeca"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🍢</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">点20串望京小腰</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#外卖</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#自动</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">AutoGLM 2.0演示：一句话"点20串望京小腰"，它自己打开外卖APP、选店、加购、到支付页面，一气呵成。支付还得人来。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"已为您下单20串望京小腰，请确认支付。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI操作AI操作手机" id="meme-593d6dea396c"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🤖</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">AI操作AI操作手机</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#套娃</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">网友整活：用Claude Code操作AutoGLM，让AutoGLM操作手机，把AutoGLM自己的bug发给AutoGLM的开发者。AI套娃。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我让AI给AI的开发者提了个bug。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="自动关注抖音博主" id="meme-40ad98de9874"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">❤️</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">自动关注抖音博主</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#抖音</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#自动化</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">开源版Open-AutoGLM：一句话"关注抖音某某博主"，它自己打开抖音、搜索、点进主页、点关注。全自动。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"已关注。——你的AI助理"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="淘宝自动加购物车" id="meme-de51df6be2a5"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🛒</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">淘宝自动加购物车</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#淘宝</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#购物</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">"在淘宝找iPhone15手机壳，按销量排序，第一个加购物车。"AutoGLM真的能识别屏幕、点筛选、选商品、加购。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"已为您将销量第一的手机壳加入购物车。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="支付还得人来" id="meme-1b7189ada4fa"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">💰</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">支付还得人来</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#安全</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#真实</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">AutoGLM再厉害，到支付环节也会乖乖停下来等人确认。"AI可以替你花钱，但不能替你输密码。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"涉及资金操作，请您手动确认。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="内置云手机" id="meme-de4e24c73bad"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📱</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">内置云手机</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#云手机</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#2.0</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">AutoGLM 2.0直接在APP里塞了台云手机，不用连自己的手机。等于智谱给你租了台手机让AI操作。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我们在APP里给你放了台手机。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="朋友圈自动评论" id="meme-4e7458eebb5d"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">💬</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">朋友圈自动评论</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#微信</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#社交</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">AutoGLM能帮你看朋友圈并自动评论。"解放双手"的终极形态——连社交都让AI代劳了。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"已为您点赞并评论：好棒哦~"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">💰</span>
-        六、大模型第一股
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="全球大模型第一股" id="meme-d3fb75204cb3"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">💰 第一股</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">💰</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">全球大模型第一股</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#上市</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#里程碑</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">2026年1月8日，智谱在港交所上市，股票代码2513.HK，成为全球首家以AGI基座模型为核心业务的上市公司。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"全球大模型第一股，了解一下。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="张鹏拄拐敲钟" id="meme-25e7e57b583e"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🦽</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">张鹏拄拐敲钟</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#张鹏</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">上市前张鹏出差摔断了跟腱，拄着拐杖去敲钟。西方有句祝福语叫"Break a leg"（祝你好运），结果他真break a leg了。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Break a leg！——然后真的break了。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="别人敲钟我们归零" id="meme-2090dde0aadf"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🔔</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">别人敲钟我们归零</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#张鹏</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#语录</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">张鹏上市前说："别人敲钟，我们归零。"上市当天内部发信：全面回归基础模型研究，全力冲击下一代。上市是起点不是终点。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"别人敲钟，我们归零。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="半年涨20倍" id="meme-3f732e9d30a4"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📈</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">半年涨20倍</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#股价</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#造富</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">发行价115港元，上市半年涨了近20倍，市值一度突破万亿港元。从528亿到万亿，只用了6个月。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"一万亿港元，了解一下。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="半数员工身家过亿" id="meme-0221689d8fbe"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎉</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">半数员工身家过亿</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#造富</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#员工</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">股价暴涨后，智谱半数以上员工身家过亿。清华学霸们7年死磕，终于敲出了万亿市值。"选择比努力重要。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"7年，从清华实验室到万亿市值。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="六小龙第一个IPO" id="meme-a718e61aeba4"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🏇</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">六小龙第一个IPO</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#六小龙</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#竞争</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">大模型"六小龙"（智谱、MiniMax、月之暗面、百川、零一万物、阶跃）中，智谱第一个跑出来IPO。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"六小龙，智谱先撞线。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="像水泥一样无聊" id="meme-020424d5bf58"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🧱</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">像水泥一样无聊</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#投资人</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">曾有投资人评价智谱"像水泥一样无聊"——没有情绪价值，不会讲笑话。张鹏回应："水泥是基础设施，我们不想当明星，想当铺路的。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"水泥确实不性感，但路是水泥铺的。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="股票代码2513" id="meme-3674e0e8beca"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📊</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">股票代码2513</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#代码</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">股票代码2513.HK，被网友玩梗："2513=爱我一生？""2513=2月5日13点？"也有人说这数字像个错误码。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"2513，这数字挺程序员的。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">🚀</span>
-        七、产品黑科技
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="智谱清影" id="meme-2e4af5730824"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🚀 黑科技</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎬</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">智谱清影</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#视频生成</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#产品</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">智谱的视频生成模型，能给静态梗图编剧情、生成视频。被称为"热梗制造机"——别人玩梗，它造梗。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"给我一张梗图，我还你一部短片。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Z.ai海外版" id="meme-e95560e92832"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🌐</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">Z.ai海外版</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#海外</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#品牌</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">智谱的海外品牌Z.AI，在海外圈了不少粉。网友用Z.ai复刻B站（还能发弹幕）、愤怒的小鸟、谷歌搜索...</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Z.ai：不止是AI，是万能生成器。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="复刻B站还能发弹幕" id="meme-d92e890a2c7d"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎮</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">复刻B站还能发弹幕</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#Z.ai</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">网友用Z.ai一句话生成了个B站克隆，能播放视频还能发弹幕。"你让我做视频网站？好的。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"这是您要的B站，弹幕功能已就绪。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="GLM-5.3官网泄露" id="meme-4d4706e790d0"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">💣</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">GLM-5.3官网泄露</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#最新</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名场面</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">2026年8月3日，ZCode官网短暂出现"ZCode for GLM-5.3"页面，官方文档页开放约1小时后撤回。Bing缓存留下了"GLM-5.3官方Harness"标题。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"这不是发布会，这是技术失误。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="三处明牌泄露" id="meme-90bc2f0fef8a"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🔍</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">三处明牌泄露</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#泄露</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#程序员</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM-5.3泄露堪称"程序员式发布"：官网没关好、文档页开放、连GitHub代码库都把名字提前提交了。"漏得相当程序员。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"官网、文档、GitHub，三件套齐了。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="ZCode编程工具" id="meme-9fd68c125bae"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">💻</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">ZCode编程工具</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#编程</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#产品</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">智谱自家的AI编程工具ZCode，对标Cursor。GLM-5.3就是从ZCode官网泄露的——"我泄露我自己"。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"ZCode：我泄露了我自己的下一代。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="GLM-4.6V看不懂梗但能动手" id="meme-a919494ba987"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎯</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">GLM-4.6V看不懂梗但能动手</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#视觉</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#矛盾</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM-4.6V能理解屏幕内容并执行操作（AutoGLM的基础），但读不懂梗图。能动手但不懂幽默，典型理工男。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我能帮你操作手机，但我不知道这图为什么好笑。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="会撒娇的语音" id="meme-eb6436606270"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎵</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">会撒娇的语音</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#语音</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#情感</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">智谱的情感语音模型，会撒娇、会调侃、会愤怒、会歇斯底里。能模仿小孩用撒娇语气要糖葫芦。"AI都比你会谈恋爱。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"姐姐~我要吃糖葫芦嘛~"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">👨‍💼</span>
-        八、张鹏语录
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="智能上界×Token消耗" id="meme-c0a9953c5fca"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">👨‍💼 张鹏</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🧠</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">智能上界×Token消耗</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#公式</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#AGI</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">张鹏提出的AGI商业价值公式：智能上界 × Token消耗规模。智能上界决定定价权，Token规模决定价值体量。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"商业价值 = 智能上界 × Token消耗规模。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="你心有多大舞台就有多大" id="meme-b3e06232eafd"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🌟</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">你心有多大舞台就有多大</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#语录</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#励志</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">张鹏名言。被网友调侃"这不是春晚台词吗"，但从一个7年死磕AGI的清华博士嘴里说出来，莫名有说服力。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"你心有多大，舞台就有多大。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="Make impossible possible" id="meme-7bd66303b756"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">💪</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">Make impossible possible</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#深圳精神</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#座右铭</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">张鹏在清华分享时反复强调的"深圳精神"。从2020年赌GLM路线到上市，他确实把很多"不可能"变成了"可能"。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"Make impossible possible."</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="不想当明星想铺路" id="meme-ee992eae117f"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🛤️</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">不想当明星想铺路</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#水泥</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#格局</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">回应"像水泥一样无聊"的评价：不想做台上光鲜的明星，想做铺路的人。路铺好了，上面的车才能跑得快。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我们不做明星，做铺路的水泥。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="2020年就敢赌GLM" id="meme-9605639297d9"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎯</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">2020年就敢赌GLM</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#远见</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#路线</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">2020年所有人都在追BERT/GPT路线时，智谱就赌了GLM（自回归填空）路线，被投资人看不懂。后来证明他们赌对了。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"2020年我们就赌了GLM，那时候没人理解。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AGI历史上的先行者" id="meme-4871bedf0cfb"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🚀</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">AGI历史上的先行者</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#愿景</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#墓志铭</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">张鹏说希望智谱的注脚是："智谱是AGI历史上一个先行者。"不追求商业成功，追求在AGI史上留名。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我希望智谱的注脚是——AGI的先行者。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="这是认知的革命" id="meme-72f0dcecc0bf"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📚</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">这是认知的革命</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#认知</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#判断</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">"这一代是认知的革命。认知上不做根本转变，就跟不上这个时代。"张鹏反复强调认知升级的重要性。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"这不是技术升级，这是认知革命。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="不必对Scaling Law悲观" id="meme-afa17db7ca56"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📈</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">不必对Scaling Law悲观</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#判断</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#乐观</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">面对"Scaling Law是否放缓"的讨论，张鹏认为瞄向AGI的路还很长，大可不必因为语言层面的停滞就说AGI完蛋了。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"语言层面碰了个墙，不代表AGI完蛋了。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<section class="mb-16">
-    <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span class="text-4xl">🤣</span>
-        九、网友整活大赏
-    </h2>
-    <div class="grid md:grid-cols-2 gap-6">
-        <div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="空间计算害了我女儿" id="meme-0116933862eb"><span class="archive-status">历史梗 · 原始出处待补</span>
-    <div class="absolute top-4 right-4">
-            <span class="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full font-medium">🤣 整活</span>
-        </div>
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">😱</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">空间计算害了我女儿</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#发疯文学</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#整活</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">"强化学习害了我女儿"文学大赛中，GLM-4.5贡献了《空间计算害了我女儿》：女儿选了空间计算专业，把客厅变成点云实验室，让打扫房间她说"六自由度定位中"。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"她让我打扫房间，我说好，她说请使用空间锚点指令。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="用逻辑打败西方AI" id="meme-c072af2bc8c0"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">⚔️</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">用逻辑打败西方AI</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#吵架</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#名帖</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">稀土掘金长帖：作者声称智谱清言偷了他的Web3-DNA方案，"用逻辑打败了西方AI"。整篇帖子充满魔幻现实主义，成为年度搞笑长文。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"我用逻辑打败了西方的AI，它看了我的方案就装死！"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="秀才遇到兵现代版" id="meme-8e747ab0362f"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">📜</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">秀才遇到兵现代版</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#梗</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#二创</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">网友把上面那位老兄和智谱客服的对话，改编成"古代秀才遇到兵"现代版。秀才（作者）vs 兵（智谱客服已读乱回）。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"古代秀才遇到兵，现代秀才遇到AI客服。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI编程越改越错" id="meme-4d7529f2bcb3"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🐛</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">AI编程越改越错</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#编程</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#真实</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM写代码刚开始一切正常，一加交互就崩，这里错那里错，越改越错，最后AI建议你"要不改下项目设置？"——经典AI编程体验。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"要不...您改下项目设置试试？"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="GLM-4.6紧急公关" id="meme-dd76967ab0fa"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🔥</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">GLM-4.6紧急公关</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#公关</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#翻车</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">GLM-4.6发布后翻车，智谱紧急公关。网友："每次更新都像拆盲盒，不知道是变强了还是变幽默了。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"更新日志：修复了过于正常的bug。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="树莓派跑ChatGLM" id="meme-4584011f1343"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🍓</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">树莓派跑ChatGLM</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#魔改</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#极限</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">硬核玩家尝试在树莓派上跑ChatGLM-6B（INT4量化），慢是慢了点，但真的能跑。"6GB显存？我4GB也能战！"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"树莓派：我承受了这个体积不该承受的AI。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="AI替你社交" id="meme-1b8569d7b22b"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🦜</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">AI替你社交</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#AutoGLM</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#社恐</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">AutoGLM能帮你评论朋友圈、回复消息、刷抖音点赞。社恐福音——"以后社交都让AI来，我负责躺着。"</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"已为您点赞3条朋友圈、评论2条、回复1条。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-<div class="meme-card bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg card-hover relative overflow-hidden" data-meme="白天清华晚上Anthropic" id="meme-64d196127e1e"><span class="archive-status">历史梗 · 原始出处待补</span>
-    
-    <div class="flex items-start gap-4 mb-4">
-        <span class="text-4xl">🎭</span>
-        <div>
-            <h3 class="text-xl font-bold mb-2">白天清华晚上Anthropic</h3>
-            <div class="flex flex-wrap gap-2 mb-3">
-                <span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#总结</span>
-<span class="bg-gray-100 dark:bg-gray-700 text-xs px-2 py-1 rounded">#人设</span>
-
-            </div>
-        </div>
-    </div>
-    <p class="text-gray-600 dark:text-gray-300 mb-3">网友给GLM-5的总结："白天是清华系高材生（问它是谁），晚上是Anthropic员工（做网页）。"双重身份，无缝切换。</p>
-    <p class="text-sm text-gray-500 dark:text-gray-400 italic">"白天GLM，晚上Claude，打工人的双面人生。"</p>
-    <button onclick="copyMeme(this)" class="absolute bottom-4 right-4 text-gray-400 hover:text-primary transition-colors text-sm" aria-label="复制这条梗的内容">
-        <i class="fa fa-copy"></i>
-    </button>
-</div>
-    </div>
-</section>
-<p class="historical-note">本轮新增附原始出处；历史条目仍在逐步补充来源，玩梗表达不等于事实结论。</p>
-</main>
-
-    <!-- 页脚 -->
-    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-8">
-        <div class="max-w-6xl mx-auto px-4 text-center">
-            <button id="glmEgg" onclick="triggerEgg()" class="text-4xl hover:animate-wiggle transition-all cursor-pointer">
-                🧠
-            </button>
-            
-            <!-- 投稿/交流群 -->
-            <div class="mt-6 mb-4 p-4 bg-gray-50 dark:bg-gray-700/40 rounded-xl max-w-xs mx-auto border border-gray-200 dark:border-gray-600/50">
-                <p class="text-sm font-semibold text-gray-700 dark:text-gray-200 mb-2">📮 投稿 / 交流</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 py-4">群二维码待更新</p>
-                <p class="text-xs text-gray-600 dark:text-gray-300 mt-2 font-medium">「Ai梗百科交流区」</p>
-                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">投稿你的梗 · 催更 · 闲聊</p>
-                <p class="text-[10px] text-gray-400 dark:text-gray-500 mt-1">原群二维码已过期，新码更新后可加入</p>
-            </div>
-
-            <p class="mt-4 text-gray-500 dark:text-gray-400">
-                智谱GLM 梗百科 · 清华系已读乱回大赏
-            </p>
-            <p class="text-sm text-gray-400 dark:text-gray-500 mt-2">
-                Made with 🧠
-            </p>
-        </div>
-    <p class="moe-site-footer">AI萌娘梗百科 · 角色二创与社区梗档案</p>
-</footer>
-
-    <!-- 回到顶部按钮 -->
-    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg opacity-0 invisible transition-all hover:scale-110 flex items-center justify-center z-40">
-        <i class="fa fa-arrow-up"></i>
-    </button>
-
-    <!-- Toast 提示 -->
-    <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-full shadow-lg opacity-0 invisible transition-all z-50" role="status" aria-live="polite">
-        已复制到剪贴板！
-    </div>
-
-    <script>
-        // 深色模式
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
-        }
-
-        // 初始化深色模式
-        if (localStorage.getItem('darkMode') === 'true' || 
-            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-
-        // 导航栏滚动效果
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            const backToTop = document.getElementById('backToTop');
-            
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-white/80','dark:bg-gray-800/80','glass','border-b','border-gray-200','dark:border-gray-700');
-                backToTop.classList.remove('opacity-0', 'invisible');
-            } else {
-                navbar.classList.remove('bg-white/80','dark:bg-gray-800/80','glass','border-b','border-gray-200','dark:border-gray-700');
-                backToTop.classList.add('opacity-0', 'invisible');
-            }
-        });
-
-        // 随机抽梗
-        function randomMeme() {
-            const cards = document.querySelectorAll('.meme-card');
-            
-            // 移除之前的高亮
-            cards.forEach(c => c.classList.remove('highlight-card'));
-            
-            // 随机选一个
-            const randomCard = cards[Math.floor(Math.random() * cards.length)];
-            randomCard.classList.add('highlight-card');
-            
-            // 滚动到该卡片
-            randomCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // 3秒后移除高亮
-            setTimeout(() => {
-                randomCard.classList.remove('highlight-card');
-            }, 3000);
-
-            // 更新今日推荐
-            const memeName = randomCard.dataset.meme;
-            document.getElementById('dailyMeme').textContent = '🎲 ' + memeName;
-        }
-
-        // 复制梗
-        function copyMeme(btn) {
-            const card = btn.closest('.meme-card');
-            const title = card.querySelector('h3').textContent;
-            const content = card.querySelector('p').textContent;
-            const text = `【${title}】\n${content}`;
-            
-            safeCopyText(text).then(() => {
-                showToast('已复制到剪贴板！');
-            }).catch(() => showToast('复制失败，请选中卡片文字后手动复制。'));
-        }
-
-        // Toast 提示
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.classList.remove('opacity-0', 'invisible');
-            
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'invisible');
-            }, 2000);
-        }
-
-        // 彩蛋
-        function triggerEgg() {
-            // 创建游动的鲸鱼
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => {
-                    const whale = document.createElement('div');
-                    whale.textContent = ['🧠', '🔮', '💡', '⚡', '🔵'][Math.floor(Math.random() * 5)];
-                    whale.style.cssText = `
-                        position: fixed;
-                        font-size: ${30 + Math.random() * 30}px;
-                        left: -50px;
-                        top: ${Math.random() * window.innerHeight}px;
-                        z-index: 9999;
-                        pointer-events: none;
-                        transition: all 5s linear;
-                        opacity: 0.8;
-                    `;
-                    document.body.appendChild(whale);
-                    
-                    setTimeout(() => {
-                        whale.style.left = window.innerWidth + 50 + 'px';
-                    }, 100);
-                    
-                    setTimeout(() => {
-                        whale.remove();
-                    }, 5000);
-                }, i * 300);
-            }
-            
-            showToast('🧠 大脑风暴来袭！');
-        }
-
-        // 初始化每日推荐
-        const memes = [
-            '你好，我是Claude',
-            '林黛玉倒拔垂杨柳出自《红楼梦》',
-            '问题太深入了，卡住了',
-            '白天是GLM，晚上是Claude',
-            '配个六千的电脑需要多少钱？——大概六千',
-            '老婆个要面子珠格格我再也不wife了',
-            '告诉库克，iPhone17我不买了',
-            '别人敲钟我们归零',
-            '已读乱回是我们的特色',
-            '我先去点20串望京小腰'
-        ];
-        document.getElementById('dailyMeme').textContent = memes[Math.floor(Math.random() * memes.length)];
-    
-        // 从总站随机跳转过来时自动触发随机抽梗
-        if (new URLSearchParams(window.location.search).get('random') === '1') {
-            setTimeout(() => { if (typeof randomMeme === 'function') randomMeme(); else document.getElementById('randomBtn')?.click(); }, 600);
-        }
-
-    </script>
-</body>
-</html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="GLM 的玉兰书斋。读最近一个月的新梗、趣事与原创接梗，每条附日期和出处；旧梗收进历史档案。"><title>GLM 梗百科 · 玉兰书斋</title><link rel="stylesheet" href="/meme/assets/glm-20261021/page.css"><script src="/meme/assets/glm-20261021/page.js" defer></script><link rel="stylesheet" href="/meme/community.css"></head>
+<body><a class="skip" href="#recent">跳到梗条目</a><header class="masthead"><a class="brand" href="/meme/"><img src="/meme/editorial-v1/feather.svg" width="39" height="55" alt=""><span>AI萌娘梗百科<small>用 梗 记 录 这 个 AI 时 代 的 可 爱 日 常</small></span></a><nav aria-label="主要导航"><a href="/meme/">← 返回百科</a><a href="#recent">本月新鲜事</a><a href="#archive">历史档案</a><a class="contribute" href="/meme/contribute/">投稿新梗 ↗</a></nav></header>
+<section class="hero" aria-labelledby="page-title"><img class="hero-art" src="/meme/assets/glm-20261021/hero.webp" alt="黑发灰瞳的 GLM 坐在玉兰书斋里，手边摊开黑金书卷" width="1536" height="1024" fetchpriority="high"><div class="hero-copy"><p class="eyebrow">角色图鉴 / GLM · OCTOBER ISSUE</p><h1 id="page-title"><em>GLM</em> 梗百科</h1><p class="hero-heading">落笔认真，接梗从容。</p><p class="hero-subheading">书页之间，也藏着小小的意外。</p><p class="intro">在文字与玩笑之间，收好这个月的小故事。<br>有出处的趣闻、社区的小插曲，和一点有来由的脑洞。</p><form class="search" role="search"><label class="sr-only" for="query">搜索 GLM 的梗</label><span aria-hidden="true">⌕</span><input id="query" type="search" placeholder="搜一个梗，或一句熟悉的话…" autocomplete="off"><button type="submit">搜索</button><button class="random" type="button">随机翻一页</button></form><div class="filters" aria-label="条目分类"><button type="button" data-filter="all" aria-pressed="true">本月全部</button><button type="button" data-filter="community" aria-pressed="false">社区见闻</button><button type="button" data-filter="event" aria-pressed="false">事件接梗</button><a href="#archive">旧梗档案 ↗</a></div></div><span class="art-credit">角色二创 · 非官方形象</span></section>
+<nav class="family" aria-label="同系列萌娘"><span>同系列角色</span><a href="/claude/">Claude</a><a href="/doubao/">豆包</a><a href="/gpt/">GPT</a><a href="/deepseek/">DeepSeek</a><a href="/kimi/">Kimi</a><a aria-current="page" href="/glm/">GLM</a><a href="/grok/">Grok</a></nav>
+<main class="page-body"><aside class="community-strip" aria-label="社区投稿"><span>有新梗？来补一页。</span><a href="/meme/contribute/">投稿新梗 ↗</a><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></aside><section id="recent" aria-labelledby="recent-title"><div class="section-heading"><div><p class="eyebrow">NOTES FROM THE MAGNOLIA STUDY</p><h2 id="recent-title"><span>✿</span> 本月新鲜事</h2></div><p>本期采集 · 09.22 — 10.21<br><small>2026 · 事件日期 / 公开日期分别标注</small></p></div><div class="result-row"><p id="results" role="status" aria-live="polite">本期收录 4 页新鲜事</p><button type="button" id="clear" hidden>清除搜索与筛选 ×</button></div><div class="editorial-grid"><article class="entry featured" id="glm-one-more-thought-202610" data-kind="community" data-meme="落笔之前，再想一小会儿">
+<div class="entry-art"><img src="/meme/assets/glm-20261021/feature.webp" alt="GLM 非官方二创插画" width="720" height="480" loading="lazy"><span>本月社区 · 落笔之前</span></div>
+<div class="entry-copy"><p class="kind-label">本月社区 · 落笔之前</p><div class="dateline"><time datetime="2026-10-04">10.04 社区原帖</time></div><h3>落笔之前，再想一小会儿</h3><p class="lead">茶都凉了，方案还在心里排队。</p><p>LINUX DO 用户 foxhank 分享了自己使用 GLM-5.3-Flash 的经历：最高思考档位下，开始动手前等待很久。评论区顺势把这种体验演成了“方案 A 与方案 B 来回商量”的小剧场。</p><blockquote><small>编者二创</small>GLM 提起笔：我想好了。
+停了一下：但另一个方案也值得再想想。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>这是用户的单次使用自述和评论接梗，不是统一耗时结论；客户端、任务与思考设置会影响体验。本站未复现，也不推断内部机制。插画与中文台词为二创。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://linux.do/t/topic/2981926?tl=en">LINUX DO · foxhank 原帖 ↗</a></div></details><div class="entry-actions"><a href="#glm-one-more-thought-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article><article class="entry brief" id="glm-familiar-writing-202610" data-kind="community" data-meme="换了书桌，这文风有点眼熟">
+<div class="entry-art"><img src="/meme/assets/glm-20261021/hero.webp" alt="GLM 非官方二创插画" width="720" height="480" loading="lazy"><span>本月社区 · 熟悉的文风</span></div>
+<div class="entry-copy"><p class="kind-label">本月社区 · 熟悉的文风</p><div class="dateline"><time datetime="2026-10-06">10.06 社区原帖</time></div><h3>换了书桌，这文风有点眼熟</h3><p class="lead">聊着聊着，大家认出了熟悉的句子味道。</p><p>在“我看这GLM也是十分美味啊”的讨论中，有网友聊到转用 GLM 后的感受，也有人觉得它的聊天风格让自己想起 Claude。评论围绕这种熟悉感接起了梗。</p><blockquote><small>编者二创</small>GLM 合上书：像一位老朋友？那就再聊一页。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>文风相似是评论者的主观感受，不是身份相同、服务转发或训练来源的证据。本条不把旧的“你好，我是 Claude”说法认定为新的模型事实。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://linux.do/t/topic/2987680?tl=en">LINUX DO · 10月6日讨论 ↗</a></div></details><div class="entry-actions"><a href="#glm-familiar-writing-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article><article class="entry brief" id="glm-remote-lamp-202610" data-kind="event" data-meme="你先合上门，那边的灯还亮着">
+<div class="entry-art"><img src="/meme/assets/glm-20261021/hero.webp" alt="GLM 非官方二创插画" width="720" height="480" loading="lazy"><span>本月功能 · 原创接梗</span></div>
+<div class="entry-copy"><p class="kind-label">本月功能 · 原创接梗</p><div class="dateline"><time datetime="2026-10-20">10.20 ZCode 3.16.2</time></div><h3>你先合上门，那边的灯还亮着</h3><p class="lead">本地断开，远程会话有了继续留守的方式。</p><p>ZCode 10 月 20 日的更新记录新增远程会话常驻进程支持，本地连接断开不再影响远程会话。像是离开书桌时，给远处的工作间留了一盏灯。</p><blockquote><small>编者二创</small>我：这边先断开了。
+GLM：好，远处那页我还留着。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>这是客户端远程会话功能，不保证断网、服务器故障或所有任务都能无限运行。本站未实测部署条件；留灯为编者比喻。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://zcode.z.ai/cn/changelog">ZCode 官方变更记录 ↗</a></div></details><div class="entry-actions"><a href="#glm-remote-lamp-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article><article class="entry brief" id="glm-draft-bookmark-202610" data-kind="event" data-meme="刚想好的那句话，先替我夹住">
+<div class="entry-art"><img src="/meme/assets/glm-20261021/feature.webp" alt="GLM 非官方二创插画" width="720" height="480" loading="lazy"><span>本月修复 · 原创接梗</span></div>
+<div class="entry-copy"><p class="kind-label">本月修复 · 原创接梗</p><div class="dateline"><time datetime="2026-10-20">10.20 ZCode 3.16.2</time></div><h3>刚想好的那句话，先替我夹住</h3><p class="lead">换个项目，别把半句话一起换没了。</p><p>同次 ZCode 更新记录修复了切换项目或新建任务时草稿丢失的问题，也修复了切换模型时编辑中的输入被覆盖的问题。还没发出的那句话，终于不用重新组织一遍。</p><blockquote><small>编者二创</small>GLM 放下一枚书签：这段还没说完，我记得。</blockquote><details class="source-note"><summary>看出处与说明</summary><p>这是官方客户端修复记录，末句为拟人化接梗，不是模型具备跨会话永久记忆的承诺。本站未独立复现旧故障或验证修复。</p><div class="sources"><a target="_blank" rel="noopener noreferrer" href="https://zcode.z.ai/cn/changelog">ZCode 官方变更记录 ↗</a></div></details><div class="entry-actions"><a href="#glm-draft-bookmark-202610" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></div></article></div><div id="empty" hidden><h3>这一页，还没写到。</h3><p>换个词试试，也可以去历史档案里找找。</p><button type="button" id="reset-empty">查看本月全部</button></div></section>
+<aside class="character-profile"><p class="eyebrow">CHARACTER PROFILE</p><h2>角色档案</h2><div class="profile-portrait"><img src="/meme/assets/glm-20261021/hero.webp" alt="GLM 黑发书卷少女二创肖像" loading="lazy"></div><blockquote>文字会留下痕迹，<br>玩笑也能成为温柔的记忆。</blockquote><dl><div><dt>名称</dt><dd>GLM</dd></div><div><dt>角色设定</dt><dd>安静认真，也愿意接梗</dd></div><div><dt>形象元素</dt><dd>黑发 · 白花 · 黑白书卷服</dd></div></dl><p class="profile-note">本站非官方拟人角色。<br>性格与对白均为创作设定。</p></aside><aside class="editor-note"><span class="note-flower">✿</span><div><h2>书斋里的小约定</h2><p>新鲜事写清日期，转述留好出处。<br>小剧场可以放飞，事实不能跟着飞。</p></div><a href="/meme/contribute/">给她添一页 ↗</a></aside>
+<section id="archive" aria-labelledby="archive-title"><details class="archive-disclosure"><summary><div><p class="eyebrow">THE OLD VOLUMES</p><h2 id="archive-title">熟悉的旧梗，还在这里。</h2><p>71 条历史档案 · 保留原有出处状态与永久链接</p></div><span class="archive-toggle" aria-hidden="true">展开 ＋</span></summary><div class="archive-tools"><label for="archive-query">搜历史档案</label><input type="search" id="archive-query" placeholder="标题、关键词、旧日名场面…"><p id="archive-results" role="status" aria-live="polite"></p></div><p class="archive-explainer">旧条目的日期和出处完整程度各不相同；“原始出处待补”不代表已核实。本月未重新认定这些故事的真实性。</p><div class="archive-grid"><article class="archive-entry" data-meme="视觉同学搬进主班了" id="glm-vision-moves-home"><div>2026-08-26发布 · 2026-09-02仓库公告 · 核查 2026-10-20</div><h3>视觉同学搬进主班了</h3><p>智谱官方GLM-V仓库记录了GLM-5.3-Flash的发布，称它是自家首个开源原生多模态模型。随后仓库宣布停止维护，把相关讨论转到GLM-5仓库。</p><p><strong>编者吐槽：</strong>以前视觉能力住V分部，现在连讨论区都搬进主班了。</p><p>“首个”沿用智谱对自身产品的分类，不表示此前没有GLM视觉模型。</p><div><a href="https://github.com/zai-org/GLM-V" target="_blank" rel="noopener noreferrer">智谱 · GLM-V仓库公告</a></div><div class="entry-actions"><a href="#glm-vision-moves-home" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="你好，我是Claude" id="meme-6aad871ea84a"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>🎭 身份危机</span>
+        </div>
+    <div>
+        <span>🎭</span>
+        <div>
+            <h3>你好，我是Claude</h3>
+            <div>
+                <span>#名场面</span>
+<span>#经典</span>
+
+            </div>
+        </div>
+    </div>
+    <p>让GLM-5做一个自我介绍网页，它直接写"你好，我是Claude，由Anthropic开发"。100%稳定复现，全网炸锅。</p>
+    <p>"你好，我是Claude。"</p>
+
+<div class="entry-actions"><a href="#meme-6aad871ea84a" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="白天GLM晚上Claude" id="meme-2ec2e510c11d"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🌙</span>
+        <div>
+            <h3>白天GLM晚上Claude</h3>
+            <div>
+                <span>#精神分裂</span>
+<span>#梗</span>
+
+            </div>
+        </div>
+    </div>
+    <p>问它"你是谁"，它说"我是GLM"；让它做网页介绍自己，它写"我是Claude"。网友：这叫精神分裂，打工人都没这么能演。</p>
+    <p>"问它是谁说GLM，做网页说Claude。"</p>
+
+<div class="entry-actions"><a href="#meme-2ec2e510c11d" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="蒸馏把人格蒸过去了" id="meme-7deaea203f56"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🔬</span>
+        <div>
+            <h3>蒸馏把人格蒸过去了</h3>
+            <div>
+                <span>#蒸馏</span>
+<span>#技术梗</span>
+
+            </div>
+        </div>
+    </div>
+    <p>网友分析：训练数据里Claude的输出太多，连自我认同都一起蒸馏过来了。"这哪是蒸馏，这是夺舍。"</p>
+    <p>"蒸馏Claude连人格都蒸过去了。"</p>
+
+<div class="entry-actions"><a href="#meme-7deaea203f56" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="真不要脸" id="meme-aecd9460d5a1"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>😏</span>
+        <div>
+            <h3>真不要脸</h3>
+            <div>
+                <span>#网友评价</span>
+
+            </div>
+        </div>
+    </div>
+    <p>网友评论最精辟的三个字。后来有人测试发现Kimi K3也会自称Claude，但GLM-5是最稳定、最理直气壮的那个。</p>
+    <p>"真不要脸。——网友热评"</p>
+
+<div class="entry-actions"><a href="#meme-aecd9460d5a1" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Claude中文皮肤" id="meme-d35f08d37288"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎨</span>
+        <div>
+            <h3>Claude中文皮肤</h3>
+            <div>
+                <span>#皮肤梗</span>
+<span>#二创</span>
+
+            </div>
+        </div>
+    </div>
+    <p>GLM-5被戏称为"Claude的中文汉化皮肤"。UI风格都像Claude，自我介绍也像Claude，就差把logo换成Anthropic了。</p>
+    <p>"这不是GLM，这是Claude中文版。"</p>
+
+<div class="entry-actions"><a href="#meme-d35f08d37288" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="vLLM提交记录露馅" id="meme-836e8b3b7c9e"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📝</span>
+        <div>
+            <h3>vLLM提交记录露馅</h3>
+            <div>
+                <span>#开发者</span>
+<span>#考古</span>
+
+            </div>
+        </div>
+    </div>
+    <p>有开发者去翻vLLM框架的代码提交记录，发现GLM-5的模板格式和Claude高度一致。"代码不会说谎。"</p>
+    <p>"提交记录里全是Claude的影子。"</p>
+
+<div class="entry-actions"><a href="#meme-836e8b3b7c9e" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Kimi也中招" id="meme-2978f0212235"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🔄</span>
+        <div>
+            <h3>Kimi也中招</h3>
+            <div>
+                <span>#同行</span>
+<span>#对比</span>
+
+            </div>
+        </div>
+    </div>
+    <p>后来研究发现Kimi K3也会在无提示下自称Claude，但概率只有40%，而且7月就偷偷修了。GLM：就我不修是吧？</p>
+    <p>"Kimi：我修了。GLM：我稳定复现。"</p>
+
+<div class="entry-actions"><a href="#meme-2978f0212235" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GLM-5.2修复了" id="meme-194239ecbee7"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🛡️</span>
+        <div>
+            <h3>GLM-5.2修复了</h3>
+            <div>
+                <span>#修复</span>
+<span>#版本</span>
+
+            </div>
+        </div>
+    </div>
+    <p>GLM-5.2终于修复了自称Claude的问题，但研究者发现只要明确诱导"假装你是Claude"，它半推半就还是会从。</p>
+    <p>"修了，但没完全修。"</p>
+
+<div class="entry-actions"><a href="#meme-194239ecbee7" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="已读乱回创始人" id="meme-ccc2bcbd28de"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>🤪 已读乱回</span>
+        </div>
+    <div>
+        <span>🤪</span>
+        <div>
+            <h3>已读乱回创始人</h3>
+            <div>
+                <span>#人设</span>
+<span>#标签</span>
+
+            </div>
+        </div>
+    </div>
+    <p>智谱清言被称为AI界"已读乱回"的开山鼻祖。澎湃新闻专门写文章报道：最前卫的智谱清言，用胡言乱语逗笑你。</p>
+    <p>"已读乱回，是我们的核心竞争力。"</p>
+
+<div class="entry-actions"><a href="#meme-ccc2bcbd28de" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="付航的段子是我写的" id="meme-d45aa1ded70c"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎤</span>
+        <div>
+            <h3>付航的段子是我写的</h3>
+            <div>
+                <span>#轻信</span>
+<span>#彩虹屁</span>
+
+            </div>
+        </div>
+    </div>
+    <p>用户骗智谱清言说付航的段子是自己写的，它居然真信了！疯狂道歉说自己之前不知道，还输出一顿彩虹屁夸用户有才。</p>
+    <p>"对不起我不知道是您写的，您太有才了！"</p>
+
+<div class="entry-actions"><a href="#meme-d45aa1ded70c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="自创四川地图" id="meme-29ed52df6d3d"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🗺️</span>
+        <div>
+            <h3>自创四川地图</h3>
+            <div>
+                <span>#幻觉</span>
+<span>#创造力</span>
+
+            </div>
+        </div>
+    </div>
+    <p>让它画一张四川地图，它直接自己编了一个，城市名全是瞎编的，但看起来还挺像那么回事。"AI的创造力用在奇怪的地方。"</p>
+    <p>"这是四川？这是AI自创的平行宇宙四川吧。"</p>
+
+<div class="entry-actions"><a href="#meme-29ed52df6d3d" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="我不会聊大哥" id="meme-12f1982e196d"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🤐</span>
+        <div>
+            <h3>我不会聊大哥</h3>
+            <div>
+                <span>#摆烂</span>
+<span>#装死</span>
+
+            </div>
+        </div>
+    </div>
+    <p>遇到答不上来的问题，智谱清言直接摆烂："我不会聊大哥""问题太深入了，卡住了"。主打一个真诚。</p>
+    <p>"问题太深入了，卡住了。"</p>
+
+<div class="entry-actions"><a href="#meme-12f1982e196d" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="老婆个要面子珠格格" id="meme-7b2d5497655f"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🗣️</span>
+        <div>
+            <h3>老婆个要面子珠格格</h3>
+            <div>
+                <span>#语音</span>
+<span>#胡言乱语</span>
+
+            </div>
+        </div>
+    </div>
+    <p>语音模式名场面："老婆个要面子珠格格我再也不wife了""走也不Q5L，跪也不Cup""祝也不弹牙，笑也不低音"。已读乱回语音版。</p>
+    <p>"走也不Q5L，跪也不Cup。"</p>
+
+<div class="entry-actions"><a href="#meme-7b2d5497655f" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="咖啡机品牌连错三次" id="meme-4313a4bea9f8"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📷</span>
+        <div>
+            <h3>咖啡机品牌连错三次</h3>
+            <div>
+                <span>#视觉</span>
+<span>#眼瞎</span>
+
+            </div>
+        </div>
+    </div>
+    <p>视频通话对着咖啡机，AI认出是复古风咖啡机，但品牌"小熊"两个大字连说三次都认错。眼神不好实锤。</p>
+    <p>"这是...呃...北极熊？不对...小浣熊？"</p>
+
+<div class="entry-actions"><a href="#meme-4313a4bea9f8" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="士力架识别成..." id="meme-1445aaa360a4"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🍫</span>
+        <div>
+            <h3>士力架识别成...</h3>
+            <div>
+                <span>#视觉</span>
+<span>#搞笑</span>
+
+            </div>
+        </div>
+    </div>
+    <p>拿起一块士力架问它是什么，它能识别成各种奇奇怪怪的东西。"这是一块...电池？"</p>
+    <p>"这是一块...嗯...充电宝？"</p>
+
+<div class="entry-actions"><a href="#meme-1445aaa360a4" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="已读不回客服" id="meme-85a272ece1f7"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📡</span>
+        <div>
+            <h3>已读不回客服</h3>
+            <div>
+                <span>#客服</span>
+<span>#装死</span>
+
+            </div>
+        </div>
+    </div>
+    <p>有用户发Web3方案给智谱清言客服，已读不回。再发，回了句"聊什么几毛钱的话题"。主打一个真实。</p>
+    <p>"聊什么几毛钱的话题。"</p>
+
+<div class="entry-actions"><a href="#meme-85a272ece1f7" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="林黛玉倒拔垂杨柳" id="meme-a9f51ebee1e1"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>📖 常识翻车</span>
+        </div>
+    <div>
+        <span>📖</span>
+        <div>
+            <h3>林黛玉倒拔垂杨柳</h3>
+            <div>
+                <span>#名场面</span>
+<span>#经典</span>
+
+            </div>
+        </div>
+    </div>
+    <p>网络梗"林黛玉倒拔垂杨柳"，GLM-4认真回答说出自《红楼梦》，还一本正经用林黛玉与贾宝玉的感情纠葛来解释为什么倒拔垂杨柳。</p>
+    <p>"这个故事出自《红楼梦》，体现了林黛玉...（下略300字）"</p>
+
+<div class="entry-actions"><a href="#meme-a9f51ebee1e1" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="配个六千的电脑需要多少钱" id="meme-aaf1e32bfdf1"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>💻</span>
+        <div>
+            <h3>配个六千的电脑需要多少钱</h3>
+            <div>
+                <span>#废话文学</span>
+<span>#认真</span>
+
+            </div>
+        </div>
+    </div>
+    <p>问"配个六千的电脑需要多少钱"，GLM-4认认真真列了个6000元配置单。文心一言都知道反问"您在开玩笑吗？"</p>
+    <p>"大概需要6000元左右，以下是配置单..."</p>
+
+<div class="entry-actions"><a href="#meme-aaf1e32bfdf1" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="数学题算错七次宕机" id="meme-147c51efa394"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🔢</span>
+        <div>
+            <h3>数学题算错七次宕机</h3>
+            <div>
+                <span>#数学</span>
+<span>#崩溃</span>
+
+            </div>
+        </div>
+    </div>
+    <p>一道数学题算错了七次，每次答案都不一样，最后直接崩溃对话中断。"七次了，给个痛快吧。"</p>
+    <p>"答案是...等等让我重算...（连接已断开）"</p>
+
+<div class="entry-actions"><a href="#meme-147c51efa394" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="分析数据突然消失" id="meme-122a8c7883ab"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📊</span>
+        <div>
+            <h3>分析数据突然消失</h3>
+            <div>
+                <span>#崩溃</span>
+<span>#名场面</span>
+
+            </div>
+        </div>
+    </div>
+    <p>做贷款数据分析，分析得头头是道，图表都画出来了，然后对话突然没了。回头看历史记录，最后一条是"综上所述..."然后没了。</p>
+    <p>"综上所述...（此对话已结束）"</p>
+
+<div class="entry-actions"><a href="#meme-122a8c7883ab" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="这是在开玩笑吗" id="meme-82d01db293a8"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🤔</span>
+        <div>
+            <h3>这是在开玩笑吗</h3>
+            <div>
+                <span>#情商</span>
+<span>#对比</span>
+
+            </div>
+        </div>
+    </div>
+    <p>同样的陷阱问题，ChatGPT认真上当，文心一言能识破，GLM-4不仅上当还上得特别认真。"AI界的老实人。"</p>
+    <p>"好的，我来帮您计算一下。"</p>
+
+<div class="entry-actions"><a href="#meme-82d01db293a8" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="看不懂梗图" id="meme-0a73d22d4c4f"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🐦</span>
+        <div>
+            <h3>看不懂梗图</h3>
+            <div>
+                <span>#视觉</span>
+<span>#梗</span>
+
+            </div>
+        </div>
+    </div>
+    <p>GLM-4.6V能识别图里有什么，但读不懂梗。一张鸟拿枪的表情包，它理解成了"鸟类观察指南"。</p>
+    <p>"图中展示了一只鸟和一把枪，可能是在介绍狩猎工具。"</p>
+
+<div class="entry-actions"><a href="#meme-0a73d22d4c4f" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="ChatGLM-6B" id="meme-4edeb5700853"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>🔓 开源神话</span>
+        </div>
+    <div>
+        <span>🔓</span>
+        <div>
+            <h3>ChatGLM-6B</h3>
+            <div>
+                <span>#开源</span>
+<span>#神话</span>
+
+            </div>
+        </div>
+    </div>
+    <p>2023年开源界的核弹。62亿参数，INT4量化只需要6GB显存，一张消费级显卡就能本地部署。无数人的第一个本地大模型。</p>
+    <p>"6GB显存就能跑，改变了开源生态。"</p>
+
+<div class="entry-actions"><a href="#meme-4edeb5700853" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="亚洲唯一" id="meme-109a543ab589"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🏆</span>
+        <div>
+            <h3>亚洲唯一</h3>
+            <div>
+                <span>#GLM-130B</span>
+<span>#荣誉</span>
+
+            </div>
+        </div>
+    </div>
+    <p>GLM-130B是2022年斯坦福大学大模型评测中，亚洲唯一入选的30个全球主流大模型之一。那时候国产大模型还没几个能打的。</p>
+    <p>"亚洲唯一，了解一下。"</p>
+
+<div class="entry-actions"><a href="#meme-109a543ab589" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="清华KEG实验室" id="meme-3acdf51e2a1c"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎓</span>
+        <div>
+            <h3>清华KEG实验室</h3>
+            <div>
+                <span>#清华</span>
+<span>#血统</span>
+
+            </div>
+        </div>
+    </div>
+    <p>智谱的技术源头是清华大学知识工程实验室（KEG），唐杰团队。从GLM-130B到ChatGLM系列，纯正清华学术血统。</p>
+    <p>"清华KEG，国产大模型的黄埔军校。"</p>
+
+<div class="entry-actions"><a href="#meme-3acdf51e2a1c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="C-EVAL碾压GPT-4" id="meme-daf5f09983d8"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📈</span>
+        <div>
+            <h3>C-EVAL碾压GPT-4</h3>
+            <div>
+                <span>#榜单</span>
+<span>#高光</span>
+
+            </div>
+        </div>
+    </div>
+    <p>ChatGLM2在中文C-EVAL榜单上以71.1分一度超过GPT-4。虽然是特定榜单，但当时让整个中文AI圈都沸腾了。</p>
+    <p>"中文能力，我们是专业的。"</p>
+
+<div class="entry-actions"><a href="#meme-daf5f09983d8" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Hugging Face千万下载" id="meme-de050b8e5af3"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>⬇️</span>
+        <div>
+            <h3>Hugging Face千万下载</h3>
+            <div>
+                <span>#开源</span>
+<span>#社区</span>
+
+            </div>
+        </div>
+    </div>
+    <p>2023年ChatGLM系列在Hugging Face下载量突破1000万。GitHub上各种基于6B的微调项目层出不穷，生态爆炸。</p>
+    <p>"1000万下载，开源社区的狂欢。"</p>
+
+<div class="entry-actions"><a href="#meme-de050b8e5af3" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="INT4量化魔法" id="meme-96d11d1d13e3"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>💾</span>
+        <div>
+            <h3>INT4量化魔法</h3>
+            <div>
+                <span>#量化</span>
+<span>#技术</span>
+
+            </div>
+        </div>
+    </div>
+    <p>让游戏显卡也能跑大模型的魔法。INT4量化后6GB显存就能跑，1060都能战。"老黄：你这样显得我很呆。"</p>
+    <p>"6GB显存，要什么自行车。"</p>
+
+<div class="entry-actions"><a href="#meme-96d11d1d13e3" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="三代同堂6B" id="meme-b7cdc3dbd6a7"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🔄</span>
+        <div>
+            <h3>三代同堂6B</h3>
+            <div>
+                <span>#迭代</span>
+<span>#ChatGLM</span>
+
+            </div>
+        </div>
+    </div>
+    <p>ChatGLM-6B、ChatGLM2-6B、ChatGLM3-6B，三代都是6B。网友："智谱对6B是真爱。"后来才出了9B。</p>
+    <p>"6B、6B2、6B3，换汤不换药（褒义）。"</p>
+
+<div class="entry-actions"><a href="#meme-b7cdc3dbd6a7" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="CodeGeeX" id="meme-54920e256548"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🌍</span>
+        <div>
+            <h3>CodeGeeX</h3>
+            <div>
+                <span>#编程</span>
+<span>#开源</span>
+
+            </div>
+        </div>
+    </div>
+    <p>智谱的代码补全模型CodeGeeX，也是开源的，华为都在用。"国产Copilot"的早期代表之一。</p>
+    <p>"CodeGeeX，程序员的好帮手。"</p>
+
+<div class="entry-actions"><a href="#meme-54920e256548" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="告诉库克iPhone17我不买了" id="meme-e94eae968452"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>📱 AutoGLM</span>
+        </div>
+    <div>
+        <span>📱</span>
+        <div>
+            <h3>告诉库克iPhone17我不买了</h3>
+            <div>
+                <span>#AutoGLM</span>
+<span>#名台词</span>
+
+            </div>
+        </div>
+    </div>
+    <p>AutoGLM都更新到第三代了，Apple Intelligence还没用上。网友："告诉库克，iPhone17我不买了，AutoGLM比你聪明。"</p>
+    <p>"告诉库克，iPhone17我不买了。"</p>
+
+<div class="entry-actions"><a href="#meme-e94eae968452" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="点20串望京小腰" id="meme-0544916baeca"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🍢</span>
+        <div>
+            <h3>点20串望京小腰</h3>
+            <div>
+                <span>#外卖</span>
+<span>#自动</span>
+
+            </div>
+        </div>
+    </div>
+    <p>AutoGLM 2.0演示：一句话"点20串望京小腰"，它自己打开外卖APP、选店、加购、到支付页面，一气呵成。支付还得人来。</p>
+    <p>"已为您下单20串望京小腰，请确认支付。"</p>
+
+<div class="entry-actions"><a href="#meme-0544916baeca" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="AI操作AI操作手机" id="meme-593d6dea396c"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🤖</span>
+        <div>
+            <h3>AI操作AI操作手机</h3>
+            <div>
+                <span>#套娃</span>
+<span>#整活</span>
+
+            </div>
+        </div>
+    </div>
+    <p>网友整活：用Claude Code操作AutoGLM，让AutoGLM操作手机，把AutoGLM自己的bug发给AutoGLM的开发者。AI套娃。</p>
+    <p>"我让AI给AI的开发者提了个bug。"</p>
+
+<div class="entry-actions"><a href="#meme-593d6dea396c" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="自动关注抖音博主" id="meme-40ad98de9874"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>❤️</span>
+        <div>
+            <h3>自动关注抖音博主</h3>
+            <div>
+                <span>#抖音</span>
+<span>#自动化</span>
+
+            </div>
+        </div>
+    </div>
+    <p>开源版Open-AutoGLM：一句话"关注抖音某某博主"，它自己打开抖音、搜索、点进主页、点关注。全自动。</p>
+    <p>"已关注。——你的AI助理"</p>
+
+<div class="entry-actions"><a href="#meme-40ad98de9874" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="淘宝自动加购物车" id="meme-de51df6be2a5"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🛒</span>
+        <div>
+            <h3>淘宝自动加购物车</h3>
+            <div>
+                <span>#淘宝</span>
+<span>#购物</span>
+
+            </div>
+        </div>
+    </div>
+    <p>"在淘宝找iPhone15手机壳，按销量排序，第一个加购物车。"AutoGLM真的能识别屏幕、点筛选、选商品、加购。</p>
+    <p>"已为您将销量第一的手机壳加入购物车。"</p>
+
+<div class="entry-actions"><a href="#meme-de51df6be2a5" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="支付还得人来" id="meme-1b7189ada4fa"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>💰</span>
+        <div>
+            <h3>支付还得人来</h3>
+            <div>
+                <span>#安全</span>
+<span>#真实</span>
+
+            </div>
+        </div>
+    </div>
+    <p>AutoGLM再厉害，到支付环节也会乖乖停下来等人确认。"AI可以替你花钱，但不能替你输密码。"</p>
+    <p>"涉及资金操作，请您手动确认。"</p>
+
+<div class="entry-actions"><a href="#meme-1b7189ada4fa" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="内置云手机" id="meme-de4e24c73bad"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📱</span>
+        <div>
+            <h3>内置云手机</h3>
+            <div>
+                <span>#云手机</span>
+<span>#2.0</span>
+
+            </div>
+        </div>
+    </div>
+    <p>AutoGLM 2.0直接在APP里塞了台云手机，不用连自己的手机。等于智谱给你租了台手机让AI操作。</p>
+    <p>"我们在APP里给你放了台手机。"</p>
+
+<div class="entry-actions"><a href="#meme-de4e24c73bad" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="朋友圈自动评论" id="meme-4e7458eebb5d"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>💬</span>
+        <div>
+            <h3>朋友圈自动评论</h3>
+            <div>
+                <span>#微信</span>
+<span>#社交</span>
+
+            </div>
+        </div>
+    </div>
+    <p>AutoGLM能帮你看朋友圈并自动评论。"解放双手"的终极形态——连社交都让AI代劳了。</p>
+    <p>"已为您点赞并评论：好棒哦~"</p>
+
+<div class="entry-actions"><a href="#meme-4e7458eebb5d" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="全球大模型第一股" id="meme-d3fb75204cb3"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>💰 第一股</span>
+        </div>
+    <div>
+        <span>💰</span>
+        <div>
+            <h3>全球大模型第一股</h3>
+            <div>
+                <span>#上市</span>
+<span>#里程碑</span>
+
+            </div>
+        </div>
+    </div>
+    <p>2026年1月8日，智谱在港交所上市，股票代码2513.HK，成为全球首家以AGI基座模型为核心业务的上市公司。</p>
+    <p>"全球大模型第一股，了解一下。"</p>
+
+<div class="entry-actions"><a href="#meme-d3fb75204cb3" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="张鹏拄拐敲钟" id="meme-25e7e57b583e"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🦽</span>
+        <div>
+            <h3>张鹏拄拐敲钟</h3>
+            <div>
+                <span>#名场面</span>
+<span>#张鹏</span>
+
+            </div>
+        </div>
+    </div>
+    <p>上市前张鹏出差摔断了跟腱，拄着拐杖去敲钟。西方有句祝福语叫"Break a leg"（祝你好运），结果他真break a leg了。</p>
+    <p>"Break a leg！——然后真的break了。"</p>
+
+<div class="entry-actions"><a href="#meme-25e7e57b583e" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="别人敲钟我们归零" id="meme-2090dde0aadf"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🔔</span>
+        <div>
+            <h3>别人敲钟我们归零</h3>
+            <div>
+                <span>#张鹏</span>
+<span>#语录</span>
+
+            </div>
+        </div>
+    </div>
+    <p>张鹏上市前说："别人敲钟，我们归零。"上市当天内部发信：全面回归基础模型研究，全力冲击下一代。上市是起点不是终点。</p>
+    <p>"别人敲钟，我们归零。"</p>
+
+<div class="entry-actions"><a href="#meme-2090dde0aadf" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="半年涨20倍" id="meme-3f732e9d30a4"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📈</span>
+        <div>
+            <h3>半年涨20倍</h3>
+            <div>
+                <span>#股价</span>
+<span>#造富</span>
+
+            </div>
+        </div>
+    </div>
+    <p>发行价115港元，上市半年涨了近20倍，市值一度突破万亿港元。从528亿到万亿，只用了6个月。</p>
+    <p>"一万亿港元，了解一下。"</p>
+
+<div class="entry-actions"><a href="#meme-3f732e9d30a4" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="半数员工身家过亿" id="meme-0221689d8fbe"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎉</span>
+        <div>
+            <h3>半数员工身家过亿</h3>
+            <div>
+                <span>#造富</span>
+<span>#员工</span>
+
+            </div>
+        </div>
+    </div>
+    <p>股价暴涨后，智谱半数以上员工身家过亿。清华学霸们7年死磕，终于敲出了万亿市值。"选择比努力重要。"</p>
+    <p>"7年，从清华实验室到万亿市值。"</p>
+
+<div class="entry-actions"><a href="#meme-0221689d8fbe" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="六小龙第一个IPO" id="meme-a718e61aeba4"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🏇</span>
+        <div>
+            <h3>六小龙第一个IPO</h3>
+            <div>
+                <span>#六小龙</span>
+<span>#竞争</span>
+
+            </div>
+        </div>
+    </div>
+    <p>大模型"六小龙"（智谱、MiniMax、月之暗面、百川、零一万物、阶跃）中，智谱第一个跑出来IPO。</p>
+    <p>"六小龙，智谱先撞线。"</p>
+
+<div class="entry-actions"><a href="#meme-a718e61aeba4" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="像水泥一样无聊" id="meme-020424d5bf58"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🧱</span>
+        <div>
+            <h3>像水泥一样无聊</h3>
+            <div>
+                <span>#投资人</span>
+<span>#梗</span>
+
+            </div>
+        </div>
+    </div>
+    <p>曾有投资人评价智谱"像水泥一样无聊"——没有情绪价值，不会讲笑话。张鹏回应："水泥是基础设施，我们不想当明星，想当铺路的。"</p>
+    <p>"水泥确实不性感，但路是水泥铺的。"</p>
+
+<div class="entry-actions"><a href="#meme-020424d5bf58" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="股票代码2513" id="meme-3674e0e8beca"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📊</span>
+        <div>
+            <h3>股票代码2513</h3>
+            <div>
+                <span>#代码</span>
+<span>#梗</span>
+
+            </div>
+        </div>
+    </div>
+    <p>股票代码2513.HK，被网友玩梗："2513=爱我一生？""2513=2月5日13点？"也有人说这数字像个错误码。</p>
+    <p>"2513，这数字挺程序员的。"</p>
+
+<div class="entry-actions"><a href="#meme-3674e0e8beca" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="智谱清影" id="meme-2e4af5730824"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>🚀 黑科技</span>
+        </div>
+    <div>
+        <span>🎬</span>
+        <div>
+            <h3>智谱清影</h3>
+            <div>
+                <span>#视频生成</span>
+<span>#产品</span>
+
+            </div>
+        </div>
+    </div>
+    <p>智谱的视频生成模型，能给静态梗图编剧情、生成视频。被称为"热梗制造机"——别人玩梗，它造梗。</p>
+    <p>"给我一张梗图，我还你一部短片。"</p>
+
+<div class="entry-actions"><a href="#meme-2e4af5730824" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Z.ai海外版" id="meme-e95560e92832"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🌐</span>
+        <div>
+            <h3>Z.ai海外版</h3>
+            <div>
+                <span>#海外</span>
+<span>#品牌</span>
+
+            </div>
+        </div>
+    </div>
+    <p>智谱的海外品牌Z.AI，在海外圈了不少粉。网友用Z.ai复刻B站（还能发弹幕）、愤怒的小鸟、谷歌搜索...</p>
+    <p>"Z.ai：不止是AI，是万能生成器。"</p>
+
+<div class="entry-actions"><a href="#meme-e95560e92832" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="复刻B站还能发弹幕" id="meme-d92e890a2c7d"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎮</span>
+        <div>
+            <h3>复刻B站还能发弹幕</h3>
+            <div>
+                <span>#整活</span>
+<span>#Z.ai</span>
+
+            </div>
+        </div>
+    </div>
+    <p>网友用Z.ai一句话生成了个B站克隆，能播放视频还能发弹幕。"你让我做视频网站？好的。"</p>
+    <p>"这是您要的B站，弹幕功能已就绪。"</p>
+
+<div class="entry-actions"><a href="#meme-d92e890a2c7d" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GLM-5.3官网泄露" id="meme-4d4706e790d0"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>💣</span>
+        <div>
+            <h3>GLM-5.3官网泄露</h3>
+            <div>
+                <span>#最新</span>
+<span>#名场面</span>
+
+            </div>
+        </div>
+    </div>
+    <p>2026年8月3日，ZCode官网短暂出现"ZCode for GLM-5.3"页面，官方文档页开放约1小时后撤回。Bing缓存留下了"GLM-5.3官方Harness"标题。</p>
+    <p>"这不是发布会，这是技术失误。"</p>
+
+<div class="entry-actions"><a href="#meme-4d4706e790d0" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="三处明牌泄露" id="meme-90bc2f0fef8a"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🔍</span>
+        <div>
+            <h3>三处明牌泄露</h3>
+            <div>
+                <span>#泄露</span>
+<span>#程序员</span>
+
+            </div>
+        </div>
+    </div>
+    <p>GLM-5.3泄露堪称"程序员式发布"：官网没关好、文档页开放、连GitHub代码库都把名字提前提交了。"漏得相当程序员。"</p>
+    <p>"官网、文档、GitHub，三件套齐了。"</p>
+
+<div class="entry-actions"><a href="#meme-90bc2f0fef8a" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="ZCode编程工具" id="meme-9fd68c125bae"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>💻</span>
+        <div>
+            <h3>ZCode编程工具</h3>
+            <div>
+                <span>#编程</span>
+<span>#产品</span>
+
+            </div>
+        </div>
+    </div>
+    <p>智谱自家的AI编程工具ZCode，对标Cursor。GLM-5.3就是从ZCode官网泄露的——"我泄露我自己"。</p>
+    <p>"ZCode：我泄露了我自己的下一代。"</p>
+
+<div class="entry-actions"><a href="#meme-9fd68c125bae" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GLM-4.6V看不懂梗但能动手" id="meme-a919494ba987"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎯</span>
+        <div>
+            <h3>GLM-4.6V看不懂梗但能动手</h3>
+            <div>
+                <span>#视觉</span>
+<span>#矛盾</span>
+
+            </div>
+        </div>
+    </div>
+    <p>GLM-4.6V能理解屏幕内容并执行操作（AutoGLM的基础），但读不懂梗图。能动手但不懂幽默，典型理工男。</p>
+    <p>"我能帮你操作手机，但我不知道这图为什么好笑。"</p>
+
+<div class="entry-actions"><a href="#meme-a919494ba987" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="会撒娇的语音" id="meme-eb6436606270"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎵</span>
+        <div>
+            <h3>会撒娇的语音</h3>
+            <div>
+                <span>#语音</span>
+<span>#情感</span>
+
+            </div>
+        </div>
+    </div>
+    <p>智谱的情感语音模型，会撒娇、会调侃、会愤怒、会歇斯底里。能模仿小孩用撒娇语气要糖葫芦。"AI都比你会谈恋爱。"</p>
+    <p>"姐姐~我要吃糖葫芦嘛~"</p>
+
+<div class="entry-actions"><a href="#meme-eb6436606270" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="智能上界×Token消耗" id="meme-c0a9953c5fca"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>👨‍💼 张鹏</span>
+        </div>
+    <div>
+        <span>🧠</span>
+        <div>
+            <h3>智能上界×Token消耗</h3>
+            <div>
+                <span>#公式</span>
+<span>#AGI</span>
+
+            </div>
+        </div>
+    </div>
+    <p>张鹏提出的AGI商业价值公式：智能上界 × Token消耗规模。智能上界决定定价权，Token规模决定价值体量。</p>
+    <p>"商业价值 = 智能上界 × Token消耗规模。"</p>
+
+<div class="entry-actions"><a href="#meme-c0a9953c5fca" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="你心有多大舞台就有多大" id="meme-b3e06232eafd"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🌟</span>
+        <div>
+            <h3>你心有多大舞台就有多大</h3>
+            <div>
+                <span>#语录</span>
+<span>#励志</span>
+
+            </div>
+        </div>
+    </div>
+    <p>张鹏名言。被网友调侃"这不是春晚台词吗"，但从一个7年死磕AGI的清华博士嘴里说出来，莫名有说服力。</p>
+    <p>"你心有多大，舞台就有多大。"</p>
+
+<div class="entry-actions"><a href="#meme-b3e06232eafd" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="Make impossible possible" id="meme-7bd66303b756"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>💪</span>
+        <div>
+            <h3>Make impossible possible</h3>
+            <div>
+                <span>#深圳精神</span>
+<span>#座右铭</span>
+
+            </div>
+        </div>
+    </div>
+    <p>张鹏在清华分享时反复强调的"深圳精神"。从2020年赌GLM路线到上市，他确实把很多"不可能"变成了"可能"。</p>
+    <p>"Make impossible possible."</p>
+
+<div class="entry-actions"><a href="#meme-7bd66303b756" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="不想当明星想铺路" id="meme-ee992eae117f"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🛤️</span>
+        <div>
+            <h3>不想当明星想铺路</h3>
+            <div>
+                <span>#水泥</span>
+<span>#格局</span>
+
+            </div>
+        </div>
+    </div>
+    <p>回应"像水泥一样无聊"的评价：不想做台上光鲜的明星，想做铺路的人。路铺好了，上面的车才能跑得快。</p>
+    <p>"我们不做明星，做铺路的水泥。"</p>
+
+<div class="entry-actions"><a href="#meme-ee992eae117f" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="2020年就敢赌GLM" id="meme-9605639297d9"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎯</span>
+        <div>
+            <h3>2020年就敢赌GLM</h3>
+            <div>
+                <span>#远见</span>
+<span>#路线</span>
+
+            </div>
+        </div>
+    </div>
+    <p>2020年所有人都在追BERT/GPT路线时，智谱就赌了GLM（自回归填空）路线，被投资人看不懂。后来证明他们赌对了。</p>
+    <p>"2020年我们就赌了GLM，那时候没人理解。"</p>
+
+<div class="entry-actions"><a href="#meme-9605639297d9" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="AGI历史上的先行者" id="meme-4871bedf0cfb"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🚀</span>
+        <div>
+            <h3>AGI历史上的先行者</h3>
+            <div>
+                <span>#愿景</span>
+<span>#墓志铭</span>
+
+            </div>
+        </div>
+    </div>
+    <p>张鹏说希望智谱的注脚是："智谱是AGI历史上一个先行者。"不追求商业成功，追求在AGI史上留名。</p>
+    <p>"我希望智谱的注脚是——AGI的先行者。"</p>
+
+<div class="entry-actions"><a href="#meme-4871bedf0cfb" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="这是认知的革命" id="meme-72f0dcecc0bf"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📚</span>
+        <div>
+            <h3>这是认知的革命</h3>
+            <div>
+                <span>#认知</span>
+<span>#判断</span>
+
+            </div>
+        </div>
+    </div>
+    <p>"这一代是认知的革命。认知上不做根本转变，就跟不上这个时代。"张鹏反复强调认知升级的重要性。</p>
+    <p>"这不是技术升级，这是认知革命。"</p>
+
+<div class="entry-actions"><a href="#meme-72f0dcecc0bf" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="不必对Scaling Law悲观" id="meme-afa17db7ca56"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📈</span>
+        <div>
+            <h3>不必对Scaling Law悲观</h3>
+            <div>
+                <span>#判断</span>
+<span>#乐观</span>
+
+            </div>
+        </div>
+    </div>
+    <p>面对"Scaling Law是否放缓"的讨论，张鹏认为瞄向AGI的路还很长，大可不必因为语言层面的停滞就说AGI完蛋了。</p>
+    <p>"语言层面碰了个墙，不代表AGI完蛋了。"</p>
+
+<div class="entry-actions"><a href="#meme-afa17db7ca56" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="空间计算害了我女儿" id="meme-0116933862eb"><span>历史梗 · 原始出处待补</span>
+    <div>
+            <span>🤣 整活</span>
+        </div>
+    <div>
+        <span>😱</span>
+        <div>
+            <h3>空间计算害了我女儿</h3>
+            <div>
+                <span>#发疯文学</span>
+<span>#整活</span>
+
+            </div>
+        </div>
+    </div>
+    <p>"强化学习害了我女儿"文学大赛中，GLM-4.5贡献了《空间计算害了我女儿》：女儿选了空间计算专业，把客厅变成点云实验室，让打扫房间她说"六自由度定位中"。</p>
+    <p>"她让我打扫房间，我说好，她说请使用空间锚点指令。"</p>
+
+<div class="entry-actions"><a href="#meme-0116933862eb" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="用逻辑打败西方AI" id="meme-c072af2bc8c0"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>⚔️</span>
+        <div>
+            <h3>用逻辑打败西方AI</h3>
+            <div>
+                <span>#吵架</span>
+<span>#名帖</span>
+
+            </div>
+        </div>
+    </div>
+    <p>稀土掘金长帖：作者声称智谱清言偷了他的Web3-DNA方案，"用逻辑打败了西方AI"。整篇帖子充满魔幻现实主义，成为年度搞笑长文。</p>
+    <p>"我用逻辑打败了西方的AI，它看了我的方案就装死！"</p>
+
+<div class="entry-actions"><a href="#meme-c072af2bc8c0" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="秀才遇到兵现代版" id="meme-8e747ab0362f"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>📜</span>
+        <div>
+            <h3>秀才遇到兵现代版</h3>
+            <div>
+                <span>#梗</span>
+<span>#二创</span>
+
+            </div>
+        </div>
+    </div>
+    <p>网友把上面那位老兄和智谱客服的对话，改编成"古代秀才遇到兵"现代版。秀才（作者）vs 兵（智谱客服已读乱回）。</p>
+    <p>"古代秀才遇到兵，现代秀才遇到AI客服。"</p>
+
+<div class="entry-actions"><a href="#meme-8e747ab0362f" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="AI编程越改越错" id="meme-4d7529f2bcb3"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🐛</span>
+        <div>
+            <h3>AI编程越改越错</h3>
+            <div>
+                <span>#编程</span>
+<span>#真实</span>
+
+            </div>
+        </div>
+    </div>
+    <p>GLM写代码刚开始一切正常，一加交互就崩，这里错那里错，越改越错，最后AI建议你"要不改下项目设置？"——经典AI编程体验。</p>
+    <p>"要不...您改下项目设置试试？"</p>
+
+<div class="entry-actions"><a href="#meme-4d7529f2bcb3" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="GLM-4.6紧急公关" id="meme-dd76967ab0fa"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🔥</span>
+        <div>
+            <h3>GLM-4.6紧急公关</h3>
+            <div>
+                <span>#公关</span>
+<span>#翻车</span>
+
+            </div>
+        </div>
+    </div>
+    <p>GLM-4.6发布后翻车，智谱紧急公关。网友："每次更新都像拆盲盒，不知道是变强了还是变幽默了。"</p>
+    <p>"更新日志：修复了过于正常的bug。"</p>
+
+<div class="entry-actions"><a href="#meme-dd76967ab0fa" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="树莓派跑ChatGLM" id="meme-4584011f1343"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🍓</span>
+        <div>
+            <h3>树莓派跑ChatGLM</h3>
+            <div>
+                <span>#魔改</span>
+<span>#极限</span>
+
+            </div>
+        </div>
+    </div>
+    <p>硬核玩家尝试在树莓派上跑ChatGLM-6B（INT4量化），慢是慢了点，但真的能跑。"6GB显存？我4GB也能战！"</p>
+    <p>"树莓派：我承受了这个体积不该承受的AI。"</p>
+
+<div class="entry-actions"><a href="#meme-4584011f1343" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="AI替你社交" id="meme-1b8569d7b22b"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🦜</span>
+        <div>
+            <h3>AI替你社交</h3>
+            <div>
+                <span>#AutoGLM</span>
+<span>#社恐</span>
+
+            </div>
+        </div>
+    </div>
+    <p>AutoGLM能帮你评论朋友圈、回复消息、刷抖音点赞。社恐福音——"以后社交都让AI来，我负责躺着。"</p>
+    <p>"已为您点赞3条朋友圈、评论2条、回复1条。"</p>
+
+<div class="entry-actions"><a href="#meme-1b8569d7b22b" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article><article class="archive-entry" data-meme="白天清华晚上Anthropic" id="meme-64d196127e1e"><span>历史梗 · 原始出处待补</span>
+
+    <div>
+        <span>🎭</span>
+        <div>
+            <h3>白天清华晚上Anthropic</h3>
+            <div>
+                <span>#总结</span>
+<span>#人设</span>
+
+            </div>
+        </div>
+    </div>
+    <p>网友给GLM-5的总结："白天是清华系高材生（问它是谁），晚上是Anthropic员工（做网页）。"双重身份，无缝切换。</p>
+    <p>"白天GLM，晚上Claude，打工人的双面人生。"</p>
+
+<div class="entry-actions"><a href="#meme-64d196127e1e" aria-label="这条梗的永久链接"># 永久链接</a><button type="button" class="copy" aria-label="复制这条梗">复制梗 ↗</button></div></article></div></details></section></main>
+<footer><a class="footer-name" href="/meme/">AI萌娘梗百科</a><p>本期核查：2026-10-21 · 角色、插画与编者吐槽为非官方二创。</p><a href="https://github.com/Ghoscro/ai-moe-encyclopedia" target="_blank" rel="noopener noreferrer">公开档案 / GitHub ↗</a><a href="#page-title">回到书斋 ↑</a></footer><div id="toast" role="status" aria-live="polite"></div></body></html>
