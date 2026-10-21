@@ -12,7 +12,9 @@
 
 不会使用 Git？可以先[提交新梗线索](https://github.com/Ghoscro/ai-moe-encyclopedia/issues/new?template=new-meme.yml)。
 
-PR 会自动检查格式、重复内容和构建。维护者检查出处、版权与内容后合并。合并到 `main` 后，Actions 生成 `site` 分支的静态页面，网站定期拉取发布结果。首次外部贡献可能需要维护者批准运行 CI。
+PR 会自动检查格式、重复内容和构建。维护者检查出处、版权与内容后合并。合并到 `main` 后，Actions 生成 `site` 分支的静态页面，网站约每五分钟检查一次发布结果。首次外部贡献可能需要维护者批准运行 CI。
+
+网站当前发布版本可在 [`/meme/release.json`](https://mickerbook.com/meme/release.json) 查看，与 main 的提交编号对应。
 
 ## 本地预览
 

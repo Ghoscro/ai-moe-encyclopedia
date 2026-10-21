@@ -16,4 +16,6 @@ for p in target.iterdir():
 shutil.copytree(ROOT/'dist',target,dirs_exist_ok=True)
 sha=os.environ['SOURCE_COMMIT']
 if not re.fullmatch(r'[0-9a-f]{40}',sha): raise SystemExit('Invalid commit')
-(target/'release.json').write_text(json.dumps({'source_commit':sha,'repository':'Ghoscro/ai-moe-encyclopedia'},indent=2)+'\n',encoding='utf-8')
+receipt=json.dumps({'source_commit':sha,'repository':'Ghoscro/ai-moe-encyclopedia'},indent=2)+'\n'
+(target/'release.json').write_text(receipt,encoding='utf-8')
+(target/'meme/release.json').write_text(receipt,encoding='utf-8')
