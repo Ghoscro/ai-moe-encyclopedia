@@ -1,0 +1,135 @@
+{
+  "as_of": "2026-10-21",
+  "window": [
+    "2026-09-22",
+    "2026-10-21"
+  ],
+  "entries": [
+    {
+      "id": "doubao-canvas-drafts-202610",
+      "kind": "community",
+      "label": "近期实操 · 编者接梗",
+      "date": "2026-10-14",
+      "date_label": "10.14 作者实操记录",
+      "title": "最终版、最终版2，都摊开给我看",
+      "lead": "画布可以往外延，甲方的“再改一下”也可以。",
+      "body": "小羿在 10 月 14 日的文章里，展示了用豆包工作为自己的网站制作宣传物料：参考资料、多版海报和视频脚本放在同一张画布上，修改时可以并排找回前面的版本。",
+      "joke": "你说还是第一版好？等一下，我把第一版从画布左边捞回来。",
+      "boundary": "这是作者公开展示的一次使用记录，本站没有复现该流程。标题和吐槽为编者原创；不把作者体验扩写成对所有账号的效果保证。",
+      "sources": [
+        [
+          "小羿 · 原文与操作截图",
+          "https://xiaoyi.vc/doubao-work-wuxian-huabu-workflow-gaigao.html"
+        ]
+      ],
+      "image": "/meme/assets/doubao-20261021/feature.webp"
+    },
+    {
+      "id": "doubao-all-in-name-202610",
+      "kind": "community",
+      "label": "本月帖子 · 谐音接梗",
+      "date": "2026-10-04",
+      "date_label": "10.04 原帖",
+      "title": "豆包：你是不是听成了“都包”？",
+      "lead": "名字只差一个音，工作量差了一整个待办清单。",
+      "body": "10 月 4 日，LINUX DO 用户 xiaofeng1 发帖玩起“豆包／都包”的谐音，评论区也接着聊它什么都能做一点。一个很短的冷笑话，给这个月的画室添了张新便签。",
+      "joke": "我叫豆包。你把“都包”写进需求单之前，先把需求单给我看看。",
+      "boundary": "只记录这个日期可核对的帖子，不认定作者首创此梗，也不宣称它已全网流行。“都包”是谐音玩笑，不是产品承诺。",
+      "sources": [
+        [
+          "LINUX DO · xiaofeng1 原帖",
+          "https://linux.do/t/topic/2982650?tl=zh_CN"
+        ]
+      ],
+      "image": "/meme/assets/doubao-20261021/hero.webp"
+    },
+    {
+      "id": "doubao-shanxi-guide-202610",
+      "kind": "event",
+      "label": "近期事件 · 编者接梗",
+      "date": "2026-09-29",
+      "date_label": "09.29 事件 / 10.02 报道",
+      "title": "画笔先放下，豆导要带团了",
+      "lead": "刚在画室聊完灵感，转头去古建筑前举起小旗。",
+      "body": "据晋城市政府网站转载的山西日报报道，9 月 29 日豆包成为山西文旅官方 AI 讲解员，服务覆盖省内上百处景区。报道介绍了视频通话和上传景点照片的讲解方式。",
+      "joke": "请各位游客跟上豆导的小叶子，下一站我们去看木塔。",
+      "boundary": "事件发生于 9 月 29 日，报道发表于 10 月 2 日，均在本期窗口内。小旗和“豆导”是本站拟人化创作，不是官方称号，也不是已核实的流行梗。",
+      "sources": [
+        [
+          "晋城市政府 · 山西日报报道",
+          "https://jcgov.gov.cn/dtxx/sxyw/202610/t20261002_2398500.shtml"
+        ]
+      ],
+      "image": "/meme/assets/doubao-20261021/hero.webp"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "https://www.douyin.com/shipin/7543102149325015091",
+      "reason": "聚合页日期前后不一致，不能可靠确定视频发表日期，未收入。"
+    }
+  ],
+  "legacy_ids": [
+    "doubao-seedance-long-take",
+    "meme-2147861d4022",
+    "meme-d4d85030f6fb",
+    "meme-4348a182ca38",
+    "meme-3a6cce663562",
+    "meme-5f25ff6a585f",
+    "meme-69b5aab359d5",
+    "meme-34f4607e78c8",
+    "meme-90d4976bb1c9",
+    "meme-57ad55dd8cd8",
+    "meme-dee797c640d2",
+    "meme-7b6751f8ab5c",
+    "meme-5f0437570625",
+    "meme-0d790c703db8",
+    "meme-6ba21b05565d",
+    "meme-78285e8b7523",
+    "meme-6dc778bd4fd2",
+    "meme-c17ee837e3ab",
+    "meme-8215f78b9625",
+    "meme-ecdd52575fc9",
+    "meme-08b0271c1512",
+    "meme-f22285feac7e",
+    "meme-5ff72463f06f",
+    "meme-019e5b8a4734",
+    "meme-5f77d40c31c4",
+    "meme-3505b01a9fee",
+    "meme-eae98a6e2933",
+    "meme-b88ac14a19c9",
+    "meme-4ae6d089039b",
+    "meme-c0c1013aee83",
+    "meme-93c8ec12b1b3",
+    "meme-1949f98cfe00",
+    "meme-8c788618af1c",
+    "meme-195f2faa1e76",
+    "meme-5d3369974b32",
+    "meme-1dc937667d7c",
+    "meme-3c7b837f7ee6",
+    "meme-01fd5ef64545",
+    "meme-927dceca01bc",
+    "meme-7a48d222e1e0",
+    "meme-c6fd6775935f",
+    "meme-ab288733de7f",
+    "meme-305ed876d8db",
+    "meme-eb687094bd55",
+    "meme-25e618dc0685",
+    "meme-4a1ab64521fc",
+    "meme-3e757b9d57f8",
+    "meme-a3318c7c25b9",
+    "meme-bf45fac4e825",
+    "meme-fbefb93ea0c8",
+    "meme-ffccc6fc9793",
+    "meme-7ce8ef629941",
+    "meme-672c934b4627",
+    "meme-1da98f59c7d7",
+    "meme-9a51e1d44a6b",
+    "meme-4ae093faa7e6",
+    "meme-e0893e7724c9",
+    "meme-4c329cf36248",
+    "meme-aa125dd3a1fa",
+    "meme-89bc3a426f14",
+    "meme-099ba95e1825"
+  ]
+}
