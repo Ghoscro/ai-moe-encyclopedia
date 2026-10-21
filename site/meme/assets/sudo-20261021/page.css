@@ -28,3 +28,5 @@
 @media(max-width:800px){.hero-copy{width:65%}.hero h1{font-size:48px}.hero-heading{font-size:28px}.hero-subheading{font-size:21px}.brief{display:block}.brief .entry-art{height:140px}.featured .entry-art{height:230px}}
 @media(max-width:560px){.hero-copy{width:100%}.hero-art{height:325px;width:100%;object-position:82% 20%}.hero:before{background:linear-gradient(0deg,#fcf9ff 0%,#fcf9ff 44%,transparent 65%)}.hero h1{font-size:47px}.editorial-grid{display:block}.featured{padding-right:0}.featured .entry-art{width:100%;height:auto;aspect-ratio:1.5}.brief{display:grid;grid-template-columns:80px minmax(0,1fr)}.brief .entry-art{height:160px}.key-side>div{min-width:130px}.page-body{gap:0}}
 @media(max-width:360px){.brief{display:block}.hero h1{font-size:40px}}
+/* Keep the existing family navigation within intermediate screen widths. */
+@media(min-width:801px) and (max-width:1100px){.family{flex-wrap:wrap;row-gap:10px}}
