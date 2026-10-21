@@ -1,0 +1,66 @@
+/* MiniMax: film-set storyboard, built from the approved reference. */
+body.minimax{--paper:#fff4ef;--ink:#34272a;--muted:#6c565b;--accent:#d94f72;--pale:#f8d9df;--panel:#fffdf9;background:#fff2ed}
+.minimax .masthead{background:#261d22;color:#fff4ee;padding:.8rem clamp(1rem,3vw,3rem);border-bottom:7px dotted #d8a6a5}
+.minimax .brand{font-family:system-ui,sans-serif;font-weight:900;letter-spacing:.02em}
+.minimax .brand small{color:#e6b6be}
+.minimax .masthead .contribute{color:#ffa9be}
+.minimax .hero{display:block;max-width:none;position:relative;min-height:560px;isolation:isolate;overflow:hidden;border-bottom:10px solid #292025}
+.minimax .hero-art{position:absolute;inset:0;display:block;min-height:0;background:#ffe5dc;z-index:-1}
+.minimax .hero-art:before{display:none}
+.minimax .hero-art img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center}
+.minimax .hero-art .caption{bottom:.7rem;right:1rem;background:#fff4e9d9;color:#603843}
+.minimax .hero-copy{position:relative;min-height:560px;width:43%;margin-right:56%;padding:4.1rem 2.5rem 2rem clamp(1.3rem,4vw,5rem);display:flex;flex-direction:column;justify-content:center;background:#fffaf0e8;clip-path:polygon(0 0,96% 0,100% 5%,97% 12%,100% 22%,97% 34%,100% 47%,97% 60%,100% 72%,97% 86%,100% 100%,0 100%)}
+.minimax .eyebrow{color:#9a3750;font-size:.65rem}
+.minimax .hero h1{font-family:system-ui,sans-serif;font-weight:1000;font-size:clamp(3.5rem,6.7vw,6.5rem);letter-spacing:-.08em;line-height:1;color:#d94f72;margin:.25rem 0 .85rem}
+.minimax .hero h1 span{font:700 .3em/1.2 Editorial,serif;letter-spacing:.12em;color:#32252a;margin-top:.45rem}
+.minimax .hero .lede{font-size:clamp(1.06rem,1.7vw,1.42rem);line-height:1.5;margin:.25rem 0}
+.minimax .hero .intro{font-size:.82rem;line-height:1.5;margin:.4rem 0}
+.minimax .search{margin-top:.6rem;gap:.4rem}
+.minimax .search label{flex-basis:100%;font-size:.76rem;font-weight:700}
+.minimax .search input{background:#fff;border:1px solid #ca8f9e;padding:.48rem .65rem;flex-basis:140px}
+.minimax .search button{padding:.45rem .7rem;border-radius:4px}
+.minimax .search .random{background:#fff7f5;color:#ac3853}
+.minimax .filters{margin-top:.45rem}
+.minimax .filters button{border-radius:3px;background:#fff9f3bc;border-color:#d9a8af;padding:.2rem .55rem}
+.minimax .filters button[aria-pressed=true]{background:#302329;border-color:#302329;color:#fff}
+.minimax .family{max-width:none;background:#302329;color:#fff0ed;border-bottom:7px dotted #d6a1a9;padding:.48rem clamp(1rem,3vw,3rem)}
+.minimax .family span{color:#ebadb8}
+.minimax .page-body{max-width:1500px;padding:1.1rem clamp(1rem,3vw,3rem) 3rem}
+.minimax .section-heading{margin:1rem 0 .45rem;padding:.5rem .8rem;background:#fffaf5;border-left:8px solid #e25b79}
+.minimax .section-heading h2{font-family:system-ui,sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:900;letter-spacing:-.05em;margin:.1rem 0}
+.minimax .kicker{font-size:.64rem;color:#b93d5b}
+.minimax .result-row{border:0;padding:.1rem .3rem .35rem}
+.minimax .grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(270px,.85fr);gap:.7rem;align-items:stretch}
+.minimax .grid .entry{box-shadow:none;background:#fffaf4;border:7px solid #2b2227;outline:2px solid #e4a2ae;outline-offset:-8px}
+.minimax .grid .entry:first-child{grid-row:span 2}
+.minimax .grid .entry:first-child .visual{aspect-ratio:16/9;background:#f3cbd2}
+.minimax .grid .entry:first-child .visual img{object-fit:cover}
+.minimax .grid .entry:first-child .entry-copy{padding:1rem}
+.minimax .grid .entry:first-child h3{font-size:clamp(1.9rem,2.6vw,2.7rem)}
+.minimax .grid .entry:not(:first-child){border-width:5px}
+.minimax .grid .entry:not(:first-child) .entry-copy{padding:.7rem}
+.minimax .grid .entry:not(:first-child) h3{font-size:1.38rem}
+.minimax .grid .entry:not(:first-child) .body{font-size:.8rem;line-height:1.48}
+.minimax .grid .entry:not(:first-child) blockquote{font-size:.76rem}
+.minimax .entry .date{color:#c54261}
+.minimax .entry blockquote{background:#fae1e5}
+.minimax .entry-actions button{border-radius:3px}
+.minimax #theater{margin-top:1.4rem;background:#261d22;color:#fff4ee;padding:1rem 1rem 1.4rem;border-top:8px dotted #ecb5c2;border-bottom:8px dotted #ecb5c2}
+.minimax #theater .section-heading{background:transparent;border-left:0;padding:.2rem 0;color:#fff4ee}
+.minimax #theater .section-heading p:last-child{color:#f2b5c0}
+.minimax #theater .kicker{color:#f1a5b5}
+.minimax .comic-grid{gap:.55rem}
+.minimax .comic-card{background:#392930;color:#fff4ed;border:4px solid #100d10;padding:.25rem;box-shadow:none}
+.minimax .comic-card .visual{height:155px;overflow:hidden;background:#ffdae1}
+.minimax .comic-card .visual img{height:100%;width:100%;aspect-ratio:auto;object-fit:cover;object-position:top}
+.minimax .comic-card .entry-copy{padding:.35rem}
+.minimax .comic-card h3{font:800 1.25rem system-ui,sans-serif;color:#fff6f2}
+.minimax .comic-card p{color:#f4d4d8}
+.minimax .comic-card .body{display:block;font-size:.72rem;line-height:1.45}
+.minimax .comic-card .open-comic{background:#df6681;border:0;border-radius:3px}
+.minimax .comic-card .entry-actions a,.minimax .comic-card details summary{color:#ffb2c3}
+.minimax .note{background:#fff6ed;border:2px dashed #d7839a}
+.minimax footer{background:#241a20}
+@media(max-width:1000px){.minimax .hero-copy{width:48%;margin-right:51%;padding-right:2rem}.minimax .hero h1{font-size:clamp(3.1rem,6.4vw,5rem)}.minimax .grid{grid-template-columns:minmax(0,1.3fr) minmax(270px,1fr)}}
+@media(max-width:700px){.minimax .hero{display:flex;flex-direction:column;min-height:0}.minimax .hero-art{position:relative;order:0;height:320px;max-height:none;z-index:auto}.minimax .hero-art img{object-position:74% center}.minimax .hero-copy{order:1;min-height:0;width:100%;margin:0;padding:1.3rem 1rem 1.5rem;clip-path:none;background:#fff9f2}.minimax .hero h1{font-size:clamp(3.3rem,12vw,5rem)}.minimax .grid{grid-template-columns:1fr}.minimax .grid .entry:first-child{grid-row:auto}.minimax .comic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.minimax .comic-card .visual{height:130px}}
+@media(max-width:440px){.minimax .hero-art{height:250px}.minimax .search input{flex-basis:100%}.minimax .search button{flex:1}.minimax .comic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.minimax .comic-card .visual{height:105px}.minimax .comic-card .entry-actions{flex-wrap:wrap}.minimax #theater{padding:.7rem .45rem}}

@@ -1,0 +1,60 @@
+/* Mistral: bakery-window gazette, built from the approved reference. */
+body.mistral{--paper:#fbf4e5;--ink:#34251f;--muted:#68554b;--accent:#a62227;--pale:#f0dfc6;--panel:#fffaf0;background-image:radial-gradient(#a77b3d12 .5px,transparent .5px);background-size:7px 7px}
+.mistral .masthead{background:#fffaf0;border-bottom:3px double #8b4e2c;padding:.8rem clamp(1rem,3vw,3rem)}
+.mistral .brand{font-size:1.5rem;color:#791b19}
+.mistral .masthead nav a{font-weight:650}
+.mistral .hero{display:block;position:relative;min-height:570px;max-width:none;border-bottom:8px solid #9b4827;isolation:isolate;overflow:hidden}
+.mistral .hero-art{position:absolute;inset:0;min-height:0;background:#edcc9a;display:block;z-index:-1}
+.mistral .hero-art:before{display:none}
+.mistral .hero-art img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center}
+.mistral .hero-art .caption{right:auto;left:1rem;bottom:.7rem;background:#fff9e9e0;color:#663928}
+.mistral .hero-copy{position:relative;min-height:570px;width:43%;margin-left:55%;padding:3.8rem clamp(1.3rem,3vw,3.2rem) 2rem;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(90deg,#fff8e9d9,#fff8e9f0);border-left:1px solid #9b482750;box-shadow:-12px 0 40px #3e1a0c15}
+.mistral .hero h1{font-size:clamp(4rem,7vw,7rem);line-height:.92;color:#831b1a;margin:.35rem 0 .8rem}
+.mistral .hero h1 span{font-size:.32em;letter-spacing:.12em;color:#35261e;margin-top:.4rem}
+.mistral .eyebrow{font-size:.64rem;letter-spacing:.26em}
+.mistral .hero .lede{font-size:clamp(1.05rem,1.8vw,1.5rem);line-height:1.5;margin:.5rem 0}
+.mistral .hero .intro{font-size:.83rem;line-height:1.5;margin:.5rem 0}
+.mistral .search{margin-top:.8rem;gap:.4rem}
+.mistral .search label{flex-basis:100%;color:#763322;font-weight:700;font-size:.76rem}
+.mistral .search input{background:#fffdf8;border-color:#a65b3c;padding:.5rem .65rem;flex-basis:145px}
+.mistral .search button{padding:.48rem .65rem}
+.mistral .search .random{border-color:#a65b3c;background:#fff9e9b0}
+.mistral .filters{margin-top:.55rem}
+.mistral .filters button{border-radius:99px;background:#fffaf0c9;border-color:#b5855b;padding:.22rem .55rem}
+.mistral .filters button[aria-pressed=true]{background:#8c2225;color:white;border-color:#8c2225}
+.mistral .family{max-width:none;background:#f7ead3;border-bottom:1px solid #b5855b;padding:.55rem clamp(1rem,3vw,3rem)}
+.mistral .page-body{max-width:1500px;padding:1.2rem clamp(1rem,3vw,3rem) 3rem}
+.mistral .section-heading{margin:1rem 0 .5rem;border-bottom:2px solid #8d352a;padding-bottom:.4rem}
+.mistral .section-heading h2{font-size:clamp(2rem,3.5vw,3.2rem);margin:.05rem 0}
+.mistral .section-heading h2:before{content:'✦';color:#a6492c;font:1.2rem Georgia,serif;vertical-align:middle;margin-right:.55rem}
+.mistral .kicker{color:#9b382a;font-size:.63rem}
+.mistral .result-row{border:0;padding:.15rem 0 .4rem}
+.mistral .grid{display:grid;grid-template-columns:minmax(0,1.78fr) minmax(280px,.88fr);gap:0 1.1rem;align-items:stretch}
+.mistral .grid .entry{box-shadow:none;background:transparent;border:0;border-top:1px solid #b5855b;border-bottom:1px solid #b5855b}
+.mistral .grid .entry:first-child{grid-row:span 2}
+.mistral .grid .entry:first-child .visual{aspect-ratio:16/9;border:7px solid #fdf8ec;box-shadow:0 4px 18px #47301b33;margin:.65rem 0}
+.mistral .grid .entry:first-child .visual img{object-fit:cover}
+.mistral .grid .entry:first-child .entry-copy{padding:.8rem .7rem 1rem}
+.mistral .grid .entry:first-child h3{font-size:clamp(2rem,3vw,3rem);max-width:15em}
+.mistral .grid .entry:not(:first-child) .entry-copy{padding:.55rem .3rem}
+.mistral .grid .entry:not(:first-child) h3{font-size:1.4rem}
+.mistral .grid .entry:not(:first-child) .body{font-size:.81rem;line-height:1.55}
+.mistral .grid .entry:not(:first-child) blockquote{font-size:.78rem}
+.mistral .entry .date{color:#9b382a}
+.mistral .entry blockquote{background:#f1dfc6;border-left:3px solid #a62227}
+.mistral .entry-actions button{background:#92272a}
+.mistral #theater{margin-top:1.5rem}
+.mistral #theater .section-heading{border-bottom:3px double #a65b3c}
+.mistral .comic-grid{gap:.65rem}
+.mistral .comic-card{box-shadow:none;border:1px solid #a6754c;background:#fff9ed;padding:.35rem}
+.mistral .comic-card .visual{height:150px;overflow:hidden;background:#f8e8d0}
+.mistral .comic-card .visual img{height:100%;width:100%;aspect-ratio:auto;object-fit:cover;object-position:top}
+.mistral .comic-card .entry-copy{padding:.35rem}
+.mistral .comic-card h3{color:#8b2727}
+.mistral .comic-card .body{display:block;font-size:.72rem;line-height:1.45}
+.mistral .comic-card .open-comic{margin-top:auto}
+.mistral .note{background:#f4e2c9;border:2px solid #ae6044}
+.mistral footer{background:#38251d}
+@media(max-width:1000px){.mistral .hero-copy{margin-left:52%;width:48%}.mistral .hero h1{font-size:clamp(3.3rem,7vw,5.5rem)}.mistral .grid{grid-template-columns:minmax(0,1.3fr) minmax(270px,1fr)}.mistral .grid .entry:not(:first-child) .body{font-size:.78rem}}
+@media(max-width:700px){.mistral .hero{display:flex;flex-direction:column;min-height:0}.mistral .hero-art{position:relative;order:0;height:330px;max-height:none;z-index:auto}.mistral .hero-art img{object-position:24% center}.mistral .hero-copy{order:1;min-height:0;width:100%;margin:0;padding:1.3rem 1.1rem 1.5rem;background:#fff7e7;border:0;box-shadow:none}.mistral .hero h1{font-size:clamp(3.6rem,13vw,5rem)}.mistral .hero .intro{max-width:42em}.mistral .grid{grid-template-columns:1fr}.mistral .grid .entry:first-child{grid-row:auto}.mistral .grid .entry:not(:first-child) .entry-copy{padding:.8rem .3rem}.mistral .comic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mistral .comic-card .visual{height:140px}}
+@media(max-width:440px){.mistral .hero-art{height:255px}.mistral .search input{flex-basis:100%}.mistral .search button{flex:1}.mistral .comic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.mistral .comic-card .visual{height:105px}.mistral .comic-card .entry-actions{flex-wrap:wrap}.mistral .section-heading p:last-child{font-size:.72rem}}
