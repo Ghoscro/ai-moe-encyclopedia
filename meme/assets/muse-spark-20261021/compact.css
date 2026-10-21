@@ -1,0 +1,12 @@
+/* Reference r1: scrapbook notes start immediately after search. */
+.page-body{padding-top:0}#recent .result-row{padding:5px 0;min-height:20px}.fact:nth-child(2),.fact:nth-child(3){transform:none}
+#recent .entry-grid{gap:14px;align-items:stretch}.fact .entry-copy{display:flex;flex-direction:column;align-items:stretch;gap:2px;padding:13px 16px 12px;min-height:337px}
+.fact .entry-no{position:absolute;right:13px;top:11px;font-family:Editorial,serif;font-size:15px;color:#d69ab1}.fact .label{font-size:10px}.fact time{font-size:10px;margin:2px 0 0}.fact h3{font-size:24px;margin:6px 0 3px;line-height:1.25}.fact .excerpt{font-size:12px;line-height:1.55;color:#795365;margin:1px 0 5px;min-height:38px}
+.fact .note-vignette{width:100%;height:137px;display:block;object-fit:cover;object-position:center 51%;border:1px solid #efd8d8;box-shadow:0 3px 8px #b6798722;margin:auto 0 6px}
+.fact .full-note{font-size:11px;color:#bf6d8c}.fact .full-note summary{cursor:pointer}.fact .full-note[open]{background:#fff9f8;border-top:1px solid #ebcbd5;margin:6px -4px 0;padding:8px}.fact .full-note[open] summary{font-weight:700;margin-bottom:5px}.fact .full-note p{font-size:12px;line-height:1.65;margin:7px 0}.fact .full-note blockquote{font-size:12px;margin:8px 0;padding:7px 9px}.fact .source-boundary{font-size:11px;line-height:1.6}.fact .source-boundary strong{display:block;color:#a75373}.fact .source-boundary a{color:#a75373;display:inline-block;margin-top:3px}
+.fact .entry-actions{margin-top:auto;padding-top:3px;font-size:10px}
+.comics{margin-top:20px}.comics .section-head{padding-bottom:7px}.comics .section-head h2{font-size:29px}.comics .section-head .eyebrow{font-size:9px}.comics .entry-grid{margin-top:10px!important}
+.family{margin-top:38px;border-top:1px solid #f0d8df;max-width:none}
+@media(max-width:900px){#recent .entry-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.fact .entry-copy{padding:11px 10px 10px;min-height:347px}.fact h3{font-size:20px}.fact .excerpt{font-size:11px;min-height:50px}.fact .note-vignette{height:125px}}
+@media(max-width:768px){#recent .entry-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.fact .entry-copy{min-height:350px}.fact .note-vignette{height:112px}}
+@media(max-width:700px){#recent .entry-grid{grid-template-columns:1fr;gap:13px}.fact .entry-copy{min-height:0;padding:15px}.fact h3{font-size:24px}.fact .excerpt{min-height:0}.fact .note-vignette{height:150px}.fact .entry-actions{margin-top:5px}}
