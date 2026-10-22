@@ -1,0 +1,4 @@
+.pageviews { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:.4rem 1.2rem; padding:1rem; margin:0; color:#706779; font:inherit; font-size:.8rem; line-height:1.7; text-align:center; }
+.pageviews span { white-space:nowrap; }
+.pageviews b { font-weight:600; font-variant-numeric:tabular-nums; }
+.pageviews small { flex-basis:100%; font-size:.72rem; opacity:.8; }
