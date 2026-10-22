@@ -1,0 +1,28 @@
+[Unit]
+Description=AIHER aggregate pageview counter
+After=local-fs.target
+
+[Service]
+Type=simple
+User=aiher-stats
+Group=www
+ExecStart=/usr/bin/python3 /opt/aiher-stats/pageviews.py
+Restart=on-failure
+RestartSec=3
+RuntimeDirectory=aiher-stats
+RuntimeDirectoryMode=0750
+StateDirectory=aiher-stats
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+RestrictAddressFamilies=AF_UNIX
+CapabilityBoundingSet=
+MemoryMax=96M
+TasksMax=32
+
+[Install]
+WantedBy=multi-user.target

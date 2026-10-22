@@ -128,6 +128,9 @@ def migrate_page(doc, path):
     route = '/' if path == 'meme/index.html' else '/' + path.removesuffix('index.html')
     canonical = SITE_ORIGIN + route
     doc = doc.replace('</head>', '<link rel="canonical" href="'+canonical+'"><meta property="og:url" content="'+canonical+'"></head>', 1)
+    counter = '<aside class="pageviews" data-pageviews aria-label="页面浏览统计"><span>累计浏览 <b data-count="total">—</b></span><span>今日浏览 <b data-count="today">—</b></span><span>本页浏览 <b data-count="page">—</b></span><small data-stats-note>页面浏览次数 · 今日按北京时间计算</small></aside>'
+    doc = doc.replace('</head>', '<link rel="stylesheet" href="/meme/pageviews.css"><script defer src="/meme/pageviews.js"></script></head>', 1)
+    doc = doc.replace('</body>', counter + '</body>', 1)
     return doc
 
 def build(root=ROOT, output=None):
