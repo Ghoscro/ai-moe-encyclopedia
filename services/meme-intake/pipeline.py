@@ -169,8 +169,15 @@ def advance(receipt, path, prepare_only=False):
                 return
             if info['headRefOid'] != receipt['commit']:
                 raise RuntimeError('PR head changed; stop for inspection')
-            command('gh', 'pr', 'merge', receipt['pr'], '--squash',
-                    '--match-head-commit', receipt['commit'])
+            merge_args = ['gh', 'pr', 'merge', receipt['pr'], '--squash',
+                          '--match-head-commit', receipt['commit']]
+            if os.environ.get('MEME_ALLOW_ADMIN_MERGE') == '1':
+                comparison = json.loads(command('gh', 'api',
+                    f'repos/{REPOSITORY}/compare/main...{receipt["commit"]}'))
+                if comparison.get('status') not in ('ahead', 'identical'):
+                    raise RuntimeError('Base branch changed; update and revalidate before merging')
+                merge_args.append('--admin')
+            command(*merge_args)
             info = json.loads(command('gh', 'pr', 'view', receipt['pr'], '--json', 'mergeCommit,state'))
         if info['state'] != 'MERGED':
             return
