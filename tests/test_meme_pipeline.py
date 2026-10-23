@@ -39,6 +39,7 @@ class PipelineTest(unittest.TestCase):
 
     def receipt(self, stage='merged'):
         return {'stage': stage, 'commit': 'head123', 'merge_commit': 'merge123',
+                'created_at': '2026-10-23T12:00:00+00:00',
                 'pr': 'https://example.com/pr/1',
                 'entries': [{'fp': 'fingerprint', 'id': 'test-meme',
                              'character': 'gpt', 'url': 'https://example.com/source',
@@ -127,6 +128,61 @@ class PipelineTest(unittest.TestCase):
     def test_public_release_commit_must_match_before_loading_pages(self):
         with mock.patch.object(pipeline, 'public_json', return_value={'source_commit': 'other'}):
             self.assertFalse(pipeline.verify_public(self.receipt()))
+
+    def test_admin_merge_requires_authorization_successful_checks_and_ahead_base(self):
+        for authorized, conclusion, expected_merge in (
+                ('1', 'SUCCESS', True), ('1', 'FAILURE', False),
+                ('1', 'PENDING', False), ('0', 'SUCCESS', True)):
+            with self.subTest(authorized=authorized, conclusion=conclusion):
+                pipeline.save(self.path, self.receipt('pr'))
+                calls = []
+
+                def command(*args):
+                    calls.append(args)
+                    if args[:3] == ('gh', 'pr', 'view'):
+                        if args[-1] == 'mergeCommit,state':
+                            return json.dumps({'state': 'MERGED', 'mergeCommit': {'oid': 'merge123'}})
+                        return json.dumps({'state': 'OPEN', 'headRefOid': 'head123',
+                            'statusCheckRollup': [{'name': 'Content validation', 'conclusion': conclusion}]})
+                    if args[:2] == ('gh', 'api'):
+                        self.assertEqual(args[2], f'repos/{pipeline.REPOSITORY}/compare/main...head123')
+                        return json.dumps({'status': 'ahead'})
+                    if args[:3] == ('gh', 'pr', 'merge'):
+                        return ''
+                    self.fail(f'Unexpected command: {args}')
+
+                self.command.side_effect = command
+                with mock.patch.dict(os.environ, {'MEME_ALLOW_ADMIN_MERGE': authorized}):
+                    with mock.patch.object(pipeline, 'verify_public', return_value=False):
+                        self.main()
+                merges = [args for args in calls if args[:3] == ('gh', 'pr', 'merge')]
+                self.assertEqual(bool(merges), expected_merge)
+                if merges:
+                    self.assertEqual('--admin' in merges[0], authorized == '1')
+                    self.assertIn('--match-head-commit', merges[0])
+                    self.assertEqual(merges[0][-1] if authorized == '0' else merges[0][-2], 'head123')
+                comparisons = [args for args in calls if args[:2] == ('gh', 'api')]
+                self.assertEqual(bool(comparisons), authorized == '1' and conclusion == 'SUCCESS')
+
+    def test_admin_authorization_still_refuses_diverged_base(self):
+        pipeline.save(self.path, self.receipt('pr'))
+        calls = []
+
+        def command(*args):
+            calls.append(args)
+            if args[:3] == ('gh', 'pr', 'view'):
+                return json.dumps({'state': 'OPEN', 'headRefOid': 'head123',
+                    'statusCheckRollup': [{'name': 'Content validation', 'conclusion': 'SUCCESS'}]})
+            if args[:2] == ('gh', 'api'):
+                return json.dumps({'status': 'diverged'})
+            self.fail(f'Must refuse before merge: {args}')
+
+        self.command.side_effect = command
+        with mock.patch.dict(os.environ, {'MEME_ALLOW_ADMIN_MERGE': '1'}):
+            with self.assertRaisesRegex(RuntimeError, 'Base branch changed'):
+                self.main()
+        self.assertFalse(any(args[:3] == ('gh', 'pr', 'merge') for args in calls))
+        self.assertEqual(json.loads(self.path.read_text(encoding='utf-8'))['stage'], 'pr')
 
 
 if __name__ == '__main__':
