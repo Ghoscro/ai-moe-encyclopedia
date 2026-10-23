@@ -75,10 +75,15 @@ def prepare(args, receipt_path):
     with db.Store() as store:
         rows = store.list(status='pending', min_score=30, limit=200)
         rows.sort(key=lambda r: (bool(intake.radar.match_signals(r)), r['meme_score']), reverse=True)
+        rows = editorial.balanced_candidates(rows)
+        limit = min(args.limit, 3)
+        used_characters = set()
         selections = written = 0
         for row in rows:
-            if len(chosen) >= args.limit:
+            if len(chosen) >= limit:
                 break
+            if row.get('character') in used_characters:
+                continue
             card = intake._load_card(row)
             selection_hash = hashlib.sha256(json.dumps({'version': editorial.VERSION,
                 'source': {k: row.get(k, '') for k in ('title', 'summary', 'url')}},
@@ -98,7 +103,7 @@ def prepare(args, receipt_path):
                 sort_keys=True, ensure_ascii=False).encode()).hexdigest()
             if card.get('review_hash') == current_digest and card.get('review_approved') is False:
                 continue
-            if written >= args.limit:
+            if written >= limit:
                 break
             written += 1
             draft = card.get('llm_entry')
@@ -125,8 +130,9 @@ def prepare(args, receipt_path):
             entry = intake._merge_llm(intake._entry_from_card(row, card, entry_id), row, card)
             entry['kind'] = 'original'  # generated dialogue is fictional, not an observed event
             reason = intake._prewrite_checks(entry, entry_id)
-            if reason:
+            if reason or entry['character'] in used_characters:
                 continue
+            used_characters.add(entry['character'])
             chosen.append({'fp': row['fp'], 'id': entry_id, 'character': entry['character'],
                            'url': row['url'], 'entry': entry})
     if not chosen:
@@ -253,7 +259,7 @@ def main():
             # Keep immutable receipts; next cycle is paced independently from resume attempts.
             age = time.time() - path.stat().st_mtime
             if age < 20 * 3600:
-                print('Already live; next collection after 20 hours.')
+                print('Collection cooldown; next collection after 20 hours.')
                 return
             save(path.with_name('release-' + receipt.get('merge_commit', receipt['created_at'].replace(':', '-'))[:24] + '.json'), receipt)
             receipt = None
