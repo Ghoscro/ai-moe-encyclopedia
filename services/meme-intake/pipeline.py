@@ -17,6 +17,7 @@ import urllib.request
 import intake
 import db
 import llm
+import editorial
 from locking import exclusive
 
 ROOT = intake.ROOT
@@ -72,9 +73,34 @@ def prepare(args, receipt_path):
     model = llm.MemeLLM()
     chosen = []
     with db.Store() as store:
-        rows = store.list(status='pending', min_score=70, limit=args.limit)
+        rows = store.list(status='pending', min_score=30, limit=200)
+        rows.sort(key=lambda r: (bool(intake.radar.match_signals(r)), r['meme_score']), reverse=True)
+        selections = written = 0
         for row in rows:
+            if len(chosen) >= args.limit:
+                break
             card = intake._load_card(row)
+            selection_hash = hashlib.sha256(json.dumps({'version': editorial.VERSION,
+                'source': {k: row.get(k, '') for k in ('title', 'summary', 'url')}},
+                sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+            if card.get('selection_hash') != selection_hash:
+                if selections >= 8:
+                    break
+                selections += 1
+                card['selection'] = model.select(row)
+                if card['selection']:
+                    card['selection_hash'] = selection_hash
+                store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
+            if not editorial.selection_passes(card.get('selection'), row):
+                continue
+            current_digest = hashlib.sha256(json.dumps({'version': editorial.VERSION,
+                'draft': card.get('llm_entry'), 'url': row['url'], 'summary': row['summary']},
+                sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+            if card.get('review_hash') == current_digest and card.get('review_approved') is False:
+                continue
+            if written >= args.limit:
+                break
+            written += 1
             draft = card.get('llm_entry')
             if not llm.valid_draft(draft):
                 draft = model.draft(row)
@@ -82,12 +108,16 @@ def prepare(args, receipt_path):
                     continue
                 card['llm_entry'] = draft
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
-            digest = hashlib.sha256(json.dumps({'draft': draft, 'url': row['url'],
+            digest = hashlib.sha256(json.dumps({'version': editorial.VERSION, 'draft': draft, 'url': row['url'],
                 'summary': row['summary']}, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
             if card.get('review_hash') != digest:
-                accepted = model.review(row, draft)
-                card['review_hash'] = digest
+                report = model.review_report(row, draft)
+                accepted = editorial.review_passes(report, draft)
+                if report:
+                    card['review_hash'] = digest
                 card['review_approved'] = accepted
+                card['review_report'] = report
+                card['review_version'] = editorial.VERSION
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
             if card.get('review_approved') is not True:
                 continue
