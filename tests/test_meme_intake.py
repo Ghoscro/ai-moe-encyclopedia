@@ -816,7 +816,7 @@ class RunTest(unittest.TestCase):
                 return [item], {'source': 'fixture', 'items': 1}
         with contextlib.ExitStack() as stack:
             for name in ('AIHotSource', 'EditorialSource', 'BaiduHotSource',
-                         'DouyinHotSource', 'GcoresRSSSource', 'SspaiRSSSource'):
+                         'DouyinHotSource', 'GcoresRSSSource', 'SspaiRSSSource', 'SimonOriginalRSSSource'):
                 stack.enter_context(mock.patch.object(intake, name, FixtureSource))
             stack.enter_context(mock.patch.object(llm_mod, 'is_configured', return_value=True))
             model = stack.enter_context(mock.patch.object(llm_mod, 'MemeLLM'))
@@ -842,13 +842,13 @@ class RunTest(unittest.TestCase):
                 intake.main()
         summary = json.loads(out.getvalue())
         # aihot 1 + baidu 3 + douyin 2 + gcores 2 + sspai 2
-        self.assertEqual(summary['fetched'], 10)
+        self.assertEqual(summary['fetched'], 12)
         # The same URL from a second source is fetched but never re-queued.
         self.assertEqual(summary['new'], 7)
         receipts = {r['source']: r for r in
                     json.loads(self.store.last_run()['result'])['receipts']}
         self.assertEqual(set(receipts),
-                         {'aihot', 'editorial', 'baidu', 'douyin', 'gcores', 'sspai'})
+                         {'aihot', 'editorial', 'baidu', 'douyin', 'gcores', 'sspai', 'simon-original'})
         self.assertEqual(receipts['baidu']['items'], 3)
         self.assertEqual(receipts['gcores']['items'], 2)
         self.assertEqual({r['source'] for r in self.store.list(limit=100)},

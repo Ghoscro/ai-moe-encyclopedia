@@ -19,6 +19,7 @@ import intake
 import db
 import llm
 import editorial
+import origin
 from locking import exclusive
 
 ROOT = intake.ROOT
@@ -94,7 +95,7 @@ def prepare(args, receipt_path):
         rows = editorial.balanced_candidates(rows)
         limit = min(args.limit, 3)
         used_characters = set()
-        selections = written = rejected = 0
+        selections = written = rejected = origin_checks = 0
         for row in rows:
             if len(chosen) >= limit:
                 break
@@ -114,6 +115,29 @@ def prepare(args, receipt_path):
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
             if not editorial.selection_passes(card.get('selection'), row):
                 rejected += 1
+                continue
+            # Aggregator summaries are discovery hints, never the factual basis.
+            evidence = card.get('origin')
+            if not (isinstance(evidence, dict) and evidence.get('version') == origin.VERSION
+                    and evidence.get('url') == row['url']):
+                evidence = origin.fetch(row['url'])
+                card['origin'] = evidence
+                store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
+            if not evidence:
+                continue
+            row = dict(row, title='Original source: ' + row['url'], summary=evidence['text'])
+            if card.get('origin_selection_hash') != evidence['sha256']:
+                if origin_checks >= 3:
+                    continue
+                origin_checks += 1
+                card['origin_selection'] = model.select(row)
+                if card['origin_selection']:
+                    card['origin_selection_hash'] = evidence['sha256']
+                # Old drafts based only on aggregator prose must not survive.
+                for key in ('llm_entry', 'review_hash', 'review_approved', 'review_report'):
+                    card.pop(key, None)
+                store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
+            if not editorial.selection_passes(card.get('origin_selection'), row):
                 continue
             current_digest = hashlib.sha256(json.dumps({'version': editorial.VERSION,
                 'draft': card.get('llm_entry'), 'url': row['url'], 'summary': row['summary']},

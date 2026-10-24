@@ -54,7 +54,8 @@ class EditorialTests(unittest.TestCase):
             model=mock.Mock()
             model.select.return_value=self.selection
             model.review_report.return_value=self.report
-            with mock.patch.object(pipeline,'command',return_value=''), mock.patch.object(pipeline.intake,'cmd_run'), mock.patch.object(pipeline.llm,'is_configured',return_value=True), mock.patch.object(pipeline.llm,'MemeLLM',return_value=model), mock.patch.object(pipeline.llm,'valid_draft',return_value=True), mock.patch.object(pipeline.intake,'_entry_from_card',return_value={}), mock.patch.object(pipeline.intake,'_merge_llm',side_effect=lambda base,row,card: {'character':row['character']}), mock.patch.object(pipeline.intake,'_prewrite_checks',return_value=None):
+            model.draft.return_value=self.draft
+            with mock.patch.object(pipeline.origin,'fetch',side_effect=lambda url: {'version':pipeline.origin.VERSION,'url':url,'text':self.item['summary'],'sha256':'fixture'}), mock.patch.object(pipeline,'command',return_value=''), mock.patch.object(pipeline.intake,'cmd_run'), mock.patch.object(pipeline.llm,'is_configured',return_value=True), mock.patch.object(pipeline.llm,'MemeLLM',return_value=model), mock.patch.object(pipeline.llm,'valid_draft',side_effect=lambda d: bool(d)), mock.patch.object(pipeline.intake,'_entry_from_card',return_value={}), mock.patch.object(pipeline.intake,'_merge_llm',side_effect=lambda base,row,card: {'character':row['character']}), mock.patch.object(pipeline.intake,'_prewrite_checks',return_value=None):
                 result=pipeline.prepare(SimpleNamespace(prepare_only=True,limit=5),Path(tmp)/'receipt.json')
             self.assertEqual([e['character'] for e in result['entries']], ['gpt','claude','doubao'])
             self.assertEqual(model.review_report.call_count,3)
@@ -65,11 +66,24 @@ class EditorialTests(unittest.TestCase):
                 store.add_candidate({'fp':'a'*40,'source':'fixture','url':'https://example.com/news','title':'模型发布428B参数','summary':'只发布参数和下载地址','meme_score':99,'draft':'{}'})
             model=mock.Mock()
             model.select.return_value={'eligible':False,'source_type':'ordinary_news','reason':'只有参数发布，无具体笑点'}
-            with mock.patch.object(pipeline,'command',return_value=''), mock.patch.object(pipeline.intake,'cmd_run'), mock.patch.object(pipeline.llm,'is_configured',return_value=True), mock.patch.object(pipeline.llm,'MemeLLM',return_value=model):
+            with mock.patch.object(pipeline.origin,'fetch',side_effect=lambda url: {'version':pipeline.origin.VERSION,'url':url,'text':self.item['summary'],'sha256':'fixture'}), mock.patch.object(pipeline,'command',return_value=''), mock.patch.object(pipeline.intake,'cmd_run'), mock.patch.object(pipeline.llm,'is_configured',return_value=True), mock.patch.object(pipeline.llm,'MemeLLM',return_value=model):
                 result=pipeline.prepare(SimpleNamespace(prepare_only=True,limit=3),Path(tmp)/'receipt.json')
             self.assertIsNone(result)
             model.draft.assert_not_called()
             model.review_report.assert_not_called()
             self.assertEqual(json.loads((Path(tmp)/'receipt.json').read_text())['stage'],'empty')
+
+
+    def test_aggregator_approval_cannot_override_original_rejection(self):
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ, {'MEME_INTAKE_DB':str(Path(tmp)/'queue.db')}):
+            with db.Store() as store:
+                store.add_candidate(dict(self.item, fp='z'*40, source='fixture',
+                    url='https://simonwillison.net/test/', character='claude', meme_score=99, draft='{}'))
+            model=mock.Mock()
+            model.select.side_effect=[self.selection, {'eligible':False,'reason':'原文没有黑白线稿笑点'}]
+            with mock.patch.object(pipeline,'command',return_value=''), mock.patch.object(pipeline.intake,'cmd_run'), mock.patch.object(pipeline.llm,'is_configured',return_value=True), mock.patch.object(pipeline.llm,'MemeLLM',return_value=model), mock.patch.object(pipeline.origin,'fetch',return_value={'version':pipeline.origin.VERSION,'url':'https://simonwillison.net/test/','text':'The original shows a colorful oil painting.','sha256':'test'}):
+                self.assertIsNone(pipeline.prepare(SimpleNamespace(prepare_only=True,limit=3),Path(tmp)/'receipt.json'))
+            model.draft.assert_not_called()
+            self.assertEqual(model.select.call_count,2)
 
 if __name__=='__main__': unittest.main()

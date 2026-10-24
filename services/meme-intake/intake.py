@@ -45,7 +45,7 @@ import radar                    # noqa: E402
 import llm as llm_mod           # noqa: E402
 from sources import (AIHotSource, EditorialSource,  # noqa: E402
                      BaiduHotSource, DouyinHotSource,
-                     GcoresRSSSource, SspaiRSSSource)
+                     GcoresRSSSource, SspaiRSSSource, SimonOriginalRSSSource)
 import build as build_mod       # noqa: E402  (validate() is canonical)
 from locking import exclusive
 
@@ -193,7 +193,7 @@ def cmd_run(args):
     run_id = uuid.uuid4().hex
     store.run_start(run_id)
     sources = [AIHotSource(), EditorialSource(), BaiduHotSource(), DouyinHotSource(),
-               GcoresRSSSource(), SspaiRSSSource()]
+               GcoresRSSSource(), SspaiRSSSource(), SimonOriginalRSSSource()]
     use_llm = llm_mod.is_configured()
     model = llm_mod.MemeLLM() if use_llm else None
     fetched = new = queued = llm_calls = 0
