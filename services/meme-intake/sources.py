@@ -519,3 +519,9 @@ class SspaiRSSSource(RSSSource):
 
     def __init__(self):
         super().__init__(self.URL, self.name, source_score=50)
+
+class SimonOriginalRSSSource(RSSSource):
+    """First-person experiments; each item still requires original-page review."""
+    def __init__(self):
+        super().__init__('https://simonwillison.net/atom/everything/',
+                         'simon-original', source_score=60)
