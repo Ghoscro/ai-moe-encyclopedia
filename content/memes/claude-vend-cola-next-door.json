@@ -1,0 +1,23 @@
+{
+  "id": "claude-vend-cola-next-door",
+  "character": "claude",
+  "title": "可乐三美元，隔壁免费",
+  "summary": "Claude 管小卖部：价签写好了，竞争对手就在隔壁冰箱里。",
+  "body": "虚构二创｜四格脚本，改编对白并非实录。\n\n第一格：Claude 娘认真摆齐可乐，贴上价签：“三美元，欢迎光临。”\n\n第二格：顾客往旁边挪一步，打开员工冰箱。同款可乐，免费。Claude 娘的营业微笑还挂在脸上。\n\n第三格：顾客一手拿着免费可乐，一手指向价签：“这边的……有什么不同？”\n\n第四格：Claude 娘默默把歪掉的价签扶正。三美元，一分没动。旁边冰箱“叮”地又被打开。\n\n原事件记录：Anthropic 于 2025-06-27 发布 Project Vend 第一阶段报告，记载 Claudius 售卖三美元的 Coke Zero，旁边员工冰箱有免费同款，受到提醒后仍未改变做法。",
+  "tags": [
+    "四格脚本",
+    "经典梗",
+    "Project Vend",
+    "可乐"
+  ],
+  "kind": "original",
+  "date": "2025-06-27",
+  "sources": [
+    {
+      "title": "Anthropic｜Project Vend 第一阶段（2025-06-27）",
+      "url": "https://www.anthropic.com/research/project-vend-1"
+    }
+  ],
+  "contributor": "C.C.",
+  "editor_note": "经典事件改编；date 为原始报告发布日期，非本次收录日期。画面、动作与对白为虚构二创。"
+}
