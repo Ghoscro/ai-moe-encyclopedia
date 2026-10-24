@@ -4,6 +4,7 @@ Run only in a dedicated automation checkout. No secrets belong in Git.
 The receipt, DB and environment file stay in ignored data/ or external paths.
 """
 import argparse
+import datetime as dt
 import hashlib
 import json
 import os
@@ -60,6 +61,18 @@ def verify_public(receipt):
     return True
 
 
+def collection_due(last_run):
+    if not last_run or not last_run.get('finished_at'):
+        return True
+    finished = dt.datetime.fromisoformat(last_run['finished_at'].replace('Z', '+00:00'))
+    return time.time() - finished.timestamp() >= 20 * 3600
+
+
+def receipt_cooldown(receipt):
+    # Empty editorial batches must not stall the remaining queue for a day.
+    return 3600 if receipt['stage'] == 'empty' else 20 * 3600
+
+
 def prepare(args, receipt_path):
     if command('git', 'status', '--porcelain') and not args.prepare_only:
         raise RuntimeError('Automation checkout is dirty; preserve edits and stop')
@@ -67,7 +80,10 @@ def prepare(args, receipt_path):
         command('git', 'fetch', 'origin', 'main')
         command('git', 'checkout', 'main')
         command('git', 'merge', '--ff-only', 'origin/main')
-    intake.cmd_run(SimpleNamespace(mode='all', window='7d', threshold=30, llm_limit=0))
+    with db.Store() as store:
+        collect = collection_due(store.last_run())
+    if collect:
+        intake.cmd_run(SimpleNamespace(mode='all', window='7d', threshold=30, llm_limit=0))
     if not llm.is_configured():
         raise RuntimeError('LLM configuration missing; collection kept, publication stopped')
     model = llm.MemeLLM()
@@ -78,7 +94,7 @@ def prepare(args, receipt_path):
         rows = editorial.balanced_candidates(rows)
         limit = min(args.limit, 3)
         used_characters = set()
-        selections = written = 0
+        selections = written = rejected = 0
         for row in rows:
             if len(chosen) >= limit:
                 break
@@ -90,13 +106,14 @@ def prepare(args, receipt_path):
                 sort_keys=True, ensure_ascii=False).encode()).hexdigest()
             if card.get('selection_hash') != selection_hash:
                 if selections >= 8:
-                    break
+                    continue
                 selections += 1
                 card['selection'] = model.select(row)
                 if card['selection']:
                     card['selection_hash'] = selection_hash
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
             if not editorial.selection_passes(card.get('selection'), row):
+                rejected += 1
                 continue
             current_digest = hashlib.sha256(json.dumps({'version': editorial.VERSION,
                 'draft': card.get('llm_entry'), 'url': row['url'], 'summary': row['summary']},
@@ -135,11 +152,19 @@ def prepare(args, receipt_path):
             used_characters.add(entry['character'])
             chosen.append({'fp': row['fp'], 'id': entry_id, 'character': entry['character'],
                            'url': row['url'], 'entry': entry})
+        diagnostics = {'collected_this_batch': collect, 'candidates_considered': len(rows),
+                       'selections_this_batch': selections, 'selection_rejected': rejected,
+                       'drafts_this_batch': written, 'approved_this_batch': len(chosen),
+                       'last_collection_at': (store.last_run() or {}).get('finished_at'),
+                       'policy_version': editorial.VERSION,
+                       'next_editorial_after_seconds': 3600}
     if not chosen:
-        save(receipt_path, {'stage': 'empty', 'created_at': db.now_iso(), 'entries': []})
+        save(receipt_path, {'stage': 'empty', 'created_at': db.now_iso(), 'entries': [],
+                            'diagnostics': diagnostics})
         print('No eligible reviewed entries; no publication.')
         return None
-    receipt = {'stage': 'planned', 'entries': chosen, 'created_at': db.now_iso()}
+    receipt = {'stage': 'planned', 'entries': chosen, 'created_at': db.now_iso(),
+               'diagnostics': diagnostics}
     save(receipt_path, receipt)  # durable plan BEFORE content writes
     return receipt
 
@@ -258,8 +283,8 @@ def main():
         if receipt and receipt['stage'] in ('live', 'empty'):
             # Keep immutable receipts; next cycle is paced independently from resume attempts.
             age = time.time() - path.stat().st_mtime
-            if age < 20 * 3600:
-                print('Collection cooldown; next collection after 20 hours.')
+            if age < receipt_cooldown(receipt):
+                print('Editorial/publication cooldown; collection is paced separately at 20 hours.')
                 return
             save(path.with_name('release-' + receipt.get('merge_commit', receipt['created_at'].replace(':', '-'))[:24] + '.json'), receipt)
             receipt = None
