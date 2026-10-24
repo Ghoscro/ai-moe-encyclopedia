@@ -128,6 +128,9 @@ def migrate_page(doc, path):
     route = '/' if path == 'meme/index.html' else '/' + path.removesuffix('index.html')
     canonical = SITE_ORIGIN + route
     doc = doc.replace('</head>', '<link rel="canonical" href="'+canonical+'"><meta property="og:url" content="'+canonical+'"></head>', 1)
+    # The self-contained cafe has no analytics API dependency.
+    if path == 'cafe/index.html':
+        return doc
     counter = '<aside class="pageviews" data-pageviews aria-label="页面浏览统计"><span>累计浏览 <b data-count="total">—</b></span><span>今日浏览 <b data-count="today">—</b></span><span>本页浏览 <b data-count="page">—</b></span><small data-stats-note>页面浏览次数 · 今日按北京时间计算</small></aside>'
     doc = doc.replace('</head>', '<link rel="stylesheet" href="/meme/pageviews.css"><script defer src="/meme/pageviews.js"></script></head>', 1)
     doc = doc.replace('</body>', counter + '</body>', 1)
@@ -174,7 +177,7 @@ def build(root=ROOT, output=None):
     for page in output.rglob('*.html'):
         page.write_text(migrate_page(page.read_text(encoding='utf-8'), page.relative_to(output).as_posix()), encoding='utf-8', newline='\n')
     shutil.copyfile(output/'meme/index.html', output/'index.html')
-    urls = ['https://aiher.ai/'] + [SITE_ORIGIN+'/'+slug+'/' for slug in CHARACTERS] + [SITE_ORIGIN+'/meme/contribute/']
+    urls = ['https://aiher.ai/'] + [SITE_ORIGIN+'/'+slug+'/' for slug in CHARACTERS] + [SITE_ORIGIN+'/meme/contribute/', SITE_ORIGIN+'/cafe/']
     (output/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+u+'</loc></url>' for u in urls)+'</urlset>\n', encoding='utf-8')
     (output/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: https://aiher.ai/sitemap.xml\n', encoding='utf-8')
     print(f'Built {total} entries ({len(rows)} community submissions) into {output.name}')
