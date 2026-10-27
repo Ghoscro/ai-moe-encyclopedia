@@ -96,13 +96,16 @@ def prepare(args, receipt_path):
         limit = min(args.limit, 3)
         used_characters = set()
         selections = written = rejected = origin_checks = 0
+        origin_unavailable = origin_rejected = 0
         for row in rows:
+            discovery_row = row
+            row = origin.selection_input(row)
             if len(chosen) >= limit:
                 break
             if row.get('character') in used_characters:
                 continue
             card = intake._load_card(row)
-            selection_hash = hashlib.sha256(json.dumps({'version': editorial.VERSION,
+            selection_hash = hashlib.sha256(json.dumps({'version': editorial.VERSION, 'input_version': origin.VERSION,
                 'source': {k: row.get(k, '') for k in ('title', 'summary', 'url')}},
                 sort_keys=True, ensure_ascii=False).encode()).hexdigest()
             if card.get('selection_hash') != selection_hash:
@@ -113,19 +116,22 @@ def prepare(args, receipt_path):
                 if card['selection']:
                     card['selection_hash'] = selection_hash
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
-            if not editorial.selection_passes(card.get('selection'), row):
+            if not editorial.discovery_passes(card.get('selection'), row):
                 rejected += 1
                 continue
             # Aggregator summaries are discovery hints, never the factual basis.
             evidence = card.get('origin')
             if not (isinstance(evidence, dict) and evidence.get('version') == origin.VERSION
-                    and evidence.get('url') == row['url']):
-                evidence = origin.fetch(row['url'])
+                    and evidence.get('discovery_url', evidence.get('url')) == row['url']):
+                evidence = origin.resolve(discovery_row, card['selection'].get('original_source') is True)
                 card['origin'] = evidence
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
             if not evidence:
+                origin_unavailable += 1
+                card['origin_status'] = ('fetch_failed' if origin.allowed(row['url']) else 'unsupported_host')
+                store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
                 continue
-            row = dict(row, title='Original source: ' + row['url'], summary=evidence['text'])
+            row = origin.selection_input(dict(row, url=evidence['url'], title='Original source: ' + evidence['url'], summary=evidence['text']))
             if card.get('origin_selection_hash') != evidence['sha256']:
                 if origin_checks >= 3:
                     continue
@@ -138,6 +144,7 @@ def prepare(args, receipt_path):
                     card.pop(key, None)
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
             if not editorial.selection_passes(card.get('origin_selection'), row):
+                origin_rejected += 1
                 continue
             current_digest = hashlib.sha256(json.dumps({'version': editorial.VERSION,
                 'draft': card.get('llm_entry'), 'url': row['url'], 'summary': row['summary']},
@@ -178,6 +185,7 @@ def prepare(args, receipt_path):
                            'url': row['url'], 'entry': entry})
         diagnostics = {'collected_this_batch': collect, 'candidates_considered': len(rows),
                        'selections_this_batch': selections, 'selection_rejected': rejected,
+                       'origin_unavailable': origin_unavailable, 'origin_rejected': origin_rejected,
                        'drafts_this_batch': written, 'approved_this_batch': len(chosen),
                        'last_collection_at': (store.last_run() or {}).get('finished_at'),
                        'policy_version': editorial.VERSION,

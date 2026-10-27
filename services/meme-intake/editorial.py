@@ -69,3 +69,10 @@ def balanced_candidates(rows):
             if not groups[key]:
                 del groups[key]
     return result
+
+
+def discovery_passes(result, item):
+    # Discovery is not approval: provenance is established on fetched evidence.
+    if not isinstance(result, dict):
+        return False
+    return selection_passes(dict(result, original_source=True), item)
