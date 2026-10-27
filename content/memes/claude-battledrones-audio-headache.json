@@ -1,0 +1,23 @@
+{
+  "id": "claude-battledrones-audio-headache",
+  "character": "claude",
+  "title": "联机成功，玩家先头痛了",
+  "summary": "两台手机靠声音同步游戏，玩家先举手申请换个联机方式。",
+  "body": "虚构二创｜四格脚本，画面与对白为改编，并非对话实录。\n\n第一格：两位玩家把手机摆到一起。Claude 娘展示新游戏：“这次，两台手机能靠声音联机！”玩家搓搓手：“开战！”\n\n第二格：屏幕里的无人机开始交战，两台手机也忙着互相发声。Claude 娘盯着同步状态，满意地点头：“配合默契。”\n\n第三格：游戏还在打，玩家已经一人捂住一只耳朵。“先暂停……头疼。”Claude 娘举着胜利小旗，僵在半空。\n\n第四格：切换在线联机，两人重新坐好。Claude 娘把小旗插回桌上：“这次只让无人机交火。”玩家：“耳朵申请观战。”\n\n原出处：Simon Willison 于2026-10-20发布的 Battle Drones 开发日志，记录游戏支持附近设备通过声音同步；后续补记音频联机引起头痛，并加入在线联机。人物、动作与对白为四格改编。",
+  "tags": [
+    "四格脚本",
+    "Claude",
+    "联机",
+    "开发趣事"
+  ],
+  "kind": "original",
+  "date": "2026-10-20",
+  "sources": [
+    {
+      "title": "Simon Willison｜Battle Drones 开发日志（2026-10-20）",
+      "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
+    }
+  ],
+  "contributor": "C.C.",
+  "editor_note": "日期为原文发布日期；在线联机及头痛为作者后续补记，具体补记日期未单独标出。"
+}
