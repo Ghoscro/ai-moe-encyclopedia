@@ -16,6 +16,7 @@ import json
 import os
 import urllib.request
 import editorial
+import origin
 
 SYSTEM = (
     '只写原素材确有笑点的短梗；模型发布、跑分、监管登记等普通新闻不得硬编。'
@@ -72,8 +73,16 @@ class MemeLLM:
             return {}
 
     def select(self, item):
-        return self.editorial_json(editorial.SELECTION_PROMPT,
-            {k: str(item.get(k, ''))[:6000] for k in ('title', 'summary', 'url')})
+        item = origin.selection_input(item)
+        data = {k: str(item.get(k, ''))[:6000] for k in ('title', 'summary', 'url')}
+        result = self.editorial_json(editorial.SELECTION_PROMPT, data)
+        if (result.get('eligible') is True
+                and not editorial.discovery_passes(result, item)):
+            # One bounded retry; a plausible paraphrase never becomes evidence.
+            result = self.editorial_json(editorial.SELECTION_PROMPT +
+                '\n上次输出未满足格式或逐字引用要求。重新判断；evidence_quote必须从输入连续复制8-200字，'
+                '不得改标点、拼接或补字。没有合格原句就拒绝。', data)
+        return result
 
     def review_report(self, item, draft):
         return self.editorial_json(editorial.REVIEW_PROMPT,
