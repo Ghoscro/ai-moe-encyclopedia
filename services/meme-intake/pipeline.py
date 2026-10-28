@@ -20,6 +20,7 @@ import db
 import llm
 import editorial
 import origin
+import daily_plan
 from locking import exclusive
 
 ROOT = intake.ROOT
@@ -71,7 +72,7 @@ def collection_due(last_run):
 
 def receipt_cooldown(receipt):
     # Empty editorial batches must not stall the remaining queue for a day.
-    return 3600 if receipt['stage'] == 'empty' else 20 * 3600
+    return 3600  # bounded hourly batches; daily character quotas prevent dominance
 
 
 def prepare(args, receipt_path):
@@ -90,7 +91,11 @@ def prepare(args, receipt_path):
     model = llm.MemeLLM()
     chosen = []
     with db.Store() as store:
-        rows = store.list(status='pending', min_score=30, limit=200)
+        daily_plan.discover_archives(store, receipt_path.parent)
+        served = daily_plan.live_counts(receipt_path.parent)
+        all_rows = store.list(status='pending', min_score=30, limit=2000)
+        daily_plan.write_coverage(receipt_path.parent, all_rows)
+        rows = [r for r in all_rows if r.get('character') in daily_plan.ROSTER and served[r['character']] < 1]
         rows.sort(key=lambda r: (bool(intake.radar.match_signals(r)), r['meme_score']), reverse=True)
         rows = editorial.balanced_candidates(rows)
         limit = min(args.limit, 3)
@@ -174,9 +179,14 @@ def prepare(args, receipt_path):
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
             if card.get('review_approved') is not True:
                 continue
+            if draft.get('character') != row.get('character'):
+                continue  # one model cannot fill another model's daily slot
             entry_id = intake._auto_id(row)
             entry = intake._merge_llm(intake._entry_from_card(row, card, entry_id), row, card)
             entry['kind'] = 'original'  # generated dialogue is fictional, not an observed event
+            if row.get('source', '').startswith('author-archive-'):
+                entry['date'] = row['published_at'][:10]
+                entry['editor_note'] += ' 经典素材新编；日期为原文发布日期，非今日事件。'
             reason = intake._prewrite_checks(entry, entry_id)
             if reason or entry['character'] in used_characters:
                 continue
@@ -189,7 +199,8 @@ def prepare(args, receipt_path):
                        'drafts_this_batch': written, 'approved_this_batch': len(chosen),
                        'last_collection_at': (store.last_run() or {}).get('finished_at'),
                        'policy_version': editorial.VERSION,
-                       'next_editorial_after_seconds': 3600}
+                       'next_editorial_after_seconds': 3600,
+                       'daily_target': 1, 'daily_live': served}
     if not chosen:
         save(receipt_path, {'stage': 'empty', 'created_at': db.now_iso(), 'entries': [],
                             'diagnostics': diagnostics})
@@ -284,6 +295,8 @@ def advance(receipt, path, prepare_only=False):
         receipt['stage'] = 'live'
         receipt['verified_at'] = db.now_iso()
         save(path, receipt)
+        with db.Store() as store:
+            daily_plan.write_coverage(path.parent, store.list(status='pending', limit=2000))
         print('Public deployment verified: ' + receipt['merge_commit'])
 
 
@@ -316,7 +329,7 @@ def main():
             # Keep immutable receipts; next cycle is paced independently from resume attempts.
             age = time.time() - path.stat().st_mtime
             if age < receipt_cooldown(receipt):
-                print('Editorial/publication cooldown; collection is paced separately at 20 hours.')
+                print('Hourly editorial cooldown; per-character daily quotas apply.')
                 return
             save(path.with_name('release-' + receipt.get('merge_commit', receipt['created_at'].replace(':', '-'))[:24] + '.json'), receipt)
             receipt = None
