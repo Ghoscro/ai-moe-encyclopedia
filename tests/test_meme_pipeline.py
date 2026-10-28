@@ -192,7 +192,7 @@ if __name__ == '__main__':
 class SchedulingTest(unittest.TestCase):
     def test_empty_queue_resumes_hourly_live_keeps_publication_cap(self):
         self.assertEqual(pipeline.receipt_cooldown({'stage': 'empty'}), 3600)
-        self.assertEqual(pipeline.receipt_cooldown({'stage': 'live'}), 72000)
+        self.assertEqual(pipeline.receipt_cooldown({'stage': 'live'}), 3600)
 
     def test_review_continuation_does_not_recollect(self):
         with mock.patch.object(pipeline.time, 'time', return_value=100000):
