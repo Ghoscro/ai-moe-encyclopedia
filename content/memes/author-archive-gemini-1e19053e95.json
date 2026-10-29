@@ -1,0 +1,25 @@
+{
+  "id": "author-archive-gemini-1e19053e95",
+  "character": "gemini",
+  "title": "鹈鹕骑行记：脚踩踏板，菜单在篮里",
+  "summary": "把 Gemini 4 Argon 画出“会骑车的鹈鹕”这件事，改成鹈鹕认真飙车、却惦记篮里鱼的拟人反转梗。",
+  "body": "【虚构二创】\n\n第一格：2026年10月13日，Gemini戴着护目镜，在绘图板前勾出一只戴小帽、系围巾的鹈鹕：“自行车要准确，鱼也得多。”\n\n第二格：它把鹈鹕塞进自行车：两只脚稳稳踩踏板，鱼装在车篮里，眼神凶狠得像要冲线。Gemini得意点头：“高配版交付。”\n\n第三格：车轮忽然转动，鹈鹕低头看见篮子里的鱼正望着自己，耳朵瞬间竖起：“等等，乘客怎么也在看菜单？”\n\n第四格：鹈鹕压低帽檐、狠踩两脚，围巾向后猛甩：“别催，先骑！到站再——咳，开饭。”Gemini默默把文件名从“静态SVG”改成“今日骑行照”。\n\n原始线索：https://simonwillison.net/2026/Oct/13/llm-gemini/",
+  "tags": [
+    "Gemini",
+    "鹈鹕骑自行车",
+    "SVG",
+    "Argon",
+    "AI绘图",
+    "虚构二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://simonwillison.net/2026/Oct/13/llm-gemini/",
+      "url": "https://simonwillison.net/2026/Oct/13/llm-gemini/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-13",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。 经典素材新编；日期为原文发布日期，非今日事件。"
+}
