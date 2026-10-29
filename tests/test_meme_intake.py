@@ -4,6 +4,7 @@ Network is never touched: AIHotSource._get / _get_json / _get_text are
 monkeypatched with fixtures, and approvals write into a temp MEMES_DIR.
 """
 import contextlib
+import datetime
 import io
 import json
 import os
@@ -56,7 +57,9 @@ def hot_item(title='GPT 娘玩梗翻车名场面', summary='社区二创爆火�
              category='ai-models'):
     return {'source': 'AIHOT', 'url': url, 'title': title, 'summary': summary,
             'category': category, 'source_score': score,
-            'published_at': published_at or '2026-10-22T10:00:00.000Z',
+            # Queue fixtures are fresh unless a test explicitly requests age.
+            # A fixed calendar date eventually decays below the auto threshold.
+            'published_at': published_at or db_mod.now_iso(),
             'discovered_at': '2026-10-22T10:05:00.000Z'}
 
 
@@ -149,6 +152,13 @@ class RadarTest(unittest.TestCase):
         card = radar.make_lead_card(hot_item())
         self.assertEqual(card['suggested_kind'], 'community')
         self.assertIn('待人工核实', card['note'])
+
+    def test_old_material_still_decays_with_seven_day_half_life(self):
+        now = datetime.datetime.now(datetime.timezone.utc)
+        week_old = (now - datetime.timedelta(days=7)).isoformat()
+        self.assertAlmostEqual(radar._freshness(week_old), 0.5, places=5)
+        self.assertLess(radar.score_item(hot_item(published_at=week_old))['meme_score'],
+                        radar.score_item(hot_item())['meme_score'])
 
     def test_hostile_item_types_do_not_explode(self):
         # P1-3: a third-party API drifting into ints/None must not crash
