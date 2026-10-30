@@ -30,6 +30,13 @@ class EditorialTests(unittest.TestCase):
         self.assertEqual(editorial.balanced_candidates([]),[])
     def test_concrete_source_supported_incident_can_pass(self):
         self.assertTrue(editorial.selection_passes(self.selection,self.item))
+    def test_original_dates_sort_newest_first_not_score_or_ingestion(self):
+        rows=[{'character':'gpt','id':'old','published_at':'2024-01-01','meme_score':100},
+              {'character':'gpt','id':'unknown','created_at':'2099-01-01'},
+              {'character':'gpt','id':'future','published_at':'2999-01-01'},
+              {'character':'gpt','id':'new','published_at':'2025-01-01T08:00:00+08:00','meme_score':30}]
+        self.assertEqual([r['id'] for r in editorial.balanced_candidates(rows)],
+                         ['new','old','unknown','future'])
     def test_news_cannot_pass_by_eligible_flag(self):
         self.assertFalse(editorial.selection_passes(dict(self.selection,source_type='ordinary_news'),self.item))
     def test_invented_source_evidence_refused(self):
