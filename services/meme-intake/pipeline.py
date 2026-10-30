@@ -96,7 +96,6 @@ def prepare(args, receipt_path):
         all_rows = store.list(status='pending', min_score=30, limit=2000)
         daily_plan.write_coverage(receipt_path.parent, all_rows)
         rows = [r for r in all_rows if r.get('character') in daily_plan.ROSTER and served[r['character']] < 1]
-        rows.sort(key=lambda r: (bool(intake.radar.match_signals(r)), r['meme_score']), reverse=True)
         rows = editorial.balanced_candidates(rows)
         limit = min(args.limit, 3)
         used_characters = set()
@@ -137,13 +136,14 @@ def prepare(args, receipt_path):
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
                 continue
             row = origin.selection_input(dict(row, url=evidence['url'], title='Original source: ' + evidence['url'], summary=evidence['text']))
-            if card.get('origin_selection_hash') != evidence['sha256']:
+            origin_selection_hash = editorial.VERSION + ':' + evidence['sha256']
+            if card.get('origin_selection_hash') != origin_selection_hash:
                 if origin_checks >= 3:
                     continue
                 origin_checks += 1
                 card['origin_selection'] = model.select(row)
                 if card['origin_selection']:
-                    card['origin_selection_hash'] = evidence['sha256']
+                    card['origin_selection_hash'] = origin_selection_hash
                 # Old drafts based only on aggregator prose must not survive.
                 for key in ('llm_entry', 'review_hash', 'review_approved', 'review_report'):
                     card.pop(key, None)
