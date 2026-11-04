@@ -1,0 +1,26 @@
+{
+  "id": "author-archive-mistral-0f426f6cb6",
+  "character": "mistral",
+  "title": "给Mistral写支持，Mistral本人却没上班",
+  "summary": "2025年5月29日，Gemini替Mistral补文档、Claude替Mistral写工具支持，最后加班的唯独不是Mistral。",
+  "body": "第一格（虚构二创，人物对白均为编造）：2025年5月29日，玩家把Mistral官方代码库推到Gemini面前：“帮我补一份HTTP接口文档。”Mistral从门后探头：“这活儿怎么不叫我？”\n\n第二格：Gemini戴上眼镜，迅速写出接口说明和curl示例，玩家把生成结果保存下来；旁边的Mistral抱着工牌，困惑地眨眼。\n\n第三格：玩家又把插件、Gemini版实现和新文档一起交给Claude。Claude埋头写代码，玩家不断贴回报错让它继续修。\n\n第四格：工具支持终于跑通。Mistral坐到自己的工位上，却发现署名是Gemini和Claude，沉默两秒：“所以你们俩给我打了工？”\n\n原始线索：https://simonwillison.net/2025/May/29/llm-mistral-014/",
+  "tags": [
+    "Mistral",
+    "Gemini",
+    "Claude",
+    "工具调用",
+    "编程助手",
+    "模型互替",
+    "虚构二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://simonwillison.net/2025/May/29/llm-mistral-014/",
+      "url": "https://simonwillison.net/2025/May/29/llm-mistral-014/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2025-05-29",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。 经典素材新编；日期为原文发布日期，非今日事件。"
+}
