@@ -231,3 +231,12 @@ class SchedulingTest(unittest.TestCase):
             self.assertTrue(pipeline.collection_due(old))
             self.assertTrue(pipeline.collection_due(None))
             self.assertTrue(pipeline.collection_due({'finished_at': None}))
+
+class ValidationEnvironmentTest(unittest.TestCase):
+    def test_offline_child_cannot_write_live_model_or_database(self):
+        result = mock.Mock(returncode=0, stdout='ok', stderr='')
+        with mock.patch.dict(os.environ, {'MEME_LLM_API_KEY':'test-only-secret', 'MEME_LLM_ROUTING_FILE':'/runtime/live.json', 'MEME_INTAKE_DB':'/runtime/live.db'}), mock.patch.object(pipeline.subprocess, 'run', return_value=result) as run:
+            pipeline.command(sys.executable, '-m', 'unittest', 'discover', '-s', 'tests')
+            child_env = run.call_args.kwargs['env']
+            self.assertFalse(any(k.startswith('MEME_') for k in child_env))
+            self.assertNotIn('test-only-secret', child_env.values())

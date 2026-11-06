@@ -29,7 +29,11 @@ REPOSITORY = 'Ghoscro/ai-moe-encyclopedia'
 
 
 def command(*args):
-    result = subprocess.run(args, cwd=ROOT, capture_output=True, text=True,
+    child_env = os.environ.copy()
+    if 'unittest' in args:
+        # Offline tests must never inherit the production model, DB or receipt paths.
+        child_env = {k: v for k, v in child_env.items() if not k.startswith('MEME_')}
+    result = subprocess.run(args, cwd=ROOT, env=child_env, capture_output=True, text=True,
                             encoding='utf-8', timeout=300)
     if result.returncode:
         raise RuntimeError(f'{args[0]} {args[1]} failed: {result.stderr[-1000:]}')
@@ -194,9 +198,9 @@ def prepare(args, receipt_path):
             entry = intake._merge_llm(intake._entry_from_card(row, card, entry_id), row, card)
             entry['kind'] = 'original'  # generated dialogue is fictional, not an observed event
             if row.get('published_at'):
-                entry['date'] = row['published_at'][:10]
+                entry['date'] = editorial.source_date(row['published_at'])
             if row.get('source', '').startswith('author-archive-'):
-                entry['date'] = row['published_at'][:10]
+                entry['date'] = editorial.source_date(row['published_at'])
                 entry['editor_note'] += ' 经典素材新编；日期为原文发布日期，非今日事件。'
             reason = intake._prewrite_checks(entry, entry_id)
             if reason or entry['character'] in used_characters:
