@@ -13,6 +13,7 @@ class RoutingTests(unittest.TestCase):
     def read(self,*a): return json.dumps({'choices':[{'finish_reason':'stop','message':{'content':'{}'}}]}).encode()
    def request(req,**kw):
     seen.append(req.get_header('X-mbdeck-backend'))
+    self.assertEqual(kw['timeout'],180)
     self.assertFalse(json.loads(req.data)['chat_template_kwargs']['enable_thinking'])
     if len(seen)==3: raise urllib.error.URLError('offline')
     return Response()

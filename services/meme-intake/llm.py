@@ -92,10 +92,12 @@ class MemeLLM:
         self.key = os.environ.get('MEME_LLM_API_KEY', '')
         self.model = os.environ.get('MEME_LLM_MODEL', '')
 
-    def request(self, payload, timeout=90):
+    def request(self, payload, timeout=None):
         backends = [b.strip() for b in os.environ.get('MEME_LLM_BACKENDS', '').split(',') if b.strip()]
         if any(b not in ('mac1-ds1017', 'mac2-ds1017') for b in backends):
             raise ModelUnavailable('model_route_configuration_error')
+        if timeout is None:
+            timeout = 180 if backends else 90  # measured DS1017 completion exceeded the old 90s budget
         state_path = os.environ.get('MEME_LLM_ROUTING_FILE')
         state = {}
         if state_path and Path(state_path).exists():
@@ -142,6 +144,7 @@ class MemeLLM:
                     stats['requests'] = stats.get('requests', 0) + 1
                     stats['last_at'] = time.time()
                     stats['elapsed_seconds'] = round(time.monotonic() - started, 3)
+                    stats['read_timeout_seconds'] = timeout
                     stats['outcome'] = locals().get('outcome', 'invalid_response')
                     if stats['outcome'] == 'success':
                         stats['successes'] = stats.get('successes', 0) + 1
@@ -154,7 +157,7 @@ class MemeLLM:
 
     def editorial_json(self, system, data):
         payload = {'model': self.model, 'temperature': 0, 'max_tokens': 4096,
-                   'messages': [{'role': 'system', 'content': system},
+                   'messages': [{'role': 'system', 'content': system + '\n理由简洁，不复述全文；保留全部判定字段与必要原文引用。'},
                                 {'role': 'user', 'content': json.dumps(data, ensure_ascii=False)}]}
         try:
             content = self.request(payload)
