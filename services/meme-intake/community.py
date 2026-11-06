@@ -146,10 +146,16 @@ def discover(store, runtime, counts, target=10, now=None):
     for character in missing:
         queries = ' OR '.join('"' + a + '"' for a in ALIASES[character])
         receipts = []; leads = list(v2rows)
+        round_number = int(roles.get(character, {}).get('round', 0))
+        zh_name = {'doubao':'豆包','ernie':'文心一言','hy4-preview':'混元','muse-spark':'Meta AI'}.get(character, ALIASES[character][0])
+        story_term = ('回复', '离谱', '翻车', '聊天')[round_number % 4]
+        en_term = ('I asked', 'told me', 'my conversation', 'refused')[round_number % 4]
         for name, url in (
             ('reddit', 'https://www.reddit.com/search.rss?' + up.urlencode({'q': queries, 'sort': 'new', 't': 'month', 'limit': 100})),
             ('v2ex-search', 'https://www.sov2ex.com/api/search?' + up.urlencode({'q': {'doubao':'豆包','ernie':'文心一言','hy4-preview':'混元','muse-spark':'Meta AI'}.get(character, ALIASES[character][0]), 'sort': 'created', 'size': 50})),
-            ('hn', 'https://hn.algolia.com/api/v1/search_by_date?' + up.urlencode({'query': ALIASES[character][0], 'tags': 'comment', 'hitsPerPage': 50}))):
+            ('hn', 'https://hn.algolia.com/api/v1/search_by_date?' + up.urlencode({'query': ALIASES[character][0], 'tags': 'comment', 'hitsPerPage': 50})),
+            ('hn-story', 'https://hn.algolia.com/api/v1/search_by_date?' + up.urlencode({'query': ALIASES[character][0] + ' ' + en_term, 'tags': 'comment', 'hitsPerPage': 50})),
+            ('v2ex-story', 'https://www.sov2ex.com/api/search?' + up.urlencode({'q': zh_name + ' ' + story_term, 'sort': 'created', 'size': 50}))):
             if name == 'reddit' and now.timestamp() < state.get('reddit_after', 0):
                 receipts.append({'source': name, 'status': 'cooldown'})
                 continue
@@ -157,7 +163,7 @@ def discover(store, runtime, counts, target=10, now=None):
                 if name == 'reddit':
                     rows = parse_reddit(get(url))
                     state['reddit_after'] = now.timestamp() + 90
-                elif name == 'v2ex-search':
+                elif name in ('v2ex-search', 'v2ex-story'):
                     # Search index is discovery only; original API is fetched again before review.
                     rows = []
                     for hit in get(url, True).get('hits', []):
@@ -195,7 +201,7 @@ def discover(store, runtime, counts, target=10, now=None):
             if store.add_candidate(dict(row, fp=db.fingerprint(source, row['url']), source=source,
                     character=character, meme_score=40, draft=json.dumps(card, ensure_ascii=False))):
                 added += 1
-        roles[character] = {'checked_epoch': now.timestamp(), 'checked_at': now.isoformat(),
+        roles[character] = {'round': round_number + 1, 'story_terms': [en_term, story_term], 'checked_epoch': now.timestamp(), 'checked_at': now.isoformat(),
                             'added': added, 'sources': receipts, 'v2ex_error': v2error,
                             'failed': any(r['status'] != 'ok' for r in receipts)}
     tmp = path.with_suffix('.tmp')

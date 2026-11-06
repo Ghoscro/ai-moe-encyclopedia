@@ -29,7 +29,11 @@ REPOSITORY = 'Ghoscro/ai-moe-encyclopedia'
 
 
 def command(*args):
-    result = subprocess.run(args, cwd=ROOT, capture_output=True, text=True,
+    child_env = os.environ.copy()
+    if 'unittest' in args:
+        # Offline tests must never inherit the production model, DB or receipt paths.
+        child_env = {k: v for k, v in child_env.items() if not k.startswith('MEME_')}
+    result = subprocess.run(args, cwd=ROOT, env=child_env, capture_output=True, text=True,
                             encoding='utf-8', timeout=300)
     if result.returncode:
         raise RuntimeError(f'{args[0]} {args[1]} failed: {result.stderr[-1000:]}')

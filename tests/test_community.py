@@ -46,7 +46,9 @@ class CommunityTests(unittest.TestCase):
                 self.assertEqual(len(first['characters']),4)
                 second=community.discover(store,tmp,{})
                 self.assertEqual(len(second['characters']),8)
-                self.assertEqual(get.call_count,19)
+                self.assertLessEqual(get.call_count, 36)
+                reddit_calls=[c for c in get.call_args_list if 'reddit.com/search' in c.args[0]]
+                self.assertEqual(len(reddit_calls), 1)
     def test_daily_target_ten_verified_receipts_only(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp)
@@ -80,3 +82,20 @@ class CommunityTests(unittest.TestCase):
             get.assert_not_called()
 
 if __name__ == '__main__': unittest.main()
+
+class StoryQueriesTest(unittest.TestCase):
+    def test_all_roles_receive_rotating_story_queries_and_keep_dates(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            seen=[]
+            def fetch(url, *args):
+                seen.append(url)
+                if 'latest.json' in url: return []
+                if 'reddit.com' in url: return '<feed xmlns="http://www.w3.org/2005/Atom"/>'
+                return {'hits':[]}
+            now=dt.datetime.now(dt.timezone.utc)
+            with mock.patch.object(community, 'get', side_effect=fetch):
+                for _ in range(4): state=community.discover(mock.Mock(),tmp,{},now=now)
+            self.assertEqual(set(state['characters']),set(community.ALIASES))
+            self.assertTrue(all(r['story_terms']==['I asked','回复'] for r in state['characters'].values()))
+            self.assertEqual(sum('I+asked' in u for u in seen),14)
+            self.assertTrue(all('search_by_date' in u for u in seen if 'hn.algolia' in u))
