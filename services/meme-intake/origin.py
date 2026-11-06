@@ -9,8 +9,8 @@ VERSION = 'original-page-v4-community-events'
 HOSTS = {'simonwillison.net', 'www.anthropic.com', 'andonlabs.com', 'www.404media.co', 'www.cohere.com', 'cohere.com', 'openai.com'}
 
 def allowed(url):
-    import community, bilibili_source
-    if bilibili_source.video_id(url):
+    import community, bilibili_source, discourse_source
+    if bilibili_source.video_id(url) or discourse_source.supported(url):
         return True
     if community.supported(url):
         return True
@@ -45,7 +45,9 @@ class Text(HTMLParser):
             self.parts.append(data.strip())
 
 def fetch(url):
-    import bilibili_source
+    import bilibili_source, discourse_source
+    if discourse_source.supported(url):
+        return discourse_source.evidence(url)
     if bilibili_source.video_id(url):
         return bilibili_source.evidence(url)
     import community
