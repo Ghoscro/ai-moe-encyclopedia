@@ -5,11 +5,13 @@ from html.parser import HTMLParser
 import urllib.parse
 import urllib.request
 
-VERSION = 'original-page-v3-community'
+VERSION = 'original-page-v4-community-events'
 HOSTS = {'simonwillison.net', 'www.anthropic.com', 'andonlabs.com', 'www.404media.co', 'www.cohere.com', 'cohere.com', 'openai.com'}
 
 def allowed(url):
-    import community
+    import community, bilibili_source
+    if bilibili_source.video_id(url):
+        return True
     if community.supported(url):
         return True
     try:
@@ -43,6 +45,9 @@ class Text(HTMLParser):
             self.parts.append(data.strip())
 
 def fetch(url):
+    import bilibili_source
+    if bilibili_source.video_id(url):
+        return bilibili_source.evidence(url)
     import community
     if community.supported(url):
         return community.evidence(url)

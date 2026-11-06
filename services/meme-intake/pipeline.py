@@ -22,6 +22,7 @@ import editorial
 import origin
 import daily_plan
 import community
+import bilibili_source
 from locking import exclusive
 
 ROOT = intake.ROOT
@@ -98,12 +99,15 @@ def prepare(args, receipt_path):
     with db.Store() as store:
         served = daily_plan.live_counts(receipt_path.parent)
         community.discover(store, receipt_path.parent, served, daily_plan.TARGET)
+        bilibili_source.discover(store, receipt_path.parent, served, daily_plan.TARGET)
         daily_plan.discover_archives(store, receipt_path.parent)
         all_rows = [row for character in daily_plan.ROSTER
                     for row in store.list(status='pending', min_score=30, limit=300, character=character)]
         daily_plan.write_coverage(receipt_path.parent, all_rows)
         rows = [r for r in all_rows if r.get('character') in daily_plan.ROSTER and served[r['character']] < daily_plan.TARGET]
         rows = editorial.balanced_candidates(rows)
+        # Stable sort preserves newest-first within each role; underserved families go first.
+        rows.sort(key=lambda row: served.get(row.get('character'), 0))
         limit = min(args.limit, 14)
         batch_started = time.monotonic()
         used_characters = set()
@@ -345,6 +349,7 @@ def main():
                 # Keep public discovery running while the editorial provider is unavailable.
                 with db.Store() as store:
                     community.discover(store, path.parent, daily_plan.live_counts(path.parent), daily_plan.TARGET)
+                    bilibili_source.discover(store, path.parent, daily_plan.live_counts(path.parent), daily_plan.TARGET)
                     daily_plan.write_coverage(path.parent, store.list(status='pending', limit=10000))
                 print('Editorial provider backoff; public source discovery continues.')
                 return

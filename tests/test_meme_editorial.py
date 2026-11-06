@@ -14,6 +14,9 @@ import db
 
 class EditorialTests(unittest.TestCase):
     def setUp(self):
+        for module in (pipeline.community, pipeline.bilibili_source):
+            patcher = mock.patch.object(module, "discover", return_value={})
+            patcher.start(); self.addCleanup(patcher.stop)
         patcher=mock.patch.object(pipeline.daily_plan,'discover_archives',return_value={})
         patcher.start();self.addCleanup(patcher.stop)
         community_patcher=mock.patch.object(pipeline.community,'discover',return_value={})
