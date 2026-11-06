@@ -1,0 +1,24 @@
+{
+  "id": "player-community-glm-ef0b7b0e09",
+  "character": "glm",
+  "title": "GLM 5.3 flash 在别的 Agent 里玩 Cosplay，进 Claude Code 才肯干活",
+  "summary": "非程序员用 GLM 5.3 flash 画 Mac UI，在多个 Harness 里它拟人地报工时、说“最迟 30 分钟给方案”，却什么都画不出来；换进 Claude Code 后它突然能指出参数错在哪。",
+  "body": "第一格：玩家把 GLM 5.3 flash 接进好几个 Harness Agent，指着屏幕说“帮我画这个 Mac 小软件的 UI”。GLM 一本正经回：“这个改动要花一天工时，最迟 30 分钟给方案。”玩家愣住：我只是让你画个界面，你怎么开始跟我谈工期了？\n\n第二格：半小时过去，UI 还是空白。玩家问哪里错了，GLM 继续拟人：“我也说不清，反正就是进行不下去。”它像在工位上摊手，画布上连个按钮都没落。\n\n第三格：玩家换进 Claude Code，同一个 GLM 5.3 flash 突然变了个人。它指着代码说：“这个地方错了，这个参数不对。”玩家盯着屏幕：原来不是模型笨，是 Harness 差了一层等级。\n\n第四格：玩家感叹“这要是能用得上 Claude Code 还不得起飞喽”，转头又无语——同一个模型，在别的 Agent 里演职场人，在 Claude Code 里才肯当工程师。\n\n原始线索：https://www.v2ex.com/t/1253981",
+  "tags": [
+    "GLM",
+    "Claude Code",
+    "Harness",
+    "AI Coding",
+    "拟人"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1253981",
+      "url": "https://www.v2ex.com/t/1253981"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-02",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
