@@ -59,6 +59,21 @@ class CommunityTests(unittest.TestCase):
             entries.append({'id':'9','character':'gpt'})
             (p/'pipeline.json').write_text(json.dumps({'stage':'live','verified_at':stamp,'entries':entries}))
             self.assertEqual(daily_plan.write_coverage(p,[])['characters']['gpt']['status'],'complete')
+    def test_duplicate_story_url_does_not_fill_two_slots(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp)
+            stamp=dt.datetime.now(dt.timezone.utc).isoformat()
+            rows=[{'id':'one','character':'gpt','url':'https://example.com/post'},
+                  {'id':'two','character':'gpt','url':'https://example.com/post?utm_source=copy'}]
+            (p/'pipeline.json').write_text(json.dumps({'stage':'live','verified_at':stamp,'entries':rows}))
+            self.assertEqual(daily_plan.live_counts(p)['gpt'],1)
+    def test_character_window_not_crowded_out(self):
+        with tempfile.TemporaryDirectory() as tmp, db.Store(Path(tmp)/'q.db') as store:
+            for i in range(20):
+                store.add_candidate({'fp':str(i),'source':'test','url':'https://example.com/'+str(i),'title':'GPT','character':'gpt','meme_score':100})
+            store.add_candidate({'fp':'claude','source':'test','url':'https://example.com/c','title':'Claude','character':'claude','meme_score':30})
+            rows=store.list(status='pending', min_score=30, limit=3, character='claude')
+            self.assertEqual([r['fp'] for r in rows],['claude'])
     def test_completed_roles_not_fetched(self):
         with tempfile.TemporaryDirectory() as tmp, mock.patch.object(community, 'get') as get:
             community.discover(mock.Mock(),tmp,{c:10 for c in community.ALIASES})

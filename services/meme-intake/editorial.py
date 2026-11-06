@@ -46,12 +46,14 @@ def selection_passes(result, item):
     if result.get('source_type') not in ('observed_meme', 'amusing_incident'):
         return False
     quote = result.get('evidence_quote')
+    if isinstance(quote, str): quote = quote.strip()
     if not isinstance(quote, str) or not 8 <= len(quote.strip()) <= 200:
         return False
     if not any(quote in str(item.get(k, '')) for k in ('title', 'summary')):
         return False
     for key in ('player_action_quote', 'ai_response_quote'):
         value = result.get(key)
+        if isinstance(value, str): value = value.strip()
         if not isinstance(value, str) or not 8 <= len(value.strip()) <= 200:
             return False
         if not any(value in str(item.get(k, '')) for k in ('title', 'summary')):
@@ -68,6 +70,7 @@ def review_passes(result, draft):
     if not isinstance(body, str) or len(body) > 800:
         return False
     quote = result.get('payoff_quote')
+    if isinstance(quote, str): quote = quote.strip()
     return (isinstance(quote, str) and 8 <= len(quote.strip()) <= 200 and quote in body
             and isinstance(result.get('reason'), str) and len(result['reason'].strip()) >= 6)
 

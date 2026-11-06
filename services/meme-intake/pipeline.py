@@ -95,7 +95,8 @@ def prepare(args, receipt_path):
         served = daily_plan.live_counts(receipt_path.parent)
         community.discover(store, receipt_path.parent, served, daily_plan.TARGET)
         daily_plan.discover_archives(store, receipt_path.parent)
-        all_rows = store.list(status='pending', min_score=30, limit=2000)
+        all_rows = [row for character in daily_plan.ROSTER
+                    for row in store.list(status='pending', min_score=30, limit=300, character=character)]
         daily_plan.write_coverage(receipt_path.parent, all_rows)
         rows = [r for r in all_rows if r.get('character') in daily_plan.ROSTER and served[r['character']] < daily_plan.TARGET]
         rows = editorial.balanced_candidates(rows)
@@ -115,7 +116,7 @@ def prepare(args, receipt_path):
                 continue
             card = intake._load_card(row)
             selection_hash = hashlib.sha256(json.dumps({'version': editorial.VERSION, 'input_version': origin.VERSION,
-                'source': {k: row.get(k, '') for k in ('title', 'summary', 'url')}},
+                'source': {k: row.get(k, '') for k in ('title', 'summary', 'url', 'character', 'published_at')}},
                 sort_keys=True, ensure_ascii=False).encode()).hexdigest()
             if card.get('selection_hash') != selection_hash:
                 if selections >= 42:
@@ -132,7 +133,10 @@ def prepare(args, receipt_path):
             evidence = card.get('origin')
             if not (isinstance(evidence, dict) and evidence.get('version') == origin.VERSION
                     and evidence.get('discovery_url', evidence.get('url')) == row['url']):
+                if time.time() < card.get('origin_retry_after', 0):
+                    continue
                 evidence = origin.resolve(discovery_row, card['selection'].get('original_source') is True)
+                card['origin_retry_after'] = 0 if evidence else time.time() + 3600
                 card['origin'] = evidence
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
             if not evidence:
@@ -143,7 +147,7 @@ def prepare(args, receipt_path):
             row = origin.selection_input(dict(row, published_at=evidence.get('published_at') or row.get('published_at', ''), url=evidence['url'], title='Original source: ' + evidence['url'], summary=evidence['text']))
             origin_selection_hash = editorial.VERSION + ':' + evidence['sha256']
             if card.get('origin_selection_hash') != origin_selection_hash:
-                if origin_checks >= 14:
+                if origin_checks >= 28:
                     continue
                 origin_checks += 1
                 card['origin_selection'] = model.select(row)
@@ -161,7 +165,7 @@ def prepare(args, receipt_path):
                 sort_keys=True, ensure_ascii=False).encode()).hexdigest()
             if card.get('review_hash') == current_digest and card.get('review_approved') is False:
                 continue
-            if written >= limit:
+            if written >= 2 * limit:
                 break
             written += 1
             draft = card.get('llm_entry')

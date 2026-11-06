@@ -174,12 +174,15 @@ class Store:
         return any(canonical_url(r['url']) == canonical
                    for r in self.db.execute('SELECT url FROM candidates'))
 
-    def list(self, status=None, min_score=0.0, limit=50):
+    def list(self, status=None, min_score=0.0, limit=50, character=None):
         sql = 'SELECT * FROM candidates WHERE meme_score>=?'
         args = [min_score]
         if status:
             sql += ' AND status=?'
             args.append(status)
+        if character is not None:
+            sql += ' AND character=?'
+            args.append(character)
         sql += ' ORDER BY meme_score DESC, created_at DESC LIMIT ?'
         args.append(limit)
         return [dict(r) for r in self.db.execute(sql, args)]

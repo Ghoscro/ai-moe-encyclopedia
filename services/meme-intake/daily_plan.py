@@ -28,7 +28,7 @@ def live_counts(runtime, date=None):
         withdrawn.update(r.get('withdrawn_ids', []))
         if r.get('withdrawn_at'):
             withdrawn.update(e['id'] for e in r.get('entries', []))
-    seen=set();counts={c:0 for c in ROSTER}
+    seen=set();seen_sources=set();counts={c:0 for c in ROSTER}
     for r in receipts:
         stamp=r.get('verified_at')
         if r.get('stage')!='live' or not stamp:
@@ -36,16 +36,21 @@ def live_counts(runtime, date=None):
         if dt.datetime.fromisoformat(stamp.replace('Z','+00:00')).astimezone(TZ).date().isoformat()!=date:
             continue
         for e in r.get('entries', []):
-            if e['id'] not in seen|withdrawn and e['character'] in counts:
+            import db
+            url=e.get('url') or next((s.get('url') for s in e.get('entry', {}).get('sources', []) if s.get('url')), '')
+            source=(e['character'], db.canonical_url(url)) if url else None
+            if e['id'] not in seen|withdrawn and e['character'] in counts and (source is None or source not in seen_sources):
                 counts[e['character']]+=1;seen.add(e['id'])
+                if source: seen_sources.add(source)
     return counts
 
 def write_coverage(runtime, rows):
-    counts=live_counts(runtime)
-    data={'date':today(),'timezone':'Asia/Shanghai','target_per_character':TARGET,'characters':{}}
+    date=today()
+    counts=live_counts(runtime,date)
+    data={'date':date,'timezone':'Asia/Shanghai','target_per_character':TARGET,'characters':{}}
     for c in ROSTER:
         pending=[r for r in rows if r.get('character')==c and r.get('status')=='pending']
-        data['characters'][c]={'live':counts[c],'target':TARGET,'pending_candidates':len(pending),
+        data['characters'][c]={'live':counts[c],'target':TARGET,'shortfall':max(0,TARGET-counts[c]),'pending_candidates':len(pending),
             'status':'complete' if counts[c]>=TARGET else ('awaiting_review' if pending else 'source_gap')}
     target=Path(runtime)/'daily-coverage.json';tmp=target.with_suffix('.tmp')
     tmp.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8');tmp.replace(target)
