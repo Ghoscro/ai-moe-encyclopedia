@@ -13,7 +13,7 @@ class EvidenceInputTests(unittest.TestCase):
     def test_retry_is_bounded_and_exact(self):
         row={'title':'Example','summary':'The audio multiplayer induced headaches!','url':'https://simonwillison.net/a'}
         bad={'eligible':True,'original_source':True,'source_type':'amusing_incident','evidence_quote':'The players exploded!', 'reason':'Specific surprising effect','comic_turn':'Expected a game, got headaches'}
-        good=dict(bad,evidence_quote=row['summary']);model=llm.MemeLLM()
+        good=dict(bad,evidence_quote=row['summary'],player_action_quote=row['summary'],ai_response_quote=row['summary']);model=llm.MemeLLM()
         with mock.patch.object(model,'editorial_json',side_effect=[bad,good]) as call:
             result=model.select(row)
         self.assertEqual(call.call_count,2)
@@ -32,6 +32,7 @@ class EvidenceInputTests(unittest.TestCase):
         row={'summary':'This is an exact evidence quotation.'}
         result={'eligible':True,'original_source':False,'source_type':'amusing_incident',
                 'evidence_quote':row['summary'],'comic_turn':'A concrete surprising event','reason':'Specific observed funny result'}
+        result.update(player_action_quote=row['summary'],ai_response_quote=row['summary'])
         self.assertTrue(editorial.discovery_passes(result,row))
         self.assertFalse(editorial.selection_passes(result,row))
     def test_explicit_source_resolution_is_bounded_and_allowlisted(self):

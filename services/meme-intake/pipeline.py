@@ -21,6 +21,7 @@ import llm
 import editorial
 import origin
 import daily_plan
+import community
 from locking import exclusive
 
 ROOT = intake.ROOT
@@ -72,7 +73,7 @@ def collection_due(last_run):
 
 def receipt_cooldown(receipt):
     # Empty editorial batches must not stall the remaining queue for a day.
-    return 3600  # bounded hourly batches; daily character quotas prevent dominance
+    return 600  # bounded batches; verified daily quotas prevent dominance
 
 
 def prepare(args, receipt_path):
@@ -91,17 +92,21 @@ def prepare(args, receipt_path):
     model = llm.MemeLLM()
     chosen = []
     with db.Store() as store:
-        daily_plan.discover_archives(store, receipt_path.parent)
         served = daily_plan.live_counts(receipt_path.parent)
+        community.discover(store, receipt_path.parent, served, daily_plan.TARGET)
+        daily_plan.discover_archives(store, receipt_path.parent)
         all_rows = store.list(status='pending', min_score=30, limit=2000)
         daily_plan.write_coverage(receipt_path.parent, all_rows)
-        rows = [r for r in all_rows if r.get('character') in daily_plan.ROSTER and served[r['character']] < 1]
+        rows = [r for r in all_rows if r.get('character') in daily_plan.ROSTER and served[r['character']] < daily_plan.TARGET]
         rows = editorial.balanced_candidates(rows)
-        limit = min(args.limit, 3)
+        limit = min(args.limit, 14)
+        batch_started = time.monotonic()
         used_characters = set()
         selections = written = rejected = origin_checks = 0
         origin_unavailable = origin_rejected = 0
         for row in rows:
+            if time.monotonic() - batch_started > 600:
+                break
             discovery_row = row
             row = origin.selection_input(row)
             if len(chosen) >= limit:
@@ -113,7 +118,7 @@ def prepare(args, receipt_path):
                 'source': {k: row.get(k, '') for k in ('title', 'summary', 'url')}},
                 sort_keys=True, ensure_ascii=False).encode()).hexdigest()
             if card.get('selection_hash') != selection_hash:
-                if selections >= 8:
+                if selections >= 42:
                     continue
                 selections += 1
                 card['selection'] = model.select(row)
@@ -135,10 +140,10 @@ def prepare(args, receipt_path):
                 card['origin_status'] = ('fetch_failed' if origin.allowed(row['url']) else 'unsupported_host')
                 store.update_draft(row['fp'], json.dumps(card, ensure_ascii=False))
                 continue
-            row = origin.selection_input(dict(row, url=evidence['url'], title='Original source: ' + evidence['url'], summary=evidence['text']))
+            row = origin.selection_input(dict(row, published_at=evidence.get('published_at') or row.get('published_at', ''), url=evidence['url'], title='Original source: ' + evidence['url'], summary=evidence['text']))
             origin_selection_hash = editorial.VERSION + ':' + evidence['sha256']
             if card.get('origin_selection_hash') != origin_selection_hash:
-                if origin_checks >= 3:
+                if origin_checks >= 14:
                     continue
                 origin_checks += 1
                 card['origin_selection'] = model.select(row)
@@ -184,6 +189,8 @@ def prepare(args, receipt_path):
             entry_id = intake._auto_id(row)
             entry = intake._merge_llm(intake._entry_from_card(row, card, entry_id), row, card)
             entry['kind'] = 'original'  # generated dialogue is fictional, not an observed event
+            if row.get('published_at'):
+                entry['date'] = row['published_at'][:10]
             if row.get('source', '').startswith('author-archive-'):
                 entry['date'] = row['published_at'][:10]
                 entry['editor_note'] += ' 经典素材新编；日期为原文发布日期，非今日事件。'
@@ -199,8 +206,8 @@ def prepare(args, receipt_path):
                        'drafts_this_batch': written, 'approved_this_batch': len(chosen),
                        'last_collection_at': (store.last_run() or {}).get('finished_at'),
                        'policy_version': editorial.VERSION,
-                       'next_editorial_after_seconds': 3600,
-                       'daily_target': 1, 'daily_live': served}
+                       'next_editorial_after_seconds': 600,
+                       'daily_target': daily_plan.TARGET, 'daily_live': served}
     if not chosen:
         save(receipt_path, {'stage': 'empty', 'created_at': db.now_iso(), 'entries': [],
                             'diagnostics': diagnostics})
@@ -303,13 +310,13 @@ def advance(receipt, path, prepare_only=False):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--prepare-only', action='store_true')
-    parser.add_argument('--limit', type=int, default=3)
+    parser.add_argument('--limit', type=int, default=14)
     parser.add_argument('--env-file')
     parser.add_argument('--database')
     parser.add_argument('--log', action='store_true')
     args = parser.parse_args()
-    if not 1 <= args.limit <= 5:
-        parser.error('--limit must be between 1 and 5')
+    if not 1 <= args.limit <= 14:
+        parser.error('--limit must be between 1 and 14')
     if args.env_file:
         os.environ['MEME_ENV_FILE'] = args.env_file
     if args.database:
@@ -329,7 +336,7 @@ def main():
             # Keep immutable receipts; next cycle is paced independently from resume attempts.
             age = time.time() - path.stat().st_mtime
             if age < receipt_cooldown(receipt):
-                print('Hourly editorial cooldown; per-character daily quotas apply.')
+                print('Editorial cooldown; per-character daily quotas apply.')
                 return
             save(path.with_name('release-' + receipt.get('merge_commit', receipt['created_at'].replace(':', '-'))[:24] + '.json'), receipt)
             receipt = None

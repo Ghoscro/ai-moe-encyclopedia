@@ -6,6 +6,8 @@ import urllib.request
 from pathlib import Path
 import origin
 
+TARGET = 10
+
 TZ = dt.timezone(dt.timedelta(hours=8))
 ROSTER = {'claude':'claude','doubao':'doubao','gpt':'openai','deepseek':'deepseek',
           'kimi':'kimi','glm':'glm','grok':'grok','qwen':'qwen','gemini':'gemini',
@@ -40,11 +42,11 @@ def live_counts(runtime, date=None):
 
 def write_coverage(runtime, rows):
     counts=live_counts(runtime)
-    data={'date':today(),'timezone':'Asia/Shanghai','target_per_character':1,'characters':{}}
+    data={'date':today(),'timezone':'Asia/Shanghai','target_per_character':TARGET,'characters':{}}
     for c in ROSTER:
         pending=[r for r in rows if r.get('character')==c and r.get('status')=='pending']
-        data['characters'][c]={'live':counts[c],'target':1,'pending_candidates':len(pending),
-            'status':'complete' if counts[c]>=1 else ('awaiting_review' if pending else 'source_gap')}
+        data['characters'][c]={'live':counts[c],'target':TARGET,'pending_candidates':len(pending),
+            'status':'complete' if counts[c]>=TARGET else ('awaiting_review' if pending else 'source_gap')}
     target=Path(runtime)/'daily-coverage.json';tmp=target.with_suffix('.tmp')
     tmp.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8');tmp.replace(target)
     return data
@@ -67,7 +69,7 @@ def discover_archives(store, runtime, limit_per_character=2):
     for character,tag in ROSTER.items():
         if character in report['characters']: continue
         if attempted>=3: break
-        if counts[character]>=1:
+        if counts[character]>=TARGET:
             report['characters'][character]={'status':'daily_target_met','added':0};continue
         attempted+=1
         url='https://simonwillison.net/tags/'+tag+'/'
