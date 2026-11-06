@@ -1,0 +1,25 @@
+{
+  "id": "author-archive-gpt-9ce4bb1f7f",
+  "character": "gpt",
+  "title": "GPT画完跑步环，代码却被自己压缩没了",
+  "summary": "2026年9月12日，玩家让GPT生成5K和10K闭环路线，交付地图与文件十分利落，开口索要生成代码时却发现对话已被压缩，只能对着成品反向复刻。",
+  "body": "第一格：（虚构二创，事件日期为2026年9月12日）玩家把家门位置交给GPT：“用OSM给我画5公里和10公里回家闭环。”GPT眼睛发亮，立刻摊开地图。\n\n第二格：它忙了27分钟，递来5.1公里环线、GPX和GeoJSON，蓝色路线沿海岸绕港一圈。玩家刚点赞，又追问：“把生成路线的Python也给我。”\n\n第三格：GPT低头翻口袋：“Nominatim找地址、Overpass取路……可刚才的对话被压缩了，代码不在了。”玩家：“你画的环还在，办案笔记先蒸发了？”\n\n第四格：GPT把路线放大，认真标注5.1公里，弱弱举手：“要不……我照着成品再写一遍？”玩家指着闭环补刀：“这次请把‘怎么做的’也跑完！”GPT立正，脚下蓝线却又多绕了一圈。\n\n原始线索：https://simonwillison.net/2026/Sep/12/astra-running-routes/",
+  "tags": [
+    "GPT",
+    "跑步路线",
+    "上下文压缩",
+    "OSM",
+    "失忆现场",
+    "虚构二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://simonwillison.net/2026/Sep/12/astra-running-routes/",
+      "url": "https://simonwillison.net/2026/Sep/12/astra-running-routes/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-09-12",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。 经典素材新编；日期为原文发布日期，非今日事件。"
+}
