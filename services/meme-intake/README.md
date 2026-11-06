@@ -293,3 +293,16 @@ Reddit共享限速，429后至少退避1小时，不用代理或登录绕过。
 
 community-discovery.json记录每角色各来源收到数量、入队数量、HTTP故障及退避；
 daily-coverage.json记录当日目标和已核验数。候选和有效上线必须分开报告。
+
+编辑接口的429/鉴权/网络故障现在写为model_unavailable，不能写成“选题不合格”。
+额度耗尽退避6小时、普通限流/网络错误退避1小时，期间继续无模型的公开素材采集，保留已缓存草稿。
+恢复额度后按原审稿与CI流程继续；不会自动购买额度或更换未配置的模型。
+
+### DS1017 dual-Mac editorial routing
+Set `MEME_LLM_BASE_URL` to the existing secured gateway, `MEME_LLM_MODEL=DS1017`,
+`MEME_LLM_BACKENDS=mac1-ds1017,mac2-ds1017` and
+`MEME_LLM_ROUTING_FILE=/runtime/model-routing.json`. Keep the key in the protected env file.
+Selection, writing and independent review alternate between the two approved backends.
+Each request may fail over once to the other backend; both failing produces an operational
+receipt and backoff, never an editorial rejection. Routing receipts contain counts, latency
+and status only. Non-thinking JSON responses are required; truncated responses cannot publish.

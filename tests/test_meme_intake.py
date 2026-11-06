@@ -462,7 +462,7 @@ class LLMDraftTest(unittest.TestCase):
         class Resp:
             status = 200
 
-            def read(self):
+            def read(self, *args):
                 return json.dumps(payload).encode('utf-8')
 
             def __enter__(self):
@@ -519,18 +519,19 @@ class LLMDraftTest(unittest.TestCase):
         with mock.patch('urllib.request.urlopen', return_value=self._resp('这不是 JSON')):
             self.assertIsNone(model.draft(hot_item()))
 
-    def test_draft_timeout_returns_none(self):
+    def test_draft_timeout_is_operational_failure(self):
         model = self._llm()
         with mock.patch('urllib.request.urlopen', side_effect=TimeoutError('timed out')):
-            self.assertIsNone(model.draft(hot_item()))
+            with self.assertRaises(llm_mod.ModelUnavailable):
+                model.draft(hot_item())
 
-    def test_draft_bad_payload_shape_returns_none(self):
+    def test_draft_bad_payload_shape_is_operational_failure(self):
         model = self._llm()
 
         class Resp:
             status = 200
 
-            def read(self):
+            def read(self, *args):
                 return json.dumps({'unexpected': True}).encode('utf-8')
 
             def __enter__(self):
@@ -540,7 +541,8 @@ class LLMDraftTest(unittest.TestCase):
                 return False
 
         with mock.patch('urllib.request.urlopen', return_value=Resp()):
-            self.assertIsNone(model.draft(hot_item()))
+            with self.assertRaises(llm_mod.ModelUnavailable):
+                model.draft(hot_item())
 
     def test_draft_without_full_env_returns_none_without_network(self):
         env = {k: v for k, v in os.environ.items() if not k.startswith('MEME_LLM_')}
