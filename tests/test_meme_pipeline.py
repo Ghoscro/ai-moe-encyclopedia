@@ -190,6 +190,33 @@ if __name__ == '__main__':
 
 
 class SchedulingTest(unittest.TestCase):
+    def test_quota_failure_is_not_empty_editorial_result(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            database = Path(tmp) / 'intake.db'
+            with mock.patch.dict(os.environ, {'MEME_INTAKE_DB': str(database)}), \
+                    mock.patch.object(sys, 'argv', ['pipeline.py']), \
+                    mock.patch.object(pipeline.intake, '_load_dotenv'), \
+                    mock.patch.object(pipeline, 'prepare', side_effect=pipeline.llm.ModelUnavailable('model_quota_exhausted',429,21600)):
+                with self.assertRaises(SystemExit) as result:
+                    pipeline.main()
+                self.assertEqual(result.exception.code, 2)
+                receipt=json.loads((Path(tmp)/'pipeline.json').read_text())
+                self.assertEqual(receipt['stage'], 'model_unavailable')
+                self.assertEqual(receipt['diagnostics']['operational_error'], 'model_quota_exhausted')
+                self.assertEqual(receipt['entries'], [])
+    def test_provider_backoff_still_collects_without_model(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            database=Path(tmp)/'intake.db'
+            (Path(tmp)/'pipeline.json').write_text(json.dumps({'stage':'model_unavailable','retry_after':pipeline.time.time()+3600}))
+            with mock.patch.dict(os.environ, {'MEME_INTAKE_DB':str(database)}), \
+                    mock.patch.object(sys,'argv',['pipeline.py']), \
+                    mock.patch.object(pipeline.intake,'_load_dotenv'), \
+                    mock.patch.object(pipeline.community,'discover') as discover, \
+                    mock.patch.object(pipeline,'prepare') as prepare:
+                pipeline.main()
+                discover.assert_called_once()
+                prepare.assert_not_called()
+
     def test_empty_queue_resumes_hourly_live_keeps_publication_cap(self):
         self.assertEqual(pipeline.receipt_cooldown({'stage': 'empty'}), 600)
         self.assertEqual(pipeline.receipt_cooldown({'stage': 'live'}), 600)

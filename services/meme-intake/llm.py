@@ -14,7 +14,10 @@ lead card. The LLM never writes files and never publishes.
 """
 import json
 import os
+import time
+from pathlib import Path
 import urllib.request
+import urllib.error
 import editorial
 import origin
 
@@ -56,24 +59,107 @@ def is_configured():
                 and os.environ.get('MEME_LLM_MODEL'))
 
 
+class ModelUnavailable(RuntimeError):
+    """Operational failure, never a negative editorial decision. No provider text/secrets."""
+    def __init__(self, category, status=None, retry_seconds=3600):
+        super().__init__(category)
+        self.category, self.status, self.retry_seconds = category, status, retry_seconds
+
+
+def transport_failure(exc):
+    status = getattr(exc, 'code', None)
+    category = 'model_transport_error'
+    retry = 3600
+    if status == 429:
+        category = 'model_rate_limited'
+        # Read only to classify; never log raw provider response or credentials.
+        try:
+            body = exc.read(20000).decode('utf-8', errors='replace')
+            if '2056' in body or '用量上限' in body or 'insufficient_quota' in body:
+                category, retry = 'model_quota_exhausted', 21600
+        except Exception:
+            pass
+    elif status in (401, 403):
+        category = 'model_auth_error'
+    raise ModelUnavailable(category, status, retry) from None
+
+
 class MemeLLM:
     def __init__(self):
         self.base = os.environ.get('MEME_LLM_BASE_URL', '').rstrip('/')
         self.key = os.environ.get('MEME_LLM_API_KEY', '')
         self.model = os.environ.get('MEME_LLM_MODEL', '')
 
+    def request(self, payload, timeout=90):
+        backends = [b.strip() for b in os.environ.get('MEME_LLM_BACKENDS', '').split(',') if b.strip()]
+        if any(b not in ('mac1-ds1017', 'mac2-ds1017') for b in backends):
+            raise ModelUnavailable('model_route_configuration_error')
+        state_path = os.environ.get('MEME_LLM_ROUTING_FILE')
+        state = {}
+        if state_path and Path(state_path).exists():
+            state = json.loads(Path(state_path).read_text(encoding='utf-8'))
+        cursor = int(state.get('cursor', 0))
+        routes = backends[cursor % len(backends):] + backends[:cursor % len(backends)] if backends else [None]
+        if backends:
+            payload['chat_template_kwargs'] = {'enable_thinking': False}
+        state['cursor'] = cursor + 1
+        last_error = None
+        for backend in routes:
+            headers = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + self.key}
+            if backend:
+                headers['x-mbdeck-backend'] = backend
+            request = urllib.request.Request(self.base + '/chat/completions',
+                data=json.dumps(payload).encode('utf-8'), headers=headers)
+            outcome = "invalid_response"
+            started = time.monotonic()
+            try:
+                with urllib.request.urlopen(request, timeout=timeout) as response:
+                    body = json.loads(response.read(2_000_000))
+                choice = body['choices'][0]
+                if choice.get('finish_reason') not in (None, 'stop'):
+                    raise ModelUnavailable('model_incomplete_response', retry_seconds=600)
+                text = choice['message']['content']
+                if not isinstance(text, str) or not text.strip():
+                    raise ModelUnavailable('model_empty_response', retry_seconds=600)
+                outcome = 'success'
+                return text
+            except (OSError, urllib.error.URLError) as exc:
+                try:
+                    transport_failure(exc)
+                except ModelUnavailable as error:
+                    last_error = error
+                outcome = last_error.category
+            except ModelUnavailable as exc:
+                last_error, outcome = exc, exc.category
+            except (ValueError, KeyError, IndexError, TypeError):
+                last_error = ModelUnavailable('model_invalid_response', retry_seconds=600)
+                outcome = last_error.category
+            finally:
+                if backend and state_path:
+                    stats = state.setdefault('backends', {}).setdefault(backend, {})
+                    stats['requests'] = stats.get('requests', 0) + 1
+                    stats['last_at'] = time.time()
+                    stats['elapsed_seconds'] = round(time.monotonic() - started, 3)
+                    stats['outcome'] = locals().get('outcome', 'invalid_response')
+                    if stats['outcome'] == 'success':
+                        stats['successes'] = stats.get('successes', 0) + 1
+                    target = Path(state_path)
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    temp = target.with_suffix('.tmp')
+                    temp.write_text(json.dumps(state), encoding='utf-8')
+                    os.replace(temp, target)
+        raise last_error or ModelUnavailable('model_transport_error')
+
     def editorial_json(self, system, data):
         payload = {'model': self.model, 'temperature': 0, 'max_tokens': 4096,
                    'messages': [{'role': 'system', 'content': system},
                                 {'role': 'user', 'content': json.dumps(data, ensure_ascii=False)}]}
-        request = urllib.request.Request(self.base + '/chat/completions',
-            data=json.dumps(payload).encode(), headers={'Content-Type': 'application/json',
-                                                        'Authorization': 'Bearer ' + self.key})
         try:
-            with urllib.request.urlopen(request, timeout=90) as response:
-                content = json.loads(response.read(2_000_000))['choices'][0]['message']['content']
+            content = self.request(payload)
             result = json.loads(content.strip().strip('`').removeprefix('json').strip())
             return result if isinstance(result, dict) else {}
+        except ModelUnavailable:
+            raise
         except Exception:
             return {}
 
@@ -113,15 +199,10 @@ class MemeLLM:
             'temperature': 0.4,
             'max_tokens': 2048,
         }
-        req = urllib.request.Request(
-            self.base + '/chat/completions',
-            data=json.dumps(payload).encode('utf-8'),
-            headers={'Content-Type': 'application/json',
-                     'Authorization': 'Bearer ' + self.key})
         try:
-            with urllib.request.urlopen(req, timeout=60) as resp:
-                body = json.loads(resp.read().decode('utf-8'))
-            text = body['choices'][0]['message']['content']
+            text = self.request(payload)
+        except ModelUnavailable:
+            raise
         except Exception:
             return None
         if not isinstance(text, str):

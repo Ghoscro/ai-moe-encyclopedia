@@ -336,6 +336,16 @@ def main():
     path = database.parent / 'pipeline.json'
     with exclusive(database.with_suffix('.lock')):
         receipt = json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
+        if receipt and receipt['stage'] == 'model_unavailable':
+            if time.time() < receipt.get('retry_after', 0):
+                # Keep public discovery running while the editorial provider is unavailable.
+                with db.Store() as store:
+                    community.discover(store, path.parent, daily_plan.live_counts(path.parent), daily_plan.TARGET)
+                    daily_plan.write_coverage(path.parent, store.list(status='pending', limit=10000))
+                print('Editorial provider backoff; public source discovery continues.')
+                return
+            save(path.with_name('release-model-error-' + receipt['created_at'].replace(':', '-') + '.json'), receipt)
+            receipt = None
         if receipt and receipt['stage'] in ('live', 'empty'):
             # Keep immutable receipts; next cycle is paced independently from resume attempts.
             age = time.time() - path.stat().st_mtime
@@ -345,7 +355,16 @@ def main():
             save(path.with_name('release-' + receipt.get('merge_commit', receipt['created_at'].replace(':', '-'))[:24] + '.json'), receipt)
             receipt = None
         if receipt is None:
-            receipt = prepare(args, path)
+            try:
+                receipt = prepare(args, path)
+            except llm.ModelUnavailable as exc:
+                save(path, {'stage': 'model_unavailable', 'created_at': db.now_iso(), 'entries': [],
+                            'retry_after': time.time() + exc.retry_seconds,
+                            'diagnostics': {'operational_error': exc.category, 'http_status': exc.status,
+                                            'daily_target': daily_plan.TARGET,
+                                            'daily_live': daily_plan.live_counts(path.parent)}})
+                print('Editorial provider unavailable: ' + exc.category)
+                raise SystemExit(2)
         if receipt:
             advance(receipt, path, args.prepare_only)
 
