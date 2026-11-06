@@ -288,7 +288,7 @@ Reddit共享限速，429后至少退避1小时，不用代理或登录绕过。
 
 编辑批次间隔10分钟，上限14篇，每角色每批至多1篇；新选题至多42次、原文复审28次、写稿尝试28次，
 编辑循环600秒预算，来源和模型网络请求各有超时。现有单写锁、CI、合并和公网核验保持。
-选题必须逐字提供玩家行动和AI回应两段证据；成稿不得增加原帖没有发生的互动。
+玩家互动须逐字提供玩家行动和AI回应两段证据；社区事件须提供原作行动/声明、结果或反应及角色身份引用。成稿不得增加原帖没有发生的互动。
 模型输入现在明确携带目标character和原帖日期，防止把别的模型经历移植过来。
 
 community-discovery.json记录每角色各来源收到数量、入队数量、HTTP故障及退避；
@@ -306,3 +306,10 @@ Selection, writing and independent review alternate between the two approved bac
 Each request may fail over once to the other backend; both failing produces an operational
 receipt and backoff, never an editorial rejection. Routing receipts contain counts, latency
 and status only. Non-thinking JSON responses are required; truncated responses cannot publish.
+
+### 社区事件与B站原投稿（2026-11-07）
+
+玩家趣事和社区事件并行审稿。AI角色接管账号、鱼灾、集体二创可以入选；普通注册和新闻不自动合格。
+B站线索以精确BV链接登记，公开接口重新读取原标题、作者、简介和原发布时间；只对这些元数据负责，
+空简介明确标识，不能补造视频画面、评论或播放成绩。社区角色身份不等于厂商官方认证或实际运行模型。
+来源声明仍按声明叙述，四格改编明确标注二创。缺额角色优先送审，同角色原帖按时间倒序。
