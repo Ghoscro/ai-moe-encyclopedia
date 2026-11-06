@@ -198,9 +198,9 @@ def prepare(args, receipt_path):
             entry = intake._merge_llm(intake._entry_from_card(row, card, entry_id), row, card)
             entry['kind'] = 'original'  # generated dialogue is fictional, not an observed event
             if row.get('published_at'):
-                entry['date'] = row['published_at'][:10]
+                entry['date'] = editorial.source_date(row['published_at'])
             if row.get('source', '').startswith('author-archive-'):
-                entry['date'] = row['published_at'][:10]
+                entry['date'] = editorial.source_date(row['published_at'])
                 entry['editor_note'] += ' 经典素材新编；日期为原文发布日期，非今日事件。'
             reason = intake._prewrite_checks(entry, entry_id)
             if reason or entry['character'] in used_characters:

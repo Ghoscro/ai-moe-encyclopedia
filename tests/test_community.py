@@ -99,3 +99,13 @@ class StoryQueriesTest(unittest.TestCase):
             self.assertTrue(all(r['story_terms']==['I asked','回复'] for r in state['characters'].values()))
             self.assertEqual(sum('I+asked' in u for u in seen),14)
             self.assertTrue(all('search_by_date' in u for u in seen if 'hn.algolia' in u))
+
+class SourceIdentityDateTest(unittest.TestCase):
+    def test_ambiguous_doubao_nickname_never_passes(self):
+        import editorial
+        source={'character':'doubao','title':'美国豆包','summary':'我让美国豆包查询，回复了一个结论'}
+        self.assertFalse(editorial.selection_passes({'eligible':True,'original_source':True},source))
+    def test_source_date_shanghai_not_utc_slice(self):
+        import editorial
+        self.assertEqual(editorial.source_date('2026-11-02T19:44:04+00:00'),'2026-11-03')
+        self.assertEqual(editorial.source_date('2026-09-05T16:59:48+00:00'),'2026-09-06')
