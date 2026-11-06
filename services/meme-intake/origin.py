@@ -5,10 +5,13 @@ from html.parser import HTMLParser
 import urllib.parse
 import urllib.request
 
-VERSION = 'original-page-v2'
+VERSION = 'original-page-v3-community'
 HOSTS = {'simonwillison.net', 'www.anthropic.com', 'andonlabs.com', 'www.404media.co', 'www.cohere.com', 'cohere.com', 'openai.com'}
 
 def allowed(url):
+    import community
+    if community.supported(url):
+        return True
     try:
         p = urllib.parse.urlsplit(url)
         return (p.scheme == 'https' and p.hostname in HOSTS and
@@ -40,6 +43,9 @@ class Text(HTMLParser):
             self.parts.append(data.strip())
 
 def fetch(url):
+    import community
+    if community.supported(url):
+        return community.evidence(url)
     if not allowed(url):
         return None
     try:

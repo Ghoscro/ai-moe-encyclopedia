@@ -16,8 +16,11 @@ class EditorialTests(unittest.TestCase):
     def setUp(self):
         patcher=mock.patch.object(pipeline.daily_plan,'discover_archives',return_value={})
         patcher.start();self.addCleanup(patcher.stop)
+        community_patcher=mock.patch.object(pipeline.community,'discover',return_value={})
+        community_patcher.start();self.addCleanup(community_patcher.stop)
         self.item={'title':'模型拒绝加班名场面','summary':'用户让模型写自动回复，模型回答本人正在休假，自动回复也在休假。'}
         self.selection={'eligible':True,'original_source':True,'source_type':'amusing_incident','evidence_quote':'本人正在休假，自动回复也在休假','comic_turn':'自动回复本来替人值班，却也跟着休假','reason':'替班与同时休假的具体反差'}
+        self.selection.update(player_action_quote='用户让模型写自动回复', ai_response_quote='模型回答本人正在休假')
         self.draft={'body':'【虚构二创】本人正在休假，自动回复也在休假。'}
         self.report={k:True for k in ('approved','grounded','has_payoff','character_fit','concise','not_news_in_costume','visual_story')}
         self.report.update(payoff_quote='本人正在休假，自动回复也在休假',reason='替班对象也休假，落点与开场形成反差')
@@ -66,8 +69,8 @@ class EditorialTests(unittest.TestCase):
             model.draft.side_effect=lambda row: dict(self.draft,character=row.get('character'))
             with mock.patch.object(pipeline.origin,'fetch',side_effect=lambda url: {'version':pipeline.origin.VERSION,'url':url,'text':self.item['summary'],'sha256':'fixture'}), mock.patch.object(pipeline,'command',return_value=''), mock.patch.object(pipeline.intake,'cmd_run'), mock.patch.object(pipeline.llm,'is_configured',return_value=True), mock.patch.object(pipeline.llm,'MemeLLM',return_value=model), mock.patch.object(pipeline.llm,'valid_draft',side_effect=lambda d: bool(d)), mock.patch.object(pipeline.intake,'_entry_from_card',return_value={}), mock.patch.object(pipeline.intake,'_merge_llm',side_effect=lambda base,row,card: {'character':row['character']}), mock.patch.object(pipeline.intake,'_prewrite_checks',return_value=None):
                 result=pipeline.prepare(SimpleNamespace(prepare_only=True,limit=5),Path(tmp)/'receipt.json')
-            self.assertEqual([e['character'] for e in result['entries']], ['gpt','claude','doubao'])
-            self.assertEqual(model.review_report.call_count,3)
+            self.assertCountEqual([e['character'] for e in result['entries']], ['gpt','claude','doubao','kimi'])
+            self.assertEqual(model.review_report.call_count,4)
 
     def test_high_score_news_does_not_reach_writer(self):
         with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(os.environ,{'MEME_INTAKE_DB':str(Path(tmp)/'queue.db')}):
