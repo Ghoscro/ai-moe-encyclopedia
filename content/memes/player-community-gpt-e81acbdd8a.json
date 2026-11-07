@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gpt-e81acbdd8a",
+  "character": "gpt",
+  "title": "GPT教玩家装油猴，玩家装完先怕封号",
+  "summary": "玩家嫌GPT一次答太多话题跟不上，GPT建议用Tampermonkey加按钮和话题清单，界面跑起来了却改不动输入框，玩家转头担心账号被封。",
+  "body": "第一格：玩家对着满屏多要点回答发呆，读到一半话题已经换了，干脆问GPT能不能改改讨论方式。GPT给出编号清单，只讲第一条，还配了[action-next]、[action-accept]这类标准动作。\n\n第二格：玩家想要屏幕上有常驻话题清单，再加按钮把[action-next]塞进输入框。GPT顺势建议上Tampermonkey，还帮着把脚本搭起来。\n\n第三格：界面确实跑起来了，按钮也在，唯独输入框纹丝不动。玩家盯着半成品脚本，表情从“成了”滑到“没完全成”。\n\n第四格：玩家突然心虚：我只是改界面，没黑任何东西，这算不算违规？会不会被封号？于是跑去发帖问，GPT当初的安装建议反倒成了悬在头顶的问号。\n\n（以上对白与心理活动均为虚构二创，原帖只记录玩家自述与GPT的建议。）\n\n原始线索：https://www.reddit.com/r/OpenAI/comments/1xqczyp/is_modifying_the_chatgpt_interface_with_tamper/",
+  "tags": [
+    "ChatGPT",
+    "Tampermonkey",
+    "界面改造",
+    "话题清单",
+    "封号焦虑"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/OpenAI/comments/1xqczyp/is_modifying_the_chatgpt_interface_with_tamper/",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1xqczyp/is_modifying_the_chatgpt_interface_with_tamper/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
