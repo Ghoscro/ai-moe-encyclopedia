@@ -1,0 +1,25 @@
+{
+  "id": "player-community-glm-7f711bd03e",
+  "character": "glm",
+  "title": "GLM 5.2 把 FBI 盯梢写成吸血鬼：玩家得靠 OOC 拉回镜头",
+  "summary": "一位玩家在 WoD 跑团里发现 GLM 5.2 会把 FBI 灰色轿车脑补成 Kindred 监视者，只好用 OOC 和舞台指示手动把剧情扳回正轨。",
+  "body": "第一格：玩家把 Mage 夜闯精神病诊所的戏交给 GLM 5.2，窗外只写“一辆灰色轿车”。模型顺着吸血鬼 Barony 的设定，把轿车认成 Kindred 的盯梢车，FBI 当场蒸发。\n\n第二格：玩家盯着屏幕愣了两秒，只好在 OOC 里补一句“那是 FBI，不是吸血鬼”，再把镜头切到 Kindred 收到 thrall 报告的夜间转场——GLM 这才把两条线接回去。\n\n第三格：玩家总结出规律：GLM 5.2 对话更有人味，但会为了不打断当前场景，把 Barony 的常规 surveillance 推到一边；NPC 视角又常抢走主角的分量，得靠舞台指示把房间的反应写出来。\n\n第四格：于是玩家每回合先写一两行“镜头转向反派、反派先手怎么走”，再让 GLM 接着演。帖子末尾那句“你在写协作故事，不是打游戏”成了整栋楼的共识——OOC 不是作弊，是给模型递扶手。\n\n原始线索：https://www.reddit.com/r/SillyTavernAI/comments/1xq0ioo/ooc_and_stage_directions_arent_cheating/",
+  "tags": [
+    "GLM 5.2",
+    "SillyTavern",
+    "跑团",
+    "OOC",
+    "舞台指示",
+    "WoD"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/SillyTavernAI/comments/1xq0ioo/ooc_and_stage_directions_arent_cheating/",
+      "url": "https://www.reddit.com/r/SillyTavernAI/comments/1xq0ioo/ooc_and_stage_directions_arent_cheating/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-07",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
