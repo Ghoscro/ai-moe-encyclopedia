@@ -1,0 +1,17 @@
+{
+  "id": "player-community-deepseek-8167653b97",
+  "entry_hash": "4b03045b84f7e8080cbbf84293ce6b915bb6862090ded5730cce155d1f8aed4d",
+  "sha256": "1c4eaa7c88fc088b7a73a265a07a525533d5c005dd03a2bea9a7af86e7ce4207",
+  "review": {
+    "decision": "approve",
+    "sha256": "1c4eaa7c88fc088b7a73a265a07a525533d5c005dd03a2bea9a7af86e7ce4207",
+    "entry_hash": "4b03045b84f7e8080cbbf84293ce6b915bb6862090ded5730cce155d1f8aed4d",
+    "reviewed_at": "2026-11-07T23:39:15.028627+00:00",
+    "reviewer": "DS1017-native-vision",
+    "note": "Actual image review passed meme-vision-v2 on mac1-ds1017",
+    "evidence_hash": "c3432646f7d4100dbd662ac247d5e74e98ec2ba71a3b49b8b31bfcbd17b47596",
+    "appearance_hash": "db1cbd42d924ad605900e671809375c52de47644572562c185f47676424126e9",
+    "policy": "meme-vision-v2"
+  },
+  "model": "MOSS-Image"
+}
