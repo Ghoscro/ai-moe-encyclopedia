@@ -1,0 +1,25 @@
+{
+  "id": "player-community-gemini-2d435838fc",
+  "character": "gemini",
+  "title": "Gemini 一眼认出 C3RB3R：群晖勒索现场变 AI 救灾直播",
+  "summary": "群晖 DSM 遭 C3RB3R 勒索，Gemini 靠 .L0CK3D 后缀和 read-me3.txt 锁定家族，随后 Codex、GPT 接力从内存 dump 里挖出主密钥，把灾难现场演成一场分工明确的救援直播。",
+  "body": "第一格：群晖主机里的 GitLab CE 文件后缀集体变成 .L0CK3D，旁边躺着 read-me3.txt。玩家把截图丢给 Gemini，Gemini 一本正经地报出“C3RB3R 勒索软件”，还顺手把锅指向 GitLab 的满分 RCE。玩家盯着屏幕：排查还没开始，嫌疑人已经先被点名了。\n\n第二格：排查更新来了——GitLab 其实早升到 19.5.1，漏洞修过，但攻击脚本藏在 crond 计划任务里，升级不等于没事。五年私有仓库数据没了，玩家只能对着本机残留代码告别。Gemini 的初判被现场证据修正，气氛从“破案”滑向“悼念”。\n\n第三格：转折发生在封锁现场。加密进程被 Codex 暂停取样，加密二进制和内存 dump 都留在手里。GPT6 Astra 接手，号称定位 ChaCha8、从内存里捞出 48 字节 AES-256-CBC 主密钥，先拿 PSD 和 PNG 试解密。玩家看着测试文件一个个恢复，表情从绝望切回紧张。\n\n第四格：喜报落地——隔离环境的 GitLab 容器起来了，周备份和日备份恢复出整个 repo。Gemini 在这场救援里更像最早喊出“这是 C3RB3R”的侦探，真正挖密钥的是后面的 AI 接力队。玩家总结的核心经验只有一句：中招别拔电源，开 SSH 让 AI 暂停进程、dump 内存、断公网，现场保住了才有得救。\n\n原始线索：https://www.v2ex.com/t/1252851",
+  "tags": [
+    "群晖",
+    "勒索软件",
+    "C3RB3R",
+    "内存dump",
+    "AI救灾",
+    "GitLab"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1252851",
+      "url": "https://www.v2ex.com/t/1252851"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-29",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
