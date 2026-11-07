@@ -2,6 +2,7 @@
 import argparse
 import datetime
 import html
+import hashlib
 import json
 import re
 import shutil
@@ -93,15 +94,35 @@ def entries(root=ROOT):
         legacy_titles.add(key)
         seen.add(row['id'])
         rows.append(row)
+    for row in rows:
+        asset=root/'site/meme/illustrations'/(row['id']+'.webp')
+        if not asset.exists(): continue
+        if asset.is_symlink() or asset.stat().st_size>350000:raise ValueError('Invalid illustration asset')
+        data=asset.read_bytes()
+        if data[:4]!=b'RIFF' or data[8:12]!=b'WEBP':raise ValueError('Invalid illustration format')
+        review_path=root/'content/illustration-reviews'/(row['id']+'.json')
+        if review_path.is_symlink():raise ValueError('Invalid illustration review')
+        receipt=json.loads(review_path.read_text(encoding='utf-8'))
+        sha=hashlib.sha256(data).hexdigest()
+        story_sha=hashlib.sha256(json.dumps(row,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        review=receipt.get('review',{})
+        if receipt.get('sha256')!=sha or receipt.get('entry_hash')!=story_sha or review.get('decision')!='approve' or review.get('sha256')!=sha or review.get('entry_hash')!=story_sha:
+            raise ValueError('Illustration requires matching visual review: '+row['id'])
     return rows
 
 def card(row):
     e=html.escape
+    illustration=''
+    ident=row.get('id','')
+    if re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',ident):
+        asset=ROOT/'site'/'meme'/'illustrations'/(ident+'.webp')
+        if asset.is_file() and not asset.is_symlink():
+            illustration=f'<figure class="meme-illustration"><img src="/meme/illustrations/{ident}.webp" alt="{e(row["title"],quote=True)} · AI二创配图" width="1024" height="585" loading="lazy" decoding="async"><figcaption>AI二创配图 · 非原事件截图</figcaption></figure>'
     paragraphs=''.join('<p>'+e(p).replace('\n','<br>')+'</p>' for p in row['body'].split('\n\n') if p.strip())
     sources=''.join('<a href="'+e(s['url'],quote=True)+'" rel="noopener noreferrer" target="_blank">'+e(s['title'])+' ↗</a> ' for s in row.get('sources',[]))
     tags=' '.join('#'+e(t) for t in row.get('tags',[]))
     note='<p class="community-note">'+e(row.get('editor_note',''))+'</p>' if row.get('editor_note') else ''
-    return f'<article class="community-entry" id="{e(row["id"])}"><small>{KINDS[row["kind"]]} · {e(row["date"])}</small><h3>{e(row["title"])}</h3><p class="community-summary">{e(row["summary"])}</p>{paragraphs}{note}<p>{tags}</p><div class="community-credit">投稿：{e(row["contributor"])} · {sources}</div></article>'
+    return f'<article class="community-entry" id="{e(row["id"])}"><small>{KINDS[row["kind"]]} · {e(row["date"])}</small><h3>{e(row["title"])}</h3><p class="community-summary">{e(row["summary"])}</p>{illustration}{paragraphs}{note}<p>{tags}</p><div class="community-credit">投稿：{e(row["contributor"])} · {sources}</div></article>'
 
 def strip():
     return '<aside class="community-strip" aria-label="社区投稿"><span>有新梗？来补一页。</span><a href="/meme/contribute/">投稿新梗 ↗</a><a href="'+REPO+'" target="_blank" rel="noopener noreferrer">GitHub 仓库</a></aside>'
