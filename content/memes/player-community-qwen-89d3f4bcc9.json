@@ -1,0 +1,24 @@
+{
+  "id": "player-community-qwen-89d3f4bcc9",
+  "character": "qwen",
+  "title": "Qwen 3.6 9B 查突变，顺手逛了加密货币和黄金行情",
+  "summary": "玩家首次本地跑 Qwen 3.6 9B 问突变，54 个来源里混进 ChatGPT、加密货币站和黄金行情站，模型照常给出答案。",
+  "body": "第一格：玩家第一次在自家普通电脑上跑本地模型，选了 Qwen 3.6 9B，用 unsloth 原样启动，没改任何设置。屏幕前他敲下关于突变的问题，心想“先试试能不能跑”。\n\n第二格：Qwen 3.6 9B 开始“做研究”，进度条一路滚，最后甩出一份看起来够用的答案。玩家往下翻来源列表，数到 54 条，表情还算满意。\n\n第三格：翻到其中三条时他停住：一条指向 ChatGPT，一条指向加密货币网站，一条指向黄金行情网站。他盯着屏幕，手停在鼠标上，脑子里只有一句“为什么它会去加密货币站？”\n\n第四格：模型本身没报错，答案也照常给出，只是这三条来源和突变问题毫无关系。玩家把截图发到社区吐槽，配文仍是那句“为什么它会去加密货币站？”，语气像在问一个刚逛完街回来的朋友。\n\n（以上对白与场景为虚构二创，原帖只记录了这次本地测试的来源异常。）\n\n原始线索：https://www.reddit.com/r/LocalLLM/comments/1xqjhwm/why_did_it_go_to_a_crypto_site/",
+  "tags": [
+    "Qwen",
+    "本地模型",
+    "来源异常",
+    "社区吐槽",
+    "虚构二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/LocalLLM/comments/1xqjhwm/why_did_it_go_to_a_crypto_site/",
+      "url": "https://www.reddit.com/r/LocalLLM/comments/1xqjhwm/why_did_it_go_to_a_crypto_site/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
