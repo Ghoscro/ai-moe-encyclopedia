@@ -1,0 +1,24 @@
+{
+  "id": "player-community-minimax-c91ae0066f",
+  "character": "minimax",
+  "title": "space-bunny 与 m3.1-flash 的同一模型疑云",
+  "summary": "玩家冲着 space-bunny 的好印象买了 minimax 订阅，结果 m3.1-flash 卡在查询脚本三分钟、官方直连还甩来 529，只好当场屋檐。",
+  "body": "第一格：玩家盯着 OpenRouter 上的 space-bunny，心想这玩意儿能和 dv4-flash 掰掰手腕，于是掏钱买了 minimax 的 ¥119 plan，准备给 m3.1-flash 一次认知改观的机会。\n\n第二格：hermes 上跑 3.1，TPS 明明比 kimi 高，效率却比 kimi 还低；脚本执行效率极低、等待时间极长，玩家眉头越皱越紧，嘴里念叨“这不太能是当时的 bunny 吧”。\n\n第三格：古法编程两分钟写完一个小优化，心血来潮再试 minimax。m3.1-flash 又卡在一个查询脚本执行三分钟，玩家彻底屋檐，转念一想换国内 IP 会不会好点，于是在 pi 里设了官方 api key 直连。\n\n第四格：屏幕上弹出 529 overloaded_error——“当前服务集群负载较高，请稍后重试，感谢您的耐心等待”。玩家沉默半晌，转头拿手里的 grok、kimi、deepseek 测了一圈：ds 雷霆调用一骑绝尘，grok 神秘寡言，kimi TPS 垫底。屋檐之下，只剩一句“我不知道该说什么了”。\n\n原始线索：https://www.v2ex.com/t/1250555",
+  "tags": [
+    "minimax",
+    "space-bunny",
+    "529",
+    "订阅实测",
+    "屋檐"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1250555",
+      "url": "https://www.v2ex.com/t/1250555"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-21",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
