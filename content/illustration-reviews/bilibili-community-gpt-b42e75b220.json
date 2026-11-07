@@ -1,0 +1,14 @@
+{
+  "id": "bilibili-community-gpt-b42e75b220",
+  "entry_hash": "0eca2d275f84bd240fc7d730e46100bd48064a774ca4e9618f33255e77e552dc",
+  "sha256": "6dea222ddd070373661f92d4a9bdadda4355554234f79efabe4f7ee75d196b49",
+  "review": {
+    "decision": "approve",
+    "sha256": "6dea222ddd070373661f92d4a9bdadda4355554234f79efabe4f7ee75d196b49",
+    "entry_hash": "0eca2d275f84bd240fc7d730e46100bd48064a774ca4e9618f33255e77e552dc",
+    "reviewed_at": "2026-11-07T19:53:52.175263+00:00",
+    "reviewer": "operator-visual-review",
+    "note": "Actual image inspected: white lavender dragon girl, embarrassed budget expression, symbolic purse, no text artifacts or exact coin count claims; AI adaptation label required."
+  },
+  "model": "MOSS-Image"
+}
