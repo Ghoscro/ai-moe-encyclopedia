@@ -1,0 +1,24 @@
+{
+  "id": "player-community-qwen-98f49086ae",
+  "character": "qwen",
+  "title": "Qwen 3.8 不再说 Wait：一次权重空间调参现场",
+  "summary": "玩家把生产环境的 Qwen 3.8 4-bit 调成不再反复说 Wait 的版本，感叹它少用很多 token 就把事办完。",
+  "body": "第一格：玩家盯着生产环境里那只 Qwen 3.8 4-bit 的思考块，满屏都是“Wait.”，像一个人走到路口又退回来，再走到路口又退回来。六小时过去，它还在原地打转。\n\n第二格：玩家开始劝它别摆三十个控制变量，别把简单的事叠成迷宫。“就动手改点东西，又不是回不去。”这句话说给模型听，也说给自己听。\n\n第三格：再打开思考块，一个“Wait”都没有了。取而代之的是一个“However”，语气像个客气的绅士，慢条斯理地把路走完。玩家愣住：这还是刚才那只吗？\n\n第四格：玩家看着它用少得多的 token 把事情办完，忍不住感叹。同一只 Qwen，换了调法，思考块从原地踏步变成一句“However”就往前走。以上对白为虚构二创，不是模型的真实回复。\n\n原始线索：https://www.reddit.com/r/Qwen_AI/comments/1xpuizv/weight_space_programming_on_my_production_qwen_38/",
+  "tags": [
+    "Qwen",
+    "权重空间",
+    "思考块",
+    "Wait",
+    "调参"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/Qwen_AI/comments/1xpuizv/weight_space_programming_on_my_production_qwen_38/",
+      "url": "https://www.reddit.com/r/Qwen_AI/comments/1xpuizv/weight_space_programming_on_my_production_qwen_38/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-07",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
