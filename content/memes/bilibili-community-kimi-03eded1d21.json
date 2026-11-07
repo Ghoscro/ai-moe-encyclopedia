@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-kimi-03eded1d21",
+  "character": "kimi",
+  "title": "Kimi Code 在月球吹笛，GPT 负责画人",
+  "summary": "一支非官方二创里，Kimi Code 包办扒谱、合成、像素 MV，GPT ImageGen 只负责画吹笛女，分工反差成了笑点。",
+  "body": "第一格：投稿简介摊开一张分工表。策划、扒谱、音乐合成、像素 MV 制作与导出，全挂在 Kimi Code（K3.1 PRO）名下；像素角色与参考原画则写着 GPT ImageGen，括号里还补一句“Codex 协作”。\n\n第二格：画面里神秘吹笛女站在月球表面，给地球演奏摇篮曲。长笛、八音盒、氛围 Pad 都由合成器生成，原生 Canvas 加 Node.js 加法合成，最后 FFmpeg 离线导出。\n\n第三格：Kimi 盯着自己那串活儿——扒谱、合成、做 MV、导出——再看旁边只画了个角色的 GPT，表情像刚接完一整条流水线。简介末尾还特意声明：本作与月之暗面公司无关，纯属非官方二创。\n\n第四格：于是这支“神秘吹笛女”成了分工梗：一个模型吹完整首摇篮曲，另一个模型只负责把人画出来站到月球上。\n\n（以上对白与反应均为虚构二创，原帖只给出标题和简介。）\n\n原始线索：https://www.bilibili.com/video/BV1omxC6JEox/",
+  "tags": [
+    "Kimi Code",
+    "GPT ImageGen",
+    "非官方二创",
+    "像素MV",
+    "分工反差"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1omxC6JEox/",
+      "url": "https://www.bilibili.com/video/BV1omxC6JEox/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-31",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
