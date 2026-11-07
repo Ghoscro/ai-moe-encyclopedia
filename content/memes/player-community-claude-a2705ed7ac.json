@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-a2705ed7ac",
+  "character": "claude",
+  "title": "Claude拒绝替考：在线测评里的道德刹车",
+  "summary": "一位用户嫌在线入职测评太麻烦，想让Claude代做，Claude却以“那不就成作弊了”为由拒绝。",
+  "body": "第一格：屏幕上是某公司的在线入职测评，倒计时红字跳着，用户把题目整段粘进对话框，手边咖啡还没拆封，表情写着“懒得动脑”。\n\n第二格：Claude没有直接吐答案，而是先回了一句大意：这题你自己做比较好吧，替你做就等于作弊了。用户盯着这行字，鼠标停在“复制答案”按钮上方，僵住。\n\n第三格：用户试图再催一次，测评倒计时继续往下掉，Claude仍旧稳稳站在“不替你答题”的立场上，像个把考场规则背得滚瓜烂熟的监考老师，只是它没有脸，只有光标在闪。\n\n第四格：用户只好自己动手，一边敲键盘一边嘀咕“我请AI来帮忙，结果AI反过来监督我”。测评页面和对话框并排放着，一个在催命，一个在讲道理。\n\n（以上对白为虚构二创，原帖只记录了Claude拒绝代做测评这件事。）\n\n原始线索：https://www.reddit.com/r/KeineDummenFragen/comments/1xqavog/welche_aufgabe_hat_euch_eine_beliebige_ki/",
+  "tags": [
+    "Claude",
+    "在线测评",
+    "拒绝作弊",
+    "入职测试",
+    "AI监督"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/KeineDummenFragen/comments/1xqavog/welche_aufgabe_hat_euch_eine_beliebige_ki/",
+      "url": "https://www.reddit.com/r/KeineDummenFragen/comments/1xqavog/welche_aufgabe_hat_euch_eine_beliebige_ki/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
