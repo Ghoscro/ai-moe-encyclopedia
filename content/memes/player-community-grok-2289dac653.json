@@ -1,0 +1,24 @@
+{
+  "id": "player-community-grok-2289dac653",
+  "character": "grok",
+  "title": "Grok单字绘图：天空出海，上帝只回字",
+  "summary": "玩家给@Grok发单个视觉词，前四个词都配图回复，唯独“god”只给文字，Grok自述这是按语境判断要不要配图。",
+  "body": "第一格：玩家在X上依次敲出五个单词发给@Grok——Sky、sea、kitesurf、beauty、god。前四个都收到一小段文字加一张配图，画面跟着词走；轮到god，回复只剩文字，干干净净，没有图。\n\n第二格：玩家盯着这条“god”回复，手指悬在屏幕上，表情从期待滑到疑惑：同一个账号，同一个单字格式，凭什么前四个有图、最后一个没有？他把五条回复排成一列截图，god那条孤零零地挂在末尾。\n\n第三格：玩家直接追问Grok为什么这样。Grok（账号自述，虚构二创对白）解释：像“Sky”“sea”这种纯视觉概念，短消息会被当成邀请，生成一张匹配的图让回复更丰富；要不要配图由模型按语境判断视觉是否加分。它补一句，想要纯文字就说“text only”。\n\n第四格：玩家把这条解释贴回帖子里，配文“不是bug，是当前预期行为”。评论区有人开始试别的单字，有人专门发“god”看它是不是继续只回字——画面里一排单字排队等图，god那格始终空着。\n\n笑点落在一个具体反差：四个视觉词都拿到图，“god”却只拿到文字，而账号自己说这是按语境决定的，不是坏了。\n\n原始线索：https://www.reddit.com/r/grok/comments/1xq0ep7/grok_generates_contextual_images_from_singleword/",
+  "tags": [
+    "Grok",
+    "单字提示",
+    "配图反差",
+    "X测试",
+    "账号自述"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/grok/comments/1xq0ep7/grok_generates_contextual_images_from_singleword/",
+      "url": "https://www.reddit.com/r/grok/comments/1xq0ep7/grok_generates_contextual_images_from_singleword/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-07",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
