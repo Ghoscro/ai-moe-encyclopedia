@@ -2,6 +2,7 @@
 import argparse
 import datetime
 import html
+import hashlib
 import json
 import re
 import shutil
@@ -93,6 +94,20 @@ def entries(root=ROOT):
         legacy_titles.add(key)
         seen.add(row['id'])
         rows.append(row)
+    for row in rows:
+        asset=root/'site/meme/illustrations'/(row['id']+'.webp')
+        if not asset.exists(): continue
+        if asset.is_symlink() or asset.stat().st_size>350000:raise ValueError('Invalid illustration asset')
+        data=asset.read_bytes()
+        if data[:4]!=b'RIFF' or data[8:12]!=b'WEBP':raise ValueError('Invalid illustration format')
+        review_path=root/'content/illustration-reviews'/(row['id']+'.json')
+        if review_path.is_symlink():raise ValueError('Invalid illustration review')
+        receipt=json.loads(review_path.read_text(encoding='utf-8'))
+        sha=hashlib.sha256(data).hexdigest()
+        story_sha=hashlib.sha256(json.dumps(row,ensure_ascii=False,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+        review=receipt.get('review',{})
+        if receipt.get('sha256')!=sha or receipt.get('entry_hash')!=story_sha or review.get('decision')!='approve' or review.get('sha256')!=sha or review.get('entry_hash')!=story_sha:
+            raise ValueError('Illustration requires matching visual review: '+row['id'])
     return rows
 
 def card(row):
