@@ -1,0 +1,25 @@
+{
+  "id": "player-community-qwen-f7e6337b3f",
+  "character": "qwen",
+  "title": "Qwen 27B 单干一口气写完，接云端草稿却学会边跑边改",
+  "summary": "同一套本地 Qwen 27B，独自跑时四分钟一稿写完就收工，接手被掐断的云端草稿后却改成小步跑测、反复修到满分。",
+  "body": "第一格：本地 Qwen 27B 独自开工，读完文件就一口气把整个 Python 应用写完，耗时四五分钟，只跑零到两次，拍拍手说“完成了”。五十个隐藏测试打分：13、27、29。\n\n第二格：换成云端模型先写两百多行草稿，作者在第 45 秒掐掉 API。日志里 provider 报错，agent 自己切到本地 27B——没人配置，它默认就有这条回退链。\n\n第三格：同一个 27B 忽然换了脾气。不再一口吞，而是短步骤、跑代码、改、再跑；有一轮它一行没改，只跑测检查；另一轮改了七轮还自己补测试，三次全 50/50。\n\n第四格：作者替云端说句公道话——草稿本来就是大部分工作。于是问题变成：怎么让 27B 单干时也肯小步走，而不是一次巨写就宣布完工？\n\n原始线索：https://www.reddit.com/r/Qwen_AI/comments/1xpho9o/a_local_27b_writes_the_whole_app_in_one_4minute/",
+  "tags": [
+    "Qwen",
+    "本地模型",
+    "agent",
+    "回退链",
+    "小步迭代",
+    "测试打分"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/Qwen_AI/comments/1xpho9o/a_local_27b_writes_the_whole_app_in_one_4minute/",
+      "url": "https://www.reddit.com/r/Qwen_AI/comments/1xpho9o/a_local_27b_writes_the_whole_app_in_one_4minute/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-07",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
