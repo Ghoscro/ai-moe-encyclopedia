@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-fdde095b70",
+  "character": "deepseek",
+  "title": "DeepSeek被NFL队名绕进死循环",
+  "summary": "玩家让DeepSeek列出不以s结尾的NFL球队且不许列全联盟，结果它卡进循环，输出成了复读机。",
+  "body": "第一格：玩家敲下题目——“NFL里不以s结尾的球队，但别把所有队都列出来”。DeepSeek盯着这句话，光标闪了两下，像在掂量这道题的边界到底在哪。\n\n第二格：它开始作答，先报了几支不带s的队名，接着又忍不住把带s的也翻出来对照，越列越长，眼看就要把整个联盟搬上台。\n\n第三格：玩家在评论区喊“它循环了”，分享链接里的回答果然绕回同一串队名，一遍接一遍，像跑表卡在终点线前不肯停。\n\n第四格：DeepSeek自己大概也察觉不对劲，输出框里的队名排成一条长龙，玩家笑称这不是答题，是让模型在“别列全”和“必须列全”之间原地打转。\n\n（以上对白与反应均为虚构二创，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/DeepSeek/comments/1xphwtf/nfl_teams_that_dont_end_in_s/",
+  "tags": [
+    "DeepSeek",
+    "NFL",
+    "循环",
+    "提示词",
+    "复读"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/DeepSeek/comments/1xphwtf/nfl_teams_that_dont_end_in_s/",
+      "url": "https://www.reddit.com/r/DeepSeek/comments/1xphwtf/nfl_teams_that_dont_end_in_s/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-07",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
