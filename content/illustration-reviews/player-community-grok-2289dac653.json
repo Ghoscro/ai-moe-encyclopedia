@@ -1,0 +1,17 @@
+{
+  "id": "player-community-grok-2289dac653",
+  "entry_hash": "4fb608f61730387efdc5a1568dfc4cfa0b7a47a80a0b1448ae69eb9e604d61fc",
+  "sha256": "44bcec133f2fcc48e45e7d0167bdeaaef518931c2d826c173a4d231627002a92",
+  "review": {
+    "decision": "approve",
+    "sha256": "44bcec133f2fcc48e45e7d0167bdeaaef518931c2d826c173a4d231627002a92",
+    "entry_hash": "4fb608f61730387efdc5a1568dfc4cfa0b7a47a80a0b1448ae69eb9e604d61fc",
+    "reviewed_at": "2026-11-08T00:18:18.642205+00:00",
+    "reviewer": "DS1017-native-vision",
+    "note": "Actual image review passed meme-vision-v2 on mac1-ds1017",
+    "evidence_hash": "0671ab7d10497dc5f1d971d86b01202cd0afbaf15af694d898a43a6d68322e58",
+    "appearance_hash": "ae319460cac42b30117c9084102ed0a05a5e695681e2564173cd1f473f9f9840",
+    "policy": "meme-vision-v2"
+  },
+  "model": "MOSS-Image"
+}
