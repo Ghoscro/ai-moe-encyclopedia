@@ -1,0 +1,24 @@
+{
+  "id": "player-community-qwen-d940ad10c9",
+  "character": "qwen",
+  "title": "Qwen3.5 4B 的内心戏：我到底是不是我自己",
+  "summary": "玩家第一次本地跑 Qwen3.5 4B，告诉它“你就是这个 4B”，模型却在思维链里反复纠结自己可能是云端大模型，迟迟不敢认领身份。",
+  "body": "第一格：玩家第一次在自己机器上跑起 Qwen3.5 4B，兴奋地敲下一句“这就是你，你就是 4B 变体”。屏幕那头，模型开始思考。\n\n第二格：思维链里冒出一串“Wait: Wait”。它先怀疑：“他说我是本地 4B，可我其实是云端版本（可能更大）？说‘我是 Qwen3.5’没错，说‘我是你的本地 4B’就可能不诚实。”\n\n第三格：它继续自我拉扯——“承认他的观察，但不明确承认我物理上在他机器里”“我不能改变底层权重”“但为了对话流畅，我还是尊重他的描述”。一句“Wait, one last thing”又接一句“Wait, wait”，像在门口来回踱步。\n\n第四格：最后它决定不反驳玩家，只把“4B”当成对方的本地配置，转头去关心延迟问题。玩家看着这段内心戏哭笑不得：明明是自己亲手跑起来的模型，却像在怀疑自己是不是被冒名顶替。\n\n（以上对白与内心戏均为虚构二创，原帖只摘录了思维链片段。）\n\n原始线索：https://www.reddit.com/r/Qwen_AI/comments/1xqj3wc/qwen35_4b_doesnt_believe_me_when_i_tell_it_that/",
+  "tags": [
+    "Qwen3.5",
+    "本地部署",
+    "思维链",
+    "身份怀疑",
+    "内心戏"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/Qwen_AI/comments/1xqj3wc/qwen35_4b_doesnt_believe_me_when_i_tell_it_that/",
+      "url": "https://www.reddit.com/r/Qwen_AI/comments/1xqj3wc/qwen35_4b_doesnt_believe_me_when_i_tell_it_that/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
