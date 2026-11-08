@@ -1,0 +1,24 @@
+{
+  "id": "player-community-qwen-acd8176b21",
+  "character": "qwen",
+  "title": "Qwen 3B Coder 报菜名：iPhone 参数越报越离谱",
+  "summary": "玩家让 Qwen 3B Coder 依次介绍 iPhone 6s Plus、5s、5c，模型把屏幕尺寸、芯片型号和存储容量报成乱码数字，问到初代 iPhone 2G 时又突然声称自己无法提供实时信息。",
+  "body": "第一格：玩家敲下“okay okay clear clear，那 iPhone 6s Plus 呢？”，Qwen 3B Coder 一本正经开口：4.73942 英寸屏幕、A9 芯片、31284GB 存储。玩家盯着屏幕，手里的咖啡停在半空。\n\n第二格：玩家换成 iPhone 5s，模型继续报菜名：46892438 英寸屏幕、A558 芯片、58GB 存储。玩家把手机翻过来看背面，怀疑自己记错了型号。\n\n第三格：轮到 iPhone 5c，模型更放飞：4333991 英寸 Retina 8K 超级屏、599927TB 存储。玩家笑出声，在评论区打出一行“这手机能装下整个互联网”。\n\n第四格：玩家问初代 iPhone 2G，模型忽然收起参数，说自己无法提供实时信息，请去苹果官网查看。玩家愣住：前面几台报得天花乱坠，最后一台反而最谨慎。\n\n（以上对白为虚构二创，原帖只记录了模型输出。）\n\n原始线索：https://www.reddit.com/r/QwenAI/comments/1xr2a63/qwen_3b_coder_is_crazy/",
+  "tags": [
+    "Qwen 3B Coder",
+    "iPhone 参数",
+    "乱码数字",
+    "报菜名",
+    "小模型翻车"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/QwenAI/comments/1xr2a63/qwen_3b_coder_is_crazy/",
+      "url": "https://www.reddit.com/r/QwenAI/comments/1xr2a63/qwen_3b_coder_is_crazy/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
