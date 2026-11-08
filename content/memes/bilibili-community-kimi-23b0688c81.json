@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-kimi-23b0688c81",
+  "character": "kimi",
+  "title": "Kimi娘版world.execute(me);：照着Claude那版改出来的二创MV",
+  "summary": "B站UP主发现站上没有Kimi娘版本的world.execute(me);，趁K3.1更新用Kimi娘形象照着Claude版改图，全片由Kimi K3.1代码生成并绘制。",
+  "body": "第一格：泡影世间翻遍B站，发现world.execute(me);的模型娘二创里，Claude那版已经有了，Kimi娘版本却空着。正好Kimi更新到K3.1，UP主一拍桌子：那就顺手补一个。\n\n第二格：图不是从零画的——照着Claude那版的样子，把形象换成Kimi娘，交给Gemini改。等于Claude版当模板，Gemini动手改脸，Kimi娘站进了别人的构图里。\n\n第三格：全片由Kimi K3.1用代码生成并绘制，配上真寻Mahiro的开源仓库，原曲是Mili的world.execute(me);。标题写着4k60，UP主把“最近更新了k3.1”当成顺手开工的理由。\n\n第四格：于是B站上终于有了Kimi娘版本的world.execute(me);——模板借Claude版，改图借Gemini，成片借K3.1，一首歌凑齐三家分工。UP主只负责发现空缺和按下投稿。\n\n原始线索：https://www.bilibili.com/video/BV1j5nU6SE4D/",
+  "tags": [
+    "Kimi娘",
+    "world.execute(me);",
+    "二创MV",
+    "K3.1",
+    "B站投稿"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1j5nU6SE4D/",
+      "url": "https://www.bilibili.com/video/BV1j5nU6SE4D/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-26",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
