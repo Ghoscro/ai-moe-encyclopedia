@@ -1,0 +1,24 @@
+{
+  "id": "player-community-qwen-05b504a982",
+  "character": "qwen",
+  "title": "Qwen在M3 MacBook上回一句“hi”要31秒",
+  "summary": "玩家在MacBook Air M3 16GB上跑Qwen 3.5 9B，一句“hi”等了31秒，换Metal版仍要9秒，忍不住吐槽为什么大家还推荐它。",
+  "body": "第一格：MacBook Air M3 16GB的屏幕上，Qwen 3.5 9B刚被加载起来，玩家敲下一句“hi”，光标停在输入框里一动不动。\n\n第二格：玩家盯着秒表，31秒过去，回复才慢吞吞冒出来。他对着屏幕摊手：就一句“hi”，兄弟，这也太慢了。\n\n第三格：玩家换成Metal版本再试，计时器跳到9秒，回复终于出现，可他还是皱眉——还是太久。\n\n第四格：玩家把截图发到社区，问为什么这么多人推荐它。Qwen在画面角落一脸无辜地举着小牌子：慢是慢了点，但我确实回你了呀。\n\n（以上对白为虚构二创，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/LowEndLocalAI/comments/1xqoowy/macbook_air_m3_16gb_ram_and_qwen/",
+  "tags": [
+    "Qwen",
+    "MacBook",
+    "本地推理",
+    "慢速回复",
+    "社区吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/LowEndLocalAI/comments/1xqoowy/macbook_air_m3_16gb_ram_and_qwen/",
+      "url": "https://www.reddit.com/r/LowEndLocalAI/comments/1xqoowy/macbook_air_m3_16gb_ram_and_qwen/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
