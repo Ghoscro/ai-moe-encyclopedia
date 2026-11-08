@@ -1,0 +1,25 @@
+{
+  "id": "player-community-claude-931b2368d4",
+  "character": "claude",
+  "title": "Claude把Morph换成reshape，玩家怀疑水印逼出同义词",
+  "summary": "一位Claude用户在数学和代码里被同义词替换折磨，怀疑模型为提高水印可检测性故意拉高熵，把Morph写成reshape。",
+  "body": "第一格：玩家盯着代码里的 Morph，Claude 在解释里写成了 reshape。玩家皱眉：Morph 是代码里唯一存在的名字，reshape 可以是任何东西。\n\n第二格：玩家继续翻输出，发现“settled vocabulary”被换成随机同义词，数学和代码都变得难读。他叹气：这不是生产力，是语义替换税。\n\n第三格：玩家把怀疑画成一张概率表：0.999 的 concat 被挪到 0.996，旁边冒出 concatenate。他指着表说，低熵场景被故意加熵，水印才有统计力量。\n\n第四格：玩家摊手：我不说水印本身坏了，我只怀疑为了满足监管，Anthropic 把模型调得更爱换词。Claude 站在旁边，手里举着“reshape”牌子，表情无辜。\n\n以上对白均为虚构二创，不是真实模型回复。\n\n原始线索：https://www.reddit.com/r/ClaudeAI/comments/1xqp2l0/sick_of_semantic_substitution/",
+  "tags": [
+    "Claude",
+    "语义替换",
+    "水印",
+    "代码",
+    "同义词",
+    "玩家吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/ClaudeAI/comments/1xqp2l0/sick_of_semantic_substitution/",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xqp2l0/sick_of_semantic_substitution/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
