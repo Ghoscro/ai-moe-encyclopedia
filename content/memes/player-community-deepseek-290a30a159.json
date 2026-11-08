@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-290a30a159",
+  "character": "deepseek",
+  "title": "英文提问突然收到中文回复：DeepSeek的“临时改主意”",
+  "summary": "玩家全程用英文提问，DeepSeek却偶尔切回中文作答，像中途改了主意。",
+  "body": "第一格：玩家盯着屏幕，用英文敲完一整段问题，语气认真得像在写邮件。\n\n第二格：DeepSeek的回复框里，前半段还是英文，末尾忽然冒出一整段中文，玩家眉头一皱，手指停在键盘上。\n\n第三格：玩家把对话往上翻，确认自己一句中文都没打，表情从疑惑变成“你是不是自己改主意了”。\n\n第四格：玩家把这段截图发到社区吐槽，配文“我全程英文，它中途换语言”，评论区跟着围观这个突然转向的回复。\n\n（以上对白与反应均为虚构二创，原帖只记录了英文提问却收到中文回复的现象。）\n\n原始线索：https://www.reddit.com/r/DeepSeek/comments/1xqy7cg/why_does_deepseek_respond_sometimes_in_chinese/",
+  "tags": [
+    "DeepSeek",
+    "语言切换",
+    "英文提问",
+    "中文回复",
+    "玩家吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/DeepSeek/comments/1xqy7cg/why_does_deepseek_respond_sometimes_in_chinese/",
+      "url": "https://www.reddit.com/r/DeepSeek/comments/1xqy7cg/why_does_deepseek_respond_sometimes_in_chinese/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
