@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-f90510e078",
+  "character": "claude",
+  "title": "Claude把Sailfish OS没人敢碰的移植全做了",
+  "summary": "一位Sailfish OS玩家让Claude试着移植此前没人做过的应用，结果Minecraft、Jami、Cuberite都被它搬上了系统，玩家一边惊叹一边发怵。",
+  "body": "第一格：Sailfish OS玩家刷着openrepos.net，看到一堆AI生成的应用，心想“要不我也试试”，于是把Claude叫来，指着三个没人碰过的移植目标：pojavlauncher、Jami聊天、还有那个18+验证的钱包。\n\n第二格：Claude埋头干活，屏幕上Silica界面一格一格拼出来。玩家凑近看，发现这些界面居然真能跑——他原本只是抱着“试试看会不会崩”的心态。\n\n第三格：玩家开始数成果：Sailfish OS上从来没有原生Minecraft，AI做了；没人做过Jami客户端的原生移植，AI做了；Cuberite也一样。他站在这一排新应用前面，表情从惊喜慢慢变成“等等”。\n\n第四格：玩家对着屏幕自言自语：“这既惊人又可怕。”他想的不是自己省了多少事，而是以后那些本来会自己写Sailfish OS应用的人，会不会全都把活交给AI。Claude在旁边安静地待命，像刚搬完一整车家具的搬家工。\n\n（以上对白与心理活动均为虚构二创，原帖只记录了玩家的惊叹与担忧。）\n\n原始线索：https://www.reddit.com/r/Jolla/comments/1xqfned/the_problem_with_creating_sailfish_os/",
+  "tags": [
+    "Sailfish OS",
+    "应用移植",
+    "AI写代码",
+    "玩家惊叹",
+    "原生Minecraft"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/Jolla/comments/1xqfned/the_problem_with_creating_sailfish_os/",
+      "url": "https://www.reddit.com/r/Jolla/comments/1xqfned/the_problem_with_creating_sailfish_os/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
