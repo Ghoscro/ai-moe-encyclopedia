@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-d01ca14124",
+  "character": "claude",
+  "title": "指个方向，Claude把整套活儿干完了",
+  "summary": "一位打工人只把重复查资料的烦恼含糊描述给Claude，两三天来回后拿到一个能自动跑的工具，还顺手补了他没想到的部分。",
+  "body": "第一格：工位上，玩家盯着同一套查询界面，鼠标在复制粘贴之间来回挪，表情像在嚼同一块口香糖。旁边对话框里只敲了一句半成形的话：“能不能帮我少点这种重复？”\n\n第二格：Claude那边没有追问一堆参数，直接回了个方向。玩家看着回复挠头：“我只是指了个方向啊。”\n\n第三格：两三天来回之后，屏幕上出现一个能自己跑查询的小工具，视频里它稳稳地替玩家翻页、搜、抄。玩家表情从怀疑变成“它怎么连我没想到的都补上了”。\n\n第四格：工具跑了一阵没出毛病，玩家摊手对着镜头：“我 barely 解释，它就交作业了。”评论区有人问是不是也能拿来对付自己的无聊活儿——这段对话属于虚构二创，不是真实回复。\n\n原始线索：https://www.reddit.com/r/UAE/comments/1xqsjix/i_pointed_in_a_direction_and_claude_built_the/",
+  "tags": [
+    "Claude",
+    "自动化",
+    "打工人",
+    "含糊需求",
+    "二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/UAE/comments/1xqsjix/i_pointed_in_a_direction_and_claude_built_the/",
+      "url": "https://www.reddit.com/r/UAE/comments/1xqsjix/i_pointed_in_a_direction_and_claude_built_the/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
