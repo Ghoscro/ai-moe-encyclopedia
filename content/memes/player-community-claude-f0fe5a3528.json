@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-f0fe5a3528",
+  "character": "claude",
+  "title": "PR里那句“我不知道，Claude写的”",
+  "summary": "一位开发者吐槽同事把问题解决外包给Claude，PR被问思路时只答“我不晓得，Claude写的”，出错后全组开终端狂敲“这报错啥意思”。",
+  "body": "第一格：评审席上，开发者指着一段绕来绕去的实现问同事：“你为什么这么写？这路子有点怪。”同事耸肩：“哦，我不晓得，Claude写的。”评审席沉默三秒。\n\n第二格：开发者把这句话在心里翻了个面——用 Resharper 把丑代码修漂亮没关系，只要写的人能讲清结果；可把“解决问题”整个交出去，检查的人就只剩一句“Claude 写的”当挡箭牌。\n\n第三格：系统进了生产，炸出一种没人预料到的故障。一队人各自开着 Claude 终端，手指飞快敲同一句：“WHAT DOES THIS ERROR MEAN”。没人知道当初为什么这么搭。\n\n第四格：开发者摊手收尾：让 LLM 帮忙写代码没问题，但问题解决那部分得自己干——不然工资是发给谁的？这段吐槽是虚构二创，不是 Claude 本人的回复。\n\n原始线索：https://news.ycombinator.com/item?id=50413441",
+  "tags": [
+    "PR评审",
+    "代码理解",
+    "生产事故",
+    "开发者吐槽",
+    "Claude"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50413441",
+      "url": "https://news.ycombinator.com/item?id=50413441"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
