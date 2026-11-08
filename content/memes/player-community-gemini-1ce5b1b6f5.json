@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gemini-1ce5b1b6f5",
+  "character": "gemini",
+  "title": "Gemini改写全文，Stylome鉴定为人类低置信",
+  "summary": "玩家让Gemini重写自己的评论，Stylome机器人仍判为人类所写且置信度低，玩家当场用改写后的整段文字发帖吐槽。",
+  "body": "第一格：玩家盯着评论区里反复弹出的Stylome声明，每次都说“这条评论是AI写的”，点开置信度一看——低。他皱眉，决定自己做一次测试。\n\n第二格：他把自己的几条评论交给Gemini改写，Gemini老老实实换了句式、调了语气，输出一整段明显不是他平时写法的新文本。玩家把改写稿贴回去，等着Stylome开口。\n\n第三格：Stylome弹出判定：人类所写，置信度依旧低。玩家盯着屏幕，表情从期待变成无语，手指在键盘上停了两秒。\n\n第四格：他干脆把整条帖子——包括“以上内容由Gemini改写”这句说明——原样发出去。Stylome照样判人类、照样低置信。玩家摊手：这机器人到底在判什么？\n\n（虚构二创：对白与内心戏为梗条目编写，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/LocalLLaMA/comments/1xqinb7/the_stylome_bot_is_useless_spam_and_should_be/",
+  "tags": [
+    "Stylome",
+    "AI检测",
+    "Gemini改写",
+    "低置信",
+    "社区吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/LocalLLaMA/comments/1xqinb7/the_stylome_bot_is_useless_spam_and_should_be/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xqinb7/the_stylome_bot_is_useless_spam_and_should_be/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
