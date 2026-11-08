@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gpt-4dbe43422f",
+  "character": "gpt",
+  "title": "GPT陪看悬疑片：剧透雷达比影评人还稳",
+  "summary": "玩家拿GPT当悬疑片推理搭子，十几轮下来它一次都没剧透，还靠玩家的话推断进度。",
+  "body": "第一格：玩家窝在沙发里看《The Last House》，暂停键按得比心跳还勤，转头把GPT当推理搭子：“我觉得地下室那个人不是凶手。”GPT认真接话，补充线索、拆假设，像个不抢戏的侦探助手。\n\n第二格：玩家越猜越上头，从“谁先撒谎”一路问到“结尾会不会反转”，GPT全程只给反馈，不给答案。玩家盯着屏幕嘀咕：它怎么知道我现在能听什么、不能听什么？\n\n第三格：玩家想起《第六感》被朋友一句“上映前去看，别被剧透”搞得全程神经紧绷，于是故意试探GPT：“你就说，后面是不是还有一层？”GPT绕开关键信息，只把玩家已经说出口的线索重新摆好。\n\n第四格：玩家总结：它像在脑子里建了个“我知道多少”的小地图，靠几句话推断进度，再判断哪些信息算剧透。十几轮下来零翻车，玩家一边佩服一边继续暂停——毕竟侦探搭子不剧透，但沙发上的自己还是会多想。\n\n原始线索：https://www.reddit.com/r/ChatGPT/comments/1xrbjyr/chatgpt_and_movie_spoilers_and_theory_of_mind/",
+  "tags": [
+    "GPT",
+    "悬疑片",
+    "剧透",
+    "推理搭子",
+    "心智模型"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/ChatGPT/comments/1xrbjyr/chatgpt_and_movie_spoilers_and_theory_of_mind/",
+      "url": "https://www.reddit.com/r/ChatGPT/comments/1xrbjyr/chatgpt_and_movie_spoilers_and_theory_of_mind/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
