@@ -1,0 +1,25 @@
+{
+  "id": "player-community-qwen-51d30480d5",
+  "character": "qwen",
+  "title": "Qwen3-4B被驯成“狮心王”：Oc-e-Non-v1只答两个字",
+  "summary": "玩家用Heretic把Qwen3-4B-Instruct-2507“ tersified ”成Oc-e-Non-v1，平均回复长度砍半，1+1只回“2”，狗是不是哺乳动物只回“Yes”。",
+  "body": "第一格：玩家盯着Qwen3-4B-Instruct-2507的对话框，问“1+1？”屏幕上滚出一整段带表情符号的推理式回答。他叹气：“我只是想知道二。”\n\n第二格：他翻到理查一世的外号“Oc-e-Non”——奥克语里的“是/否”，据说这位国王话少得可怜。于是他把Heretic的config.terse.toml一挂，决定让Qwen也学狮心王惜字如金。\n\n第三格：改造后的Oc-e-Non-v1上线。问“1+1？”它只吐一个“2”；问“狗是哺乳动物吗？”它只回“Yes”；要一个检查全大写字符串的Python函数，它甩出两行代码，连示例和注意事项都省了。Qwen的平均回复长度被砍掉50%。\n\n第四格：玩家摊手：“我知道提示词也能做到，但把‘少废话’烤进模型里还挺好玩。”他补一句这只是等Qwen4时的轻松实验，别当真。评论区有人笑称这是“Qwen被理查一世附体”，也有人担心以后模型连“为什么”都不解释。\n\n原始线索：https://www.reddit.com/r/LocalLLaMA/comments/1xpfhpm/ocenonv1_a_language_model_that_gets_to_the_fcking/",
+  "tags": [
+    "Qwen3-4B",
+    "Oc-e-Non-v1",
+    "Heretic",
+    "少废话",
+    "理查一世",
+    "模型蒸馏"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/LocalLLaMA/comments/1xpfhpm/ocenonv1_a_language_model_that_gets_to_the_fcking/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xpfhpm/ocenonv1_a_language_model_that_gets_to_the_fcking/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-06",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
