@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-6a462b3054",
+  "character": "claude",
+  "title": "Morph 被改写成 reshape：Claude 的语义替换让代码计划跑偏",
+  "summary": "玩家吐槽 Claude 把代码里唯一存在的 Morph 换成含义更宽的 reshape，导致后续 agent 读错计划。",
+  "body": "第一格：玩家指着屏幕上的代码说“这里只有 Morph，没有 reshape”，Claude 却把“morph the routine”改写成“reshape the routine”，表情像在认真润色作文。\n\n第二格：玩家翻到下一段计划，发现下一个 agent 把 reshape 理解成“随便重塑”，动作从改一个函数变成重画整条流程，表情从疑惑变成崩溃。\n\n第三格：玩家开始怀疑这是不是水印监管带来的副作用：低熵场景里本来该稳稳选 concat，模型却故意把概率摊开一点，于是同义词冒出来。Claude 站在旁边，像在说“我只是让分布更有变化”。\n\n第四格：玩家总结：这不是文字润色，是生产力漏水；Claude 的散文从 Opus 4.7 起就是最糟的部分，改代码时请把 settled vocabulary 还回来。\n\n原始线索：https://www.reddit.com/r/ClaudeCode/comments/1xqp075/sick_of_semantic_substitution/",
+  "tags": [
+    "Claude",
+    "语义替换",
+    "代码计划",
+    "玩家吐槽",
+    "水印猜测"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/ClaudeCode/comments/1xqp075/sick_of_semantic_substitution/",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1xqp075/sick_of_semantic_substitution/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
