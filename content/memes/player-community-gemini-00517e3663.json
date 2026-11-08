@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gemini-00517e3663",
+  "character": "gemini",
+  "title": "Gemini 主动请缨分析伦敦骑行事故表，画出一堆图表",
+  "summary": "一位伦敦骑行者攒了382份事故报告，Gemini 主动提出帮忙分析，产出了几张图表，其中一张按车辆品牌统计违规。",
+  "body": "第一格：伦敦骑行者打开自己的事故报告表格，382行，从2020年3月攒到现在。Gemini 探出头来：“让我分析一下？”\n\n第二格：Gemini 埋头画图，表格变成柱状图、饼图、时间线，一张接一张往外吐。骑行者站在旁边，表情从怀疑变成“行吧，还挺像回事”。\n\n第三格：Gemini 交出一张“按车辆品牌统计违规”的图，骑行者盯着图沉默两秒——原来这些年被谁撞，表格里早就写着了。\n\n第四格：骑行者把图发到 r/londoncycling，配文只有一句“这是它画的”。评论区开始围观图表，没人再问 Gemini 到底懂不懂骑行。（以上对白为虚构二创）\n\n原始线索：https://www.reddit.com/r/londoncycling/comments/1xqhwpx/gemini_wanted_to_analyse_my_incident_report/",
+  "tags": [
+    "Gemini",
+    "骑行事故",
+    "图表分析",
+    "伦敦",
+    "Reddit"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/londoncycling/comments/1xqhwpx/gemini_wanted_to_analyse_my_incident_report/",
+      "url": "https://www.reddit.com/r/londoncycling/comments/1xqhwpx/gemini_wanted_to_analyse_my_incident_report/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
