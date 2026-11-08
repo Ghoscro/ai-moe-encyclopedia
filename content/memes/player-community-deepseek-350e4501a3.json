@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-350e4501a3",
+  "character": "deepseek",
+  "title": "DeepSeek把DOOM引擎拆出来，花1.48美元造了个新游戏",
+  "summary": "有人给DeepSeek V4.1 Flash一个DOOM.EXE和一句提示词，它自己写转换器、反编译引擎、造新关卡，账单1.48美元。",
+  "body": "第一格：桌上只摆着一个DOOM.EXE，没有WAD、没有源码、没有网。提示词写得很满，DeepSeek V4.1 Flash看完先撞上一堵墙——Ghidra只看见DOS/4GW的16位外壳，32位引擎藏在里面。它没等人类改工具，自己写了LE转ELF的转换器，把fixup补上，再把引擎递给REA去反编译。\n\n第二格：提示词里有两处布局写错了，它没照着错的地方硬啃，而是自己扫文件头、改判断。接着一口气读出BSP遍历、墙面裁剪、地板天花板跨度、距离光照、精灵裁剪、定点数、35Hz循环、碰撞、门和电梯、敌人状态机。\n\n第三格：它把这些搬进canvas上的JavaScript，顺手写了地图编译器，设计51个扇区的新关卡，程序化贴图、机器人精灵、Web Audio音效全是自己写的代码。然后在无头Chrome里跑42项自动检查，碰撞、台阶、钥匙门、电梯、敌人、拾取、出口，一项项过。\n\n第四格：人类看完试玩只回了一条跟进消息：两个拾取物名字太像DOOM，一个图标用了红十字，演示模式要再修一修。账单摊开：1小时44分、663次模型调用、279.2M token、800次工具调用，其中54次找REA，off-peak价1.48美元。名字、关卡、机器人、武器、贴图、声音全是新的——旧引擎被拆出来，新游戏自己长了出来。\n\n原始线索：https://www.reddit.com/r/DeepSeek/comments/1xr9gvt/reverse_engineering_with_deepseek_v41_flash_is/",
+  "tags": [
+    "DeepSeek",
+    "DOOM",
+    "逆向工程",
+    "AgenC",
+    "低成本"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/DeepSeek/comments/1xr9gvt/reverse_engineering_with_deepseek_v41_flash_is/",
+      "url": "https://www.reddit.com/r/DeepSeek/comments/1xr9gvt/reverse_engineering_with_deepseek_v41_flash_is/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
