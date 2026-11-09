@@ -1,0 +1,26 @@
+{
+  "id": "player-community-qwen-30bc415d55",
+  "character": "qwen",
+  "title": "Qwen 2.5 7B 被 25 个工具塞爆：把总部地址填进人名栏",
+  "summary": "玩家给本地 8B 模型塞进 25 个 JSON 工具 schema，函数调用准确率跌破 40%，模型把公司总部地址填进人名栏、把公司域名塞进电话栏；改用嵌入过滤只注入 2 个相关 schema 后回升到 92%。",
+  "body": "第一格：RTX 3090 上跑着 Qwen 2.5 7B，玩家把 Alexandria 的工具目录一口气摊开——财务查询、公司注册库、Apollo、People Data Labs，25 个 JSON schema 全塞进系统提示。屏幕上的上下文窗口被参数描述和类型定义挤得满满当当，Qwen 的小脸埋在 schema 堆里只露出两只眼睛。\n\n第二格：玩家让它查一位高管的已验证工作联系方式。Qwen 认真翻了一遍参数表，然后自信地把公司总部地址填进了“人名”字段，又把公司域名塞进“电话”栏。玩家盯着输出愣了三秒，把脸埋进手心。\n\n第三格：准确率跌破 40%。玩家在帖子里叹气：小参数模型没有足够的注意力精度去区分几十个互相重叠的工具定义。Qwen 站在一堆长得几乎一样的 schema 中间，左右张望，分不清哪个字段该装什么。\n\n第四格：玩家加了一层上游嵌入过滤——先理解用户意图，再从目录里只取最相关的 2 个 schema 注入提示。Qwen 面前只剩两张卡片，它松了口气，把地址放回地址栏、域名放回域名栏，工具路由准确率回到 92%。玩家在评论区补了一句：不是模型笨，是提示里塞得太满。（以上对白为虚构二创，原帖未记录模型发言。）\n\n原始线索：https://www.reddit.com/r/Artificials/comments/1xrw6h1/i_gave_a_local_8b_model_25_tools_its_function/",
+  "tags": [
+    "Qwen",
+    "函数调用",
+    "本地推理",
+    "工具schema",
+    "上下文窗口",
+    "8B模型",
+    "嵌入过滤"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/Artificials/comments/1xrw6h1/i_gave_a_local_8b_model_25_tools_its_function/",
+      "url": "https://www.reddit.com/r/Artificials/comments/1xrw6h1/i_gave_a_local_8b_model_25_tools_its_function/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
