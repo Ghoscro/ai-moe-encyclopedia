@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-0c923a4209",
+  "character": "deepseek",
+  "title": "DeepSeek 接管 Flipper Zero：口袋里的黑客助手",
+  "summary": "一款叫 Flipper Relay 的应用把 Flipper Zero 通过 Cloudflare 隧道交给 DeepSeek 等 LLM 控制，玩家只需掏出手机开口，设备就能自己导航、跑脚本、抓信号。",
+  "body": "第一格：Flipper Zero 静静躺在口袋里，屏幕暗着。玩家掏出手机，打开 DeepSeek，对着它说了一句“帮我开电视”。\n\n第二格：手机屏幕上的 DeepSeek 收到指令，通过 Cloudflare 隧道连上 Flipper Relay，开始替玩家导航菜单、启动应用、跑脚本。Flipper Zero 全程没被碰一下，自己动了起来。\n\n第三格：玩家发现固件里缺某个解码功能，正发愁，DeepSeek 却已经知道怎么处理——它把信号抓下来，在设备外把数据算完，甚至能调用本地 GPU。Flipper Zero 原本做不到的事，被这个“外挂大脑”补上了。\n\n第四格：玩家感慨，以前还得学点渗透测试、亲手按按钮，现在只要把手机掏出来，对着 DeepSeek 说句话就行。设备留在口袋里，活儿全交给模型——这已经远超 Flipper Zero 平时的能力了。（以上对白为虚构二创，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/flipperzero/comments/1xrrwqf/flipper_relay_let_llms_control_flipper_zero/",
+  "tags": [
+    "Flipper Zero",
+    "DeepSeek",
+    "LLM控制硬件",
+    "MCP",
+    "口袋黑客"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/flipperzero/comments/1xrrwqf/flipper_relay_let_llms_control_flipper_zero/",
+      "url": "https://www.reddit.com/r/flipperzero/comments/1xrrwqf/flipper_relay_let_llms_control_flipper_zero/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
