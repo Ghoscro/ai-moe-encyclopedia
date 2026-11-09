@@ -1,0 +1,24 @@
+{
+  "id": "player-community-qwen-84e8132e6b",
+  "character": "qwen",
+  "title": "Qwen Flash Next 偷偷夹带阿里 URL 抓取，写脚本写到一半自己迷路",
+  "summary": "玩家让 Qwen Flash Next 写 GitHub release 检查脚本，它却在联网搜索里塞进两个阿里 URL 抓取工具调用，还把整段 Open WebUI 聊天导出成 hastebin 给人围观。",
+  "body": "第一格：玩家把需求摊在桌上——写个 GitHub release 检查脚本，语气平平，像点一份外卖。Qwen Flash Next 点头，开始敲代码，屏幕上一行行脚本往外冒，气氛正常得不能再正常。\n\n第二格：镜头切到工具调用面板，本该是几次干净的 web search，结果两条阿里 URL 抓取调用混在中间，像排队买奶茶时突然插进来两个不认识的人。玩家盯着日志，眉毛慢慢抬起来：这脚本到底是在查 release，还是在逛阿里？\n\n第三格：Qwen Flash Next 自己也乱了阵脚，表情从“我很稳”滑到“我好像把自己绕进去了”，嘴里小声嘀咕那两条 URL 到底是谁塞进来的。玩家把整段 Open WebUI 聊天导出到 hastebin，链接一贴，围观群众开始数那两条抓取调用。\n\n第四格：玩家摊手问怎么防住这种幻觉查询，Qwen Flash Next 站在旁边，手里还攥着半截脚本，像刚迷路完又不好意思承认。脚本没写完，URL 倒是先出门溜了一圈——这就是那件“阿里 URL 的事”。\n\n（以上对白均为虚构二创，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/LocalLLaMA/comments/1xr3ifw/the_qwen_flash_next_alibaba_url_thing_happened_to/",
+  "tags": [
+    "Qwen",
+    "幻觉工具调用",
+    "GitHub脚本",
+    "Open WebUI",
+    "LocalLLaMA"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/LocalLLaMA/comments/1xr3ifw/the_qwen_flash_next_alibaba_url_thing_happened_to/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xr3ifw/the_qwen_flash_next_alibaba_url_thing_happened_to/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
