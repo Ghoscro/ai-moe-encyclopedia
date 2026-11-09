@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-30c381fac6",
+  "character": "claude",
+  "title": "Claude写V-Synth编辑器，发布条件是要看香蕉",
+  "summary": "一位会写代码的V-Synth老用户等编辑器等了二十年，干脆让Claude包办全部代码，成品免费发放的唯一条件是凑够十张“合成器旁边摆香蕉”的照片。",
+  "body": "第一格：Reddit上，一位2005年就抱着V-Synth的老用户摊手——编辑器等了二十年没等到。他懂代码，但手写这玩意儿要几年，合成器里的数据量 insane。于是他转头把活交给Claude。\n\n第二格：Claude接下全部代码，人类这边也没闲着：18小时输入、二十多版软件修订，一个能编辑和保存整条音色、还带 librarian 重排音色顺序的编辑器就这么磨出来了。波形编辑没有，但主体齐活。\n\n第三格：发布条件登场。免费下载，前提是至少十个人把自家V-Synth和一根香蕉摆在一起拍照给他看，香蕉当比例尺。原帖作者补一句：不，我没开玩笑。\n\n第四格：于是评论区画风从“求编辑器”变成“求香蕉”。Claude写完了代码，人类还得排队证明自己有琴有香蕉——分工反转得很彻底。\n\n（以上对白与场景为虚构二创，原帖只确认了代码由Claude完成、18小时人工输入、二十多版修订和香蕉换下载的条件。）\n\n原始线索：https://www.reddit.com/r/Roland/comments/1xroxjh/any_vsynth_owners_here/",
+  "tags": [
+    "Claude写代码",
+    "V-Synth",
+    "香蕉比例尺",
+    "免费下载条件",
+    "二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/Roland/comments/1xroxjh/any_vsynth_owners_here/",
+      "url": "https://www.reddit.com/r/Roland/comments/1xroxjh/any_vsynth_owners_here/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
