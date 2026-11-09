@@ -1,0 +1,25 @@
+{
+  "id": "simon-original-a8d0d73ee4",
+  "character": "claude",
+  "title": "Claude Opus 5.5 被一句“让它好玩很多”点醒的十月",
+  "summary": "Simon Willison 在十月发现 Claude Opus 5.5 能靠一句“Make it a LOT more fun”把游戏真的变好玩，一口气 vibe code 出四个自己愿意玩的浏览器游戏。",
+  "body": "第一格：Simon 开着车沿 Skyline Boulevard 看树，随口让 Claude 做一个叫 Tree Appreciator 的 three.js 游戏——两棵算法生成的树，玩法是欣赏它们之间的差异。他没迭代、没补提示，一次就拿到成品：金色橡树、小鸟、松鼠、还有一本“标本册”收集已完成树木。\n\n第二格：野心更大的 Emberwick 登场。他先让 Claude 搭一个俯视奇幻 RPG 引擎：玩家带一两个同伴穿过村庄，进屋时挡住镜头的墙自动变透明。酒馆里烛光、壁炉、红扶手椅上的猫、红发酒保全都在，三个冒险者刚进门。\n\n第三格：真正让他改口的是那句“Make it a LOT more fun”。他原本不信模型懂游戏设计，结果 Claude Opus 5.5 把挑战节奏和学习曲线调到位，他承认这几周 vibe code 的四个游戏自己是真的玩得开心。\n\n第四格：他顺手对比 GPT-6 Astra——能造出游戏，但“好玩感”还差一截，预计 OpenAI 年底追上。新的难题不再是能不能做出游戏，而是想出一个没有 AI 帮忙就不会存在的、新奇又讨喜的点子。（以上对白与场景均为虚构二创，非真实模型回复。）\n\n原始线索：https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+  "tags": [
+    "Claude Opus 5.5",
+    "vibe coding",
+    "游戏设计",
+    "Tree Appreciator",
+    "Emberwick",
+    "Simon Willison"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://simonwillison.net/2026/Oct/28/vibe-game-development/",
+      "url": "https://simonwillison.net/2026/Oct/28/vibe-game-development/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-30",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
