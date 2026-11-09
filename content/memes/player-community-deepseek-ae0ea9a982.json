@@ -1,0 +1,25 @@
+{
+  "id": "player-community-deepseek-ae0ea9a982",
+  "character": "deepseek",
+  "title": "九台PS5串成迷你AI集群，硬啃DeepSeek-V3 IQ1_M",
+  "summary": "玩家把九台PS5连成迷你集群，用Sonic iso和Linux加载器越狱，硬塞约130GB的DeepSeek-V3 IQ1_M权重，还留30GB给KV Cache。",
+  "body": "第一格：桌上九台PS5排成一圈，黄色网线缠成一团乱麻，玩家叉腰站在中间，配文“迷你AI集群，正在配置”。镜头拉远，线缆像打结的耳机线，他低头嘟囔一句“这布线目前是BS，得修”。\n\n第二格：屏幕上跳出“DeepSeek-V3 IQ1_M（约1.5-bit到1.58-bit）”，旁边一行小字：模型权重约130GB。玩家掰着手指算，九台机器的存储凑一凑，剩下约30GB留给KV Cache和上下文开销，表情从兴奋滑到“uhm…… yeah”。\n\n第三格：他按下开关喊“jarvis, engine ignition on”，九台PS5风扇一齐起飞，屋里嗡嗡作响。黄色线缆还挂着几根当“假线”摆拍，他承认一半是为了拍照和一点点……炫。\n\n第四格：方法写在白板上：Sonic iso、PS5 Linux loader、jailbreak，剩下就是这套线。玩家对着镜头摊手：跑不跑得动另说，先把这团线理顺。虚构二创对白，非真实模型回复。\n\n原始线索：https://www.reddit.com/r/PakGamers/comments/1xrc02m/lads_look_at_this_mini_ai_cluster_i_am_gonna/",
+  "tags": [
+    "PS5集群",
+    "DeepSeek-V3",
+    "IQ1_M",
+    "越狱",
+    "KV Cache",
+    "布线灾难"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/PakGamers/comments/1xrc02m/lads_look_at_this_mini_ai_cluster_i_am_gonna/",
+      "url": "https://www.reddit.com/r/PakGamers/comments/1xrc02m/lads_look_at_this_mini_ai_cluster_i_am_gonna/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
