@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-e4555bfff3",
+  "character": "claude",
+  "title": "导师让我先给Claude审稿，再交给AI审稿人",
+  "summary": "健康科学博士生被导师建议把未发表论文先跑一遍Claude以预判审稿意见，却担心自己反而被AI检测标记。",
+  "body": "第一格：博士生抱着刚跑完统计的论文草稿走进导师办公室，导师是国际知名的生物统计学家，翻了两页就抬头说：现在期刊审稿人大多用AI审稿，你得先让AI满意。\n\n第二格：导师给出具体修改清单，末了补一句“把成稿跑一遍Claude，提前看看审稿人会挑什么”。博士生抱着论文站在原地，表情从点头变成僵住——自己平时几乎不用AI，连什么算合规都不清楚。\n\n第三格：回到工位，博士生盯着屏幕上的Claude输入框，手悬在回车键上方。脑子里两个小人打架：一边说“未发表结果喂给AI不太好吧”，另一边说“导师都发话了”。\n\n第四格：博士生终于把稿子贴进去，Claude认真列出一串修改建议。博士生一边改一边嘀咕：AI审稿人审我，我先审AI审稿人，这循环到底谁在审谁。虚构二创，非真实模型回复。\n\n原始线索：https://www.reddit.com/r/academia/comments/1xroysw/confusing_advice_from_my_advisor/",
+  "tags": [
+    "学术",
+    "审稿",
+    "导师建议",
+    "AI检测",
+    "未发表论文"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/academia/comments/1xroysw/confusing_advice_from_my_advisor/",
+      "url": "https://www.reddit.com/r/academia/comments/1xroysw/confusing_advice_from_my_advisor/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
