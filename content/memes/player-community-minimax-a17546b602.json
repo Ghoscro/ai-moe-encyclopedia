@@ -1,0 +1,25 @@
+{
+  "id": "player-community-minimax-a17546b602",
+  "character": "minimax",
+  "title": "MiniMax H3 拼出1小时耶稣电影：485段8.5秒碎片的灾难喜剧",
+  "summary": "一位玩家用MiniMax H3参考图生视频加4步turbo LoRA，把485段约8.5秒的短片拼成1小时耶稣电影，自称效果糟糕却好笑到不行。",
+  "body": "第一格：玩家把MiniMax H3的ref2va开到832×480，挂上4步turbo LoRA，对着耶稣故事一口气生成485段约8.5秒的短片。画面里角色刚开口，镜头就切走，像有人拿遥控器疯狂换台。\n\n第二格：音频先用InWorld TTS-2生成，再让画面去追嘴型。现代俚语台词配上庄严场景，角色表情一本正经，嘴却说着不合时宜的话，玩家边剪边笑。\n\n第三格：一小时成片放出来，转场密集得像幻灯片翻页，故事还没铺开就跳到下一段。玩家自述“absolutely terrible”，但补一句“funny as hell”，承认笑点全来自碎得离谱。\n\n第四格：他并非信徒，只想大致了解这些故事，结果收获一部靠糟糕程度逗乐自己的片子。MiniMax H3没被夸成神模型，只被当成一台勤快但拼不出连贯长片的碎片段机器。\n\n原始线索：https://www.reddit.com/r/aivideos/comments/1xr2j6u/1_hour_jesus_movie/",
+  "tags": [
+    "MiniMax H3",
+    "ref2va",
+    "turbo LoRA",
+    "碎片段拼片",
+    "耶稣电影",
+    "灾难喜剧"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/aivideos/comments/1xr2j6u/1_hour_jesus_movie/",
+      "url": "https://www.reddit.com/r/aivideos/comments/1xr2j6u/1_hour_jesus_movie/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
