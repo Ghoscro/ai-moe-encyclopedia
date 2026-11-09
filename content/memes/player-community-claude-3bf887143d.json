@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-3bf887143d",
+  "character": "claude",
+  "title": "Claude把2010年上网本瘦身成500MB写作机",
+  "summary": "玩家让Claude把Debian 12削成32位写作系统，塞进一台十年没开机的Dell Mini 10，开机只剩命令行编辑器和Focuswriter。",
+  "body": "第一格：地下室翻出一台2010年的Dell Mini 10，键盘手感比现在的巧克力键好太多，玩家舍不得扔，换了块Micro Center送的128GB SSD和新电池。装了一圈Linux，慢得像糖浆。\n\n第二格：现成的writerdeckOS没有32位版，玩家转头问Claude能不能把Debian 12削到只剩写作。Claude真动手了，砍完整个系统不到500MB。\n\n第三格：开机画面只剩两个选项——命令行编辑器，或者极简桌面里的Focuswriter。写完稿子，系统直接邮件发到Gmail。命令行里敲字瞬间响应，电池撑一整天。\n\n第四格：玩家顺手把2008年的MacBook Pro也照同样办法处理，效果一样好。他说普通笔记本上太容易分心，于是这台老上网本成了专职写作机。\n\n原始线索：https://www.reddit.com/r/writerDeck/comments/1xs2byy/recycled_ewaste_dell_mini_10_netbook_with/",
+  "tags": [
+    "老硬件",
+    "写作机",
+    "Debian",
+    "32位",
+    "极简系统"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/writerDeck/comments/1xs2byy/recycled_ewaste_dell_mini_10_netbook_with/",
+      "url": "https://www.reddit.com/r/writerDeck/comments/1xs2byy/recycled_ewaste_dell_mini_10_netbook_with/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
