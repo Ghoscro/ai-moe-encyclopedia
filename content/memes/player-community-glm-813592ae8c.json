@@ -1,0 +1,25 @@
+{
+  "id": "player-community-glm-813592ae8c",
+  "character": "glm",
+  "title": "GLM 重构官网九成功力，轮播图一小时败给 Claude Code 五分钟",
+  "summary": "玩家用 GLM4.7 搭配 Claude Code 重构公司七年老官网，二十个页面顺利迁移，却在轮播图上纠缠一小时，切到 Claude 转发 API 三句话搞定。",
+  "body": "第一格：年前活少，玩家给自己找事写周报，心血来潮把公司七年没大改的 react16 官网迁到 vue3+vite7+ts。二十个页面丢给 GLM4.7，最常说的话是“继续实现剩下的页面”，GLM 最常犯的错是 margin/padding 边距和全局样式覆盖。\n\n第二格：全程只碰到一个轮播图复刻不了，原代码写得稀碎。玩家跟 GLM 纠缠一小时，不是偏移就是丢动画，屏幕上的轮播图左摇右晃，玩家表情逐渐凝固。\n\n第三格：切到转发 API 的 Claude Code，满共说了三句就改好了，不到十分钟。账单也感人：修这一个轮播图花了 5 块钱。玩家盯着账单，一边心疼一边承认效果拔群。\n\n第四格：花絮更反差——顺手帮业务妹子把 700MB Excel 里 E 列图片按 B 列名称导出重命名，一句话十分钟一遍过。妹子问 WPS 的 AI 有没有这效果，玩家摆手：不用考虑了。全程 GLM 花了 900 万 token，按套餐算约 20 块钱。\n\n原始线索：https://www.v2ex.com/t/1188975",
+  "tags": [
+    "GLM4.7",
+    "官网重构",
+    "轮播图",
+    "Claude Code",
+    "token花费",
+    "Excel导出"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1188975",
+      "url": "https://www.v2ex.com/t/1188975"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-01-28",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
