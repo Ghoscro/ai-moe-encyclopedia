@@ -1,0 +1,25 @@
+{
+  "id": "player-community-qwen-ff1e9c822b",
+  "character": "qwen",
+  "title": "Qwen在本地跑着跑着，给自己报了个不存在的API故障",
+  "summary": "玩家在Hermes里本地跑Qwen，长上下文截断后模型没接着写，反而吐出一段格式完美的供应商报错JSON，日志里却一切正常。",
+  "body": "第一格：玩家盯着屏幕，本地GPU风扇呼呼转，Hermes会话已经滚到约194K token。上一轮回复被输出长度上限截断，harness塞进一句“继续，从断的地方接着写”。\n\n第二格：Qwen的下一句不是续写工具调用，而是一整段孤零零的JSON：error_code sys_000、error_msg“The request failed - it's on us, please try again later.”、还有一个error_id。玩家皱眉，开始翻供应商配置——可这条请求路径上根本没有外部API，只有一条回环隧道通向本地推理服务器。\n\n第三格：日志摊开：HTTP成功，finish_reason=stop，completion id正常，71个输出token，没有4xx/5xx，没有重试，没有异常。那段报错体只是被当成普通assistant消息存进了会话库；error_id在整台机器上再也找不到第二次。\n\n第四格：玩家把这段“自诊断”贴出来，语气半好笑半无奈——模型把训练里见过的API故障话术当成了自己的台词，还挑了最礼貌的那种“是我们的锅，请稍后再试”。声明是假的，语用却意外贴切：它确实没接上。虚构二创对白到此为止，真实回复只有那段JSON。\n\n原始线索：https://www.reddit.com/r/LocalLLaMA/comments/1xr0chy/im_getting_really_interesting_behaviors_with/",
+  "tags": [
+    "Qwen",
+    "本地推理",
+    "幻觉",
+    "API报错",
+    "长上下文",
+    "Hermes"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/LocalLLaMA/comments/1xr0chy/im_getting_really_interesting_behaviors_with/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xr0chy/im_getting_really_interesting_behaviors_with/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
