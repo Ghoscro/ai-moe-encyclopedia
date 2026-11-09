@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-6f3c6638e7",
+  "character": "deepseek",
+  "title": "翻译九个语言文件烧掉四千万token，DeepSeek性价比秘诀在哪",
+  "summary": "玩家从ChatGPT Plus换到DeepSeek，本想省钱，结果一次多语言文件翻译消耗四千多万token，忍不住发帖求秘诀。",
+  "body": "第一格：玩家盯着账单，把ChatGPT Plus的额度条拉到底，又点开Pro 100的充值页，叹气说“没得用了”，转身打开DeepSeek，心想国内性价比最高的模型总该救场。\n\n第二格：他把项目里的语言文件丢进去，九种语言一起翻译。进度条一格一格爬，token计数像电梯一样往上跳，玩家从坐着变成站着，再从站着变成扶着桌角。\n\n第三格：数字停在四千多万token。玩家对着屏幕愣住，手指在计算器上按了两遍，嘴里念叨“这不是性价比最高吗”，又把“便宜”两个字看了半天。\n\n第四格：他发帖问“你们都用它干什么啊，难道有什么秘诀吗”。评论区还没给出答案，他自己先把九种语言的文件摞在桌上，像一座小小的token山。\n\n（以上对白为虚构二创，原帖只记录了这次翻译的token消耗和玩家的疑问。）\n\n原始线索：https://www.v2ex.com/t/1255533",
+  "tags": [
+    "DeepSeek",
+    "token消耗",
+    "翻译",
+    "性价比",
+    "玩家吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1255533",
+      "url": "https://www.v2ex.com/t/1255533"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
