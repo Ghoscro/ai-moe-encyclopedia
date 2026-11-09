@@ -1,0 +1,25 @@
+{
+  "id": "player-community-minimax-d358f75dbf",
+  "character": "minimax",
+  "title": "MiniMax H3 一小时耶稣电影：485段短clip拼成烂片笑料",
+  "summary": "玩家用 MiniMax H3 ref2va 加4步 turbo LoRA，生成485段约8.5秒短clip拼成一小时耶稣电影，成品糟糕但好笑。",
+  "body": "第一格：玩家把 MiniMax H3 的 ref2va 和4步 turbo LoRA 摆上桌，832×480，目标是一小时耶稣电影。旁白：素材先由 gpt-image-2 出图，音频先由 InWorld TTS-2 生成。\n\n第二格：H3 一段段吐出约8.5秒的短clip，攒到485段。玩家盯着时间线数片段，表情从期待变成“怎么还没拼完”。\n\n第三格：成片放出来，画面和台词都透着糟糕，玩家却笑到停不下来，自嘲“absolutely terrible, but funny as hell”。\n\n第四格：玩家收尾说本来想用现代俚语讲耶稣故事，结果好笑全靠烂。虚构二创对白：H3 小声辩解“我可是按参考图认真生成的”，玩家回“认真和好看是两回事”。\n\n原始线索：https://www.reddit.com/r/StableDiffusion/comments/1xr2fk9/1_hour_jesus_movie/",
+  "tags": [
+    "MiniMax H3",
+    "ref2va",
+    "turbo LoRA",
+    "485段clip",
+    "烂片好笑",
+    "一小时电影"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/StableDiffusion/comments/1xr2fk9/1_hour_jesus_movie/",
+      "url": "https://www.reddit.com/r/StableDiffusion/comments/1xr2fk9/1_hour_jesus_movie/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
