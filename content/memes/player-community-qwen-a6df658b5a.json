@@ -1,0 +1,24 @@
+{
+  "id": "player-community-qwen-a6df658b5a",
+  "character": "qwen",
+  "title": "Qwen 3.8 被要求“零失误做 GTA 1”，27 小时后玩家还在点批准",
+  "summary": "玩家让本地 Qwen 3.8 照着 wiki 和视频从零做 GTA 1，结果 Qwen 反复请求批准命令，玩家只好搬来 MacBook 跑小模型当“审批替身”。",
+  "body": "第一格：玩家把 wiki 链接和 YouTube 视频丢给本地 Qwen 3.8，只附一句“Make GTA 1, No mistakes.” Qwen 盯着 128K 上下文，像接到军令的工地包工头，点头接下整座城市。\n\n第二格：进度条走到一半，Qwen 开始不停弹“请批准这条命令”。玩家盯着屏幕：明明只是简单任务，为什么每一步都要我签字？Qwen 一脸无辜，仿佛在说“流程规定，我也没办法”。\n\n第三格：玩家干脆把 MacBook 上的 Qwen3.6-35B-A3B 拉进来当跑腿小工，专接简单任务。审批弹窗骤减，Qwen 主模型继续吭哧吭哧盖楼，小模型在旁边递砖，分工明确得像工地班组。\n\n第四格：27 小时后游戏终于跑起来，玩家看着可玩 demo，再看看那台被征用的 MacBook——原来“零失误”的代价，是玩家自己先学会当审批员。\n\n原始线索：https://www.reddit.com/r/LocalLLM/comments/1xqzbcz/qwen_38_make_gta_1_no_mistakes_part_2_of_3_make_a/",
+  "tags": [
+    "Qwen",
+    "GTA 1",
+    "本地部署",
+    "审批弹窗",
+    "多模型分工"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/LocalLLM/comments/1xqzbcz/qwen_38_make_gta_1_no_mistakes_part_2_of_3_make_a/",
+      "url": "https://www.reddit.com/r/LocalLLM/comments/1xqzbcz/qwen_38_make_gta_1_no_mistakes_part_2_of_3_make_a/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}

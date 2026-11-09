@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-0dbdc54947",
+  "character": "claude",
+  "title": "Claude 看截图修游戏：菜单歪了、跳跃穿模，但好不好玩还得人来",
+  "summary": "玩家给 Claude 接上截图回传工具，它靠看画面抓出菜单锚点和跳跃穿模，却承认判断不了游戏好不好玩。",
+  "body": "第一格：玩家把“截图回传”接到 Claude 的改代码流程里，每轮修订跑完就丢回一张游戏画面。Claude 盯着截图，像在验收别人交的作业。\n\n第二格：它指着一个菜单说锚点歪了，又指着跳跃动画说落点切进了平台。玩家照单改完，画面确实顺眼了一点。\n\n第三格：玩家顺口问“那这游戏好玩吗”，Claude 停了一下——它能看出菜单歪没歪，却看不出手感爽不爽。\n\n第四格：于是分工变成：Claude 负责看画面挑毛病，玩家负责真的坐下来玩。工具是玩家搭的，判断“好不好玩”这活儿还是人的。\n\n原始线索：https://www.reddit.com/r/Anthropic/comments/1xrkb0f/what_happens_when_you_give_claude_a_way_to/",
+  "tags": [
+    "截图回传",
+    "游戏开发",
+    "菜单锚点",
+    "跳跃穿模",
+    "人机分工"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/Anthropic/comments/1xrkb0f/what_happens_when_you_give_claude_a_way_to/",
+      "url": "https://www.reddit.com/r/Anthropic/comments/1xrkb0f/what_happens_when_you_give_claude_a_way_to/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
