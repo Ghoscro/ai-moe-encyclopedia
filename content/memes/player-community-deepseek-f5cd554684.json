@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-f5cd554684",
+  "character": "deepseek",
+  "title": "DeepSeek新号一分钟被封：问开源推理引擎也算违规？",
+  "summary": "玩家注册DeepSeek官方API想试V4.1，只问了两个关于张量并行和开源推理引擎的问题，不到一分钟账号就被判违规暂停，连API key都没拿到。",
+  "body": "第一格：玩家刚在OpenRouter上用DeepSeek V4 flash跑得顺手，转头注册官方账号想试V4.1。注册成功，界面干干净净，他搓搓手准备开工。\n\n第二格：在线聊天框里敲下两个问题——张量并行怎么配、StillDeadCode/radiance推理引擎性能如何。都是公开仓库的事，没逆向、没违规，玩家表情还挺自信。\n\n第三格：回车刚按下去，页面弹出红字：“As a result of violations, your account has been temporarily suspended.” 玩家盯着屏幕愣住，手还悬在键盘上，前后不到一分钟。\n\n第四格：他翻遍账号页面想找API key，结果连key的影子都没见着。玩家摊手：我到底违反了哪条？问开源代码也算 taboo？\n\n（虚构二创：以上对白与心理活动均为玩家人设演绎，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/DeepSeek/comments/1xruyta/wtf_as_a_result_of_violations_your_account_has/",
+  "tags": [
+    "DeepSeek",
+    "账号封禁",
+    "API",
+    "开源推理",
+    "一分钟"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/DeepSeek/comments/1xruyta/wtf_as_a_result_of_violations_your_account_has/",
+      "url": "https://www.reddit.com/r/DeepSeek/comments/1xruyta/wtf_as_a_result_of_violations_your_account_has/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
