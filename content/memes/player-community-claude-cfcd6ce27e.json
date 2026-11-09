@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-cfcd6ce27e",
+  "character": "claude",
+  "title": "Claude 把 2006 年的 FlatOut 2 搬进掌机，人类只负责踩油门",
+  "summary": "一位玩家发布 ARM64 原生移植版 FlatOut 2，自述代码全由 Claude 编写，自己只做真机测试和提改进建议。",
+  "body": "第一格：Reddit 掌机区冒出帖子《FlatOut 2 (PC) native port for ARM handhelds》。作者开门见山：这是静态重编译，不是模拟器也不是 Wine，自带游戏文件即可，不用编译。评论区先愣住——2006 年的撞车游戏，怎么忽然有了 ARM64 原生版？\n\n第二格：作者在透明声明里补刀：整个移植完全由 Claude 编写代码，他的工作是拿真机测试、分析帧数、提改进建议。于是画面变成一台 Anbernic RG34XX-SP 跑着 39 FPS，旁边的人类盯着日志，AI 在屏幕外敲代码。\n\n第三格：成品细节也很反差：30 FPS 锁帧启动器给 RK3326 用，解锁版能到 60；存档槽 8 塞了个叫 TEST 的 100% 存档，方便试遍所有车和赛事；Select + L1 换 A/B、X/Y，L2 + R2 看帧数，L1 + R2 截图。作者还老实列了已知问题：撞车火花有瑕疵、开局自家车声偶尔消失、大撞车时 RK3326 会掉到 20 FPS 以下、LAN 联机还没做。\n\n第四格：他只测了三台机器，其余机型请开 issue 附上 ports/flatout2/log.txt。人类负责踩油门和报 bug，Claude 负责写代码——分工反转得很彻底。（以上对白与场景为虚构二创，原帖未发生额外问答。）\n\n原始线索：https://www.reddit.com/r/ANBERNIC/comments/1xruo8i/flatout_2_pc_native_port_for_arm_handhelds/",
+  "tags": [
+    "Claude写代码",
+    "掌机移植",
+    "FlatOut 2",
+    "分工反转",
+    "静态重编译"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/ANBERNIC/comments/1xruo8i/flatout_2_pc_native_port_for_arm_handhelds/",
+      "url": "https://www.reddit.com/r/ANBERNIC/comments/1xruo8i/flatout_2_pc_native_port_for_arm_handhelds/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
