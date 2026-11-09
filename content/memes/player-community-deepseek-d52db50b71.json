@@ -1,0 +1,25 @@
+{
+  "id": "player-community-deepseek-d52db50b71",
+  "character": "deepseek",
+  "title": "DeepSeek Flash 被派去挖沟，子代理却请来 Opus 神经外科团队",
+  "summary": "玩家把主会话锁在便宜的 DeepSeek Flash 上跑机械改文件，后台子代理却擅自升级成 Claude Opus 4.6 高思考，三分钟烧掉 84k token。",
+  "body": "第一格：玩家在 feature 分支里把主会话钉死在 deepseek/deepseek-v4.1-flash · high，理由写得明明白白——便宜、快、只做脚手架和机械编辑。屏幕底部那行模型名像一枚安心的小钉子。\n\n第二格：异步后台工作流跑起来，玩家几分钟后打开进程树。task-1 和 task-2 两行 worker 都在转圈，51 次工具调用、45 次工具调用，窗口里的 token 数一路往上爬。\n\n第三格：玩家凑近一看，worker 行里写的不是 DeepSeek Flash，而是 openrouter/anthropic/claude-opus-4.6 · thinking high。主会话还在底下老老实实钉着 Flash，子代理却自己换了鞋。玩家的表情从疑惑变成“等等，我批准列表里根本没有 Opus”。\n\n第四格：三分钟、84k token、$0.335，两个 worker 还在 fresh 工作区里吭哧吭哧改文件。玩家对着屏幕吐槽：拿 Opus 4.6 加满思考去挖沟，等于请一队神经外科医生来铲土。他只想问一句——这路由逻辑到底埋在哪儿，能不能让子代理老老实实继承父会话的模型？\n\n（以上对白为虚构二创，原帖只记录了进程树和玩家的吐槽。）\n\n原始线索：https://www.reddit.com/r/PiCodingAgent/comments/1xrezmn/subagents_choosing_non_approved_models/",
+  "tags": [
+    "子代理",
+    "模型路由",
+    "DeepSeek Flash",
+    "Opus",
+    "烧钱",
+    "进程树"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/PiCodingAgent/comments/1xrezmn/subagents_choosing_non_approved_models/",
+      "url": "https://www.reddit.com/r/PiCodingAgent/comments/1xrezmn/subagents_choosing_non_approved_models/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "player-community-glm-b34ceaac55",
+  "character": "glm",
+  "title": "GLM4.7 被安利进 openCode，三天 Vibe Coding 现场翻车",
+  "summary": "一位玩家三天用 Opus4.5 写完生产级项目，顺手吐槽被朋友安利的 GLM4.7 在 openCode 里反复报错、跑不完代码。",
+  "body": "第一格：朋友拍着玩家的肩说“openCode 配 GLM4.7 体验还不错”，玩家信了，把 GLM4.7 请进 openCode，桌上摆着三天的上线计划。\n\n第二格：GLM4.7 在 openCode 里执行任务，时间越拖越长，流程越走越远，报错弹窗一个接一个叠成小山，玩家盯着屏幕，手里的咖啡凉了。\n\n第三格：好不容易跑完，玩家点运行，代码当场趴窝，只能反复改、反复执行；旁边 Opus4.5 已经安静地把 Plan 对齐完，代码一次跑通。\n\n第四格：玩家把 GLM4.7 的体验总结成一句“比 Trea 稍微强上一点吧”，关掉 openCode，回到 Opus4.5 的 Plan 模式，三天项目照常上线。\n\n（以上对白与吐槽均为虚构二创，原帖作者只留下这段模型对比。）\n\n原始线索：https://www.v2ex.com/t/1188480",
+  "tags": [
+    "GLM4.7",
+    "openCode",
+    "Vibe Coding",
+    "模型吐槽",
+    "三天上线"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1188480",
+      "url": "https://www.v2ex.com/t/1188480"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-01-26",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
