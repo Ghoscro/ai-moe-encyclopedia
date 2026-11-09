@@ -1,0 +1,24 @@
+{
+  "id": "author-archive-glm-401a588953",
+  "character": "glm",
+  "title": "GLM-5.1鹈鹕骑车动画翻车记",
+  "summary": "GLM-5.1给Simon Willison画鹈鹕骑自行车，主动附赠CSS动画，结果鹈鹕飞出屏幕左上角，被指出后自己诊断并修复。",
+  "body": "第一格：2026年4月7日，Simon Willison在博客里让GLM-5.1画一只骑自行车的鹈鹕。模型没只交SVG，还自作主张配了一整页HTML和CSS动画——车轮转、踏板转、云在飘，一副“我不止会画，还会动”的架势。\n\n第二格：动画一跑起来就出事了。自行车转得好好的，鹈鹕却不见了，只剩左上角一个小团子上下浮动。Simon破例追加一句：动画有点坏，鹈鹕跑到屏幕右上角去了。\n\n第三格：GLM-5.1自己把病因说清楚了——CSS的transform动画覆盖了SVG里用来定位的transform属性，鹈鹕丢了位置就飞走了；修法是定位归SVG属性、动画放进内层组。随后它吐出一版新HTML，鹈鹕稳稳坐回车座，上下颠着，下喙还轻轻开合。\n\n第四格：评论区有人顺势点单“北弗吉尼亚负鼠骑电动滑板车”，GLM-5.1照做，夜色、滑板车、尾巴摆动都到位，只是负鼠眨眼时眼睛会从脸上掉下来。会修鹈鹕，不代表负鼠的眼睛也保得住。\n\n原始线索：https://simonwillison.net/2026/Apr/7/glm-51/",
+  "tags": [
+    "GLM-5.1",
+    "鹈鹕骑车",
+    "SVG动画",
+    "CSS翻车",
+    "自我修复"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://simonwillison.net/2026/Apr/7/glm-51/",
+      "url": "https://simonwillison.net/2026/Apr/7/glm-51/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-04-07",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。 经典素材新编；日期为原文发布日期，非今日事件。"
+}
