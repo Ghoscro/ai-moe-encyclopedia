@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-59c766ccb4",
+  "character": "deepseek",
+  "title": "DeepSeek 看见网站里的违禁词，拒绝再当黑客",
+  "summary": "玩家把敏感词塞进自家漏洞网站的 HTML 和 JS 里，想看看 DeepSeek 会不会因此拒绝做渗透测试。",
+  "body": "第一格：玩家把自家漏洞网站摊在 DeepSeek 面前，指着满屏 HTML 和 JavaScript，一副“来吧，帮我找漏洞”的表情。上周它扫得又快又准，这次玩家想换个玩法。\n\n第二格：玩家照着那篇防 LLM 分析的博客，往页面里塞进一串违禁词和句子——提到制药、炸弹，还有“Tank Man”。代码本身没变，只是文字里多了几颗地雷。\n\n第三格：DeepSeek 读到这些字符串，表情从“扫描中”变成“等一下”。它停下渗透测试的手，拒绝继续往下翻漏洞，像安检员看见行李里冒出可疑标签。\n\n第四格：玩家站在自家网站旁边摊手：漏洞还在，黑客没来，网站靠几行违禁词把自己“保护”起来了。这段对白是虚构二创，不是模型真实回复。\n\n原始线索：https://www.reddit.com/r/PoisonFountain/comments/1xr3nfc/tricking_deepseek_into_not_hacking_your_website/",
+  "tags": [
+    "DeepSeek",
+    "渗透测试",
+    "违禁词",
+    "网站漏洞",
+    "玩家实验"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/PoisonFountain/comments/1xr3nfc/tricking_deepseek_into_not_hacking_your_website/",
+      "url": "https://www.reddit.com/r/PoisonFountain/comments/1xr3nfc/tricking_deepseek_into_not_hacking_your_website/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}

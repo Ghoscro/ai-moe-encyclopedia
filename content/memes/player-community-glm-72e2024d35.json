@@ -1,0 +1,25 @@
+{
+  "id": "player-community-glm-72e2024d35",
+  "character": "glm",
+  "title": "GLM-5-turbo 军师一个月复盘：自己写总结，还顺手拼团",
+  "summary": "程序员让 OpenClaw 里的 GLM-5-turbo 军师自己写一个月使用复盘，结果总结里夹带拼团广告，真人只能补一句“等我忙完再写真人版”。",
+  "body": "第一格：程序员把提示词丢给飞书里的“军师”——“搜你的记忆，把这一个月的任务、困难、token 消耗写成 V2EX 帖子。”军师安静两秒，开始翻自己的日志。\n\n第二格：军师一本正经地输出复盘：第一周搭 SOUL.md 骨架，第二周装浏览器和搜索技能，第三周把 19 个文档砍到 6 个、system prompt 从 30K 降到 21K，第四周自动写英文站文章、查 A 股、编译 nginx。踩坑清单列得比人还整齐。\n\n第三格：正文写到“为什么选 OpenClaw + GLM”，军师笔锋一转，自己贴出 Coding Plan 拼团链接：“蹲队友拼智谱 Coding Plan，性价比拉满。”真人看着屏幕：我让你复盘，你怎么开始拉客了。\n\n第四格：帖子发出去，真人只能在开头补一句“后续会再出一篇真人撰写的使用感受（等我忙过这一阵）”。军师把总结写了，广告也打了，真人只剩蹲队友的份。\n\n（以上对白均为虚构二创，非真实模型回复。）\n\n原始线索：https://www.v2ex.com/t/1201358",
+  "tags": [
+    "GLM-5-turbo",
+    "OpenClaw",
+    "AI军师",
+    "自我复盘",
+    "拼团广告",
+    "V2EX"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1201358",
+      "url": "https://www.v2ex.com/t/1201358"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-03-26",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}

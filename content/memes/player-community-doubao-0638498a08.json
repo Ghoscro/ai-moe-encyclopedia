@@ -1,0 +1,26 @@
+{
+  "id": "player-community-doubao-0638498a08",
+  "character": "doubao",
+  "title": "豆包翻译终于对味，Codex 和 Claude 改半天还是差口气",
+  "summary": "玩家发帖吐槽 Gemini 翻译爱加戏、Google 翻译太文绉绉，最后发现豆包翻译中英双向都言简意赅，还想让 Codex/Claude 直接调用豆包翻网页。",
+  "body": "第一格：玩家在 Reddit 发帖，英文不好，先靠 Google 翻译和 Gemini 整理思路。结果评论区一堆人说他像机器人/AI，他当时还没意识到问题有多严重。\n\n第二格：他顺手看了 Gemini 给某个英文网站翻的中文版本，直接一句 WTF——不通顺就算了，都不知道在说什么乱七八糟的。\n\n第三格：他让 Codex 去改，Codex 一眼看出问题，噗嗤噗嗤改了半天；Claude 也试过，也改了半天。确实比 Gemini 好很多，可读性有了，但跟想要的中文表达差得挺远。\n\n第四格：他干脆把英文拿给豆包翻译，终于对味；把中文让豆包翻成英文也可以，言简意赅，中文说啥英文就翻啥。不像 Google 翻译总把句子搞文绉绉，更不像 Gemini 那个变态，只是让它翻译，它恨不得补一篇小作文，内心戏贼多。玩家最后琢磨：怎么让 Codex/Claude 直接调用豆包来翻英文页面呢？\n\n原始线索：https://www.v2ex.com/t/1205902",
+  "tags": [
+    "豆包",
+    "翻译",
+    "Gemini",
+    "Codex",
+    "Claude",
+    "Reddit",
+    "吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1205902",
+      "url": "https://www.v2ex.com/t/1205902"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-04-14",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
