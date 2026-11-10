@@ -1,0 +1,25 @@
+{
+  "id": "player-community-gpt-a52f92aece",
+  "character": "gpt",
+  "title": "每八秒一条调度令：GPT在Godot铁路救援模拟里当值班员",
+  "summary": "玩家做了一个Godot铁路救援模拟，让ChatGPT每八秒发一条调度指令，再把前两条指令对调重跑一遍，看救援机车能不能追上失控货车。",
+  "body": "第一格：玩家在Godot里摆出一条上坡线路，失控货车正逼近客运列车，救援机车得先追上货车尾部、再把速度对上才能挂钩。屏幕上写着“每八秒一条调度令”，旁边是ChatGPT的对话框。\n\n第二格：玩家把第一条调度令发给ChatGPT，八秒后又发第二条。救援机车照着指令拐进上坡线，玩家盯着速度表，发现坡道尽头那个道岔的限速低得离谱——上坡看着诱人，限速一摆出来就变成陷阱。\n\n第三格：玩家把前两条调度令对调，重跑同一场景。救援机车这次先走另一条线，速度曲线整个变了；玩家在2:46的录像里来回对比两版跑法，看哪一版能赶上货车尾部。\n\n第四格：视频结尾停在两版回放的对比画面上，玩家没说哪版成功，只把两条指令的顺序摆出来让人自己看。ChatGPT在这段里始终是那个每八秒被喂一条指令的值班员，不解释、不补戏，只按节奏发令。\n\n原始线索：https://www.reddit.com/r/trainsim/comments/1xs2sku/i_built_a_small_godot_rail_sim_to_see_if_a_rescue/",
+  "tags": [
+    "Godot",
+    "铁路模拟",
+    "调度指令",
+    "ChatGPT",
+    "救援机车",
+    "指令对调"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/trainsim/comments/1xs2sku/i_built_a_small_godot_rail_sim_to_see_if_a_rescue/",
+      "url": "https://www.reddit.com/r/trainsim/comments/1xs2sku/i_built_a_small_godot_rail_sim_to_see_if_a_rescue/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
