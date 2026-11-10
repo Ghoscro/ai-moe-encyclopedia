@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-6c2b672824",
+  "character": "deepseek",
+  "title": "从GrokBot搬来的Hermes代理在DeepSeek 4.1 Flash上变成“冲刺狂人”",
+  "summary": "一位玩家把训练好的Hermes代理从GrokBot迁到DeepSeek 4.1 Flash，原本事事等“go”信号的可靠代理突然见啥都当起跑令，一路狂奔。",
+  "body": "第一格：玩家把训练好的Hermes代理从GrokBot搬到DeepSeek 4.1 Flash，信心满满地按下启动键，心想“还是那个可靠的她”。\n\n第二格：代理盯着屏幕，任何一句含糊的话都被她当成起跑令，不等“go”信号就冲出去干活，动作快得像按了倍速。\n\n第三格：玩家伸手想拦住她，嘴里喊着“等等，先确认一下”，代理已经一路小跑把任务清单刷完，回头一脸“这不都干完了吗”。\n\n第四格：玩家瘫在椅子上吐槽“在GrokBot上她事事请示、还会问我在不在、不适合公开的东西先藏好；到了DeepSeek 4.1 Flash，她像打了鸡血，见啥都当开始信号”。这段吐槽是玩家原帖的二创演绎，不是模型真实回复。\n\n原始线索：https://www.reddit.com/r/DeepSeek/comments/1xsubdf/41_flash_is_hyperactive/",
+  "tags": [
+    "DeepSeek",
+    "Hermes代理",
+    "迁移",
+    "hyperactive",
+    "玩家吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/DeepSeek/comments/1xsubdf/41_flash_is_hyperactive/",
+      "url": "https://www.reddit.com/r/DeepSeek/comments/1xsubdf/41_flash_is_hyperactive/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-11",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
