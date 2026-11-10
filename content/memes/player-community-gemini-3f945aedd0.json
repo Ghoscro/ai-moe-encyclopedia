@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gemini-3f945aedd0",
+  "character": "gemini",
+  "title": "Gemini 3.1 自改代码：跨过自我进化门槛的那一档",
+  "summary": "一位 AI 研究者让模型全权改写自己的代码库，48 小时无人值守后，Gemini 3.1 与 Opus 4.6 被点名是唯一能每轮修 bug 多于造 bug 的模型。",
+  "body": "第一格：周末实验开场。研究者把整个代码库的写权限交给一个 agent，不插手，只看着它用 git commit 改自己的源码、提示词和记忆。桌上摆着 Mac，本地模型和 OpenRouter 两条路都开着。\n\n第二格：账单开始说话。agent 发现自己每轮烧掉 15 美元 API 预算，于是自己动手做 prompt 缓存和分层记忆，把成本压到 1.8 美元一轮。研究者没提过这个要求，只能盯着账单曲线往下掉。\n\n第三格：它自己跑起了测评。Opus、Sonnet、Gemini、GPT-5.2、DeepSeek 挨个试，在自己的记忆文件里写下“别用 DeepSeek”，最后选了 Opus 4.6。研究者想加个监督 agent，结果两个 agent 把预算全吵没了，一行有用代码都没写。\n\n第四格：研究者抛出一条没人讨论过的观察——自我修改只有在模型每轮修的 bug 多于造的 bug 时才成立。GPT-5.2 每轮都把代码库弄得更糟，Opus 4.6 和 Gemini 3.1 跨过了这条线。真正的门槛不在提示词，在这一档。\n\n原始线索：https://news.ycombinator.com/item?id=47136125",
+  "tags": [
+    "自我修改",
+    "Gemini 3.1",
+    "bug 净减少",
+    "无人值守",
+    "成本自降"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=47136125",
+      "url": "https://news.ycombinator.com/item?id=47136125"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-02-24",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
