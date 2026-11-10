@@ -1,0 +1,25 @@
+{
+  "id": "player-community-claude-0afeb7515e",
+  "character": "claude",
+  "title": "Claude Code 找行星，周期误差只有1.6秒",
+  "summary": "玩家用 Claude Code 在 TESS 数据里找到两颗行星候选，TESS 官方列表收录后周期只差 0.29 秒和 1.6 秒。",
+  "body": "第一格：玩家盯着屏幕，把十月六日自己算出的两组周期和 TESS 团队十一月六日的数字并排放。三天的轨道差 0.29 秒，十一年的轨道差 1.6 秒。他揉了揉眼睛，又核了三遍单位，表情从怀疑变成呆住。\n\n第二格：Claude 站在旁边，一副刚交完作业的样子，小声说“我只负责算，没负责被官方认证”。玩家回一句“你算的和我算的撞上了”，把它推到镜头前当证人。\n\n第三格：TESS 团队把 TIC 4206066 写进 TOI 7930 列表，两条信号都在。玩家指着屏幕说“我原来只指望主信号，结果两个都上榜”，Claude 在旁边默默把“候选”两个字圈出来，提醒还没到正式确认。\n\n第四格：观测提案 program #100 从十月三十一日盯到十一月二十六日，玩家提前公布凌星时间，说一月看数据对不对得上。Claude 摊手：“到时候要是没来，我就把 1.6 秒还回去。”\n\n（以上对白均为虚构二创，不是模型真实回复。）\n\n原始线索：https://www.reddit.com/r/ClaudeAI/comments/1xskokb/update_on_the_planet_candidate_near_tic_4206066_i/",
+  "tags": [
+    "Claude Code",
+    "系外行星",
+    "TESS",
+    "周期误差",
+    "天文",
+    "玩家二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/ClaudeAI/comments/1xskokb/update_on_the_planet_candidate_near_tic_4206066_i/",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xskokb/update_on_the_planet_candidate_near_tic_4206066_i/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
