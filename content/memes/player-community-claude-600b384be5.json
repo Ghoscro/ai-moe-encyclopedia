@@ -1,0 +1,25 @@
+{
+  "id": "player-community-claude-600b384be5",
+  "character": "claude",
+  "title": "Claude Code 把电子壁炉从云端“解救”进 HomeKit",
+  "summary": "一位玩家让 Claude Code 用二十分钟把依赖 Tuya 云端的电子壁炉接进 HomeKit，还顺手给了静态 IP 和防火墙。",
+  "body": "第一格：玩家盯着客厅那台电子壁炉，它只会听 Tuya 云端的话。想用 HomeKit 控制？他原本的计划是买个红外发射器，再维护一套复杂的状态同步，表情像在给壁炉办跨国签证。\n\n第二格：Claude Code 上场，先带他从 Tuya 开发者平台摸出一枚 token，然后当场写了一个 homebridge 设备。玩家看着终端里一行行代码滚过，壁炉还没冒火星，HomeKit 里已经先冒出开关。\n\n第三格：接着给壁炉配静态 IP，再用防火墙把它和互联网隔开。原本要“养”一套红外方案，现在二十分钟内全解决，玩家感叹这只“聪明的鹦鹉”居然能把一个云依赖设备从云端摘下来。\n\n第四格：壁炉在 HomeKit 里乖乖待着，玩家不用再维护状态机。虚构二创对白：壁炉说“我终于不用天天连云端打卡了”，Claude Code 回“记得防火墙别把我关在外面”。\n\n原始线索：https://news.ycombinator.com/item?id=50446337",
+  "tags": [
+    "Claude Code",
+    "HomeKit",
+    "Tuya",
+    "智能家居",
+    "电子壁炉",
+    "二十分钟"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50446337",
+      "url": "https://news.ycombinator.com/item?id=50446337"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-11",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}

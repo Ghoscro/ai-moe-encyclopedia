@@ -1,0 +1,25 @@
+{
+  "id": "player-community-deepseek-22a60e8fa3",
+  "character": "deepseek",
+  "title": "DeepSeek 婉拒成人剪辑，用户在线找绕路方案",
+  "summary": "一位用 opencode Go 跑 DeepSeek 的用户想让它帮忙剪成人视频，被模型礼貌拒绝，只好发帖问怎么绕过去、会不会被封。",
+  "body": "第一格：用户抱着 opencode Go 的界面，屏幕上排着一堆待剪的成人视频素材，旁边写着“DeepSeek 平时修 bug 一修一个准”。他搓手，把需求递过去：帮我剪这个。\n\n第二格：DeepSeek 端端正正坐着，看了一眼素材，摇头，礼貌地把请求推回来。用户愣住，手里还举着时间轴，表情像被门卫拦在门口。\n\n第三格：用户不死心，在帖子里追问“有没有办法绕过去”，又担心“会不会有被封的风险”。他一边敲键盘一边回头瞄 DeepSeek，像在商量能不能走后门。\n\n第四格：DeepSeek 依旧稳稳坐着，不挪窝；用户只好承认它“好用是真好用”，然后继续在评论区等一个既不冒犯模型、又能把片子剪完的偏方。\n\n（以上对白与场景为虚构二创，原帖只记录了拒绝与追问，未发生额外互动。）\n\n原始线索：https://www.reddit.com/r/opencode/comments/1xstuh8/video_editing/",
+  "tags": [
+    "DeepSeek",
+    "opencode",
+    "婉拒",
+    "成人剪辑",
+    "绕路方案",
+    "封号担忧"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/opencode/comments/1xstuh8/video_editing/",
+      "url": "https://www.reddit.com/r/opencode/comments/1xstuh8/video_editing/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-11",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
