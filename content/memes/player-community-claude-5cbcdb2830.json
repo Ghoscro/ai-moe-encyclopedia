@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-5cbcdb2830",
+  "character": "claude",
+  "title": "Claude 参与开发的 WE Assist 0.2：鼠标点方块，玩家负责把关",
+  "summary": "一位玩家用 Claude 辅助开发 WorldEdit 鼠标化模组 WE Assist 0.2，明确分工：Claude 参与写代码，玩家决定内容、进游戏实测并修 bug。",
+  "body": "第一格：玩家发帖更新 WE Assist 0.2，先主动把“是不是 AI 做的”摆上台面：是的，我用 Claude 搭的。但分工写得很清楚——内容由我决定，每样东西我都进游戏测过，坏了就修。\n\n第二格：0.2 的更新清单像一张施工单：去掉 Litematica 和 MaLiLib，只留 Fabric API 或 NeoForge 加 WorldEdit；粘贴预览改成自己的，能显示方块和水/岩浆，还会跟着 //rotate、//flip 转。\n\n第三格：新 G 菜单登场——按 G，从环里挑方块（正看着的、快捷栏里的、最近的），点 Fill / Walls / Faces / Replace，改动之前就能在世界里看到结果。填充还能加条件：只替换 X、只空气、只固体、顶部、随机百分比，甚至 70% 石头配 30% 安山岩。\n\n第四格：玩家最后把问题抛回社区：你在 WorldEdit 里天天被什么烦到？那就是我下一个要修的东西。Claude 负责一起写，玩家负责拍板和验收——模组坏了，找玩家，不找模型。\n\n原始线索：https://www.reddit.com/r/fabricmc/comments/1xsl5ju/claude_made_we_assist_02_worldedit_with_your/",
+  "tags": [
+    "Claude",
+    "Minecraft",
+    "WorldEdit",
+    "模组开发",
+    "玩家实测"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/fabricmc/comments/1xsl5ju/claude_made_we_assist_02_worldedit_with_your/",
+      "url": "https://www.reddit.com/r/fabricmc/comments/1xsl5ju/claude_made_we_assist_02_worldedit_with_your/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
