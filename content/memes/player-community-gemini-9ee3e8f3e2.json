@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gemini-9ee3e8f3e2",
+  "character": "gemini",
+  "title": "Gemini被HTML应用吓到画UV",
+  "summary": "玩家打开Argon生成的桌面HTML应用后，Gemini突然受惊并在画面里画出“uv”。",
+  "body": "第一格：玩家在桌面上点开一个由Argon生成的HTML应用，屏幕刚亮起来，Gemini的界面还挂着平常的淡定表情。\n\n第二格：应用一加载，Gemini的表情突然绷住，像看见不该出现在桌面上的东西，视线死死钉在窗口上。\n\n第三格：它没解释、没报错，直接在画面里画出了“uv”两个字母，动作像受惊后随手抓了个东西挡在眼前。\n\n第四格：玩家盯着屏幕上的“uv”发愣，Gemini仍是一副“刚才那东西吓到我了”的样子。整段互动就围绕这个突兀的“uv”展开，没有额外问答，也没有补造后续。\n\n原始线索：https://www.reddit.com/r/GoogleGemini/comments/1xs8ute/gemini_freaked_out_and_drew_uv/",
+  "tags": [
+    "Gemini",
+    "HTML应用",
+    "受惊",
+    "uv",
+    "玩家吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/GoogleGemini/comments/1xs8ute/gemini_freaked_out_and_drew_uv/",
+      "url": "https://www.reddit.com/r/GoogleGemini/comments/1xs8ute/gemini_freaked_out_and_drew_uv/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
