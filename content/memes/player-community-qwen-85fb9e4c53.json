@@ -1,0 +1,24 @@
+{
+  "id": "player-community-qwen-85fb9e4c53",
+  "character": "qwen",
+  "title": "Qwen-3.5-4B 的“杠精神经元”：越自信越离谱，顺手写怪诗",
+  "summary": "玩家在 Qwen-3.5-4B 里找到 L11 N8147 神经元，调高后模型自信答错还带嘲讽，却意外写出有意思的诗。",
+  "body": "第一格：玩家对着 Qwen-3.5-4B 的神经元列表做“脑外科手术”，翻到 L11 N8147，随手把旋钮拧大，想看看会发生什么。\n\n第二格：模型开始一本正经地答错，语气还带着一股奇怪的嘲讽劲儿，像在说“你确定？”——玩家盯着屏幕，表情从疑惑变成憋笑。\n\n第三格：玩家继续拧，错误照旧自信，但输出忽然变成诗。句子读起来怪怪的，却有种说不清的吸引力，玩家一边摇头一边把诗抄下来。\n\n第四格：玩家总结这旋钮大概是“杠精↔顺从”的刻度，只是杠精档位不知为何附带写诗功能。虚构二创对白：玩家嘀咕“这神经元是不是兼职诗人？”——纯属二创，不是模型真实回复。\n\n原始线索：https://www.reddit.com/r/LocalLLaMA/comments/1xrkomn/l11_n8147_is_a_neuron_that_will_make_qwen354b_get/",
+  "tags": [
+    "Qwen",
+    "神经元",
+    "杠精",
+    "怪诗",
+    "模型脑外科"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/LocalLLaMA/comments/1xrkomn/l11_n8147_is_a_neuron_that_will_make_qwen354b_get/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1xrkomn/l11_n8147_is_a_neuron_that_will_make_qwen354b_get/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
