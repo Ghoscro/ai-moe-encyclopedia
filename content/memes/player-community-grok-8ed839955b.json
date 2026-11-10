@@ -1,0 +1,24 @@
+{
+  "id": "player-community-grok-8ed839955b",
+  "character": "grok",
+  "title": "Grok看不见罂粟籽，Grokbot却能看",
+  "summary": "玩家用“summarise this”按钮总结一条被标敏感的罂粟籽帖，Grok说帖子隐藏或删除，换成成人帖也一样；同一场景里Grokbot却毫无限制。",
+  "body": "第一格：X上一条讲罂粟籽的帖子被标成敏感、糊成一片。玩家点“summarise this”，想看看Grok能不能替自己读一眼。\n\n第二格：Grok回了一句“这条帖子要么被隐藏，要么已删除”。玩家盯着那块模糊的罂粟籽图：它明明就在那儿，只是被遮住了。\n\n第三格：玩家不死心，又拿几条成人帖试同样的按钮，Grok还是同一套说法。屏幕上按钮亮着，Grok像站在磨砂玻璃前摇头。\n\n第四格：同一场景里Grokbot照常读帖，没有这层限制。玩家摊手：一个说看不见，一个看得见，糊的是图，裂的是两个入口。\n\n（虚构二创：对白为编辑编写，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/grok/comments/1xsdmjl/grok_can_no_longer_view_sensitive_tweets_on_x/",
+  "tags": [
+    "Grok",
+    "X",
+    "敏感帖",
+    "summarise",
+    "Grokbot"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/grok/comments/1xsdmjl/grok_can_no_longer_view_sensitive_tweets_on_x/",
+      "url": "https://www.reddit.com/r/grok/comments/1xsdmjl/grok_can_no_longer_view_sensitive_tweets_on_x/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
