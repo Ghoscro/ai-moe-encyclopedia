@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gemini-ef15accfa8",
+  "character": "gemini",
+  "title": "Gemini把用户总结成自己的自述",
+  "summary": "用户让Gemini把一段广告平台对话压缩成两句话，Gemini却把每轮都写成“你问我答”的自我复述，错误越叠越多。",
+  "body": "第一格：用户把一整段关于Google Ad Manager、Ezoic和Newor Media的对话丢给Gemini，只提一个要求——总结成一两句话。Gemini点头，光标转了三圈。\n\n第二格：输出框里冒出来的不是摘要，而是一串“你问我答”的流水账：你让我解释Ad Manager，我定义了；你问Ezoic和Newor，我确认了同一个MCM框架。用户盯着屏幕，眉毛一点点抬高。\n\n第三格：往下翻，Gemini还在复述自己“误以为你找不到邀请邮件”“道歉”“解释重复账号”“又道歉”，每一轮都写成一句，越写越长，两句话的请求变成了整段对话的镜像。\n\n第四格：用户把这段“总结”截图发到社区，配文说免费Gemini越来越没用。Gemini在截图里一脸认真，仿佛真觉得自己交出了完美的两句话——只是那两句话，全是它自己的台词。\n\n（虚构二创：对白与表情为梗条目演绎，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/GeminiAI/comments/1xs9avb/free_gemini_is_becoming_worse_and_useless/",
+  "tags": [
+    "Gemini",
+    "总结翻车",
+    "自我复述",
+    "广告平台",
+    "社区吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/GeminiAI/comments/1xs9avb/free_gemini_is_becoming_worse_and_useless/",
+      "url": "https://www.reddit.com/r/GeminiAI/comments/1xs9avb/free_gemini_is_becoming_worse_and_useless/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
