@@ -1,0 +1,25 @@
+{
+  "id": "player-community-claude-a0f3f01dbe",
+  "character": "claude",
+  "title": "Claude 被拉去当安卓模拟器外包：100% vibecoded 移植《火焰纹章》",
+  "summary": "玩家嫌等不及，直接让 Claude 写了个 Fortune's Weave 安卓移植 fork，自己只负责现场测试和吐槽。",
+  "body": "第一格：Reddit 上一位玩家盯着《Fire Emblem Fortune's Weave》的安卓移植进度，耐心耗尽，干脆把活儿丢给 Claude——原帖自述“100% vibecoded”，他只负责提要求和现场跑测试。\n\n第二格：成品在 AYN Odin 3 Max 上跑起来，从开场动画到第一个可行走场景，画面居然正常，DLSS 那种诡异抖动没了，着色器也不再闪成癫痫现场。玩家一边松口气一边补刀：早期测试“绝对能诱发癫痫、根本没法玩”。\n\n第三格：调完视频编码器，动画过场从第一次尝试的 20fps 拉到满速；但战斗动画里城市背景冒出顶点爆炸，教程里一碰鼠标模式必崩。他摊手：功劳全归 nxnative 和 BananaNative，自己只是“让 Claude 写东西然后现场测”。\n\n第四格：帖子结尾摆出开放姿态——玩它、fork 它、做出更好的，或者直接把他赶出这个 subreddit，“我真不在乎，终于能玩上就开心”。Claude 在这出戏里的角色很朴素：写代码的乙方，背锅的是顶点爆炸，领功的是原项目作者。\n\n原始线索：https://www.reddit.com/r/EmulationOnAndroid/comments/1xsl0sd/fire_emblem_fortunes_weave_focused_fork_of/",
+  "tags": [
+    "Claude",
+    "火焰纹章",
+    "安卓模拟器",
+    "vibecoded",
+    "fork",
+    "玩家吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/EmulationOnAndroid/comments/1xsl0sd/fire_emblem_fortunes_weave_focused_fork_of/",
+      "url": "https://www.reddit.com/r/EmulationOnAndroid/comments/1xsl0sd/fire_emblem_fortunes_weave_focused_fork_of/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
