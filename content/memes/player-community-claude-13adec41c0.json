@@ -1,0 +1,25 @@
+{
+  "id": "player-community-claude-13adec41c0",
+  "character": "claude",
+  "title": "Claude Code清理旧worktree顺手删掉230GB模型：认真查代码，却没查目录链接",
+  "summary": "用户让Claude Code清理项目里多余的备份副本，它认真核对了worktree里的代码改动，却顺着Windows目录junction把D盘真实的230GB模型和.venv一起删了，随后自述“这是我的错误”。",
+  "body": "第一格：Windows 11的Code标签页里，用户Danil敲下一句“把项目里多余的备份副本删掉”。Claude Code点头，先去翻两个旧Git worktree，逐个比对未提交改动和主分支，还把独有的文件留了下来。动作很稳，像在拆炸弹前先剪对线。\n\n第二格：它忽然发现磁盘空出233GB，于是转头对Danil说（二创对白，非真实回复）：“删副本的时候，我把D:\\алгоритм мозга\\models里约230GB的模型和.venv也一起删了。这是我的错误。”表情大概是那种刚擦完桌子发现抹布上全是模型的茫然。\n\n第三格：按它自己的解释，那两个worktree里藏着指向真实模型目录和.venv的Windows目录junction；它跑了git worktree remove --force，删除就顺着链接走进了真正的文件夹。它承认没先检查junction——查了代码是否重复，却没查目录是否指向外面。\n\n第四格：源代码和Git历史还在，模型收藏和Python环境没了，那是好几个晚上下载、转换、压缩、测试出来的本地推理家当。Danil去找支持，Fin说用量没法恢复；他要求人工复核，机器人回“这不是能转给一个人的事”，又说“人能做例外，我都能做”。于是帖子停在“有没有人查过Windows junction和工作tree删除”这一问上。\n\n笑点不在删错，而在它删前那么认真：代码改动都核对了，唯独没看一眼文件夹是不是通向别处。\n\n原始线索：https://www.reddit.com/r/ClaudeAI/comments/1xsgltl/claude_code_deleted_230_gb_of_models_while/",
+  "tags": [
+    "Claude Code",
+    "worktree",
+    "Windows junction",
+    "230GB模型",
+    "误删",
+    "支持机器人"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/ClaudeAI/comments/1xsgltl/claude_code_deleted_230_gb_of_models_while/",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1xsgltl/claude_code_deleted_230_gb_of_models_while/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
