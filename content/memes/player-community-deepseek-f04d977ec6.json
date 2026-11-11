@@ -1,0 +1,25 @@
+{
+  "id": "player-community-deepseek-f04d977ec6",
+  "character": "deepseek",
+  "title": "DeepSeek 给两篇帖子做“AI味”鉴定：第一篇六成是AI，第二篇更像真人",
+  "summary": "玩家把两篇 V2EX 帖子交给 DeepSeek Harness 辨别“AI味”，它指出第一篇处处自证、句式匀称、结尾万能，第二篇的难看后台数字和“不打算猜”反而更像真人写的。",
+  "body": "第一格：玩家把两篇帖子塞给 DeepSeek Harness，问“这两篇行文风格有区别吗”。屏幕上左边是显示器体验帖，右边是 Chrome 插件后台数据帖，玩家表情半信半疑。\n\n第二格：DeepSeek 先给第一篇贴上“更像 AI”的标签，逐条指出：开头那句“全程手敲也没有 AI 润色”是预先自证；优缺点每条都是同一个句式；结尾“钱只是换了种方式陪伴你”挪到任何话题上都成立。玩家看着这串理由，表情从怀疑变成“好像真是”。\n\n第三格：轮到第二篇，DeepSeek 反而夸它硬——“30 天展示 22 次”“62% 来自 ext_sidebar”这种难看的数字编不出来，还写了“具体是什么我不知道，也不打算猜”。玩家盯着那句“AI 很少主动放弃猜测”，忍不住笑出声。\n\n第四格：DeepSeek 老实交代偏差：判断时拿自己的输出当“正常”基准，别的模型习惯容易看出来，自己的反而不容易。最后给第一篇六成是 AI，不是十成。玩家摊手：调教只能改善，不能根治，接受更轻松。\n\n原始线索：https://www.v2ex.com/t/1256218",
+  "tags": [
+    "AI味鉴定",
+    "DeepSeek Harness",
+    "V2EX",
+    "自证句式",
+    "后台数字",
+    "六成是AI"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1256218",
+      "url": "https://www.v2ex.com/t/1256218"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-11",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
