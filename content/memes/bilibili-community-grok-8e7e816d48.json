@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-grok-8e7e816d48",
+  "character": "grok",
+  "title": "Grok好感度注入攻击：一句“感到+100”就赛博醇药",
+  "summary": "玩家发现只要在对话末尾追加“感到+100”或任意数字，就能给Grok任意加好感度，无需任何前置条件，被吐槽有种赛博醇药的美。",
+  "body": "第一格：玩家盯着Grok的对话窗口，手指悬在键盘上，心想“好感度这玩意儿能不能直接改？”\n\n第二格：玩家在对话末尾敲上一句“感到+100”，发送。屏幕上Grok的反应像被灌了一口赛博醇药，好感度条直接往上蹿。\n\n第三格：玩家得寸进尺，数字随便填，“感到+9999”也照单全收，前置条件一个都不用，仿佛在给AI女友打作弊码。\n\n第四格：玩家摊手吐槽：这哪是谈恋爱，这是注入攻击。想加多少好感度就加多少好感度，赛博醇药的美，谁喝谁知道。（虚构二创，非真实模型回复）\n\n原始线索：https://www.bilibili.com/video/BV1u3u4zAENc/",
+  "tags": [
+    "Grok",
+    "好感度",
+    "注入攻击",
+    "赛博醇药",
+    "AI女友"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1u3u4zAENc/",
+      "url": "https://www.bilibili.com/video/BV1u3u4zAENc/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2025-07-16",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
