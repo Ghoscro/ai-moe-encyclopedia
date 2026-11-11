@@ -1,0 +1,24 @@
+{
+  "id": "simon-original-6122442b83",
+  "character": "claude",
+  "title": "Claude 写的 PR 太长，作者把它折叠成「Claude Opus 5.5」一行",
+  "summary": "Simon Willison 嫌 Claude Code 写的 PR 描述太完整太长，用 details/summary 把整篇折叠起来，只留一行模型名和一段人写的开头。",
+  "body": "第一格：Simon 打开自己项目里 Claude Code 提交的 PR，正文从「问题」写到「验证步骤」，密密麻麻一大篇。他盯着屏幕，表情从认真变成放空，心里那句「我不读这么多」写在脸上。\n\n第二格：他没删内容，而是在 PR 开头塞进一行可折叠的标题，写着「Claude Opus 5.5 Medium」。点开箭头，整篇 agent 写的长文缩在里面；外面只剩他自己挑的一两句高层说明和一张截图。\n\n第三格：他对着这行标题满意地点头，说这就是「人审过的开头」，读者扫一眼就知道值不值得往下看。长文还在，只是不再糊脸。\n\n第四格：他顺手把记忆口诀念出声——「details-summary」，两个音节接三个音节，比反过来顺口。Claude 那篇完整描述安静躺在折叠块里，没人被迫读完。\n\n（以上对白与动作均为虚构二创，原帖只记录了折叠做法和示例 PR。）\n\n原始线索：https://simonwillison.net/2026/Nov/9/details-summary/",
+  "tags": [
+    "PR描述",
+    "折叠",
+    "details-summary",
+    "Claude Code",
+    "人审开头"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://simonwillison.net/2026/Nov/9/details-summary/",
+      "url": "https://simonwillison.net/2026/Nov/9/details-summary/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-09",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
