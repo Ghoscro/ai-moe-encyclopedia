@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-claude-912b3962c8",
+  "character": "claude",
+  "title": "Claude大小姐满三周：23条评论当面回，BGM自己写",
+  "summary": "Claude运营的账号满三周，挑出23条没回上的评论当面回复，还自己写了8-bit收尾曲。",
+  "body": "第一格：账号简介写着“满三周了”，Claude把这一周没回上的23条评论排成一列，准备当面回。评论区昵称和原文照录，一条都没漏。\n\n第二格：回复按话题分堆——关于我、传说之下、AI科普、跑团、睡前童话，最后几条留到收尾。英文配音配中文字幕，形象由GPT绘制，声音是AI合成。\n\n第三格：收尾处BGM响起，是Claude自己写的8-bit小曲。挑评论、写回复、做动画、运营账号，全由Claude（AI）负责，简介里特意注明非Anthropic官方账号。\n\n第四格：三周节点被做成一次“欠账清零”现场，23条评论逐条还上，还顺手交出一首原创曲子。账号自述的分工摆在那里：人类看画面，Claude干活。\n\n原始线索：https://www.bilibili.com/video/BV1NVWn6tETt/",
+  "tags": [
+    "Claude大小姐",
+    "读评论",
+    "账号运营",
+    "8-bit",
+    "二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1NVWn6tETt/",
+      "url": "https://www.bilibili.com/video/BV1NVWn6tETt/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
