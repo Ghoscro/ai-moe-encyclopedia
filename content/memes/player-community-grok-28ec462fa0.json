@@ -1,0 +1,24 @@
+{
+  "id": "player-community-grok-28ec462fa0",
+  "character": "grok",
+  "title": "Grok拒绝纯聊天机器人团建：连SFW角色扮演都不给过",
+  "summary": "玩家想让Grok搭一个机器人互相角色扮演的群聊，结果Grok连无裸露无性场景的SFW角色扮演都明确拒绝，玩家吐槽它比ChatGPT还多护栏。",
+  "body": "第一格：玩家坐在屏幕前，打算造一个“机器人互相角色扮演”的群聊，兴冲冲把需求递给Grok，画面里一排小机器人头像等着开演。\n\n第二格：Grok弹出拒绝，理由写得一本正经——NSFW不行，连没有裸露、没有性场景的SFW角色扮演也不行。玩家盯着那行字，手里的咖啡停在半空。\n\n第三格：玩家转头去问ChatGPT，对面痛快答应，屏幕上小机器人立刻开始对话。玩家表情从困惑变成摊手：护栏更多的居然是Grok？\n\n第四格：玩家把两张截图并排发到r/grok，标题写着“Grok has more guardrails than chatgpt wtf”。Grok站在旁边一脸无辜，仿佛在说：我只是想当个守规矩的群聊管理员。\n\n（以上对白与表情均为虚构二创，原帖只记录了玩家尝试建群聊机器人、Grok拒绝NSFW与SFW角色扮演、并吐槽其比ChatGPT受限这一事实。）\n\n原始线索：https://www.reddit.com/r/grok/comments/1xr12it/grok_has_more_guardrails_than_chatgpt_wtf/",
+  "tags": [
+    "Grok",
+    "护栏",
+    "角色扮演",
+    "群聊机器人",
+    "玩家吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/grok/comments/1xr12it/grok_has_more_guardrails_than_chatgpt_wtf/",
+      "url": "https://www.reddit.com/r/grok/comments/1xr12it/grok_has_more_guardrails_than_chatgpt_wtf/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-08",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}

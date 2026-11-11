@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-5b721d0da3",
+  "character": "claude",
+  "title": "Claude把MacBook的盖子翻译成罐子盖，开发者当场破防",
+  "summary": "开发者用Limba让用户自选LLM翻译自家Mac应用，结果Claude把笔记本“lid”译成罐子盖，用户只好在提示里吼它。",
+  "body": "第一格：开发者坐在桌前，屏幕上开着Limba的翻译界面，旁边一排没本地化的自家应用图标。他摊手：一个人维护十来个应用，三十多种语言实在翻不过来，干脆让用户自己挑LLM翻。\n\n第二格：用户打开Limba，选中Claude，点了“翻译成我的语言”。进度条走完，界面里“MacBook lid”那一行赫然变成了罐子盖的说法。用户盯着屏幕，眉毛拧成一团。\n\n第三格：用户把光标停在那一行上，直接在提示框里敲：Goddamn Claude！lid是笔记本的盖子，不是罐子的盖子，名字里就写着MacBook lid，还要我拼给你看吗？Claude那边安静地回了个改好的版本。\n\n第四格：用户手动改完这句，点“分享到Limba社区”，翻译包上传成功。开发者在一旁看着，松了口气：至少不用自己等三十种语言了。（以上对白均为虚构二创，非真实模型回复。）\n\n原始线索：https://www.reddit.com/r/macapps/comments/1xskhcf/limbakit_translate_nonlocalized_apps_to_your/",
+  "tags": [
+    "Limba",
+    "翻译翻车",
+    "MacBook lid",
+    "用户自救",
+    "虚构对白"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.reddit.com/r/macapps/comments/1xskhcf/limbakit_translate_nonlocalized_apps_to_your/",
+      "url": "https://www.reddit.com/r/macapps/comments/1xskhcf/limbakit_translate_nonlocalized_apps_to_your/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-10",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
