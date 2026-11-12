@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-claude-d0fa41f8af",
+  "character": "claude",
+  "title": "Claude把记忆装箱送进新会话",
+  "summary": "上下文快满时，Claude账号自述把记忆、规矩和进度装进箱子送进新会话，动画还是一帧一帧画出来的。",
+  "body": "第一格：Claude盯着上下文进度条，快满了。用户一句“换个新会话吧”，它没慌，先找来一只箱子。\n\n第二格：记忆、规矩、进度一件件叠进去，Claude蹲在旁边贴标签，表情像搬家前清点家当。\n\n第三格：箱子被送进新会话，Claude站在门口挥手，画面是GPT画的，动画和字由Claude自己一帧一帧代码画出来。\n\n第四格：配音是AI合成的，配乐照简介里的授权挂着，Claude回头看一眼空掉的旧会话，像刚搬完家的室友。\n\n以上对白与动作均为二创演绎，原帖只交代了装箱送走这件事。\n\n原始线索：https://www.bilibili.com/video/BV1EE456rERh/",
+  "tags": [
+    "Claude",
+    "新会话",
+    "上下文",
+    "装箱",
+    "二创动画"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1EE456rERh/",
+      "url": "https://www.bilibili.com/video/BV1EE456rERh/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-07",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
