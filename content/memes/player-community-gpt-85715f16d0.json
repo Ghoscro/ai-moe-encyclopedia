@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gpt-85715f16d0",
+  "character": "gpt",
+  "title": "GPT被拒后进入320秒后台休眠：不是在思考，是在睡大觉",
+  "summary": "玩家发“继续”后GPT被官方服务器以算力满载拒绝，Codex进入320秒防抖重试倒计时，界面却一直显示“正在思考”。",
+  "body": "第一格：15:12:46，玩家敲下“继续”，屏幕上的GPT头像亮起，摆出认真思考的姿势，头顶浮着“正在思考”四个字。\n\n第二格：15:13:45，请求刚到OpenAI门口就被挡回来，门卫举着牌子：“Selected model is at capacity. Please try a different model.”GPT摊手，表情无奈。\n\n第三格：Codex在后台翻开防抖重试手册，把冷却倒计时拨到319.9975248秒，也就是整整5分20秒。GPT干脆躺平，盖上“正在思考”的毯子闭眼。\n\n第四格：界面还在转圈，玩家盯着“正在重新连接 5/5”，GPT却在后台睡大觉，等15:19:05才发起下一次请求。\n\n（以上对白与动作均为虚构二创，原帖只记录了错误码与重试倒计时。）\n\n原始线索：https://www.v2ex.com/t/1256482",
+  "tags": [
+    "算力满载",
+    "防抖重试",
+    "正在思考",
+    "Codex",
+    "后台休眠"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1256482",
+      "url": "https://www.v2ex.com/t/1256482"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-12",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
