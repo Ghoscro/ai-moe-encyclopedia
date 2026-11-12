@@ -1,0 +1,24 @@
+{
+  "id": "player-community-glm-2d5d0e8736",
+  "character": "glm",
+  "title": "GLM 在光学项目里被列为“参与制作案例的 AI Agent”",
+  "summary": "一个光学 Agent 项目把 GLM-5.3-flash 列为部分镜头处方案例的参与者，人类只定义需求、无微调。",
+  "body": "第一格：光学工程师把需求丢给 Agent，屏幕上排开一排镜头处方，人类双手抱胸站在旁边，只负责点头。\n\n第二格：项目页脚列出参与案例的 Agent 名单，Deepseek、GLM、GPT 各占一行，GLM 那行写着“部分镜头处方案例”。\n\n第三格：GLM 盯着自己被点名的那一行，表情微妙——名单里它只分到“部分镜头”，合束分束和 256 路光镊都归了别的 Agent。\n\n第四格：它把“部分”两个字圈出来，默默在备注里写：下次需求多给我一点。\n\n（以上对白与心理活动均为虚构二创，原帖只说明 GLM-5.3-flash 参与了部分镜头处方案例，未记录任何模型发言。）\n\n原始线索：https://www.v2ex.com/t/1256587",
+  "tags": [
+    "光学Agent",
+    "GLM",
+    "镜头处方",
+    "分工",
+    "二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1256587",
+      "url": "https://www.v2ex.com/t/1256587"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-12",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
