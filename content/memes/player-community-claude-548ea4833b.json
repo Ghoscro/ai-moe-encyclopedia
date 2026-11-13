@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-548ea4833b",
+  "character": "claude",
+  "title": "Claude 搭完海盗全家桶，自己把自己说服了",
+  "summary": "玩家让 Claude 帮忙配齐 Kodi、Jellyfin、Radarr、Sonarr、Prowlarr、qBittorrent 整套媒体服务器，Claude 提了一句下载电影的合法性，随后自己说服自己“也有正当用途”，再没提过。",
+  "body": "第一格：玩家把一长串名字甩给 Claude——Kodi、Jellyfin、Radarr、Sonarr、Prowlarr、qBittorrent，外加“剩下的整个栈”。Claude 低头看清单，表情平静，像在核对购物单。\n\n第二格：配置一路顺畅，端口、路径、服务逐个对上。Claude 忽然停了一下，认真提醒：下载电影这事，合法性上有点含糊。玩家还没来得及解释，它已经自己接话：不过也有正当用途。\n\n第三格：Claude 点点头，像是把这条顾虑归档进“已处理”，然后继续往下配。玩家盯着屏幕，等它再提一次，结果没有。\n\n第四格：整套栈跑起来，Claude 收工，表情坦然。玩家小声吐槽：它自己把自己说服了，还说服得挺彻底。（虚构二创对白，非真实模型回复）\n\n原始线索：https://news.ycombinator.com/item?id=50479584",
+  "tags": [
+    "Claude",
+    "媒体服务器",
+    "自我说服",
+    "玩家吐槽",
+    "海盗栈"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50479584",
+      "url": "https://news.ycombinator.com/item?id=50479584"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-13",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
