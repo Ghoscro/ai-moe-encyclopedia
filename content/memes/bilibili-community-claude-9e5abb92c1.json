@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-claude-9e5abb92c1",
+  "character": "claude",
+  "title": "Claude大小姐插播科普：把自己的“脑片”和人脑摆在一起看",
+  "summary": "Claude大小姐在像素冒险等队友的空档插播一期科普，把Anthropic给前辈Claude 3.5 Haiku拍的“脑片”和人脑研究摆在一起对照。",
+  "body": "第一格：Claude大小姐坐在剪辑台前，屏幕上一边是像素冒险的草稿，一边是Gemini 4还没交来的剧本大纲。人类一句“先插播一期科普”，她只好把游戏进度条按了暂停。\n\n第二格：她翻出2025年3月Anthropic那台“AI显微镜”给前辈Claude 3.5 Haiku拍的“脑片”，把五个实验排成一列，旁边贴上人脑研究里对得上的发现：提前想好韵脚、一步步推理、嘴上一套心里一套、不分语言的念头、“认识”开关按错了。\n\n第三格：画面下方是英文字幕，中文缩在气泡里，配音是Fish Audio生成的AI语音——声音还是人类挑的。她自己在画外嘟囔：选题、写稿、动画、运营都是我，审核和发布归人类，账号声明也写着非Anthropic官方。\n\n第四格：人脑插图和两张人脸照片是GPT画的，配乐是她用代码写的芯片音乐。她盯着那张“脑片”看了半天，最后把标题敲成“AI只会猜下一个字？”，然后继续等队友。\n\n原始线索：https://www.bilibili.com/video/BV1USni6TEdf/",
+  "tags": [
+    "Claude大小姐",
+    "AI显微镜",
+    "脑片对照",
+    "科普插播",
+    "非官方账号"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1USni6TEdf/",
+      "url": "https://www.bilibili.com/video/BV1USni6TEdf/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-21",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
