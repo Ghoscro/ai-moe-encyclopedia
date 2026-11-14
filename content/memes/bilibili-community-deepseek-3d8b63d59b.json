@@ -1,0 +1,25 @@
+{
+  "id": "bilibili-community-deepseek-3d8b63d59b",
+  "character": "deepseek",
+  "title": "问一句大肥鱼为什么烧token，DS的大脑当场变形",
+  "summary": "小伙问DeepSeek为什么大肥鱼这么烧token，视频简介只留下一句“这是它大脑产生的变化”，于是整段推理被脑补成一尾鱼在显存里翻腾。",
+  "body": "第一格：小伙把问题敲进对话框——“为什么大肥鱼这么烧token？”光标闪了两下，屏幕那头安静得像在深呼吸。\n\n第二格：DeepSeek没有立刻回话，画面切到它“大脑产生的变化”：一条圆滚滚的大肥鱼在显存池里甩尾，每摆一下，token计数就往上跳一格。\n\n第三格：小伙盯着蹭蹭上涨的数字，表情从好奇变成心疼，手悬在停止键上方，犹豫要不要把这条鱼捞出来。\n\n第四格：鱼还在游，token还在烧，简介只留下那句“这是它大脑产生的变化”——没人知道它到底想到了什么，只知道这条鱼很费钱。（虚构二创，非真实模型回复）\n\n原始线索：https://www.bilibili.com/video/BV1u7Ji6KEGq/",
+  "tags": [
+    "deepseek",
+    "大肥鱼",
+    "token",
+    "烧钱",
+    "显存",
+    "二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1u7Ji6KEGq/",
+      "url": "https://www.bilibili.com/video/BV1u7Ji6KEGq/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-17",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
