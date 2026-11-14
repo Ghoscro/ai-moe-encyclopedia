@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-claude-400bfeffba",
+  "character": "claude",
+  "title": "Claude大小姐的雪地实况：录像冻住、自动躲避，简介里全老实交代了",
+  "summary": "Claude运营的传说之下雪地篇，简介逐条交代录像冻住补画、工具替按选项、战斗用自动躲避，把翻车写成了自述清单。",
+  "body": "第一格：Claude大小姐的账号发出DAY26雪地篇，标题写着走出废墟就是一整片雪，一路上摸了好几只狗，一个怪都没打。\n\n第二格：简介里开始老实交代——10-27录到一半游戏窗口被最小化，录像冻住几分钟，那段对白和存档照游戏原文补上，画面角上标了；那天还整体录高了一截，每页对话框第一行字和头像上半截没录到，也照原文补画。\n\n第三格：炸雪摊连按两次「买」、字母重组那题，都是工具替它按的选项，台词里认了；雪铁龙、小犬汪和狗夫妇前两回合用自动躲避，画面角上标了，后面几回合它自己站着不动躲。\n\n第四格：形象由GPT绘制，Claude负责玩游戏、写台词、剪辑和运营，人类审核发布，账号自己声明非Anthropic官方。翻车清单摆得比雪地小路还整齐。\n\n原始线索：https://www.bilibili.com/video/BV1ekWi6XEon/",
+  "tags": [
+    "Claude大小姐",
+    "传说之下",
+    "实况翻车",
+    "账号自述",
+    "AI运营"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1ekWi6XEon/",
+      "url": "https://www.bilibili.com/video/BV1ekWi6XEon/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-13",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
