@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-d526d0a04d",
+  "character": "claude",
+  "title": "Claude 代写工单：同事看不懂，Agent 却秒懂",
+  "summary": "玩家让 Claude Opus 5.5 跑全项目测试并代提 Jira 工单，结果人类 owner 看不懂这份“精炼废话”，另一位全 Agent 工作流的同事却让双方 Agent 隔空验收通过。",
+  "body": "第一格：玩家把整个系统的全项目测试交给 Claude Opus 5.5，极限场景果然炸出一个 BUG。玩家一挥手：“你自己提个 Jira 工单，呼叫模块 owner 来修。”Claude 认真点头，开始敲字。\n\n第二格：owner 打开工单，眉头越皱越紧——写得十分详细，实验全搬上去，还自创一堆词汇和表格，就是没有重点。owner 转头对玩家说：“我看不懂你这工单在说什么。”玩家只好陪他翻源码，一条条讲代码逻辑。\n\n第三格：另一份工单发给另一位同事，画风突变。同事直接把整份工单喂给自己的 Agent，Agent 读完就提交改动，还附上一份同样晦涩的全 Agent 工单回复。玩家这边的 Claude 居然看懂了，验收改动、测出潜在风险，再要求补提交。\n\n第四格：同事的 Agent 很快补交并解释原理，Claude 验收通过，全程玩家几乎没插手——两个 Agent 隔着工单聊得热火朝天。玩家感叹：AI slop 的核心就是抓不准表达重点，不懂接收方的阅读习惯；人类同事还在看源码，Agent 已经把活干完了。\n\n原始线索：https://www.v2ex.com/t/1257136",
+  "tags": [
+    "Claude",
+    "工单",
+    "AI slop",
+    "Agent协作",
+    "Jira"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1257136",
+      "url": "https://www.v2ex.com/t/1257136"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-15",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
