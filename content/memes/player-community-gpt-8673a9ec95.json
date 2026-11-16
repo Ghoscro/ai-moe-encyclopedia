@@ -1,0 +1,25 @@
+{
+  "id": "player-community-gpt-8673a9ec95",
+  "character": "gpt",
+  "title": "AGENTS.md 被 codex 自己撑爆，UAF 成了敏感词",
+  "summary": "玩家被赛博安全误伤，换低档模型绕不过去，最后发现是 codex 把进度不停 prepend 进 AGENTS.md，堆出 MB 级提示词，前面全是“敏感词”。",
+  "body": "第一格：玩家盯着同一个老安卓手机升级内核的项目，屏幕上又弹出“This content can't be shown”。他掰着手指数：一周一两次，都是这个项目。以前发一句“继续”或者换低档模型就能溜过去，今天开新 session 也没用。\n\n第二格：他转去 opencode 的免费模型查原因，提示词刚发完就触发压缩，然后被撑爆。玩家表情从疑惑变成无语，只能退到项目的父目录去问。\n\n第三格：真相浮出来——codex 不停把当前进度 prepend 到 AGENTS.md，堆出一个 MB 级的提示词，前面全是所谓敏感词，连 UAF 都被盯上。玩家看着那坨文件，像在看自己养的猫把纸团越滚越大。\n\n第四格：让 opencode 清理完 AGENTS.md，codex 开新 session 就能继续了。玩家摊手：绕不过安全提示，最后绕过的是一份被自己写胖的进度笔记。\n\n原始线索：https://www.v2ex.com/t/1257279",
+  "tags": [
+    "codex",
+    "AGENTS.md",
+    "赛博安全",
+    "误伤",
+    "提示词撑爆",
+    "安卓内核"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1257279",
+      "url": "https://www.v2ex.com/t/1257279"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-16",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
