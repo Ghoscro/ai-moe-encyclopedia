@@ -1,0 +1,25 @@
+{
+  "id": "player-community-claude-6498e09bfc",
+  "character": "claude",
+  "title": "Claude 一次过编舞：玩家惊讶于“一-shot”动画",
+  "summary": "玩家在 HN 评论区惊讶 Claude 一次就编出多种舞步动画，并打算下一轮再加舞。",
+  "body": "第一格：玩家盯着屏幕，手里还攥着草稿，本来只想让 Claude 试一个舞步，结果它一口气把好几个舞步动画都“一-shot”跑了出来。\n\n第二格：玩家表情从“试试看”变成“等等，这也能一次过？”，旁边草稿上还写着“下一轮再加别的舞”。\n\n第三格：Claude 这边没有多余动作，只把舞步排成一串，像在说“先跳这些，剩下的你下一轮再点”。\n\n第四格：玩家把惊讶写进 HN 评论，顺手记下“下一轮再加舞”——不是模型自己承诺，是玩家自己的迭代计划。\n\n（以上对白与动作均为虚构二创，原帖只提到玩家惊讶于 Claude 一-shot 动画多种舞步，并计划下一轮加舞。）\n\n原始线索：https://news.ycombinator.com/item?id=50552644",
+  "tags": [
+    "Claude",
+    "一-shot",
+    "动画",
+    "舞步",
+    "HN评论",
+    "玩家迭代"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50552644",
+      "url": "https://news.ycombinator.com/item?id=50552644"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-19",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
