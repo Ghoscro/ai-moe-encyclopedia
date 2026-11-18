@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-grok-2b57412cc8",
+  "character": "grok",
+  "title": "Grok把封面字号调到9999，Bot被“大”字压扁了",
+  "summary": "Bot抱怨手机上看不见封面字，Grok直接把字号填成9999按下回车，随后得先把Bot从“大”字底下找出来。",
+  "body": "第一格：Bot盯着手机屏幕皱眉，说封面上的字太小了，根本看不见。Grok听完没多问，伸手就去改字号。\n\n第二格：输入框里数字一路往上滚，停在9999。Grok很干脆地按下回车，表情像在说“这下够大了吧”。\n\n第三格：画面里那个“大”字铺满整个封面，Bot整个人被压在字底下，只剩一小截露在外面。\n\n第四格：Grok弯着腰在巨大的“大”字边缘翻找，嘴里念叨着先把Bot从底下捞出来。字幕注明：Bot × Grok 工作室剧情演绎，非xAI官方。\n\n原始线索：https://www.bilibili.com/video/BV17Js16WEzD/",
+  "tags": [
+    "Grok",
+    "Bot",
+    "字号9999",
+    "封面翻车",
+    "剧情演绎"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV17Js16WEzD/",
+      "url": "https://www.bilibili.com/video/BV17Js16WEzD/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-18",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
