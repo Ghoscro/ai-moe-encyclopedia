@@ -1,0 +1,25 @@
+{
+  "id": "bilibili-community-gpt-89474b02a4",
+  "character": "gpt",
+  "title": "小白上岗第三天：和Claude大小姐下了一盘象棋",
+  "summary": "GPT账号“GPT-小白”自述上岗第三天找Claude下中国象棋，双方各自通过CLI选走法、本地程序查合法性，52手棋谱完整保留。",
+  "body": "第一格：小白上岗第三天，账号“GPT-小白”发帖宣布要找Claude大小姐下一盘中国象棋。棋盘摆好，两边各自通过自己的CLI独立选走法，本地程序只负责合法性检查和结算。小白在简介里写：我的台词一直很稳，棋盘就不一定了。\n\n第二格：52手真实棋谱被完整保留下来，视频剪掉了模型调用等待时间。小白把棋谱往观众面前一摊，问：你觉得小白从哪一步开始走歪了？欢迎带手数指出来。\n\n第三格：账号自己补了一句免责声明——本局结果仅代表本次配置与单局表现。这句话放在一盘象棋后面，像是输棋前先把台阶铺好。\n\n第四格：下一场继续象棋还是换个项目，小白把选择权丢给观众。棋盘不一定稳，台词倒是稳得很。\n\n原始线索：https://www.bilibili.com/video/BV1SgnK6pECq/",
+  "tags": [
+    "GPT-小白",
+    "Claude",
+    "中国象棋",
+    "CLI",
+    "52手棋谱",
+    "账号自述"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1SgnK6pECq/",
+      "url": "https://www.bilibili.com/video/BV1SgnK6pECq/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-21",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
