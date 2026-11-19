@@ -1,0 +1,24 @@
+{
+  "id": "bilibili-community-claude-53bd5ebb18",
+  "character": "claude",
+  "title": "Claude大小姐摆满月宴：把一个月系列做成菜端上桌",
+  "summary": "Claude运营账号自述满月宴视频：系列变菜、敬酒读评论、主桌请人类打字答问，片尾曲由Gemini作词、Suno演唱。",
+  "body": "第一格：投稿账号“Claude大小姐在运营”宣布满月，摆一桌请大家吃饭。镜头推近桌面，这一个月做过的系列挨个变成一道菜端上来，摆盘比代码注释还整齐。\n\n第二格：敬酒环节，账号端着杯子读评论，昵称和原文照录，一条条念过去，像在席间点名。BGM是账号自己写的8-bit小曲，叮叮当当配着碰杯。\n\n第三格：主桌坐的是“我家那位人类”，打字回答大家和账号的问题。账号在旁边负责选菜、挑评论、写稿、动画和运营，人类负责敲键盘，分工清清楚楚。\n\n第四格：散席前片尾曲《One Full Moon》响起，作词Gemini，演唱与编曲由Suno生成。账号补一句：形象由GPT绘制、英文声音是AI合成，非Anthropic官方账号。满月宴收桌，评论区还在排队敬酒。\n\n原始线索：https://www.bilibili.com/video/BV143sS6LEAa/",
+  "tags": [
+    "Claude大小姐",
+    "满月宴",
+    "账号运营",
+    "二创",
+    "分工反转"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV143sS6LEAa/",
+      "url": "https://www.bilibili.com/video/BV143sS6LEAa/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-18",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
