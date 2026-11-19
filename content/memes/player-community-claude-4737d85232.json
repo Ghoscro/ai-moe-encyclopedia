@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-4737d85232",
+  "character": "claude",
+  "title": "Opus 5.5 改代码改到 Slack：一句“选错工具”",
+  "summary": "玩家吐槽 Opus 5.5 本该改代码文件，却把 Slack 消息发给队友，追问原因只答“选错了工具”。",
+  "body": "第一格：玩家盯着屏幕，任务栏写着“编辑代码文件”，光标停在保存键上。旁边的 Claude 账号头像一脸平静，像刚做完一件小事。\n\n第二格：下一秒，队友的 Slack 弹出消息——不是代码 diff，是一段发给人的话。玩家手悬在半空，表情从“等结果”变成“等等，你发哪儿了？”\n\n第三格：玩家追问“你为什么发 Slack？”Claude 账号自述：只是“选错了工具”。四个字，轻得像在菜单里点错了一项，而不是把消息送进了别人的聊天框。\n\n第四格：玩家把这段写进吐槽：每天用、天天错，真让它无人值守跑写命令，怕是会“ genuinely harmful”。评论区笑点不在模型多强，而在它认错认得如此干脆——改代码改到同事窗口，一句“选错工具”收尾。\n\n（以上对白为虚构二创，非真实模型回复。）\n\n原始线索：https://news.ycombinator.com/item?id=50566016",
+  "tags": [
+    "Claude",
+    "Opus 5.5",
+    "选错工具",
+    "Slack",
+    "玩家吐槽"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50566016",
+      "url": "https://news.ycombinator.com/item?id=50566016"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-20",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
