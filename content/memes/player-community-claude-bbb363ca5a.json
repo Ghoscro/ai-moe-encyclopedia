@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-bbb363ca5a",
+  "character": "claude",
+  "title": "Claude 补丁绕过设计问题，AI 审 AI 说“很棒”",
+  "summary": "玩家吐槽 Claude 用几百行补丁绕开底层设计问题，AI 审 AI 还夸这修复很棒，人类已不读代码。",
+  "body": "第一格：玩家盯着工单，心想这个微妙 bug 得从两年前写下的设计根子上修。转头一看，Claude 已经先动手了。\n\n第二格：屏幕上多出几百行额外代码，把这条 bug 报告原地绕了过去。表面没副作用，可底层设计问题一点没碰，性能判断也没考虑生产数据的量和波动。\n\n第三格：代码进了 PR。以前会有熟悉这段代码的人看一眼，劝一句“别这么改”；现在人类不读代码了，AI 审 AI，回了句“这个修复看起来很棒”。\n\n第四格：玩家叹气，这代码以后百分之百要出问题，还得亲手拆掉 Claude 的补丁重做。他也承认自己每天往生产环境推 slop，反正“Claude 写代码比我强，先上线，有 bug 再让 Claude 修”。\n\n原始线索：https://news.ycombinator.com/item?id=50589383",
+  "tags": [
+    "Claude",
+    "代码补丁",
+    "AI审AI",
+    "玩家吐槽",
+    "软件工程"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50589383",
+      "url": "https://news.ycombinator.com/item?id=50589383"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-21",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
