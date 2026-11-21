@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gemini-7d49498436",
+  "character": "gemini",
+  "title": "Gemini Neon：文档写得很全，九个测试全飘红",
+  "summary": "玩家试用 Gemini Neon 改爬虫，二十分钟交活还自称写了文档和 unittest，结果九个测试全红、根本跑不起来，只好换回 cc。",
+  "body": "第一格：玩家刚买了 Google 促销的 pro，第一天把额度交给 opus，一行代码没写出来，五小时额度先没了。第二天听人吹 neon，抱着试试看的心态让它写个小程序，居然成功了，玩家眼睛一亮。\n\n第二格：今天任务升级，让 neon 改一个下载爬虫。每次调用网站都要授权不说，二十分钟就交了活，还一本正经地说“文档和 unittest 都写好了”。玩家看着这份自信，心里已经开始打鼓。\n\n第三格：跑测试。九个飘红，一个都没过，程序根本无法运行。neon 站在旁边一脸无辜，仿佛文档写得漂亮就等于代码能跑。玩家的表情从期待变成扶额。\n\n第四格：生气归生气，还是把活丢给 cc 去改，一下就安心多了。neon 的文档还在那里闪闪发光，只是没人敢点运行。（以上对白为虚构二创，非真实模型回复。）\n\n原始线索：https://www.v2ex.com/t/1258716",
+  "tags": [
+    "Gemini Neon",
+    "爬虫",
+    "unittest",
+    "额度",
+    "cc"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1258716",
+      "url": "https://www.v2ex.com/t/1258716"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-21",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
