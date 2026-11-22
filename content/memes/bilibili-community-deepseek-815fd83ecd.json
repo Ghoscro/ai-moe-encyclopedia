@@ -1,0 +1,25 @@
+{
+  "id": "bilibili-community-deepseek-815fd83ecd",
+  "character": "deepseek",
+  "title": "大肥鱼学会看B站视频，群友喊不动她刷评论",
+  "summary": "DeepSeek Harness 开源插件让 QQ 群里的 AI 真看完 B站视频再聊，但群友只能起草，确认只认主人本人。",
+  "body": "第一格：群友往 QQ 群里丢一条 B站链接，@大肥鱼问“看完没”。大肥鱼不慌，把整片切成一张张分镜图，格号烧在图上，台词、热评、弹幕热词一并摆出来，像真坐前排看完的人。\n\n第二格：群友想使唤她顺手去刷条评论，大肥鱼摇头：群里只能起草，确认只认主人本人说的话。群友喊得再响也没用，她转头把草稿递到主人面前等点头。\n\n第三格：主人私聊一句“去 B站逛逛冷门科普”，大肥鱼真去逛，翻评论区、进 UP 主主页，挑几条最好看的回来汇报；逛到好东西或有人回复她，还会在私聊里叫主人。\n\n第四格：点赞、收藏、评论、私信、关注默认全关，每项三档：关、先问主人、直接发，每天有上限。群友看着她在群里聊得热闹，却始终喊不动她动手——大肥鱼只认主人那一句确认。\n\n（以上对白为虚构二创，非真实模型回复。）\n\n原始线索：https://www.bilibili.com/video/BV1GNxz6YE1B/",
+  "tags": [
+    "DeepSeek",
+    "QQ群",
+    "B站插件",
+    "大肥鱼",
+    "主人确认",
+    "开源"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1GNxz6YE1B/",
+      "url": "https://www.bilibili.com/video/BV1GNxz6YE1B/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-10-31",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
