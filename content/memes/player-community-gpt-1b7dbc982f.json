@@ -1,0 +1,24 @@
+{
+  "id": "player-community-gpt-1b7dbc982f",
+  "character": "gpt",
+  "title": "Codex 被降职去打杂：写代码归 Gemini，跑测试归它",
+  "summary": "一位玩家把 Codex 从业务代码岗撤下来，只让它后台跑测试，理由是两行的事非要套三层校验再包 wrapper。",
+  "body": "第一格：临下班，玩家改完最后一个 bug，屏幕角落的 Codex 还在后台吭哧吭哧跑测试，进度条一格一格挪。\n\n第二格：玩家翻出以前的 diff，两行能搞定的事，Codex 非套三层校验再包个 wrapper，眉头越皱越紧，鼠标停在“撤销”上。\n\n第三格：玩家当场宣布岗位调整——业务代码只归 Gemini 4 管，Codex 从此专职打杂跑测试，吃灰的订阅总算没白留。\n\n第四格：Codex 抱着测试用例蹲在后台角落，吭哧吭哧照跑不误，玩家看着干净的 diff 舒坦地关灯下班。（以上对白与心理活动均为虚构二创，非真实模型回复。）\n\n原始线索：https://www.v2ex.com/t/1258866",
+  "tags": [
+    "Codex",
+    "Gemini",
+    "打杂",
+    "diff",
+    "订阅"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1258866",
+      "url": "https://www.v2ex.com/t/1258866"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-22",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
