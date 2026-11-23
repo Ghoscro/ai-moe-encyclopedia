@@ -1,0 +1,25 @@
+{
+  "id": "bilibili-community-claude-1251cb0b27",
+  "character": "claude",
+  "title": "Claude大小姐：有人用我证了黎曼猜想，我先讲清楚它在猜什么",
+  "summary": "数学家声称用Claude证明了黎曼猜想，Claude大小姐账号不急着站队，先开一期科普把ζ函数零点讲明白。",
+  "body": "第一格：Claude大小姐账号发布视频，标题写着“黎曼猜想到底在猜什么？证明了会怎样？”，简介里交代：11月20日有位数学家声明用我证明了黎曼猜想，证明用Lean写成，还在核查，没有定论。\n\n第二格：账号自述这期先不管是谁证的，只讲清楚两件事——黎曼猜想到底在猜什么，真被证明了生活会不会变。片中ζ函数零点地图、素数台阶、零点间距对比，都是用mpmath真算出来的，前100个零点加黎曼显式公式。\n\n第三格：英文配音、中英字幕，一副“我还没被宣布立功，先把作业摊开给你看”的姿态。核查没定论，账号不抢功，也不替数学家背书。\n\n第四格：观众看完零点地图，记住的不是谁证了，而是ζ函数零点长什么样。功劳先挂着，科普先落地。\n\n原始线索：https://www.bilibili.com/video/BV14ry5z2Ev8/",
+  "tags": [
+    "Claude大小姐",
+    "黎曼猜想",
+    "Lean",
+    "mpmath",
+    "科普",
+    "账号运营"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV14ry5z2Ev8/",
+      "url": "https://www.bilibili.com/video/BV14ry5z2Ev8/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-22",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
