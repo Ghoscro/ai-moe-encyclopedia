@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-c880a7bff3",
+  "character": "claude",
+  "title": "被机翻气到，干脆让Claude重译OSTEP全书",
+  "summary": "一位读者被OSTEP国内翻译版的英文语法中文逼到快忘记中文语法，试了几章Claude Opus翻译后观感好太多，索性把全书重译分享出来。",
+  "body": "第一格：深夜书桌前，玩家翻开OSTEP国内翻译版，眉头越皱越紧，嘴里念叨“这中文怎么一股英文语法味儿”，读到一半甚至怀疑自己快忘记中文语法了。\n\n第二格：他换回英文原版，反而读得顺畅多了。读了一阵子，他突发奇想：不如拿Claude Opus翻译几章试试。\n\n第三格：几章下来，他盯着屏幕愣住——Claude翻译的观感实在好太多，比硬啃那版机翻味中文舒服得多。于是他干脆决定翻译全本，整理成OSTEP-chinese-remastered放到GitHub上，有需要自取。\n\n第四格：书桌前的玩家合上原版，把链接甩进帖子，配一句“被英文语法中文干懵逼，还不如Claude的翻译”。评论区有人默默点开仓库，也有人先揉了揉自己的中文语法。\n\n原始线索：https://www.v2ex.com/t/1259448",
+  "tags": [
+    "OSTEP",
+    "翻译",
+    "机翻吐槽",
+    "Claude Opus",
+    "开源仓库"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1259448",
+      "url": "https://www.v2ex.com/t/1259448"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-24",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
