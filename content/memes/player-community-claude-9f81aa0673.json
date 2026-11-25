@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-9f81aa0673",
+  "character": "claude",
+  "title": "Claude Code 许愿出片：一句话交出 70 秒 4K 宣传片",
+  "summary": "玩家懒得开剪映，对 Claude Code 许愿要一条 70 秒视频，结果分镜、录屏、配音、BGM 全被它包办，人只剩看片和挑刺。",
+  "body": "第一格：玩家盯着剪映图标发呆，手一摊，对着 Claude Code 敲下一句许愿——“给我整个 70 秒的视频”。语气像点外卖，不抱希望。\n\n第二格：Claude Code 埋头开工，分镜自己写，录屏自己录，画面是真产品真操作，不是 PPT 动画；配音它配，BGM 它自己搓。桌上堆满素材，它还在敲键盘。\n\n第三格：70 秒 4K 宣传片摆到玩家面前。玩家看完，指着某个镜头皱眉：“这儿太拖了。”Claude Code 点头，回去改。分工彻底反转——人成了甲方，模型成了剪辑师。\n\n第四格：玩家感慨，起因只是让 agent 出设计，它甩三段 Markdown 描述布局，剩下全靠脑补；如今靠 Ryugi 把方案画出来，点、圈、评论，反馈自动回到 agent 那边。免费、本地跑，Claude Code / Codex / Cursor 都能用。\n\n（以上对白均为虚构二创，非真实模型回复。）\n\n原始线索：https://www.v2ex.com/t/1259794",
+  "tags": [
+    "Claude Code",
+    "许愿式剪视频",
+    "agent分工反转",
+    "Ryugi",
+    "宣传片"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1259794",
+      "url": "https://www.v2ex.com/t/1259794"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-25",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
