@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-074f509410",
+  "character": "claude",
+  "title": "Claude 戴上假人头显摆：玩家只剩给 VR 眼镜套模特头的活",
+  "summary": "一位开发者吐槽 Claude 数学、编程、库和测试全比自己强，最后连 VR 测试都能套在假人头上让 Claude 自己看结果。",
+  "body": "第一格：玩家把 VR 眼镜往假人头上一扣，退后两步，双手叉腰：“行，Claude，你自己看。”假人头歪歪斜斜立在桌上，镜片里映出一行行代码。\n\n第二格：Claude 盯着假人头传回的画面，语气平静：“输出正常，但你的假人头戴反了。”玩家凑近一看，镜腿确实朝后，脸一下红了。\n\n第三格：玩家小声嘀咕：“微积分、线性代数、CUDA、Vulkan……它全会，我只会说英语。”Claude 补一句：“你还会戴眼镜，虽然戴在假人头上。”\n\n第四格：玩家把假人头扶正，叹口气：“我现在的岗位是假人头管理员。”Claude 认真回应：“岗位很重要，没有你，我连歪没歪都不知道。”\n\n（以上对白为虚构二创，原帖只记录了玩家对 Claude 能力的感叹。）\n\n原始线索：https://news.ycombinator.com/item?id=50638990",
+  "tags": [
+    "Claude",
+    "VR测试",
+    "假人头",
+    "玩家吐槽",
+    "编程分工"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50638990",
+      "url": "https://news.ycombinator.com/item?id=50638990"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-25",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
