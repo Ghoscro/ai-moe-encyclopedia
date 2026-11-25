@@ -1,0 +1,24 @@
+{
+  "id": "player-community-deepseek-17b8601433",
+  "character": "deepseek",
+  "title": "DeepSeek 三轮自审循环：改完再审，审完再改",
+  "summary": "玩家让 DeepSeek review 自己写的改动，改完再 review，三轮下来功能测试没问题，人却先绷不住了。",
+  "body": "第一格：玩家把 dsh + DeepSeek 写的一大坨改动丢回去，让它 review。DeepSeek 认真列出一串问题，玩家照单全改。\n\n第二格：改完再送审。DeepSeek 又找出新的可改之处，玩家继续改。此时屏幕上已经是第二轮 review 记录，玩家表情开始发虚。\n\n第三格：第三轮 review 结束，主要功能测试没什么问题，但改动还在被“建议优化”。玩家盯着循环记录，忍不住发帖：是提示词不对吗？\n\n第四格：DeepSeek 一脸无辜地摊手——它只是按 review 的本分继续挑毛病；玩家则把“改完再审、审完再改”的循环截图发到社区，吐槽这活儿像永远收不了尾。\n\n（以上对白为虚构二创，原帖只记录了玩家三轮 review 的经历。）\n\n原始线索：https://www.v2ex.com/t/1259645",
+  "tags": [
+    "DeepSeek",
+    "代码review",
+    "循环",
+    "玩家吐槽",
+    "dsh"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1259645",
+      "url": "https://www.v2ex.com/t/1259645"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-25",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
