@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-1e632ef431",
+  "character": "claude",
+  "title": "作者坦白：这篇帖子正文是Claude写的",
+  "summary": "HN作者承认帖子正文除结论外全由Claude代笔，自己只做了代码、数据集、消融和图表，还道歉说以后不再这么干。",
+  "body": "第一格：HN帖子挂出来，正文流畅得像模像样。作者在评论区举手：“我是作者——这篇正文，除了结论，全是Claude写的。”\n\n第二格：他补一句“我其他帖子都是手写的”，语气像在交代事故现场。读者这才反应过来，刚才读的那一大段，作者本人没敲过键盘。\n\n第三格：作者开始清点自己的功劳：代码、数据集、消融、图表，都是他亲手磨出来的。可偏偏最显眼的那段文字，是Claude替他赶出来的。\n\n第四格：他道歉，说赶着上线不得不这么干，以后不这样了，圣诞假期也许回来用自己的风格重写一遍。Claude在旁边安静站着，像刚交完稿的代笔，等着作者回来改字。\n\n原始线索：https://news.ycombinator.com/item?id=50638626",
+  "tags": [
+    "HN",
+    "代笔",
+    "作者坦白",
+    "赶稿",
+    "道歉"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50638626",
+      "url": "https://news.ycombinator.com/item?id=50638626"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-25",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
