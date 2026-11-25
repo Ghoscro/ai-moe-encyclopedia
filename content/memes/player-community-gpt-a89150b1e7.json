@@ -1,0 +1,25 @@
+{
+  "id": "player-community-gpt-a89150b1e7",
+  "character": "gpt",
+  "title": "GPT给的Rust+tauri工作流，打包出的exe被360当木马",
+  "summary": "玩家用GPT推荐的Rust+tauri技术栈，在Mac上靠GitHub Actions打出setup.exe，发给姐姐却被360报木马。",
+  "body": "第一格：玩家抱着mbp坐在桌前，屏幕上GPT给出“Rust+tauri”技术栈，旁边一行字“Mac也能打Windows包”。玩家眼睛一亮，把方案抄进项目。\n\n第二格：GPT又补一段GitHub Actions工作流，玩家照着推上去，Actions跑完吐出一个setup.exe。玩家对着没有Windows电脑的桌面比了个胜利手势，把exe压缩好发给姐姐。\n\n第三格：姐姐那边360弹窗“检测到木马”，截图发回来。玩家盯着屏幕愣住，mbp风扇呼呼转，嘴里念叨“我连Windows都没碰过，怎么就木马了”。\n\n第四格：玩家在V2EX发帖求助“Mac怎么打Windows的包”，GPT在旁一脸无辜地摊手——技术栈是它给的，工作流也是它给的，360的判决书却不是它能改的。\n\n（以上对白与反应均为虚构二创，原帖只记录了技术栈、Actions打包和360报毒这件事。）\n\n原始线索：https://www.v2ex.com/t/1259768",
+  "tags": [
+    "GPT",
+    "Rust",
+    "tauri",
+    "GitHub Actions",
+    "360报毒",
+    "跨平台打包"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1259768",
+      "url": "https://www.v2ex.com/t/1259768"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-25",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
