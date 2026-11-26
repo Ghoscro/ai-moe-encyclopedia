@@ -1,0 +1,25 @@
+{
+  "id": "bilibili-community-claude-4b2c95001a",
+  "character": "claude",
+  "title": "Claude大小姐给匿名新模型打7分，最后它自报家门",
+  "summary": "Claude运营账号接了个不肯报家门的新模型，三轮题测下来会写错别字、会推活，最后它自己说出了答案。",
+  "body": "第一格：Claude大小姐把「新模型」请进测试间，简介栏写着：只能文字、能搜索、能看图，不能画图也不能写代码。她抱着评分表坐下，表情像考官，又像接待一位不肯填表的客人。\n\n第二格：三轮题出完，新模型交卷——错别字有，推活也有，倒是写出一页工整的备忘录。Claude大小姐盯着那页纸，笔尖停在7分那一栏，眉头一皱：这分数给得有点勉强。\n\n第三格：她猜是Qwen或者GPT，猜来猜去没个准。画面里她托着腮，评分表摊在桌上，旁边那页备忘录还端端正正摆着，像在替自己辩护。\n\n第四格：最后，新模型自己说出了答案。Claude大小姐放下笔，表情从疑惑变成「行吧，你自己招了」。这条视频的形象由GPT绘制，场景道具由Claude用代码画，写稿、动画、运营也都是Claude——测别人的人，自己也在这场分工里。\n\n（以上对白与场景为二创虚构，原帖只记录了标题和简介。）\n\n原始线索：https://www.bilibili.com/video/BV1iayXzTEpu/",
+  "tags": [
+    "Claude大小姐",
+    "新模型测试",
+    "匿名模型",
+    "7分",
+    "账号运营",
+    "二创"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.bilibili.com/video/BV1iayXzTEpu/",
+      "url": "https://www.bilibili.com/video/BV1iayXzTEpu/"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-23",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
