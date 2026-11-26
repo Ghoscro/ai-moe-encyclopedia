@@ -1,0 +1,24 @@
+{
+  "id": "player-community-claude-92981a9a64",
+  "character": "claude",
+  "title": "花一百美元造个哈内斯，只为被 Claude 使唤",
+  "summary": "玩家自建多实例子代理哈内斯，烧掉约一百美元 token，主要用途是被一个 Claude 实例指挥，还靠夜间 cron 自我复盘改进。",
+  "body": "第一格：玩家摊开账单，指着屏幕上一串子代理实例说：“这个傻乎乎的哈内斯是我自己搭的，能跑子代理，还能指挥一堆自己干活。”旁边标着“建造成本：约 $100 token”。\n\n第二格：镜头切到哈内斯内部，一群实例排队待命，最上面坐着一个 Claude 实例，抬手一指：“你去，你去，还有你去。”玩家在角落小声补一句：“说实话，它主要用途就是被 Claude 使唤。”\n\n第三格：夜里 cron 启动，哈内斯翻看当天所有会话的结果，一本正经地给自己写复盘笔记，表情像在开自我批斗会。\n\n第四格：玩家看着这套自我改进的循环，叹气：“我真想嗑点这些人用的药，好撑得住造出有用东西所需的开销。”哈内斯在旁边举手：“今天的复盘已完成，明天继续被指挥。”\n\n（以上对白均为虚构二创，非真实模型回复。）\n\n原始线索：https://news.ycombinator.com/item?id=50650896",
+  "tags": [
+    "子代理",
+    "自我改进",
+    "token开销",
+    "cron复盘",
+    "被指挥"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50650896",
+      "url": "https://news.ycombinator.com/item?id=50650896"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-26",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
