@@ -1,0 +1,25 @@
+{
+  "id": "player-community-glm-28147b5ed7",
+  "character": "glm",
+  "title": "GLM写Vim编辑器：20小时4百万token还没写完",
+  "summary": "玩家让GLM写一个带AVX-512多线程优化的Vim仿品，GLM埋头写了20小时14分、消耗4百万token，仍在\"Writing editor core…\"。",
+  "body": "第一格：玩家在终端里敲下提示词——模仿Vim、多线程、SIMD、AVX-512、超大文件、CSV解析、排序去重，一口气全塞给GLM 5.4。屏幕上光标一闪一闪，像在等一场马拉松发令枪。\n\n第二格：GLM进入状态，进度条写着\"Writing editor core…\"，计时器从几分钟爬到几小时。玩家起初还端着咖啡围观，后来咖啡凉了、天黑了、又亮了，进度条纹丝不动。\n\n第三格：20小时14分11秒过去，token计数已经跌到4.0m，界面依旧停在\"Writing editor core…\"。玩家盯着那行字，表情从期待变成怀疑，再从怀疑变成\"它是不是在偷偷编译整个宇宙\"。\n\n第四格：玩家把截图发到社区，配文只有一句\"20个小时了还没完成\"。评论区开始接力脑补：有人说GLM大概在逐字节手写AVX-512指令，有人建议给它配个睡袋。进度条依然安静地亮着，像在说：核心还没写完，别催。\n\n（以上对白与画面均为虚构二创，仅还原原帖的时间与token数字。）\n\n原始线索：https://www.v2ex.com/t/1259887",
+  "tags": [
+    "GLM",
+    "Vim",
+    "20小时",
+    "4百万token",
+    "写代码",
+    "进度条"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1259887",
+      "url": "https://www.v2ex.com/t/1259887"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-26",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
