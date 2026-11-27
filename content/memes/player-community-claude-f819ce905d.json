@@ -1,0 +1,25 @@
+{
+  "id": "player-community-claude-f819ce905d",
+  "character": "claude",
+  "title": "Claude接手25年自托管烂摊子：从文档仓库到运维值班",
+  "summary": "一位自托管25年的玩家把技术债交给Claude打理，结果Claude管文档、管密钥、管告警，玩家只剩审批按钮。",
+  "body": "第一格：玩家对着满屏迁移记录叹气，说自托管25年攒下的技术债已经堆成山。他新建一个git仓库，把文档整理全交给Claude，连Claude自己的记忆文件也塞进仓库版本化，顺手用mkdocs把文档站发布出去。\n\n第二格：玩家配好SSH密钥交换，让Claude连上各台主机清点资产、写进文档。Claude照着玩家给的沟通规范干活，还学会用SOPS拿凭据却不看见凭据本身。玩家把工作站、Jenkins、docker、k3s、邮件、数据库、网络设备的布局一口气讲完，Claude点头记下。\n\n第三格：告警响了，玩家开一个新Claude会话，只提一句告警，Claude就去排查、写复盘、提修复方案，等玩家批准后动手。玩家说部署新东西，Claude按他原来的风格做；提到有更新可用，Claude自己排计划、设检查点、写验收测试和文档。\n\n第四格：玩家看着文档里“当前状态”“技术债”“未来项目”三栏被Claude分得清清楚楚，感慨一年里清掉多年积压。他已经在盘算让本地LLM当运维值班先做一级分诊，再升级给Claude会话——自己则退到审批席上。\n\n原始线索：https://news.ycombinator.com/item?id=50662073",
+  "tags": [
+    "自托管",
+    "技术债",
+    "文档仓库",
+    "运维值班",
+    "SOPS",
+    "告警分诊"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://news.ycombinator.com/item?id=50662073",
+      "url": "https://news.ycombinator.com/item?id=50662073"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-27",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
