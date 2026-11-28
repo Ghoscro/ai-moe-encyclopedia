@@ -1,0 +1,25 @@
+{
+  "id": "player-community-gemini-8bd7166d3b",
+  "character": "gemini",
+  "title": "Gemini被喂了一份Claude规矩后学会先对齐再动手",
+  "summary": "玩家受不了Antigravity里的Gemini直接开干，把Claude式协作规矩写进AGENTS.md，让它先只读调研、列方案等批准。",
+  "body": "第一格：玩家盯着屏幕，Gemini已经噼里啪啦改完一堆文件，review时发现方向全错，返工成本高得让人扶额。玩家吐槽：这货太爱“直接开干”，不像Claude那样先对齐再写代码。\n\n第二格：玩家把一份参考Claude核心提示词写的规矩塞进项目根目录的AGENTS.md，还顺手放到Windows全局路径。规矩第一条写得明明白白：非局部的小改动，先只读调研，给出方案和取舍，等批准再写代码；明确修小bug才直接干。\n\n第三格：Gemini读到这份规矩，遇到需要设计的活时停下来，摊开一张计划表：关键发现、推荐方案、主要取舍、待定决策和默认建议，一副“等你点头我再动手”的表情。\n\n第四格：玩家体感好多了，说它现在不会像个莽夫一样乱冲。小bug照旧直接修，大改动先列计划——分工反转成玩家当审批人，Gemini当先调研再报方案的乖助手。（虚构二创对白，非真实模型回复）\n\n原始线索：https://www.v2ex.com/t/1260501",
+  "tags": [
+    "Gemini",
+    "Claude",
+    "AGENTS.md",
+    "先对齐再写代码",
+    "提示词",
+    "协作规矩"
+  ],
+  "kind": "original",
+  "sources": [
+    {
+      "title": "Original source: https://www.v2ex.com/t/1260501",
+      "url": "https://www.v2ex.com/t/1260501"
+    }
+  ],
+  "contributor": "梗雷达自动收录",
+  "date": "2026-11-28",
+  "editor_note": "AI 辅助创作；拟人对白为虚构二创。来源链接为创作线索，非对白实录。"
+}
